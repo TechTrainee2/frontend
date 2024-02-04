@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Button from './component/Button';
+import Navbar from './component/Navbar';
+import img from './static/bk1.png';
+import logo from './static/logo.png';
+
 
 function App() {
+// let [par,setPar]=useState('')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+ <>
+<div className='container'>
+  <Navbar/>
+  
+  <div >
+    <img src={logo} className='logo'/>
+    <img src={img} className='bk1'/>
+ </div>
+
+
+ 
+
+    <div className='main-txt'>
+      <div className='intxt'>
+        <h1>Welcome to TechTrainee</h1>
+        <span>a place to help you getting your training done </span>
+        <Button text="Get Started"/>
+
+      </div>
     </div>
+ 
+</div>
+ </>
   );
 }
 
