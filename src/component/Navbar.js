@@ -4,9 +4,12 @@ function Navbar() {
   return (
     <>
     <div className='nav-comp'>
-    <span>About Us</span>
-    <span>Sign In</span>
-    <span>Sign Up</span>
+    <a href='/'>Home</a>
+    <a href='/About' onClick={()=>{
+
+    }}>About Us</a>
+    <a href='/SignIn' >Sign In</a>
+    <a href='/SignUp'>Sign Up</a>
     </div>
     </>
     )
