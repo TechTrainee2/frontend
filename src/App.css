@@ -2,11 +2,20 @@ body{
   background-color: #F5F5F5;
   position: relative;
   height: 100%;
+  color: #1c3150;
 }
 html{
   font-size: 18px;
-  color: #1c3150;
+}
 
+.bold{
+  font-weight: 500;
+}
+.navy{
+  background-color: #1c3150;
+}
+.white{
+  color: #F5F5F5;
 }
 
                 /* container */
@@ -19,12 +28,11 @@ html{
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap:120px;
-  margin-right: 75px;
-  font-size: 1.5rem;
+  gap: 95px;
+  margin-right: 65px;
+  font-size: 1.3rem;
   font-weight: 500;
   padding-top: 45px;
-
 }
 .bk1{
   position: absolute;
@@ -39,7 +47,7 @@ html{
   z-index: 1;
   width: 450px;
   height: 300px;
-  top: 85px;
+  top: 25%;
 }
 .main-txt{
   width: 100%;
@@ -51,6 +59,33 @@ html{
 .intxt{
   display: flex;
   flex-direction: column;
+  padding-top: 125px;
+  margin-right: 115px;
+  gap: 50px;
+  align-items: center;
 }
 
-
+.text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button-size{
+  border: none;
+  border-radius: 45px;
+  padding-left: 35px;
+  padding-right: 35px;
+  width: fit-content;
+  height: 50px;
+  font-size: 1rem;
+}
+.intxt div{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.intxt div span{
+  width: 300px;
+  text-align: center;
+  font-size: 1.2rem;
+}
