@@ -10,7 +10,6 @@ function Home() {
 // let [par,setPar]=useState('')
   return (
  <>
-<div className='container'>
   <Navbar/>
   
   <div >
@@ -18,8 +17,6 @@ function Home() {
     <img src={img} className='bk1'/>
  </div>
 
-
- 
 
     <div className='main-txt'>
       <div className='intxt'>
@@ -31,8 +28,7 @@ function Home() {
 
       </div>
     </div>
- 
-</div>
+
  </>
   );
 }

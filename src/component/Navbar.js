@@ -1,15 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 
 function Navbar() {
   return (
     <>
     <div className='nav-comp'>
-    <a href='/'>Home</a>
-    <a href='/About' onClick={()=>{
-
-    }}>About Us</a>
-    <a href='/SignIn' >Sign In</a>
-    <a href='/SignUp'>Sign Up</a>
+    <NavLink to= '/' className={'not-clicked'}>Home</NavLink>
+    <NavLink to='/About' className={'not-clicked'}>About Us</NavLink>
+    <NavLink to='/SignIn' className={'not-clicked'} >Sign In</NavLink>
+    <NavLink to='/SignUp' className={'not-clicked'}>Sign Up</NavLink>
     </div>
     </>
     )
