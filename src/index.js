@@ -8,6 +8,7 @@ import {
 import reportWebVitals from './reportWebVitals';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
+import SignIn from './pages/SignIn';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "/About",
     element:<AboutUs/>
+  },
+  {
+    path: "/SignIn",
+    element:<SignIn/>
   }
 ]);
 

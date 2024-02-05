@@ -17,7 +17,9 @@ html{
 .white{
   color: #F5F5F5;
 }
-
+a{
+  color: #1c3150;
+}
                 /* container */
 /* .container{
   display: flex;
@@ -63,6 +65,8 @@ html{
   margin-right: 115px;
   gap: 50px;
   align-items: center;
+  width: 415px;
+  height: 400px;
 }
 
 .text{
@@ -88,4 +92,52 @@ html{
   width: 300px;
   text-align: center;
   font-size: 1.2rem;
+}
+
+.not-clicked {
+  text-decoration: none;
+}
+.not-clicked:hover{
+  text-decoration: underline;
+}
+.active{
+  text-decoration: underline;
+}
+.welcome{
+  position: absolute;
+  z-index: 1;
+  width: 295px;
+  padding-left: 75px;
+  padding-top: 75px;
+  font-size: 2.5rem;
+  text-align: center;
+}
+.form-input{
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  align-items: center;
+}
+.form-input input{
+  border-top-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom-style: solid #cbd6da; 
+  background-color: #F5F5F5;
+  font-size: 1.5rem;
+}
+.form{
+  display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    flex-wrap: wrap;
+    padding-right: 180px;
+    padding-top: 180px;
+    gap: 35px;
+}
+.form-link{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }

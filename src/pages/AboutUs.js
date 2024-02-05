@@ -20,7 +20,7 @@ function AboutUs() {
     <div className='main-txt'>
       <div className='intxt'>
         <div>
-        <h1>Welcome to TechTrainee</h1>
+        <h1>About Our Website </h1>
         <span className='text bold'>We're a platform designed to make discovering training opportunities simple and enjoyable </span>
         </div>
         
