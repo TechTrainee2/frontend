@@ -17,6 +17,9 @@ html{
 .white{
   color: #F5F5F5;
 }
+.gray-font{
+  color: #cbd6da;
+}
 a{
   color: #1c3150;
 }
@@ -132,7 +135,7 @@ a{
     align-content: flex-end;
     flex-wrap: wrap;
     padding-right: 180px;
-    padding-top: 180px;
+    padding-top: 90px;
     gap: 35px;
 }
 .form-link{
@@ -140,4 +143,41 @@ a{
   flex-direction: column;
   gap: 20px;
   align-items: center;
+}
+.display-img{
+  display: none;
+  z-index: 1;
+}
+.form-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Adjust as needed */
+  align-items: center; /* Adjust as needed */
+}
+.svg{
+  width: 150px;
+  height: 125px;
+}
+.gray-circle{
+  background-color: #cbd6da;
+  border-radius: 50%;
+  position: absolute;
+  top: 145px;
+  right: 258px;
+  width: 180px;
+  height: 180px;
+  z-index: -1;
+}
+.create-acc{
+  position: absolute;
+  z-index: 1;
+  width: 295px;
+  font-size: 2.5rem;
+  text-align: center;
+  top: 212px;
+  left: 115px;
+  font-size: 4rem;
+}
+.sign-in-span{
+  font-size: 2rem;
 }
