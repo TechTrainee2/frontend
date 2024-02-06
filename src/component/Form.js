@@ -7,6 +7,7 @@ function Form() {
     <div className='form'>
     <form>
         <div className='form-input'>
+          <span className='sign-in-span bold'>Sign In</span>
         <input type='text' placeholder='Email' name='email'/>
         <input type='password' placeholder='Password' name='password'/>
         <Button text="Sign In" color="navy" txtColor='white'/>
