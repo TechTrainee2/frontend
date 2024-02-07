@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from './Button'
+import Button from '../main/Button'
 
 function Form2() {
   return (
@@ -23,8 +23,7 @@ function Form2() {
        
     </form>
     <div className='form-link'>
-    <a href=''>Alrady have an account?</a>
-    <a href=''>Sign In</a>
+    <a href='/SignIn'>Sign In</a>
     </div>
     </div>
     </>

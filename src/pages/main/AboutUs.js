@@ -1,9 +1,8 @@
 import React from 'react'
-import Navbar from '../component/Navbar'
-import Button from '../component/Button'
-import img from '../static/bk1.png';
-import logo from '../static/logo.png';
-import '../App.css';
+import Navbar from '../../component/main/Navbar'
+import img from '../../static/bk1.png';
+import logo from '../../static/logo.png';
+import '../../App.css';
 function AboutUs() {
   return (
     <>

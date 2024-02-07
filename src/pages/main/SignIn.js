@@ -1,7 +1,7 @@
 import React from 'react'
-import img from '../static/bk2.png'
-import Navbar from '../component/Navbar'
-import Form from '../component/Form'
+import img from '../../static/bk2.png'
+import Navbar from '../../component/main/Navbar'
+import Form from '../../component/main/Form'
 
 function SignIn() {
   return (

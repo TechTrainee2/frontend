@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import '../App.css';
-import Button from '../component/Button';
-import Navbar from '../component/Navbar';
-import img from '../static/bk1.png';
-import logo from '../static/logo.png';
+import '../../App.css';
+import Button from '../../component/main/Button';
+import Navbar from '../../component/main/Navbar';
+import img from '../../static/bk1.png';
+import logo from '../../static/logo.png';
 
 
 function Home() {
