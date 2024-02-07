@@ -39,7 +39,7 @@ a{
   display: flex;
   /* flex-direction: row; 
 } */
-@media only screen and (min-width: 768px) {
+
 .nav-comp{
   display: flex;
   justify-content: flex-end;
@@ -195,7 +195,9 @@ a{
 .nav-std{
 display: flex;
 flex-direction: row;
-gap: 165px;
+justify-content: space-between;
+padding-right: 3%;
+padding-left: 1%;
 box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 
 
@@ -238,8 +240,8 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 
 .card1{
   margin-top: 45px;
-  width: 1000px;
-  height: 300px;
+  width: 70%;
+  height: 25vw;
 }
 .card1-comp{
   display: flex;
@@ -251,4 +253,4 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   height: 165px;
   border-radius: 50%;
 }
-}
+
