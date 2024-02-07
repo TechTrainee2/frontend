@@ -20,6 +20,17 @@ html{
 .gray-font{
   color: #cbd6da;
 }
+.gray-bk{
+  background-color: #cbd6da;
+}
+.centered-card{
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  border-radius: 45px;
+  font-size: 1.2rem;
+}
 a{
   color: #1c3150;
 }
@@ -28,7 +39,7 @@ a{
   display: flex;
   /* flex-direction: row; 
 } */
-
+@media only screen and (min-width: 768px) {
 .nav-comp{
   display: flex;
   justify-content: flex-end;
@@ -118,7 +129,7 @@ a{
 .form-input{
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 20px;
   align-items: center;
 }
 .form-input input{
@@ -136,7 +147,7 @@ a{
     flex-wrap: wrap;
     padding-right: 180px;
     padding-top: 90px;
-    gap: 35px;
+    gap: 12px;
 }
 .form-link{
   display: flex;
@@ -155,17 +166,17 @@ a{
   align-items: center; /* Adjust as needed */
 }
 .svg{
-  width: 150px;
-  height: 125px;
+  width: 90px;
+  height: 90px;
 }
 .gray-circle{
   background-color: #cbd6da;
   border-radius: 50%;
   position: absolute;
-  top: 145px;
-  right: 258px;
-  width: 180px;
-  height: 180px;
+  top: 152px;
+  right: 284px;
+  width: 125px;
+  height: 125px;
   z-index: -1;
 }
 .create-acc{
@@ -180,4 +191,64 @@ a{
 }
 .sign-in-span{
   font-size: 2rem;
+}
+.nav-std{
+display: flex;
+flex-direction: row;
+gap: 165px;
+box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+
+
+}
+.nav-std img{
+  width: 150px;
+  height: 125px;
+}
+
+.search-std {
+  height: 35px;
+  margin-top: 42px;
+  width: 500px;
+  border-radius: 45px;
+  padding-left: 20px;
+  padding-top: 5px;
+ border: none;
+
+}
+
+.icon-cont{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap:20px;
+}
+.icons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+
+}
+.icons svg{
+  width: 30px;
+}
+.icons span{
+  font-size: .9rem;
+}
+
+.card1{
+  margin-top: 45px;
+  width: 1000px;
+  height: 300px;
+}
+.card1-comp{
+  display: flex;
+  flex-direction: row ;
+  gap: 120px;
+}
+.company-img{
+  width: 165px;
+  height: 165px;
+  border-radius: 50%;
+}
 }
