@@ -1,7 +1,7 @@
 import React from 'react'
 import cat from '../../static/cat.png'
 
-function Card1() {
+function CardPost() {
   return (
     <>
         <div className='card1 gray-bk centered-card'>
@@ -23,4 +23,4 @@ function Card1() {
   )
 }
 
-export default Card1
+export default CardPost

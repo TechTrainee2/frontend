@@ -11,6 +11,8 @@ import AboutUs from './pages/main/AboutUs';
 import SignIn from './pages/main/SignIn';
 import SignUp from './pages/main/SignUp';
 import HomePS from './pages/student/HomePS';
+import AccountPS from './pages/student/AccountPS';
+import EditPS from './pages/student/EditPS';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -34,7 +36,16 @@ const router = createBrowserRouter([
   {
     path: "/stdHome",
     element:<HomePS/>
+  },
+  {
+    path: "/stdAcc",
+    element:<AccountPS/>
+  },
+  {
+    path: "/stdEdit",
+    element:<EditPS/>
   }
+
 ]);
 
 root.render(
