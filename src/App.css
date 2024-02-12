@@ -177,16 +177,14 @@ a{
 .svg{
   width: 90px;
   height: 90px;
+  padding-left: 17px;
+  padding-top: 13px;
 }
 .gray-circle{
   background-color: #cbd6da;
   border-radius: 50%;
-  position: absolute;
-  top: 152px;
-  right: 284px;
   width: 125px;
   height: 125px;
-  z-index: -1;
 }
 .create-acc{
   position: absolute;
