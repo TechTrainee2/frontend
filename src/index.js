@@ -13,6 +13,10 @@ import SignUp from './pages/main/SignUp';
 import HomePS from './pages/student/HomePS';
 import AccountPS from './pages/student/AccountPS';
 import EditPS from './pages/student/EditPS';
+import CompanyPS from './pages/student/CompanyPS';
+import CompPostPS from './pages/student/CompPostPS';
+import ReportPS from './pages/student/ReportPS';
+import NotificationPS from './pages/student/NotificationPS';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -44,7 +48,24 @@ const router = createBrowserRouter([
   {
     path: "/stdEdit",
     element:<EditPS/>
+  },
+  {
+    path: "/stdCompany",
+    element:<CompanyPS/>
+  },
+  {
+    path: "/stdPost",
+    element:<CompPostPS/>
+  },
+  {
+    path: "/stdReport",
+    element:<ReportPS/>
+  },
+  {
+    path: "/stdNotification",
+    element:<NotificationPS/>
   }
+
 
 ]);
 
