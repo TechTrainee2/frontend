@@ -1,13 +1,13 @@
 import React from 'react'
-import cat from '../../static/cat.png'
+import img from '../../static/company.png'
 import { Link } from 'react-router-dom'
 
-function CardPost() {
+function CardCompPost() {
   return (
     <>
         <div className='card1 gray-bk centered-card'>
           <div className='card1-comp' >
-            <img src={cat} className='company-img' />
+            <img src={img} className='company-img' />
 
             <div style={{display:'flex',flexDirection:'column',gap:'30px'}}>
 
@@ -17,6 +17,7 @@ function CardPost() {
 
                 <div>
                   <span>Coders</span>
+                  <span className='remote-btn-std'>Remote</span>
                   <p>We are offering a training opertinity for (3) students .........</p>
                 </div>
 
@@ -25,14 +26,14 @@ function CardPost() {
                      <button className='button-size-std navy-bk white-font'>
                         Show More
                       </button>
-                    </Link>
+                      </Link>
                 </div>
 
             </div>
-            </div>
+          </div>
         </div>
     </>
   )
 }
 
-export default CardPost
+export default CardCompPost
