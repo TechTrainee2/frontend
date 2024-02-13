@@ -1,12 +1,11 @@
-import { useState } from 'react';
 import '../../App.css';
+import '../../malak.css';
 import Navbar from '../../component/main/Navbar';
 import img from '../../static/bk1.png';
 import logo from '../../static/logo.png';
 
 
 function Home() {
-// let [par,setPar]=useState('')
   return (
  <>
   <Navbar/>
