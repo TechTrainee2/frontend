@@ -1,7 +1,7 @@
 import React from 'react'
 import img from '../../static/logo.png'
 import { NavLink } from 'react-router-dom'
-function NavbarStd2() {
+function NavbarStdNotification() {
   return (
     <>
     <div className='nav-std'>
@@ -9,7 +9,7 @@ function NavbarStd2() {
             <img src={img}/>
         </NavLink>
 
-        <span className='centered-nav-title bold'>My Account</span>
+        <span className='centered-nav-title bold'>Notifications</span>
        
         <div className='icon-cont'>
             <div className='icons'>
@@ -51,4 +51,4 @@ function NavbarStd2() {
   )
 }
 
-export default NavbarStd2
+export default NavbarStdNotification
