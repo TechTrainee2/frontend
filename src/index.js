@@ -13,6 +13,9 @@ import SignUp from './pages/main/SignUp';
 import HomePS from './pages/student/HomePS';
 import AccountPS from './pages/student/AccountPS';
 import EditPS from './pages/student/EditPS';
+import HomeUS from './pages/uniSuper/HomeUS';
+import ReportUniSuper from './pages/uniSuper/ReportUniSuper';
+import StudentApplication from './pages/uniSuper/StudentApplication';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -44,6 +47,18 @@ const router = createBrowserRouter([
   {
     path: "/stdEdit",
     element:<EditPS/>
+  },
+  {
+    path:"uniSuper",
+    element:<HomeUS/>
+  },
+  {
+    path:"reportUniSuper",
+    element:<ReportUniSuper/>
+  },
+  {
+    path:"studentApplication",
+    element:<StudentApplication/>
   }
 
 ]);
