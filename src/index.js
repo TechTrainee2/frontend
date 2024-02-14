@@ -20,6 +20,10 @@ import CompanyPS from './pages/student/CompanyPS';
 import CompPostPS from './pages/student/CompPostPS';
 import ReportPS from './pages/student/ReportPS';
 import NotificationPS from './pages/student/NotificationPS';
+import ReportUS from './pages/uniSuper/ReportUS';
+import SuperAcc from './pages/uniSuper/SuperAcc';
+import SuperAccEdit from './pages/uniSuper/SuperAccEdit';
+import HomeDep from './pages/Department/HomeDep';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -79,6 +83,22 @@ const router = createBrowserRouter([
   {
     path: "/stdNotification",
     element:<NotificationPS/>
+  },
+  {
+    path: "/stdWeeklyReports",
+    element:<ReportUS/>
+  },
+  {
+    path: "/superAcc",
+    element: <SuperAcc/>
+  },
+  {
+    path: "/SuperEdit",
+    element: <SuperAccEdit/>
+  },
+  {
+    path: "/homeDep",
+    element: <HomeDep/> 
   }
 
 

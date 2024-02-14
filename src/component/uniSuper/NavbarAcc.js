@@ -1,14 +1,15 @@
 import React from 'react'
 import img from '../../static/logo.png'
 import { NavLink } from 'react-router-dom'
-function Navbar() {
+function NavbarAcc() {
   return (
     <>
-        <div className='nav-std'>
+    <div className='nav-std'>
         <NavLink to ='/uniSuper'  className='not-clicked'>
             <img src={img}/>
         </NavLink>
-        <input type="text" placeholder="Search.." className='search-std gray-bk '></input>
+
+        <span className='centered-nav-title bold'>My Account</span>
        
         <div className='icon-cont'>
             <div className='icons'>
@@ -50,4 +51,4 @@ function Navbar() {
   )
 }
 
-export default Navbar
+export default NavbarAcc
