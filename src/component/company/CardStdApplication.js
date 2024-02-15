@@ -3,7 +3,7 @@ import student from "../../static/Student.jpg";
 import company from "../../static/company.jpg";
 
 
-function CardApplication() {
+function CardStdApplication() {
   let [isModal,setIsModal]=useState(false) 
     let handelOnClick =()=> {
         setIsModal(true)
@@ -14,7 +14,7 @@ function CardApplication() {
   return (
     <>
       <div className="card2 gray-bk centered-card">
-        <div className={isModal?'show': 'hidden'} >
+      <div className={isModal?'show': 'hidden'} >
           <div className='modal-bk'></div>
           <div className='apply-box'>
               <div className='apply-box-comp'>
@@ -38,7 +38,7 @@ function CardApplication() {
             <img src={student} className="comp-std-circle" />
             <div>
               <span className="bold">Mohammad saleh </span>
-              <p> His application has been accepted to:</p>
+              <p>Has applied to the following training program:</p>
             </div>
           </div>
 
@@ -80,4 +80,4 @@ function CardApplication() {
   );
 }
 
-export default CardApplication;
+export default CardStdApplication;
