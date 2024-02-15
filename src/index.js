@@ -26,6 +26,10 @@ import AccountC from './pages/company/AccountC';
 import AccEditC from './pages/company/AccEditC';
 import PostEditC from './pages/company/PostEditC';
 import NewPostC from './pages/company/NewPostC';
+import ReportUS from './pages/uniSuper/ReportUS';
+import SuperAcc from './pages/uniSuper/SuperAcc';
+import SuperAccEdit from './pages/uniSuper/SuperAccEdit';
+import HomeDep from './pages/Department/HomeDep';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -109,6 +113,22 @@ const router = createBrowserRouter([
   {
     path: "/compNewPost",
     element:<NewPostC/>
+  },
+  {
+    path: "/stdWeeklyReports",
+    element:<ReportUS/>
+  },
+  {
+    path: "/superAcc",
+    element: <SuperAcc/>
+  },
+  {
+    path: "/SuperEdit",
+    element: <SuperAccEdit/>
+  },
+  {
+    path: "/homeDep",
+    element: <HomeDep/> 
   }
 
 
