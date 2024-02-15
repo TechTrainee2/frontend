@@ -20,6 +20,12 @@ import CompanyPS from './pages/student/CompanyPS';
 import CompPostPS from './pages/student/CompPostPS';
 import ReportPS from './pages/student/ReportPS';
 import NotificationPS from './pages/student/NotificationPS';
+import HomeC from './pages/company/HomeC';
+import StudentApplicationC from './pages/company/StudentApplicationC';
+import AccountC from './pages/company/AccountC';
+import AccEditC from './pages/company/AccEditC';
+import PostEditC from './pages/company/PostEditC';
+import NewPostC from './pages/company/NewPostC';
 import ReportUS from './pages/uniSuper/ReportUS';
 import SuperAcc from './pages/uniSuper/SuperAcc';
 import SuperAccEdit from './pages/uniSuper/SuperAccEdit';
@@ -83,6 +89,30 @@ const router = createBrowserRouter([
   {
     path: "/stdNotification",
     element:<NotificationPS/>
+  },
+  {
+    path: "/compHome",
+    element:<HomeC/>
+  },
+  {
+    path: "/compStdApplication",
+    element:<StudentApplicationC/>
+  },
+  {
+    path: "/compProfile",
+    element:<AccountC/>
+  },
+  {
+    path: "/compEditProfile",
+    element:<AccEditC/>
+  },
+  {
+    path: "/compEditPost",
+    element:<PostEditC/>
+  },
+  {
+    path: "/compNewPost",
+    element:<NewPostC/>
   },
   {
     path: "/stdWeeklyReports",
