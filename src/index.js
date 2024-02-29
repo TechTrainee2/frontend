@@ -30,6 +30,11 @@ import ReportUS from './pages/uniSuper/ReportUS';
 import SuperAcc from './pages/uniSuper/SuperAcc';
 import SuperAccEdit from './pages/uniSuper/SuperAccEdit';
 import HomeDep from './pages/Department/HomeDep';
+import DepStd from './pages/Department/DepStd';
+import DepUniSuper from './pages/Department/DepUniSuper';
+import DepUniSuperStd from './pages/Department/DepUniSuperStd';
+import DepNotification from './pages/Department/DepNotification';
+import DepReqApproval from './pages/Department/DepReqApproval';
 import HomeCS from './pages/compSuper/HomeCS';
 import AccountCS from './pages/compSuper/AccountCS';
 import EditAccCS from './pages/company/EditAccCS';
@@ -133,8 +138,28 @@ const router = createBrowserRouter([
     element: <SuperAccEdit/>
   },
   {
-    path: "/homeDep",
+    path: "/depHome",
     element: <HomeDep/> 
+  },
+  {
+    path: "/depStd",
+    element: <DepStd/> 
+  },
+  {
+    path: "/depSuper",
+    element: <DepUniSuper/>
+  },
+  {
+    path: "/uniSuperStd",
+    element: <DepUniSuperStd/>
+  },
+  {
+    path: "/depNotification",
+    element: <DepNotification/>
+  },
+  {
+    path: "/depReqApproval",
+    element: <DepReqApproval/>
   },
   {
     path: "/CompSuperHome",

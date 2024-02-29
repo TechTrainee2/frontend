@@ -7,10 +7,10 @@ function HomeDep() {
     <>
     <NavbarHome/>
     <div className='boxs-container'>
-      <Link to='' className='gray-bk box navy-font bold not-clicked'>
+      <Link to='/depSuper' className='gray-bk box navy-font bold not-clicked'>
         <div>Supervisor</div>
       </Link>
-      <Link to='' className='navy-bk box white-font bold not-clicked '>
+      <Link to='/depStd' className='navy-bk box white-font bold not-clicked '>
         <div >Student</div>
       </Link>
 

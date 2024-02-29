@@ -1,6 +1,13 @@
 html{
     font-size: 18px;
 }
+a{
+    text-decoration: none;
+}
+.under-line{
+    text-decoration: underline;
+
+}
 .white-font{
     color: #F7FFFF;
 }
@@ -68,6 +75,7 @@ html{
     display: flex;
     flex-direction: row;
     gap: 30px;
+    align-items: center;
 }
 .uni-std-report-info{
     display: flex;
@@ -187,4 +195,119 @@ html{
     width: 40%;
     font-size: 2rem;
     border-radius: 45px;
+}
+
+/* department */
+.centerd-comp{
+    width: 70%;
+    margin: auto;
+    margin-top: 45px;
+}
+.add-std-spans-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.add-std-spans{
+    display: flex;
+    flex-direction: column;
+    
+}
+.dep-std-span{
+    font-size: 2rem;
+}
+.warning{
+    color: #BC437D;
+}
+.std-info-svg{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+    align-items: center;
+    
+}
+.dep-std-svg{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+.svg-txt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dep-std-svg svg{
+    width: 40px;
+    height: 40px;
+}
+
+
+.dep-uni-sup-container{
+    width: 75%;
+    margin: auto;
+    margin-top: 75px;
+}
+.super{
+    font-size: 1.5rem;
+    
+}
+.dep-uni-sup-card{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-top: 50px;
+   
+
+}
+.card3{
+    width: 45%;
+    height: 200px;
+    border-radius: 45px;
+    display: flex;
+    justify-content: center;
+}
+.card3:hover{
+    box-shadow:  0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+
+
+/* assign std */
+.dep-uni-std-span-card{
+    margin-top: 70px;
+}
+.assign-padding-span{
+    padding-left: 10px;
+    font-size: 1.5rem;
+}
+.card4{
+    margin-top: 35px;
+    height: fit-content;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+.uni-super-assign{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.uni-sup-std-info-svg{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* gap: 123px; */
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.button-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 100px;
 }
