@@ -30,6 +30,12 @@ import ReportUS from './pages/uniSuper/ReportUS';
 import SuperAcc from './pages/uniSuper/SuperAcc';
 import SuperAccEdit from './pages/uniSuper/SuperAccEdit';
 import HomeDep from './pages/Department/HomeDep';
+import HomeCS from './pages/compSuper/HomeCS';
+import AccountCS from './pages/compSuper/AccountCS';
+import EditAccCS from './pages/company/EditAccCS';
+import ReportCS from './pages/compSuper/ReportCS';
+import StdReportCS from './pages/compSuper/StdReportCS';
+import FillReportCS from './pages/compSuper/FillReportCS';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -129,6 +135,30 @@ const router = createBrowserRouter([
   {
     path: "/homeDep",
     element: <HomeDep/> 
+  },
+  {
+    path: "/CompSuperHome",
+    element: <HomeCS/> 
+  },
+  {
+    path: "/CompSuperAcc",
+    element: <AccountCS/> 
+  },
+  {
+    path: "/CompSuperEditAcc",
+    element: <EditAccCS/> 
+  },
+  {
+    path: "/CompSuperReport",
+    element: <ReportCS/> 
+  },
+  {
+    path: "/CompSuperStdReport",
+    element: <StdReportCS/> 
+  },
+  {
+    path: "/CompSuperFillReport",
+    element: <FillReportCS/> 
   }
 
 

@@ -312,3 +312,292 @@
   top: 250px;
   border-radius: 45px;
 }
+
+/***************** Company Supervisor ********************/
+
+.compsuper-std-note{
+  padding-left: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap:25px;
+  width: 55%;
+}
+.compsuper-std-img{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap:35px;
+}
+.compsuper-std-img span{
+  font-size: 1.5rem;
+}
+.compsuper-std-note p{
+  font-size: 1.5rem;
+}
+.add-std-btn {
+  border: none;
+  border-radius: 10px;
+  padding-left: 35px;
+  padding-right: 35px;
+  width: fit-content;
+  height: 50px;
+  font-size: 1rem;
+  margin-left: 1160px;
+  margin-top: 30px;
+} 
+.txt-compsuper-name{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.txt-compsuper-name span{
+  font-size: 1.5rem;
+}
+.compsuper-txt-left {
+  display: flex;
+  flex-direction: column;
+  padding-left: 150px;
+  gap: 50px;
+}
+.card3 {
+  margin-top: 45px;
+  width: 60%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.contact-comp-super {
+  display: flex;
+  flex-direction: column;
+  width: 850px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  gap: 30px;
+  align-items: flex-start;
+  padding-left: 70px;
+  font-size: 1.5rem;
+}
+.centered-title {
+  display: flex;
+  margin-top: 35px;
+  font-size: 1.5rem;
+  margin-left: 235px;
+}
+.search-compsuper-report {
+  height: 35px;
+  margin-top: 30px;
+  width: 500px;
+  border-radius: 45px;
+  padding-left: 20px;
+  padding-top: 5px;
+  border: none;
+  margin-left: 235px;
+}
+.compsuper-report{
+  display: flex;
+  flex-direction: column;
+  padding-top: 35px;
+}
+.compsuper-std-name{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.compsuper-report-cont{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 400px;
+}
+.compsuper-underline{
+  font-size: 1.5rem;
+  text-decoration: underline;
+}
+.compsuper-std-name-cont{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 35px;
+  margin-left: 250px;
+  font-size: 1.5rem;
+}
+.compsuper-std-report-cont{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 450px;
+}
+.compsuper-date{
+  display: flex;
+  flex-direction: row;
+  gap: 70px;
+  justify-content: center;
+}
+.compsuper-header-report{
+  display: flex;
+  flex-direction: row;
+  gap: 220px;
+  font-size: 1.2em;
+}
+.compsuper-report-details{
+  display: flex;
+  flex-direction: column;
+}
+.compsuper-report-in-header{
+  display: flex;
+  flex-direction: row;
+  gap: 110px;
+  padding-top: 50px;
+  justify-content: center;
+}
+.compsuper-report-topic{
+  display: flex;
+  flex-direction: column;
+}
+.compsuper-header-fill-report{
+  display: flex;
+  flex-direction: row;
+  gap: 220px;
+  justify-content: center;
+  padding-top: 4%;
+  font-size: 1.5rem;
+}
+.date-txt-size {
+  border: none;
+  border-radius: 45px;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 50px;
+  font-size: 1rem;
+}
+.compsuper-date-header{
+  display: flex;
+  flex-direction: row;
+  gap: 70px;
+  justify-content: center;
+}
+.fill-report-topic{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+.compsuper-fill-report-topic{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 50px;
+  font-size: 1.4rem;
+  gap: 40px;
+}
+.topic-txt-size {
+  border: none;
+  border-radius: 45px;
+  height: 175px;
+  font-size: 1.5rem;
+  width: 220px;
+  padding-left: 30px;
+}
+.software-txt-size {
+  border: none;
+  border-radius: 45px;
+  height: 175px;
+  font-size: 1.5rem;
+  width: 540px;
+  padding-left: 30px;
+}
+.hours-txt-size {
+  border: none;
+  border-radius: 45px;
+  height: 175px;
+  font-size: 1.5rem;
+  width: 145px;
+  padding-left: 20px;
+}
+.fill-report-TotalHour{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 208px;
+  font-size: 1.5rem;
+  gap: 65px;
+  padding-top: 45px;
+}
+.TotalHours-txt-size {
+  border: none;
+  border-radius: 45px;
+  height: 80px;
+  font-size: 1.3rem;
+  width: 140px;
+  padding-left: 20px;
+}
+.report-svg-left{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 30%;
+  padding-top: 3%;
+}
+.signature-cont{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 445px;
+}
+.report-modal-bk {
+  content: '';
+  position: absolute;
+  background-color: #CBD6DA;
+  opacity: 70%;
+  width: 100%;
+  height: 1175px;
+  top: 130px;
+  left: 0px;
+  z-index: 0;
+}
+.report-apply-box {
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  z-index: 1;
+  margin: auto;
+  top: 740px;
+  border-radius: 45px;
+  left: 500px;
+}
+.report-container{
+  display: flex;
+  flex-direction: column;
+}
+.report-TotalHour {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 31px;
+  font-size: 1.5rem;
+  gap: 160px;
+  padding-top: 60px;
+}
+.report-signature-cont{
+  display: flex;
+  flex-direction: row;
+  padding-top: 50px;
+  justify-content: center;
+  gap: 90px;
+}
+.signature-file-cont{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.super-std-card {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
