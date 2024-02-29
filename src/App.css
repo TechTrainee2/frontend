@@ -281,6 +281,7 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   width: 100%;
   border-radius: 45px;
   height: 350px;
+  object-fit: cover;
 }
 .std-txt-left{
   display: flex;
@@ -311,6 +312,7 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   border-radius: 50%;
   width: 125px;
   height: 125px;
+  object-fit: cover;
 }
 .skill-comp{
   display: flex;
@@ -374,6 +376,7 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   position: absolute;
   bottom: -80px;
   left: 15px;
+  object-fit: cover;
 }
 .svg-circle{
   position: absolute;

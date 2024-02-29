@@ -35,6 +35,12 @@ import DepUniSuper from './pages/Department/DepUniSuper';
 import DepUniSuperStd from './pages/Department/DepUniSuperStd';
 import DepNotification from './pages/Department/DepNotification';
 import DepReqApproval from './pages/Department/DepReqApproval';
+import HomeCS from './pages/compSuper/HomeCS';
+import AccountCS from './pages/compSuper/AccountCS';
+import EditAccCS from './pages/company/EditAccCS';
+import ReportCS from './pages/compSuper/ReportCS';
+import StdReportCS from './pages/compSuper/StdReportCS';
+import FillReportCS from './pages/compSuper/FillReportCS';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -154,6 +160,30 @@ const router = createBrowserRouter([
   {
     path: "/depReqApproval",
     element: <DepReqApproval/>
+  },
+  {
+    path: "/CompSuperHome",
+    element: <HomeCS/> 
+  },
+  {
+    path: "/CompSuperAcc",
+    element: <AccountCS/> 
+  },
+  {
+    path: "/CompSuperEditAcc",
+    element: <EditAccCS/> 
+  },
+  {
+    path: "/CompSuperReport",
+    element: <ReportCS/> 
+  },
+  {
+    path: "/CompSuperStdReport",
+    element: <StdReportCS/> 
+  },
+  {
+    path: "/CompSuperFillReport",
+    element: <FillReportCS/> 
   }
 
 
