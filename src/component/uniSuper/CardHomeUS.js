@@ -2,11 +2,10 @@ import React from 'react'
 import student from '../../static/Student.jpg'
 import student2 from '../../static/Student2.jpg'
 import { NavLink } from 'react-router-dom'
-
-function CardReportSuper() {
+function CardHomeUS() {
   return (
     <>
-    
+       
     <div className='card-uni-super-home gray-bk centered-card'>
         <div className='uni-super-std-card'>
             <div className='super-std-img'>
@@ -17,19 +16,20 @@ function CardReportSuper() {
                 </div>
             </div>
         <div className='uni-super-std-btn'>
-            <NavLink to ='/CompSuperStdReport'  className='not-clicked'>
+            <NavLink to =''  className='not-clicked'>
                 <span className='compsuper-underline'>Trainee at coders</span>
             </NavLink>
-            <NavLink to ='/stdreportUniSuper'  className='not-clicked'>
-                <span className='compsuper-underline'>Report</span>
+            <NavLink to =''  className='not-clicked'>
+                <span className='compsuper-underline'>Supervisor</span>
             </NavLink>
         </div>
     </div>
     </div>
 
 
+  
     </>
   )
 }
 
-export default CardReportSuper
+export default CardHomeUS

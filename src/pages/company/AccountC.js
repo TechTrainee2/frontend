@@ -8,6 +8,9 @@ function AccountC() {
   return (
     <>
     <NavbarMain/>
+    <div className='centerd-comp'>
+        <span className='super bold'>My Account</span>
+    </div>
     <CardProfile/>
     <CardCompBio/>
     <CardCompPost/>

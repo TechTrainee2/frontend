@@ -347,7 +347,7 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 .contact-comp{
   display: flex;
   flex-direction: column;
-  width: 850px;
+  width: 80%;
   padding-bottom: 30px;
   padding-top: 30px;
   gap: 30px;

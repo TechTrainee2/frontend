@@ -13,6 +13,7 @@ function CreateAccForm() {
             </div>
             <input className='form-cell form-cell-la gray-bk opacity left-place-holder' placeholder='Email'/>
             <input className='form-cell form-cell-la gray-bk opacity left-place-holder' placeholder='Password'/>
+            <input className='form-cell form-cell-la gray-bk opacity left-place-holder' placeholder='Position'/>
             
             <div className='form-btns'>
                 <button className='button-size-input navy-bk gray-font'>Add</button>
