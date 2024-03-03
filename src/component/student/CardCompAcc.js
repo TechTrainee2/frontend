@@ -5,7 +5,14 @@ import mail from '../../static/gmail.png'
 import linkedin from '../../static/linkedin.png'
 import { Link } from 'react-router-dom'
 
+    
 function CardCompAcc() {
+    const recipientEmail = 'Coders@gmail.com';
+    
+    const mailtoLink = `mailto:${recipientEmail}`;
+
+
+
     let [isModal,setIsModal]=useState(false) 
     let handelOnClick =()=> {
         setIsModal(true)
@@ -22,24 +29,13 @@ function CardCompAcc() {
                 <img src={img} className='imgbk-size'/>
                 <img src={img2} className='std-circle std-profile'/>
             </div>
-                <div className='std-txt-left'>
-                    <div className='std-btn-name'>
+                <div className='std-company-txt-left'>
 
-                        <div className='txt-std-name'>
+                        <div className='txt-std-company-name'>
                             <span>Coders</span>
-                            <span>3k Followers</span>
                             <span>Amman - Jordan</span>
                         </div>
 
-                        <div className='std-btns'>
-                            <Link to='/stdEdit' >
-                                <button className='button-size-std navy-bk white-font'>
-                                    Follow
-                                </button>
-                            </Link>
-                        </div>
-
-                    </div>
 
                     <div className={isModal?'show': 'hidden'} >
                         <div className='modal-bk'></div>
@@ -54,7 +50,9 @@ function CardCompAcc() {
                                 <div className='contact-box-margin'>
                                     <div className='contact-info-box'>
                                         <img src={mail} className='contact-icons'/>
-                                        <span>Coders@gmail.com</span>
+                                        <span>
+                                            <a href={mailtoLink}>Coders@gmail.com</a>
+                                        </span>
                                     </div>
 
                                     <div className='contact-info-box'>
@@ -67,7 +65,7 @@ function CardCompAcc() {
                         </div>
                     </div>
 
-                        <button className='button-size-std2 bold' onClick={handelOnClick}>
+                        <button className='std-contactus-btn bold' onClick={handelOnClick}>
                                     Contact Us
                         </button>
                      
@@ -76,6 +74,5 @@ function CardCompAcc() {
     </div>
     </>
   )
-}
-
+};
 export default CardCompAcc

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import img from '../../static/company.png'
+import { Link } from 'react-router-dom'
 
 function CardPostDetail() {
   let [isModal,setIsModal]=useState(false) 
@@ -21,8 +22,12 @@ function CardPostDetail() {
 
               <div className='std-post-container'>
                 <div className='std-company-profile'>
-                  <img src={img} className='company-img2' />
-                  <span>Coders</span>
+                  <Link to='/stdcompany'>
+                    <img src={img} className='company-img2' />
+                  </Link>
+                  <Link to='/stdcompany'>
+                    <span>Coders</span>
+                  </Link>
                   <span>Remote</span>
                 </div>
 

@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom'
 function CardProfile() {
   return (
     <>
-     <div className='card2 gray-bk centered-card'>
+    <span className='centered-title bold'>My Account</span>
+    <div className='card2 gray-bk centered-card'>
         
 
         <div className='std-acc-comp '>

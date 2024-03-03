@@ -26,7 +26,6 @@ import AccountC from './pages/company/AccountC';
 import AccEditC from './pages/company/AccEditC';
 import PostEditC from './pages/company/PostEditC';
 import NewPostC from './pages/company/NewPostC';
-import ReportUS from './pages/uniSuper/ReportUS';
 import SuperAcc from './pages/uniSuper/SuperAcc';
 import SuperAccEdit from './pages/uniSuper/SuperAccEdit';
 import HomeDep from './pages/Department/HomeDep';
@@ -41,6 +40,12 @@ import EditAccCS from './pages/company/EditAccCS';
 import ReportCS from './pages/compSuper/ReportCS';
 import StdReportCS from './pages/compSuper/StdReportCS';
 import FillReportCS from './pages/compSuper/FillReportCS';
+import CompSuperAccPS from './pages/student/CompSuperAccPS';
+import UniSuperAccPS from './pages/student/UniSuperAccPS';
+import HomeReg from './pages/Regestration/HomeReg';
+import StdReg from './pages/Regestration/StdReg';
+import ProfReg from './pages/Regestration/ProfReg';
+import StdReportUS from './pages/uniSuper/StdReportUS';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -74,12 +79,24 @@ const router = createBrowserRouter([
     element:<EditPS/>
   },
   {
+    path: "/stdCompSuperAcc",
+    element:<CompSuperAccPS/>
+  },
+  {
+    path: "/stdUniSuperAcc",
+    element:<UniSuperAccPS/>
+  },
+  {
     path:"uniSuper",
     element:<HomeUS/>
   },
   {
     path:"reportUniSuper",
     element:<ReportUniSuper/>
+  },
+  {
+    path:"stdreportUniSuper",
+    element:<StdReportUS/>
   },
   {
     path:"studentApplication",
@@ -124,10 +141,6 @@ const router = createBrowserRouter([
   {
     path: "/compNewPost",
     element:<NewPostC/>
-  },
-  {
-    path: "/stdWeeklyReports",
-    element:<ReportUS/>
   },
   {
     path: "/superAcc",
@@ -184,6 +197,18 @@ const router = createBrowserRouter([
   {
     path: "/CompSuperFillReport",
     element: <FillReportCS/> 
+  },
+  {
+    path: "/RegHome",
+    element: <HomeReg/> 
+  },
+  {
+    path: "/RegStd",
+    element: <StdReg/> 
+  },
+  {
+    path: "/RegProf",
+    element: <ProfReg/> 
   }
 
 
