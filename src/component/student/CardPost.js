@@ -10,14 +10,14 @@ function CardPost() {
         
             <div className='comp-post-container'>
                 <div className='uni-std-img-info'>
-                    <img src={comp} className='uni-std-circle'/>
-                    <span>Coders</span>
+                    <img src={comp} className='std-com-post-circle'/>
+                    <span className='super'>Coders</span>
 
                 </div>
-                <span>Internship Frontend Developer</span>
-                <span>On site</span>
-
-                    
+                <div className='std-comp-post-cont'>
+                  <span className='bold font-med'>Internship Frontend Developer</span> 
+                  <span>On site</span>
+                </div>                    
             </div>
         
     </Link>

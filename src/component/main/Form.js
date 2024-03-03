@@ -17,9 +17,8 @@ function Form() {
 
       </form>
       <div className='form-link'>
-        <a href=''>Forgot Password?</a>
-        <a href=''>Don't have an account?</a>
-        <a href='/SignIn'>Sign Up</a>
+        <span>Don't have an account?</span>
+        <a href='/SignUp' className='under-line'>Sign Up</a>
       </div>
   </div>
     </>

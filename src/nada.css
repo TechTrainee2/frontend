@@ -603,7 +603,11 @@
 }
 
 /************** Student *************/
-
+.notification-title {
+  margin-left: 335px;
+  margin-top: 50px;
+  font-size: 2rem;
+}
 .std-company-btn-name{
   display: flex;
   flex-direction: row;
@@ -653,7 +657,6 @@
   margin: auto;
   top: 250px;
   border-radius: 45px;
-  left: 350px;
 }
 .std-status-box-comp {
   display: flex;

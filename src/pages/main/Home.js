@@ -3,6 +3,7 @@ import '../../malak.css';
 import Navbar from '../../component/main/Navbar';
 import img from '../../static/bk1.png';
 import logo from '../../static/logo.png';
+import { Link } from 'react-router-dom';
 
 
 function Home() {
@@ -20,9 +21,6 @@ function Home() {
           <h1>Welcome to TechTrainee</h1>
           <span className='text bold'>a place to help you getting your training done </span>
         </div>
-        <button className='button-size navy-bk white-font'>
-            Get Started
-        </button>
       </div>
     </div>
 

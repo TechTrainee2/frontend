@@ -28,7 +28,8 @@ function Form2() {
       </form>
 
       <div className='form-link'>
-        <a href='/SignIn'>Sign In</a>
+        <span>Already have an account?</span>
+        <a href='/SignIn' className='under-line'>Sign In</a>
       </div>
     </div>
   </>

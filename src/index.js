@@ -172,10 +172,6 @@ const router = createBrowserRouter([
     element:<StdApplication/>
   },
   {
-    path: "/stdWeeklyReports",
-    element:<ReportUS/>
-  },
-  {
     path: "/superAcc",
     element: <SuperAcc/>
   },
