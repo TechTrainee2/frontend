@@ -1,14 +1,21 @@
 import React from 'react'
 import NavbarMain from '../../component/company/NavbarMain'
-import CardStudent1 from '../../component/company/CardStudent1'
-import CardStudent2 from '../../component/company/CardStudent2'
+import { Link } from 'react-router-dom'
+
 
 function HomeC() {
   return (
     <>
     <NavbarMain/>
-    <CardStudent1/>
-    <CardStudent2/>
+    <div className='boxs-container'>
+      <Link to='/CompSuper' className='gray-bk box navy-font bold not-clicked'>
+        <div>Supervisor</div>
+      </Link>
+      <Link to='/CompStd' className='navy-bk box white-font bold not-clicked '>
+        <div >Student</div>
+      </Link>
+
+    </div>
     </>
   )
 }
