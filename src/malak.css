@@ -257,20 +257,23 @@ a{
 .dep-uni-sup-card{
     display: flex;
     flex-wrap: wrap;
-    gap: 50px;
+    
     margin-top: 50px;
+    justify-content: space-between;
    
 
 }
-.card3{
+.dep-card-super{
     width: 45%;
     height: 200px;
     border-radius: 45px;
     display: flex;
     justify-content: center;
+    transition: 200ms ease-in-out;
 }
-.card3:hover{
+.dep-card-super:hover{
     box-shadow:  0 2px 4px 0 rgba(0,0,0,.2);
+
 }
 
 
@@ -283,8 +286,9 @@ a{
     padding-left: 10px;
     font-size: 1.5rem;
 }
-.card4{
+.card-std-assign{
     margin-top: 35px;
+    
     height: fit-content;
     padding-bottom: 30px;
     padding-top: 30px;
@@ -310,4 +314,176 @@ a{
     align-items: center;
     justify-content: flex-end;
     gap: 100px;
+}
+
+
+
+
+.report-title{
+    margin-left:200px ;
+    font-size: 1.5rem;
+}
+.search-dep-report{
+    height: 35px;
+    margin-top: 30px;
+    width: 500px;
+    border-radius: 45px;
+    padding-left: 19px;
+    padding-top: 5px;
+    border: none;
+    margin-left: 200px;
+}
+.dep-info-card-report{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.dep-report-container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+.dep-header-report{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+    font-size: 1.2em;
+}
+
+
+.svg-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 60px;
+}
+
+
+
+.logo-add{
+    width: 150px;
+    height: 125px;
+
+}
+.title-add-super{
+    align-self: self-start;
+    width: 70%;
+    margin: auto;
+}
+
+.form-cell{
+    border: none;
+    border-radius: 35px;
+}
+.form-cell-sm{
+    width: 45%;
+    height: 50px;
+}
+.form-cell-la{
+    width: 92%;
+    height: 50px;
+}
+.opacity{
+    opacity: 75%;
+}
+.gap{
+    width: 75%;
+    margin-top: 30px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:50px;
+}
+.form-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 70%;
+}
+.sm-input{
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+.form-btns{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 170px;
+}
+.button-size-input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:250px ;
+    height: 50px;
+    border-radius:20px ;
+    font-size: 1.2rem;
+    border: none;
+}
+.margin-bottom{
+    margin-bottom: 50px;
+}
+
+.center-place-holder{
+    text-align: center;
+    font-size: 1.2rem;
+}
+.left-place-holder{
+    padding-left:50px ;
+    font-size: 1.2rem;
+
+}
+
+.comp-super-std-info-svg{
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comp-app-btn-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.btn-link-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.txt-center{
+    text-align: center;
+}
+
+
+
+.sub-navbar{
+    display: flex;
+    flex-direction: row;   
+    gap: 100px;
+}
+.sub-nav-font{
+    font-size: 1.3rem;
+}
+.sub-nav-cont{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.comp-post-container{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

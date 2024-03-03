@@ -46,6 +46,15 @@ import HomeReg from './pages/Regestration/HomeReg';
 import StdReg from './pages/Regestration/StdReg';
 import ProfReg from './pages/Regestration/ProfReg';
 import StdReportUS from './pages/uniSuper/StdReportUS';
+import DepReport from './pages/Department/DepReport';
+import DepStdFinalReport from './pages/Department/DepStdFinalReport';
+import CompanySuper from './pages/company/CompanySuper';
+import AddCompSuper from './pages/company/AddCompSuper';
+import CompAssignStd from './pages/company/CompAssignStd';
+import CompStd from './pages/company/CompStd';
+import StdApplication from './pages/company/StdApplication';
+import SuperNotification from './pages/uniSuper/SuperNotification';
+import UniSuperViewPost from './pages/uniSuper/UniSuperViewPost';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -143,12 +152,44 @@ const router = createBrowserRouter([
     element:<NewPostC/>
   },
   {
+    path: "/CompSuper",
+    element:<CompanySuper/>
+  },
+  {
+    path: "/AddCompSuper",
+    element:<AddCompSuper/>
+  },
+  {
+    path: "/assignCompSuper",
+    element:<CompAssignStd/>
+  },
+  {
+    path: "/CompStd",
+    element:<CompStd/>
+  },
+  {
+    path: "/stdApplications",
+    element:<StdApplication/>
+  },
+  {
+    path: "/stdWeeklyReports",
+    element:<ReportUS/>
+  },
+  {
     path: "/superAcc",
     element: <SuperAcc/>
   },
   {
     path: "/SuperEdit",
     element: <SuperAccEdit/>
+  },
+  {
+    path: "/superNotification",
+    element: <SuperNotification/>
+  },
+  {
+    path: "/uniSuperViewPost",
+    element: <UniSuperViewPost/>
   },
   {
     path: "/depHome",
@@ -173,6 +214,14 @@ const router = createBrowserRouter([
   {
     path: "/depReqApproval",
     element: <DepReqApproval/>
+  },
+  {
+    path: "/depReport",
+    element: <DepReport/>
+  },
+  {
+    path: "/depStdFinalReport",
+    element: <DepStdFinalReport/>
   },
   {
     path: "/CompSuperHome",

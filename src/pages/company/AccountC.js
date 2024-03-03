@@ -1,13 +1,13 @@
 import React from 'react'
-import NavbarAcc from '../../component/company/NavbarAcc'
 import CardProfile from '../../component/company/CardProfile'
 import CardCompBio from '../../component/student/CardCompBio'
 import CardCompPost from '../../component/student/CardCompPost'
+import NavbarMain from '../../component/company/NavbarMain'
 
 function AccountC() {
   return (
     <>
-    <NavbarAcc/>
+    <NavbarMain/>
     <CardProfile/>
     <CardCompBio/>
     <CardCompPost/>
