@@ -1,36 +1,27 @@
 import React from 'react'
-import cat from '../../static/cat.png'
+import comp from '../../static/company.jpg'
 import { Link } from 'react-router-dom'
 
 function CardPost() {
   return (
     <>
-        <div className='card1 gray-bk centered-card'>
-          <div className='card1-comp' >
-            <img src={cat} className='company-img' />
+    
+    <Link to='/stdPost' className='dep-card-super gray-bk margin-bottom'>
+        
+            <div className='comp-post-container'>
+                <div className='uni-std-img-info'>
+                    <img src={comp} className='uni-std-circle'/>
+                    <span>Coders</span>
 
-            <div style={{display:'flex',flexDirection:'column',gap:'30px'}}>
-
-                <span className='bold'>
-                  Internship Front End Developer
-                </span>
-
-                <div>
-                  <span>Coders</span>
-                  <p>We are offering a training opertinity for (3) students .........</p>
                 </div>
+                <span>Internship Frontend Developer</span>
+                <span>On site</span>
 
-                <div className='std-btns'>
-                  <Link to='/stdPost'>
-                     <button className='button-size-std navy-bk white-font'>
-                        Show More
-                      </button>
-                    </Link>
-                </div>
+                    
+            </div>
+        
+    </Link>
 
-            </div>
-            </div>
-        </div>
     </>
   )
 }

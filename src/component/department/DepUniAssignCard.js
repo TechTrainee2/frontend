@@ -11,7 +11,7 @@ function DepUniAssignCard() {
     }
   return (
     <>
-      <div className='card4 gray-bk centered-card' >
+      <div className='card-std-assign gray-bk centered-card' >
           <div className='uni-sup-std-info-svg'>
               <div className='uni-std-img-info'>
                   <img src={student} className='uni-std-circle'/>
