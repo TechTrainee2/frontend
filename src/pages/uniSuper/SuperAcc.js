@@ -1,12 +1,12 @@
 import React from 'react'
 import CardSuperProf from '../../component/uniSuper/CardSuperProf'
-import NavbarAcc from '../../component/uniSuper/NavbarAcc'
+import Navbar from '../../component/uniSuper/Navbar'
 import CardSuperCont from '../../component/uniSuper/CardSuperCont'
 
 function SuperAcc() {
   return (
     <>
-        <NavbarAcc/>
+        <Navbar/>
         <CardSuperProf/>
         <CardSuperCont/>
     </>

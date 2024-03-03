@@ -8,7 +8,13 @@ function ReportUniSuper() {
   return (
     <>
     <Navbar/>    
-    <CardReportSuper/>
+    <div className='centerd-comp'>
+      <div className='uni-super-title-report'>
+        <span className='super bold'>Students Report</span>
+        <input type="text" placeholder="Search Student Report" className='uni-super-search-report gray-bk '/>
+      </div>
+      <CardReportSuper/>
+    </div>
     </>
   )
 }

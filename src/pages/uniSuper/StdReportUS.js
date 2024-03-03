@@ -6,6 +6,7 @@ function StdReportUS() {
   return (
     <>
     <NavbarReport/>
+    
     <CardStdReport/>
     </>
   )

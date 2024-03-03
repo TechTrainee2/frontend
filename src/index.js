@@ -15,7 +15,7 @@ import AccountPS from './pages/student/AccountPS';
 import EditPS from './pages/student/EditPS';
 import HomeUS from './pages/uniSuper/HomeUS';
 import ReportUniSuper from './pages/uniSuper/ReportUniSuper';
-import StudentApplication from './pages/uniSuper/StudentApplication';
+
 import CompanyPS from './pages/student/CompanyPS';
 import CompPostPS from './pages/student/CompPostPS';
 import ReportPS from './pages/student/ReportPS';
@@ -106,10 +106,6 @@ const router = createBrowserRouter([
   {
     path:"stdreportUniSuper",
     element:<StdReportUS/>
-  },
-  {
-    path:"studentApplication",
-    element:<StudentApplication/>
   },
   {
     path: "/stdCompany",
