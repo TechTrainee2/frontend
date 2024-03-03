@@ -7,13 +7,8 @@ import CardReportSuper from '../../component/uniSuper/CardReportSuper'
 function ReportUniSuper() {
   return (
     <>
-        <Navbar/>    
-        <div className='uni-std-final-report'>
-            <span className='title bold'>Final Report</span>
-            <CardReportSuper/>
-            <CardReportSuper/>
-
-        </div>
+    <Navbar/>    
+    <CardReportSuper/>
     </>
   )
 }

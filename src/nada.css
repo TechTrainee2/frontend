@@ -235,7 +235,7 @@
   background-color: #CBD6DA;
   opacity: 70%;
   width: 100%;
-  height: 700px;
+  height: -webkit-fill-available;
   top: 130px;
   left: 0px;
  z-index: 0;
@@ -579,7 +579,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  margin-right: 31px;
+  margin-right: 70px;
   font-size: 1.5rem;
   gap: 160px;
   padding-top: 60px;
@@ -600,4 +600,260 @@
   display: flex;
   flex-direction: column;
   width: 80%;
+}
+
+/************** Student *************/
+.notification-title {
+  margin-left: 335px;
+  margin-top: 50px;
+  font-size: 2rem;
+}
+.std-company-btn-name{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.txt-std-company-name{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 20px;
+  width: 215px;
+}
+.std-contactus-btn {
+  border: none;
+  border-radius: 45px;
+  padding-left: 35px;
+  padding-right: 35px;
+  width: fit-content;
+  height: 40px;
+  font-size: 1.3rem;
+  background: none;
+  color: #1c3150;
+  text-decoration: underline;
+}
+.std-company-txt-left {
+  display: flex;
+  flex-direction: row;
+  padding-left: 100px;
+  gap: 210px;
+  align-items: center;
+  padding-bottom: 35px;
+}
+.std-report-status-btn {
+  display: flex;
+  flex-direction: row;
+  padding-top: 50px;
+  justify-content: flex-end;
+  gap: 90px;
+  padding-right: 90px;
+}
+.std-report-status-box {
+  position: absolute;
+  width: 730px;
+  height: 705px;
+  background-color: white;
+  z-index: 1;
+  margin: auto;
+  top: 250px;
+  border-radius: 45px;
+}
+.std-status-box-comp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  font-size: 1.4rem;
+}
+.std-status-box-comp svg{
+  width: 30px;
+  margin-left: 500px;
+}
+.std-status-super-images {
+  position: relative;
+  height: 115px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.4rem;
+  gap: 15px;
+}
+.std-status-profile {
+  position: absolute;
+  left: 15px;
+  object-fit: cover;
+}
+.std-status-circle {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.std-report-status-comp{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+.std-progress-btn-size {
+  border: none;
+  border-radius: 15px;
+  padding-left: 35px;
+  padding-right: 35px;
+  width: fit-content;
+  height: 50px;
+  font-size: 1.2rem;
+  margin-left: 315px;
+}
+.status-modal-bk {
+  content: '';
+  position: absolute;
+  background-color: #CBD6DA;
+  opacity: 70%;
+  width: 100%;
+  height: 850px;
+  top: 130px;
+  left: 0px;
+  z-index: 0;
+}
+.light-navy-bk{
+  background-color: #55667d;  
+}
+.card3-status {
+  margin-top: 45px;
+  width: 80%;
+  height: fit-content;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+/********** Regestration ************/
+.reg-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 415px;
+  width: 40%;
+  font-size: 2rem;
+  border-radius: 20px;
+}
+.reg-std-info {
+  display: flex;
+  flex-direction: row;
+  /* gap: 123px; */
+  align-items: center;
+  justify-content: flex-start;
+  gap: 275px;
+  padding-left: 30px;
+}
+.reg-std-info-comp{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.4rem;
+}
+.reg-std-btn-comp{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 70px;
+}
+.reg-std-cont{
+  display: flex;
+  flex-direction: row;
+  gap: 450px;
+  width: 960px;
+}
+.reg-modal-bk {
+  position: absolute;
+  background-color: #CBD6DA;
+  opacity: 70%;
+  width: 100%;
+  height: 145%;
+  top: 130px;
+  left: 0px;
+  z-index: 0;
+}
+.reg-apply-box {
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  z-index: 1;
+  top: 250px;
+  border-radius: 45px;
+  margin-left: 250px;
+}
+.reg-add-std-box {
+  position: absolute;
+  width: 700px;
+  height: 500px;
+  background-color: white;
+  z-index: 1;
+  top: 250px;
+  border-radius: 45px;
+  margin-left: 445px;
+}
+.reg-add-std-box-comp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  margin-top: 105px;
+}
+.reg-add-std-box-comp svg {
+  width: 35px;
+  position: absolute;
+  left: 590px;
+  top: 40px;
+}
+.reg-upload-comp{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  gap: 70px;
+}
+.reg-upload-comp svg{
+  width: 100px;
+}
+.reg-button-size {
+  border: none;
+  border-radius: 45px;
+  padding-left: 35px;
+  padding-right: 35px;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 40px;
+  font-size: 1.3rem;
+  margin-left: 355px;
+}
+/************* Uni Super *************/
+.uni-super-std-card {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+.uni-super-std-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 65px;
+}
+.uni-super-signature-cont {
+  display: flex;
+  flex-direction: row;
+  padding-top: 50px;
+  justify-content: center;
+  gap: 55px;
+  align-items: center;
+}
+.uni-super-upload-sign-box {
+  position: absolute;
+  width: 700px;
+  height: 500px;
+  background-color: white;
+  z-index: 1;
+  top: 250px;
+  border-radius: 45px;
 }

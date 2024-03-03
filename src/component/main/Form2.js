@@ -18,6 +18,7 @@ function Form2() {
 
           <input type='text' placeholder='Name' name='name'/>
           <input type='text' placeholder='Email' name='email'/>
+          <input type='text' placeholder='Organization ID' name='org id'/>
           <input type='password' placeholder='Password' name='password'/>
           <button className='button-size navy-bk white-font'>
             Sign Up
@@ -27,7 +28,8 @@ function Form2() {
       </form>
 
       <div className='form-link'>
-        <a href='/SignIn'>Sign In</a>
+        <span>Already have an account?</span>
+        <a href='/SignIn' className='under-line'>Sign In</a>
       </div>
     </div>
   </>

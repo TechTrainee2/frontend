@@ -251,8 +251,10 @@ a{
     margin-top: 75px;
 }
 .super{
-    font-size: 1.5rem;
-    
+    font-size: 1.5rem;   
+}
+.font-med{
+    font-size: 1.2rem;   
 }
 .dep-uni-sup-card{
     display: flex;
@@ -486,4 +488,18 @@ a{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-left: 30px;
+}
+.std-comp-post-cont{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 120px;
+    gap: 10px;
+}
+.std-com-post-circle {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
 }
