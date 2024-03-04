@@ -8,7 +8,7 @@ function DepUniSuper() {
     <>
         <NavbarHome/>
         <div className='dep-uni-sup-container'>
-            <span className='bold super'>Supervisors</span>
+            <span className='bold font-super '>Supervisors</span>
             <div className='dep-uni-sup-card'>
                 <DepUniSuperCard/>
                 <DepUniSuperCard/>

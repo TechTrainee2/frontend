@@ -1,3 +1,9 @@
+.comp-post-name-place {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 55%;
+}
 .button-size-std2{
     border: none;
     border-radius: 45px;
@@ -23,8 +29,8 @@
     align-items: center
   }
   .company-img{
-    width: 165px;
-    height: 165px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
   }
@@ -88,12 +94,12 @@
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  margin-top: 140px;
-  margin-left: 150px;
 }
 .std-notification-container{
   display: flex;
   flex-direction: row;
+  align-items: center;
+  margin-top: 3%;
 }
 .std-notification-comp{
   display: flex;
@@ -131,6 +137,23 @@
   align-items: center;
 }
 /************ Company ****************/
+.large-card {
+  margin-top: 45px;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  width: 70%;
+}
+.comp-assign-button-size {
+  border: none;
+  border-radius: 20px;
+  padding-left: 35px;
+  padding-right: 35px;
+  width: fit-content;
+  height: 60px;
+  font-size: 1.3rem;
+}
 .comp-icon-super{
   display: flex;
   flex-direction: column;
@@ -210,10 +233,8 @@
   border-radius: 45px;
   padding-left: 35px;
   padding-right: 35px;
-  width: -moz-fit-content;
   width: fit-content;
   height: 40px;
-  font-size: 1rem;
   margin-left: 110px;
 }
 .comp-btns {
@@ -441,6 +462,7 @@
   flex-direction: row;
   gap: 100px;
   font-size: 1.2em;
+  margin: auto
 }
 .compsuper-report-details{
   display: flex;
@@ -522,7 +544,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  margin-right: 208px;
+  margin-right: 287px;
   font-size: 1.5rem;
   gap: 65px;
   padding-top: 45px;
@@ -830,6 +852,28 @@
   margin-left: 355px;
 }
 /************* Uni Super *************/
+.card-uni-super-notification  {
+  margin-top: 45px;
+  width: 70%;
+  height: 18vw;
+}
+.uni-super-notification-detail {
+  margin-left: 150px;
+  text-align: center;
+  width: 63%;
+}
+.uni-super-centered-card {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  border-radius: 45px;
+}
+.uni-super-std-notification {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+}
 .uni-super-std-card {
   display: flex;
   flex-direction: row;
@@ -841,8 +885,8 @@
 .uni-super-std-btn{
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  gap: 65px;
+  justify-content: space-around;
+  width: 60%;
 }
 .uni-super-signature-cont {
   display: flex;

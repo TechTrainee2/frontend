@@ -3,7 +3,7 @@ import React from 'react'
 function CardCompBio() {
   return (
     <>
-     <div className='card2 gray-bk centered-card'>
+     <div className='large-card gray-bk centered-card'>
         <div className='skill-comp'>
             <span className='bold'>About Us</span>
 

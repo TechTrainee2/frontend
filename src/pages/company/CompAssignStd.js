@@ -10,13 +10,12 @@ function CompAssignStd() {
         <div  className='dep-uni-sup-container'>
           <div className='uni-super-assign'>
             <div className='uni-std-img-info'>
-              <img src={compSuper} className='uni-std-circle'/>
+              <img src={compSuper} className='company-img'/>
               <div className='uni-std-report-info'>
-                <span>Kamal Ibrahim</span>
-                <span>CS Professor</span>
+                <span className='super'>Ahmad</span>
               </div>
             </div>
-            <button className='button-size navy-bk white-font'>Assign student</button>
+            <button className='comp-assign-button-size navy-bk white-font'>Assign student</button>
           </div>
           
           <div className='dep-uni-std-span-card'>

@@ -9,7 +9,7 @@ function CardEditBio() {
         };
   return (
     <>
-     <div className='card2 gray-bk centered-card'>
+     <div className='large-card gray-bk centered-card'>
         <div className='comp-bio-comp'>
             <span className='bold'>About Us</span>
 

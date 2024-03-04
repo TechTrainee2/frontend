@@ -6,7 +6,10 @@ function DepNotification() {
   return (
     <>
         <NavbarHome/>
+        <div className='centerd-comp'>
+        <span className='font-super bold'>Notifications </span>
         <DepNotificationCard/>
+        </div>
     </>
   )
 }

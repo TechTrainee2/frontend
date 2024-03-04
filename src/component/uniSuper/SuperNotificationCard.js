@@ -7,30 +7,19 @@ function SuperNotificationCard() {
         <div className='std-notification-container'>
         <div className='blue-circle'></div>
 
-        <Link to='/UniSuperViewPost' className='card1 gray-bk centered-card'>
+        <Link to='/UniSuperViewPost' className='card-uni-super-notification gray-bk uni-super-centered-card'>
           <div className='card1-comp' >
-            <img src={img} className='company-img' />
-
-            <div style={{display:'flex',flexDirection:'column',gap:'30px'}}>
-
-                <div>
-                  <span className='std-new-post'>Mohammad Saleh</span>
-                </div> 
-
-                <span>Has been accepted by Coders for their training....</span>
-                
-                <div className='std-btns'>
-                    
-                      
-                </div>
-
-            </div>
+            <div className='uni-super-std-notification'>
+              <img src={img} className='company-img' />
+              <span className='std-new-post'>Mohammad Saleh</span>
             </div>
 
-        
+    
+              
+              <span className='uni-super-notification-detail super'>Has been accepted by Coders for their training....</span>
+              </div>
         </Link>
-        
-    </div>
+        </div>
     </>
   )
 }

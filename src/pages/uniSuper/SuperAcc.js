@@ -6,9 +6,12 @@ import CardSuperCont from '../../component/uniSuper/CardSuperCont'
 function SuperAcc() {
   return (
     <>
-        <Navbar/>
-        <CardSuperProf/>
-        <CardSuperCont/>
+    <Navbar/>
+      <div className='centerd-comp'>
+          <span className='font-super bold'>My Account </span>
+          <CardSuperProf/>
+          <CardSuperCont/>
+      </div>
     </>
   )
 }

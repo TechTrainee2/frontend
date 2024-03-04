@@ -4,7 +4,7 @@ import student from '../../static/Student.jpg'
 function DepStdCard() {
   return (
     <>
-        <div className='card2 gray-bk centered-card' >
+        <div className='large-card gray-bk centered-card' >
             <div className='std-info-svg'>
                 <div className='uni-std-img-info'>
                     <img src={student} className='uni-std-circle'/>

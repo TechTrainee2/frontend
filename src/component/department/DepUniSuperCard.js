@@ -9,8 +9,8 @@ function DepUniSuperCard() {
         
             <div className='std-info-svg'>
                 <div className='uni-std-img-info'>
-                    <img src={prof} className='uni-std-circle'/>
-                    <div className='uni-std-report-info'>
+                    <img src={prof} className='company-img2'/>
+                    <div className='uni-std-report-info super'>
                         <span>Kamal Ibrahim</span>
                         <span>CS Professor</span>
                     </div>                       

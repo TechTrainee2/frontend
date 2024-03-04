@@ -15,7 +15,7 @@ function CardEditPost() {
           setTxt(event.target.value);
   return (
     <>
-        <div className='card2 gray-bk centered-card'>
+        <div className='large-card gray-bk centered-card'>
           <div className='std-post-detail' >
 
             <div>

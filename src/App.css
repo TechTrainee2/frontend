@@ -50,20 +50,23 @@ a{
   font-weight: 500;
   padding-top: 45px;
 }
-.bk1{
+.bk1 {
   position: absolute;
-  top:0;
-  left:0;
-  width: 50%;
+  top: 0;
+  left: 0;
+  width: 55%;
   height: 100vh;
   z-index: -1;
+  object-fit: cover;
 }
-.logo{
+.logo {
   position: absolute;
   z-index: 1;
-  width: 450px;
-  height: 300px;
-  top: 25%;
+  width: 400px;
+  height: 400px;
+  top: 27%;
+  object-fit: cover;
+  left: 9%;
 }
 .main-txt{
   width: 100%;
@@ -72,21 +75,28 @@ a{
   align-items: flex-end;
   
 }
-.intxt{
+.intxt {
   display: flex;
   flex-direction: column;
-  padding-top: 125px;
+  padding-top: 175px;
   margin-right: 115px;
   gap: 50px;
   align-items: center;
   width: 415px;
   height: 400px;
 }
-
 .text{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.home-txt-center{
+  width: 345px;
+  text-align: center;
+}
+.aboutus-txt-center {
+  width: 430px;
+  text-align: center;
 }
 .button-size{
   border: none;
@@ -110,11 +120,6 @@ a{
   display: flex;
     flex-direction: column;
     align-items: center;
-}
-.intxt div span{
-  width: 300px;
-  text-align: center;
-  font-size: 1.2rem;
 }
 
 .not-clicked {
@@ -140,6 +145,7 @@ a{
   flex-direction: column;
   gap: 20px;
   align-items: center;
+  padding-top: 175px;
 }
 .form-input input{
   border-top-style: none;
@@ -155,7 +161,6 @@ a{
     align-content: flex-end;
     flex-wrap: wrap;
     padding-right: 180px;
-    padding-top: 90px;
     gap: 12px;
 }
 .form-link{
@@ -206,12 +211,11 @@ justify-content: space-between;
 padding-right: 3%;
 padding-left: 1%;
 box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
-
-
 }
-.nav-std img{
-  width: 150px;
+.nav-std img {
+  width: 125px;
   height: 125px;
+  object-fit: cover;
 }
 .centered-nav-title{
   height: 35px;
@@ -234,7 +238,7 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap:20px;
+  gap:50px;
 }
 .icons{
   display: flex;
@@ -253,21 +257,23 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 .card1{
   margin-top: 45px;
   width: 70%;
-  height: 25vw;
+  height: 20vw;
 }
-.card1-comp{
+.card1-comp {
   display: flex;
-  flex-direction: row ;
-  gap: 120px;
+  flex-direction: column;
+  width: 90%;
+  gap: 30px;
+  padding-top: 30px;
 }
-.company-img{
+.large-img{
   width: 165px;
   height: 165px;
   border-radius: 50%;
+  object-fit: cover;
 }
 .card2{
   margin-top: 45px;
-  width: 70%;
   height: fit-content;
   padding-bottom: 30px;
   padding-top: 30px;
@@ -432,4 +438,26 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   background-color: #ddeaee;
   font-size: 1rem;
   width: 350px;
+}
+.std-comp-post{
+  display:flex;
+  flex-direction:column;
+  gap:30px;
+}
+.card1-comp-acc-post {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  gap: 64px;
+  align-items: center;
+  padding-left: 100px;
+}
+.std-comp-post-place{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card1:hover{
+  box-shadow:  0 2px 4px 0 rgba(0,0,0,.2);
+
 }

@@ -177,24 +177,23 @@ a{
     width: 470px;  
 }
 
-.boxs-container{
+.boxs-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     width: 80%;
-    /* align-content: center; */
     justify-content: space-around;
     margin: auto;
-    margin-top: 75px;
+    height: 84vh;
 }
-.box{
+.box {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 360px;
+    height: 70%;
     width: 40%;
-    font-size: 2rem;
-    border-radius: 45px;
+    font-size: 3rem;
+    border-radius: 20px;
 }
 
 /* department */
@@ -256,6 +255,9 @@ a{
 .font-med{
     font-size: 1.2rem;   
 }
+.font-super {
+    font-size: 2rem;
+}
 .dep-uni-sup-card{
     display: flex;
     flex-wrap: wrap;
@@ -301,14 +303,12 @@ a{
     align-items: center;
 }
 
-.uni-sup-std-info-svg{
-    width: 100%;
+.uni-sup-std-info-svg {
+    width: 90%;
     display: flex;
     flex-direction: row;
-    /* gap: 123px; */
     align-items: center;
-    justify-content: space-around;
-    
+    justify-content: space-between;
 }
 
 .button-container{

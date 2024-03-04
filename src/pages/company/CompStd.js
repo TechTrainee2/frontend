@@ -13,8 +13,9 @@ function CompStd() {
                 <span className='warning'>No. of student w/o supervisor : 1</span>
             </div>
         </div>
-    </div>
         <CompStdCard/>
+    </div>
+        
     </>
   )
 }

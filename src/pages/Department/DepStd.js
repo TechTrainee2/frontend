@@ -11,7 +11,7 @@ function DepStd() {
     <div className='centerd-comp'>
         <div className='add-std-spans-btn'>
             <div className='add-std-spans'>
-                <span className='bold navy-font dep-std-span'>Students</span>
+                <span className='bold navy-font dep-std-span '>Students</span>
                 <span className='warning'>No. of student w/o training : 1</span>
             </div>
         </div>

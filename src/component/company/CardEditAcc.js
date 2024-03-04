@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function CardEditAcc() {
   return (
     <>
-     <div className='card2 gray-bk centered-card'>
+     <div className='large-card gray-bk centered-card'>
 
         <div className='std-acc-comp'>
 

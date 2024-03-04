@@ -5,16 +5,15 @@ function DepNotificationCard() {
   return (
    
        <>
-    <div className='std-notification-container'>
-    <div className='blue-circle'></div>
-     <Link to='/depReqApproval' className='card2 gray-bk centered-card '>
-        <div className='std-notification-comp'>
+       <div className='std-notification-container'>
+        <div className='blue-circle'></div>
 
-            <p>Dr. Kamal has approved on Mohammad saleh  application for Internship Front End Developer at Coders </p>
-
+        <Link to='/depReqApproval' className='card-uni-super-notification gray-bk uni-super-centered-card'>
+          <div className='card1-comp' >
+          <p className='super'>Dr. Kamal has approved on Mohammad saleh  application for Internship Front End Developer at Coders </p>
+              </div>
+        </Link>
         </div>
-    </Link>
-    </div>
     </>
     
   )

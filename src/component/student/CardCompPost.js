@@ -5,33 +5,27 @@ import { Link } from 'react-router-dom'
 function CardCompPost() {
   return (
     <>
-        <div className='card1 gray-bk centered-card'>
-          <div className='card1-comp' >
-            <img src={img} className='company-img' />
+        <Link to='/stdPost' className='card1 gray-bk centered-card'>
+          <div className='card1-comp-acc-post ' >
+            <img src={img} className='large-img' />
 
-            <div style={{display:'flex',flexDirection:'column',gap:'30px'}}>
+            <div className='std-comp-post'>
 
-                <span className='bold'>
+                <span className='bold super'>
                   Internship Front End Developer
                 </span>
 
-                <div>
+                <div className='std-comp-post-place super'>
                   <span>Coders</span>
                   <span className='remote-btn-std'>Remote</span>
-                  <p>We are offering a training opertinity for (3) students .........</p>
                 </div>
 
                 <div className='std-btns'>
-                  <Link to='/stdPost'>
-                     <button className='button-size-std navy-bk white-font'>
-                        Show More
-                      </button>
-                      </Link>
                 </div>
 
             </div>
           </div>
-        </div>
+        </Link>
     </>
   )
 }

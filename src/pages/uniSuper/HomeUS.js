@@ -10,7 +10,7 @@ function HomeUS() {
     <>
     <Navbar/>
     <div className='centerd-comp'>
-        <span className='super bold'>Current Students </span>
+        <span className='font-super bold'>Current Students </span>
         <CardHomeUS/>
     </div>
     </>

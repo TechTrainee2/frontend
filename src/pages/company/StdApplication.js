@@ -8,7 +8,7 @@ function StdApplication() {
         <NavbarMain/>
         <div className='dep-uni-sup-container'>
             <div className='uni-super-assign'>
-                <span className=' super bold'>Applications</span>
+                <span className=' font-super bold'>Applications</span>
             </div>
             <ApplicationStdCard/>
         </div>
