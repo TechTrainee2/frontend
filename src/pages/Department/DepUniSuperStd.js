@@ -10,8 +10,8 @@ function DepUniSuperStd() {
         <div  className='dep-uni-sup-container'>
           <div className='uni-super-assign'>
             <div className='uni-std-img-info'>
-              <img src={img} className='uni-std-circle'/>
-              <div className='uni-std-report-info'>
+              <img src={img} className='company-img2'/>
+              <div className='uni-std-report-info super'>
                 <span>Kamal Ibrahim</span>
                 <span>CS Professor</span>
               </div>

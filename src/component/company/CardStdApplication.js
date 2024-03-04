@@ -7,7 +7,7 @@ function CardStdApplication() {
 
   return (
     <>
-      <div className="card2 gray-bk centered-card margin-bottom">
+      <div className="large-card gray-bk centered-card margin-bottom">
       
         <div className="supr-std-app">
 

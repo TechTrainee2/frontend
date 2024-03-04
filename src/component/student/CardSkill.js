@@ -3,7 +3,7 @@ import React from 'react'
 function CardSkill() {
   return (
     <>
-     <div className='card2 gray-bk centered-card'>
+     <div className='large-card gray-bk centered-card'>
         <div className='skill-comp'>
             <span className='bold'>Skills & Experience </span>
 

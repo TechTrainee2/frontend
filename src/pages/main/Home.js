@@ -17,10 +17,8 @@ function Home() {
 
     <div className='main-txt'>
       <div className='intxt'>
-        <div>
-          <h1>Welcome to TechTrainee</h1>
-          <span className='text bold'>a place to help you getting your training done </span>
-        </div>
+          <h1 className='font-super'>Welcome to TechTrainee</h1>
+          <span className='home-txt-center bold super'>a place to help you getting your training done </span>
       </div>
     </div>
 

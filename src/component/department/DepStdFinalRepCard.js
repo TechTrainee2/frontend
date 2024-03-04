@@ -15,7 +15,7 @@ function DepStdFinalRepCard() {
 
         </div>
 
-        <div className='card2 gray-bk centered-card'>
+        <div className='large-card gray-bk centered-card'>
             <div className='dep-report-container'>
                 <div className='dep-header-report'>
                     <span className='bold'>Week 2</span>

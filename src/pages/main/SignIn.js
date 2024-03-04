@@ -11,8 +11,7 @@ function SignIn() {
         <span className='bold welcome'>Welcome Back</span>
      <img src={img} className='bk1'/>
      </div>
-
-        <Form/> 
+      <Form/> 
     </>
   )
 }

@@ -7,7 +7,7 @@ function DepNotificationCardForm() {
        <>
     <div className='std-notification-container'>
    
-     <div className='card2 gray-bk centered-card '>
+     <div className='large-card gray-bk centered-card '>
       <div>
 
         <div className='std-notification-comp'>

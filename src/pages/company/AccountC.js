@@ -9,7 +9,7 @@ function AccountC() {
     <>
     <NavbarMain/>
     <div className='centerd-comp'>
-        <span className='super bold'>My Account</span>
+        <span className='font-super bold'>My Account</span>
     </div>
     <CardProfile/>
     <CardCompBio/>

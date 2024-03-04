@@ -19,8 +19,8 @@ function AboutUs() {
     <div className='main-txt'>
       <div className='intxt'>
         <div>
-        <h1>About Our Website </h1>
-        <span className='text bold'>We're a platform designed to make discovering training opportunities simple and enjoyable </span>
+        <h1 className='font-super'>About Our Website </h1>
+        <span className='aboutus-txt-center bold super'>We're a platform designed to make discovering training opportunities simple and enjoyable </span>
         </div>
         
 

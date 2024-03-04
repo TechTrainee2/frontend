@@ -5,8 +5,11 @@ import Navbar from '../../component/uniSuper/Navbar'
 function SuperNotification() {
   return (
     <>
-        <Navbar/>
+      <Navbar/>
+      <div className='centerd-comp'>
+        <span className='font-super bold'>Notifications </span>
         <SuperNotificationCard/>
+    </div>
     </>
   )
 }

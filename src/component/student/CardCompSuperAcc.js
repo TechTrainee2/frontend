@@ -5,7 +5,7 @@ import img2 from '../../static/CompSuper.jpg'
 function CardCompSuperAcc() {
   return (
     <>
-     <div className='card2 gray-bk centered-card'>
+     <div className='large-card gray-bk centered-card'>
         
 
         <div className='std-acc-comp '>

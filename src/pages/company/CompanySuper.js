@@ -9,7 +9,7 @@ export default function CompanySuper() {
         <NavbarMain/>
         <div className='dep-uni-sup-container'>
             <div className='uni-super-assign'>
-                <span className=' super bold'>Supervisor</span>
+                <span className='font-super bold'>Supervisor</span>
                 <Link to='/addCompSuper'>
                     <button className='button-size navy-bk white-font'>Add supervisor</button>
                 </Link>

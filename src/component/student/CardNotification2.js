@@ -5,7 +5,7 @@ function CardNotification2() {
     <>
     <div className='std-notification-container'>
     <div className='blue-circle'></div>
-     <div className='card2 gray-bk centered-card'>
+     <div className='large-card gray-bk centered-card'>
         <div className='std-notification-comp'>
 
             <p>Your application for Internship Front End Developer at Coders has been approved. Please check your Email. </p>

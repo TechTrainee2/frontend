@@ -39,7 +39,9 @@ function ApplicationStdCard() {
                    <button className='button-size navy-bk white-font' onClick={handelOnClickReject} >Reject</button>
                 </div>
               </div>
-          <div className={isModal?'show': 'hidden'} >
+        
+        </div>
+        <div className={isModal?'show': 'hidden'} >
           <div className='modal-bk'></div>
             <div className='apply-box'>
                 <div className='apply-box-comp'>
@@ -75,8 +77,6 @@ function ApplicationStdCard() {
 
             </div>
         </div>
-        </div>
-
 
           </div>
           

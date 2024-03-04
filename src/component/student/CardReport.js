@@ -13,8 +13,7 @@ function CardReport() {
     }
   return (
     <>
-        <div className='card2 gray-bk centered-card'>
-            <div>
+        <div className='large-card gray-bk centered-card'>
             <div className='report-container'>
                 <div className='compsuper-header-report'>
                     <span className='bold'>Week 2</span>
@@ -64,7 +63,6 @@ function CardReport() {
         </div>
 
 
-        </div>
         </div>
         <div className={isModal?'show': 'hidden'} >
                         <div className='status-modal-bk'></div>
