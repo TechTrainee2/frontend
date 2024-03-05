@@ -81,7 +81,7 @@ function CardFillReport() {
                         </div>
                     </div>
 
-            <button className='button-size navy-bk white-font' onClick={handelOnClick}>Done</button>
+            <button className='button-size-report-done super navy-bk white-font' onClick={handelOnClick}>Done</button>
         
         </div>
     </>

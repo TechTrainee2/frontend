@@ -7,10 +7,6 @@ import { NavLink } from 'react-router-dom'
 function CardReport() {
   return (
     <>
-    <div className='compsuper-report'>
-        <span className='centered-title bold'>Students Report</span>
-        <input type="text" placeholder="Search Student Report" className='search-compsuper-report gray-bk '></input>
-    </div>
 
 
     <div className='card2 gray-bk centered-card'>
@@ -28,20 +24,8 @@ function CardReport() {
             </NavLink>
     </div>
 
-    <div className='card2 gray-bk centered-card'>
-        <div className='super-std-card'>
-            <div className='super-std-img'>
-                <img src={student2} className='uni-std-circle'/>
-                <div className='compsuper-std-name'>
-                    <span >Zaid Majed</span>
-                    <span>CS</span>
-                </div>
-            </div>
-        </div>
-            <NavLink to ='/'  className='not-clicked'>
-                <span className='compsuper-underline'>Report</span>
-            </NavLink>
-    </div>
+ 
+    
 
     </>
   )

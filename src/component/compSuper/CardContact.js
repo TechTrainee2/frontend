@@ -3,7 +3,7 @@ import React from 'react'
 function CardContact() {
   return (
     <>
-    <div className='card2 gray-bk centered-card'>
+    <div className='card2 gray-bk centered-card margin-bottom'>
             <div className='contact-comp-super'>
                 <span className='bold'>Contact Info</span>
                 <div className='std-info'>

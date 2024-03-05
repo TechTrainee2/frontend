@@ -7,8 +7,12 @@ function AccountCS() {
   return (
     <>
     <NavbarHome/>
-    <CardProfile/>
-    <CardContact/>
+    <div className='centerd-comp'>
+          <span className='font-super bold'>My Account </span>
+          <CardProfile/>
+          <CardContact/>
+      </div>
+    
     </>
   )
 }

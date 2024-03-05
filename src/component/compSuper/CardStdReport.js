@@ -6,20 +6,7 @@ import { Link } from 'react-router-dom'
 function CardStdReport() {
   return (
     <>
-    <div className='compsuper-std-report-cont'>
-        <div className='compsuper-std-name-cont'>
-                    <img src={student} className='uni-std-circle'/>
-                    <div className='compsuper-std-name'>
-                        <span >Mohammad Saleh's Report</span>
-                    </div>
-        </div>
-
-        <Link to='/CompSuperFillReport' >
-            <button className='button-size navy-bk white-font'>Add Report</button>
-        </Link>
-    </div>
-
-        <div className='card2 gray-bk centered-card'>
+        <div className='large-card gray-bk centered-card margin-bottom'>
             <div className='report-container'>
                 <div className='compsuper-header-report'>
                     <span className='bold'>Week 2</span>

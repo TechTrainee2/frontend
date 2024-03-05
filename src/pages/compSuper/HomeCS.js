@@ -7,8 +7,12 @@ function HomeCS() {
   return (
     <>
     <NavbarHome/>
-    <CardStudent1/>
-    <CardStd2/>
+
+    <div className='centerd-comp'>
+      <span className='font-super bold'>Current Students </span>
+      <CardStudent1/>
+    </div>
+   
     </>
   )
 }
