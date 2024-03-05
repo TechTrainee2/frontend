@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom'
 function CardProfile() {
   return (
     <>
-    <span className='centered-title bold'>My Account</span>
-
      <div className='card2 gray-bk centered-card'>
         
 

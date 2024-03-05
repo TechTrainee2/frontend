@@ -335,14 +335,18 @@
 }
 
 /***************** Company Supervisor ********************/
-
-.compsuper-std-note{
-  padding-left: 200px;
+.compsuper-std-card-container{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+.compsuper-std-note {
+  padding-left: 230px;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  gap:25px;
-  width: 55%;
+  gap: 25px;
+  width: 58%;
+  text-align: center;
 }
 .compsuper-std-img{
   display: flex;
@@ -350,12 +354,8 @@
   align-items: center;
   gap:35px;
 }
-.compsuper-std-img span{
-  font-size: 1.5rem;
-}
-.compsuper-std-note p{
-  font-size: 1.5rem;
-}
+
+
 .add-std-btn {
   border: none;
   border-radius: 10px;
@@ -444,12 +444,13 @@
   margin-left: 250px;
   font-size: 1.5rem;
 }
-.compsuper-std-report-cont{
+.compsuper-std-report-cont {
   margin-top: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 450px;
+  padding-left: 35px;
 }
 .compsuper-date{
   display: flex;
@@ -539,12 +540,12 @@
   width: 145px;
   padding-left: 20px;
 }
-.fill-report-TotalHour{
+.fill-report-TotalHour {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  margin-right: 287px;
+  margin-right: 413px;
   font-size: 1.5rem;
   gap: 65px;
   padding-top: 45px;
@@ -557,19 +558,29 @@
   width: 140px;
   padding-left: 20px;
 }
-.report-svg-left{
+.report-svg-left {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-left: 30%;
-  padding-top: 3%;
 }
-.signature-cont{
+.signature-cont {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 445px;
+  margin-bottom: 30px;
 }
+
+.button-size-report-done {
+  border: none;
+  border-radius: 20px;
+  padding-left: 35px;
+  padding-right: 35px;
+  width: fit-content;
+  height: 50px;
+}
+
 .report-modal-bk {
   content: '';
   position: absolute;
