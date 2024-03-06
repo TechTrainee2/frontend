@@ -11,6 +11,15 @@ a{
 .white-font{
     color: #F7FFFF;
 }
+.light-blue-bk{
+    background-color: #ddeaee;
+}
+
+.btn-place{
+    margin-left: 155px;
+    margin-top: 12px;
+
+}
 .super-srd-card{
     display: flex;
     flex-direction: column;
@@ -75,6 +84,7 @@ a{
 .uni-std-report-info{
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
 .supr-std-app{

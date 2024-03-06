@@ -653,6 +653,66 @@
 }
 
 /************** Student *************/
+.std-checkbox-txt{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+.filter-box-Company-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  margin-top: 75px;
+  width: 55%;
+}
+.width-90{
+  width: 90%;
+}
+.filter-box-place-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 50px;
+  margin-top: 75px;
+  width: 50%;
+  padding-left: 50px;
+}
+.filtr-box-place {
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  z-index: 1;
+  margin: auto;
+  top: 250px;
+  border-radius: 45px;
+  margin-left: 405px;
+}
+.filtr-comp-box {
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    z-index: 1;
+    margin: auto;
+    top: 250px;
+    border-radius: 45px;
+    margin-left: 170px;
+}
+.filter-box-comp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  margin-top: 75px;
+}
+.checkbox-size{
+  width: 25px;
+  height: 30px;
+  margin-top: 3px;
+}
 .search-box-2nav-comp{
     position: absolute;
     width: 565px;
@@ -817,6 +877,13 @@
   padding-top: 30px;
 }
 /********** Regestration ************/
+
+.reg-input-edit-super{
+  height: 50px;
+  border: none;
+  border-radius: 20px;
+  padding-left: 15px;
+}
 .assign-card {
   width: 93%;
   height: 150px;
@@ -898,7 +965,6 @@
 .reg-std-info {
   display: flex;
   flex-direction: row;
-  /* gap: 123px; */
   align-items: center;
   justify-content: flex-start;
   gap: 275px;
@@ -909,7 +975,7 @@
   flex-direction: row;
   align-items: center;
   gap: 20px;
-  font-size: 1.4rem;
+
 }
 .reg-std-btn-comp{
   display: flex;
@@ -917,11 +983,11 @@
   align-items: center;
   gap: 70px;
 }
-.reg-std-cont{
+.reg-std-cont {
   display: flex;
   flex-direction: row;
-  gap: 450px;
-  width: 960px;
+  width: 90%;
+  justify-content: space-between;
 }
 .reg-modal-bk {
   position: absolute;
