@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../../App.css'
 import '../../malak.css'
 import Navbar from '../../component/uniSuper/Navbar'
@@ -8,10 +8,9 @@ function ReportUniSuper() {
   return (
     <>
     <Navbar/>    
-    <div className='centerd-comp'>
+    <div className='centerd-comp' >
       <div className='uni-super-title-report'>
-        <span className='super bold'>Students Report</span>
-        <input type="text" placeholder="Search Student Report" className='uni-super-search-report gray-bk '/>
+        <span className='font-super bold'>Students Report</span>
       </div>
       <CardReportSuper/>
     </div>

@@ -11,14 +11,14 @@ function CardStudent1() {
             <div className='compsuper-std-card-container'>
 
                 <div className='compsuper-std-img'>
-                    <img src={student} className='large-img'/>
-                    <span className='font-super bold'>Mohammad Saleh</span>
+                    <img src={student} className='company-img'/>
+                    <span className='super bold'>Mohammad Saleh</span>
                 </div>
                 <div className='compsuper-std-note'>
                     <span>
                         <div className='note-circle navy-bk'></div>
                     </span>
-                    <p className='font-super'>Has been selected as a trainee under your supervision </p>
+                    <p className='super'>Has been selected as a trainee under your supervision </p>
                 </div>
             </div>
         </div>

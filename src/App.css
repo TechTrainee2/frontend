@@ -211,7 +211,7 @@ padding-right: 3%;
 padding-left: 1%;
 box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
-.nav-std img {
+.nav-std-logo {
   width: 125px;
   height: 125px;
   object-fit: cover;

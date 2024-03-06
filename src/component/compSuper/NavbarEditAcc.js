@@ -6,7 +6,7 @@ function NavbarEditAcc() {
     <>
     <div className='nav-std'>
         <NavLink to ='/stdHome'  className='not-clicked'>
-            <img src={img}/>
+            <img className='nav-std-logo'  src={img}/>
         </NavLink>
 
         <span className='centered-nav-title bold'>Edit Account</span>
