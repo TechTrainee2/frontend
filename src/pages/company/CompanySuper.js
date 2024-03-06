@@ -11,7 +11,7 @@ export default function CompanySuper() {
             <div className='uni-super-assign'>
                 <span className='font-super bold'>Supervisor</span>
                 <Link to='/addCompSuper'>
-                    <button className='button-size navy-bk white-font'>Add supervisor</button>
+                    <button className='button-size navy-bk white-font font-med'>Add supervisor</button>
                 </Link>
             </div>
             <CompanySuperCard/>

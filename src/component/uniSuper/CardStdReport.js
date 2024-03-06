@@ -87,7 +87,7 @@ function CardStdReport() {
                
             </label>
 
-                <button className='button-size navy-bk white-font' onClick={handelOnClickAdd}>Upload Signature</button>
+                <button className='button-size navy-bk white-font font-med' onClick={handelOnClickAdd}>Upload Signature</button>
 
             <div className={isAdd?'show': 'hidden'} >
                 <div className='reg-modal-bk'></div>

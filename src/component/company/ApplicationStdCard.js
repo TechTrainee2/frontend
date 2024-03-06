@@ -35,8 +35,8 @@ function ApplicationStdCard() {
                   Student Application
                 </Link>
                 <div className='comp-app-btn-container '>
-                   <button className='button-size navy-bk white-font' onClick={handelOnClick} >Accept</button>
-                   <button className='button-size navy-bk white-font' onClick={handelOnClickReject} >Reject</button>
+                   <button className='button-size navy-bk white-font font-med' onClick={handelOnClick} >Accept</button>
+                   <button className='button-size navy-bk white-font font-med' onClick={handelOnClickReject} >Reject</button>
                 </div>
               </div>
         

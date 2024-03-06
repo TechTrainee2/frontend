@@ -6,7 +6,7 @@ function NavbarNewPost() {
     <>
     <div className='nav-std'>
         <NavLink to ='/compHome'  className='not-clicked'>
-            <img src={img}/>
+            <img className='nav-std-logo'  src={img}/>
         </NavLink>
 
         <span className='centered-nav-title bold'>New Post</span>

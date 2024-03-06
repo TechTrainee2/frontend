@@ -25,7 +25,7 @@ function CardUniSuperAcc() {
         </div>
     </div>
 
-    <div className='card2 gray-bk centered-card'>
+    <div className='large-card gray-bk centered-card'>
         <div className='contact-comp'>
             <span className='bold'>Contact Info</span>
             <div className='std-info'>

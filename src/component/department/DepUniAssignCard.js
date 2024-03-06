@@ -30,9 +30,8 @@ function DepUniAssignCard() {
                     <span  onClick={handelOnClick}>delete</span>
                   </div>
 
-
-                  
-                  <div className={isModal?'show': 'hidden'} >
+          </div>
+          <div className={isModal?'show': 'hidden'} >
                         <div className='modal-bk'></div>
                         <div className='apply-box'>
                             <div className='apply-box-comp'>
@@ -50,8 +49,6 @@ function DepUniAssignCard() {
 
                         </div>
                     </div>
-
-          </div>
       </div>
 
     </>

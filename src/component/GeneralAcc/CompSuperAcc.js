@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function CompSuperAcc() {
   return (
     <>
-     <div className='card2 gray-bk centered-card'>
+     <div className='large-card gray-bk centered-card'>
         
 
         <div className='std-acc-comp '>
@@ -28,7 +28,7 @@ function CompSuperAcc() {
         </div>
     </div>
 
-    <div className='card2 gray-bk centered-card'>
+    <div className='large-card gray-bk centered-card'>
             <div className='contact-comp-super'>
                 <span className='bold'>Contact Info</span>
                 <div className='std-info'>

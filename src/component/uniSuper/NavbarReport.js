@@ -6,7 +6,7 @@ function NavbarReport() {
     <>
     <div className='nav-std'>
         <NavLink to ='/uniSuper'  className='not-clicked'>
-            <img src={img}/>
+            <img className='nav-std-logo'  src={img}/>
         </NavLink>
 
         <span className='centered-nav-title bold'>Reports</span>

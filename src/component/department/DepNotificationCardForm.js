@@ -22,8 +22,8 @@ function DepNotificationCardForm() {
 
         </div>
         <div className='button-container'>
-          <button className='button-size navy-bk white-font'>Accpet</button>
-          <button className='button-size navy-bk white-font'>Reject</button>
+          <button className='button-size navy-bk white-font font-med'>Accpet</button>
+          <button className='button-size navy-bk white-font font-med'>Reject</button>
         </div>
       </div>
 
