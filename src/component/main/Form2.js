@@ -3,7 +3,7 @@ import React from 'react'
 function Form2() {
   return (
     <>
-    <div className='form'>
+    <div className='form2'>
       <form className='imd-form'> 
         <div className='form-input'>
           <label>
@@ -20,14 +20,14 @@ function Form2() {
           <input type='text' placeholder='Email' name='email'/>
           <input type='text' placeholder='Organization ID' name='org id'/>
           <input type='password' placeholder='Password' name='password'/>
-          <button className='button-size navy-bk white-font'>
+          <button className='button-size navy-bk white-font super'>
             Sign Up
           </button>
         </div>
 
       </form>
 
-      <div className='form-link'>
+      <div className='form-link '>
         <span>Already have an account?</span>
         <a href='/SignIn' className='under-line'>Sign In</a>
       </div>

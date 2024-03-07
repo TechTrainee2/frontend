@@ -204,7 +204,15 @@ a{
   background-color: #F5F5F5;
   font-size: 1.5rem;
 }
-.form{
+.form1{
+  display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    flex-wrap: wrap;
+    padding-right: 180px;
+    gap: 12px;
+}
+.form2{
   display: flex;
     flex-direction: column;
     align-content: flex-end;
