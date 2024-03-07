@@ -137,6 +137,92 @@
   align-items: center;
 }
 /************ Company ****************/
+.form-inputs{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 70%;
+}
+.sm-input{
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+}
+
+.form-cell{
+  border: none;
+  border-radius: 35px;
+}
+.form-cell-sm{
+  width: 45%;
+  height: 50px;
+}
+.form-cell-la{
+  width: 92%;
+  height: 50px;
+}
+.title-add-super{
+  align-self: self-start;
+  width: 70%;
+  margin: auto;
+}
+.std-report-comp-m{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  gap: 30px;
+}
+.comp-post-container{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 30px;
+}
+.std-comp-post-cont{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 120px;
+  gap: 10px;
+}
+.comp-super-std-info-svg{
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  
+  align-items: center;
+  justify-content: space-between;
+}
+.comp-app-btn-container{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.centerd-comp{
+  width: 70%;
+  margin: auto;
+  margin-top: 45px;
+}
+.std-report-comp-m p{
+  width: 70%;
+  padding-left: 120px;
+}
+.company-post{
+  padding-left: 100px;
+}
+.company-post-img{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+.company-img{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 .large-card {
   margin-top: 45px;
   height: -moz-fit-content;
@@ -653,6 +739,69 @@
 }
 
 /************** Student *************/
+.card-std-assign{
+  margin-top: 35px;
+  
+  height: fit-content;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.add-std-spans{
+  display: flex;
+  flex-direction: column;  
+}
+.std-info-svg{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+  align-items: center; 
+}
+.std-report-images-m{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+.std-report-img-text{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+  padding-left: 180px;
+}
+.std-com-post-circle {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
+.super-srd-card{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.super-std-note{
+  padding-left: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap:15px;
+  width: 50%;
+}
+.super-std-img{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap:35px;
+}
+.uni-std-circle{
+  border-radius: 50%;
+  height: 90px;
+  width: 90px;
+  object-fit: cover;
+}
 .std-checkbox-txt{
   display: flex;
   flex-direction: row;
@@ -1054,6 +1203,66 @@
   margin-left: 355px;
 }
 /************* Uni Super *************/
+.supr-std-app-img{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  width: 90%;
+}
+.supr-std-app-img{
+  font-size: 1.2rem;
+}
+.supr-std-app{
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+.uni-sup-std-info-svg {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.links-uni{
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+.uni-std-final-report{
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  margin: auto;
+  width: 90%;
+}
+
+.uni-std-report{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+.uni-std-img-info{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+}
+.uni-std-report-info{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.uni-super-assign{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .card-uni-super-notification  {
   margin-top: 45px;
   width: 70%;
@@ -1131,4 +1340,168 @@
 /*************** Department ************/
 .dep-notification-width{
   width: 110%;
+}
+.dep-card-super{
+  width: 45%;
+  height: 250px;
+  border-radius: 45px;
+  display: flex;
+  justify-content: center;
+  transition: 200ms ease-in-out;
+}
+.dep-card-super:hover{
+  box-shadow:  0 2px 4px 0 rgba(0,0,0,.2);
+
+}
+.dep-std-span{
+  font-size: 2rem;
+}
+.warning{
+  color: #BC437D;
+}
+.dep-std-svg{
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+.dep-std-svg svg{
+  width: 40px;
+  height: 40px;
+}
+.dep-uni-sup-container{
+  width: 75%;
+  margin: auto;
+  margin-top: 75px;
+}
+.dep-uni-sup-card{
+  display: flex;
+  flex-wrap: wrap; 
+  margin-top: 50px;
+  justify-content: space-between;
+}
+.dep-uni-std-span-card{
+  margin-top: 70px;
+}
+.report-title{
+  margin-left:200px ;
+  font-size: 1.5rem;
+}
+.search-dep-report{
+  height: 35px;
+  margin-top: 30px;
+  width: 500px;
+  border-radius: 45px;
+  padding-left: 19px;
+  padding-top: 5px;
+  border: none;
+  margin-left: 200px;
+}
+.dep-info-card-report{
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  align-items: center;
+  justify-content: space-between;
+}
+.dep-report-container{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.dep-header-report{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 100px;
+  font-size: 1.2em;
+}
+/********* Sub navbar ************/
+.sub-navbar{
+  display: flex;
+  flex-direction: row;   
+  gap: 100px;
+}
+.sub-nav-font{
+  font-size: 1.3rem;
+}
+.sub-nav-cont{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/************* Btns ************/
+.btn-place{
+  margin-left: 155px;
+  margin-top: 12px;
+
+}
+.std-btns-m{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px ;
+  width: 470px;  
+}
+.button-pos{
+  margin-left:500px
+}
+.add-std-spans-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.form-btns{
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 170px;
+}
+.btn-link-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.button-container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 100px;
+}
+.button-size-input{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:250px ;
+  height: 50px;
+  border-radius:20px ;
+  font-size: 1.2rem;
+  border: none;
+}
+.app-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 30px;
+}
+/************* Modal *************/
+.boxs-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+  justify-content: space-around;
+  margin: auto;
+  height: 84vh;
+}
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70%;
+  width: 40%;
+  font-size: 3rem;
+  border-radius: 20px;
 }

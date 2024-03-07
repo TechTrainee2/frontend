@@ -7,7 +7,9 @@ body{
 html{
   font-size: 18px;
 }
-
+a{
+  text-decoration: none;
+}
 .bold{
   font-weight: 500;
 }
@@ -23,6 +25,12 @@ html{
 .gray-bk{
   background-color: #cbd6da;
 }
+.light-blue-bk{
+  background-color: #ddeaee;
+}
+.under-line{
+  text-decoration: underline;
+}
 .centered-card{
   display: flex;
   margin: auto;
@@ -34,12 +42,37 @@ html{
 a{
   color: #1c3150;
 }
-                /* container */
-/* .container{
+.super{
+  font-size: 1.5rem;   
+}
+.font-super {
+  font-size: 2rem;
+}
+.font-med{
+  font-size: 1.2rem;   
+}
+.txt-center{
+  text-align: center;
+}
+.centered-header{
+  margin: auto;
+}
+.note-circle {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-top: 40px;
+}
+.title{
+  margin-left: 200px;
+  margin-top: 50px;
+  font-size: 1.5rem;
+}
+.app-p{
+  width: 80%;
   display: flex;
-  /* flex-direction: row; 
-} */
-
+  flex-direction: column;
+}
 .nav-comp{
   display: flex;
   justify-content: flex-end;
@@ -252,7 +285,13 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 .icons span{
   font-size: .9rem;
 }
-
+.opacity{
+  opacity: 75%;
+}
+.logo-add{
+  width: 150px;
+  height: 125px;
+}
 .card1{
   margin-top: 45px;
   width: 70%;
@@ -276,6 +315,46 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   height: fit-content;
   padding-bottom: 30px;
   padding-top: 30px;
+}
+.gap{
+  width: 75%;
+  margin-top: 30px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:50px;
+}
+.title{
+  margin-left: 200px;
+  margin-top: 50px;
+  font-size: 1.5rem;
+}
+.margin-bottom{
+  margin-bottom: 50px;
+}
+.center-place-holder{
+  text-align: center;
+  font-size: 1.2rem;
+}
+.left-place-holder{
+  padding-left:50px ;
+  font-size: 1.2rem;
+}
+.svg-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
+}
+.assign-padding-span{
+  padding-left: 10px;
+  font-size: 1.5rem;
+}
+.svg-txt{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .std-acc-comp{
   display: flex;
@@ -305,6 +384,9 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+.txt-std-name p{
+  width: 80%;
 }
 .std-btns{
   display: flex;
