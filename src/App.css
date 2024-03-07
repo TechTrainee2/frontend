@@ -10,6 +10,23 @@ html{
 a{
   text-decoration: none;
 }
+
+
+/* ********* display none ********* */
+
+.diplay-none-disktop-sm-bk1{
+  display: none;
+}
+.menu-sandwich{
+  display: none;
+}
+.menu-bk{
+  display: none;
+}
+
+
+
+/* end of display none */
 .bold{
   font-weight: 500;
 }
@@ -115,7 +132,7 @@ a{
   margin-right: 115px;
   gap: 50px;
   align-items: center;
-  width: 415px;
+  width: 26%;
   height: 400px;
 }
 .text{
@@ -124,7 +141,7 @@ a{
   justify-content: center;
 }
 .home-txt-center{
-  width: 345px;
+  width: 80%;
   text-align: center;
 }
 .aboutus-txt-center {
