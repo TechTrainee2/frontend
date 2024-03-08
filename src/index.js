@@ -55,6 +55,8 @@ import CompStd from './pages/company/CompStd';
 import StdApplication from './pages/company/StdApplication';
 import SuperNotification from './pages/uniSuper/SuperNotification';
 import UniSuperViewPost from './pages/uniSuper/UniSuperViewPost';
+import './App.css'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

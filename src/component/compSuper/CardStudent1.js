@@ -1,7 +1,6 @@
 import React from 'react'
 import student from '../../static/Student.jpg'
-import '../../App.css'
-import '../../malak.css'
+
 
 function CardStudent1() {
   return (

@@ -3,7 +3,7 @@ import NavbarStd from '../../component/student/NavbarStd'
 import CardCompAcc from '../../component/student/CardCompAcc'
 import CardCompBio from '../../component/student/CardCompBio'
 import CardCompPost from '../../component/student/CardCompPost'
-import '../../nada.css'
+
 
 function CompanyPS() {
   return (

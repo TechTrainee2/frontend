@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../nada.css'
+
 import CardNotification1 from '../../component/student/CardNotification1'
 import CardNotification2 from '../../component/student/CardNotification2'
 import NavbarStd from '../../component/student/NavbarStd'
