@@ -1,8 +1,5 @@
 import React from 'react'
 import student from '../../static/Student2.jpg'
-import '../../App.css'
-import '../../malak.css'
-
 function CardStd2() {
   return (
     <>

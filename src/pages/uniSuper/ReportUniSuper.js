@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import '../../App.css'
-import '../../malak.css'
+
 import Navbar from '../../component/uniSuper/Navbar'
 import CardReportSuper from '../../component/uniSuper/CardReportSuper'
 

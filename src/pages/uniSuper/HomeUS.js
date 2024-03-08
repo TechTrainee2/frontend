@@ -1,6 +1,5 @@
 import React from 'react'
-import '../../App.css'
-import '../../malak.css'
+
 import Navbar from '../../component/uniSuper/Navbar'
 import CardHomeUS from '../../component/uniSuper/CardHomeUS'
 
