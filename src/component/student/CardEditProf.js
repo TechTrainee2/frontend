@@ -52,7 +52,7 @@ function CardEditProf() {
                             <span>Dr. Ahmad</span>
                         </div>
 
-                        <div className='std-btns'>
+                        <div className='std-btns-edit-acc'>
                             <Link to='/stdAcc' >
                                 <button className='button-size-std navy-bk white-font'>
                                     Done

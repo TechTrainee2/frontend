@@ -24,7 +24,7 @@ function CardProfile() {
                             <span>Dr. Ahmad</span>
                         </div>
 
-                        <div className='std-btns'>
+                        <div className='std-btns-acc'>
                             <Link to='/stdEdit' >
                                 <button className='button-size-std navy-bk white-font'>
                                     Edit

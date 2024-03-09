@@ -413,7 +413,14 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 .txt-std-name p{
   width: 80%;
 }
-.std-btns{
+.std-btns-acc{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px;
+}
+.std-btns-edit-acc{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -456,16 +463,13 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 .svg-left{
   padding-left: 51%;
 }
-.contact-comp{
+.contact-comp {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 75%;
   padding-bottom: 30px;
   padding-top: 30px;
   gap: 30px;
-}
-.contact-comp{
-  font-size: 1.5rem;
 }
 .std-info{
   display: flex;
@@ -475,9 +479,6 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 .std-info div{
   display: flex;
   flex-direction: column;
-}
-.std-span-info{
-  font-size: 1rem;
 }
 .std-images{
   position: relative;
@@ -793,6 +794,14 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   object-fit: cover;
 }
 .large-card {
+  margin-top: 45px;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  width: 70%;
+}
+.std-notification-card {
   margin-top: 45px;
   height: -moz-fit-content;
   height: fit-content;
@@ -1174,6 +1183,18 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   justify-content: center;
 }
 .fill-report-topic{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+.fill-report-equipment{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+.fill-report-hours{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2319,7 +2340,315 @@ transition: 200ms ease-in-out;
   width: 85%;
 }
 
+/**************** Std My Account *****************/
+.centered-title {
+  display: flex;
+  margin-top: 105px;
+  font-size: 2rem;
+  margin-left: 45px;
+}
+.large-card {
+  margin-top: 45px;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  width: 95%;
+}
+.imgbk-size {
+  width: 100%;
+  border-radius: 45px;
+  height: 180px;
+  object-fit: cover;
+}
+.std-circle {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+.std-profile {
+  position: absolute;
+  bottom: -45px;
+  left: 20px;
+  object-fit: cover;
+}
+.std-acc-comp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85%;
+}
+.std-images {
+  position: relative;
+  width: 330px;
+  height: 190px;
+}
+.std-txt-left {
+  display: flex;
+  flex-direction: column;
+  padding-left: 25px;
+  padding-top: 58px;
+}
+.std-btn-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 290px;
+  padding-top: 0px;
+}
+.txt-std-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.std-btns-acc {
+  display: flex;
+  flex-direction: row;
+  width: 160px;
+  margin-top: -120px;
+  margin-right: 14px;
+}
+.skill-comp {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.skill-comp p {
+  margin-left: 30px;
+}
+.pdf-circle {
+  border-style: solid;
+  border-color: #1c3150;
+  border-width: 7px;
+  border-radius: 50%;
+  width: 135px;
+  height: 135px;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+.svg {
+  width: 80px;
+  height: 80px;
+  padding-left: 33px;
+  padding-top: 13px;
+}
 
+/************ Edit Account ***************/
+.svg-circle-cover {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  bottom: 120px;
+  right: 35px;
+  background-color: #cbd6da;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #1c3150;
+}
+.svg-circle-cover svg {
+  padding-left: 9px;
+  padding-top: 7px;
+  width: 30px;
+}
+.svg-circle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  bottom: 6px;
+  left: 65px;
+  background-color: #cbd6da;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #1c3150;
+}
+.svg-circle svg {
+  width: 20px;
+  height: 20px;
+  padding-left: 6px;
+  padding-top: 5px;
+}
+.std-btns-edit-acc {
+  display: flex;
+  flex-direction: row;
+  width: 110px;
+  margin-top: -100px;
+  margin-right: 14px;
+}
+.skill-comp {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  gap: 10px;
+}
+.std-data {
+  height: 35px;
+  background-color: #ddeaee;
+  font-size: 1rem;
+  width: 255px;
+}
+
+/************* Std Report ************/
+
+.compsuper-header-report {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  font-size: 1.2em;
+  margin: auto;
+  align-items: center;
+}
+.compsuper-date {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: center;
+}
+.compsuper-fill-report-topic {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 50px;
+  font-size: 1rem;
+  gap: 0px;
+  width: 304px;
+}
+.fill-report-topic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 63px;
+  width: 185px;
+}
+.fill-report-equipment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 75px;
+  width: 445px;
+}
+.fill-report-hours {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 78px;
+  width: 115px;
+}
+.report-TotalHour {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 20px;
+  font-size: 1.5rem;
+  gap: 45px;
+  padding-top: 60px;
+}
+.std-report-status-btn {
+  display: flex;
+  flex-direction: row;
+  padding-top: 30px;
+  justify-content: flex-end;
+  gap: 90px;
+  padding-right: 100px;
+}
+.std-report-status-box {
+  position: absolute;
+  width: 350px;
+  height: 705px;
+  background-color: white;
+  z-index: 1;
+  margin: auto;
+  top: 250px;
+  border-radius: 45px;
+}
+.std-status-box-comp svg {
+  width: 30px;
+  margin-left: 255px;
+}
+.card3-status {
+  margin-top: 45px;
+  width: 95%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+.std-report-status-comp {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+}
+.std-progress-btn-size {
+  border: none;
+  border-radius: 15px;
+  padding-left: 35px;
+  padding-right: 35px;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 42px;
+  font-size: 1.2rem;
+  margin-left: 120px;
+}
+.std-status-circle {
+  border-radius: 50%;
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+}
+.std-status-super-images {
+  position: relative;
+  height: 115px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 2rem;
+  gap: 15px;
+}
+
+/************* Std Notification *************/
+.notification-title {
+  margin-left: 40px;
+  margin-top: 50px;
+  font-size: 2rem;
+}
+.std-notification-comp {
+  display: flex;
+  flex-direction: column;
+  width: 650px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  font-size: 1.5rem;
+  padding-left: 20px;
+}
+.std-notification-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 0%;
+}
+.blue-circle {
+  background-color: #1c3150;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin-top: 45px;
+}
+.std-notification-card {
+  margin-top: 45px;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  width: 85%;
+}
 
 
 }
