@@ -4,9 +4,7 @@ import { NavLink } from 'react-router-dom'
 function SmallNavbar() {
   return (
     <>
-         <div className='sm-nav-std'>
-
-        <input type="text" placeholder="Search.." className='search-std gray-bk ' ></input>
+         <div className='sm-nav-std white-bk'>
         <div className='icon-cont'>
             <div className='icons'>
                 

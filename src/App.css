@@ -24,9 +24,24 @@ a{
   display: none;
 }
 
-
-
 /* end of display none */
+
+.wd40{
+  width: 40px;
+}
+.wd35{
+  width: 35px;
+}
+.wd25{
+  width: 25px;
+}
+.he40{
+  height: 40px;
+}
+.he25{
+  height: 25px;
+}
+
 .bold{
   font-weight: 500;
 }
@@ -35,6 +50,9 @@ a{
 }
 .white-font{
   color: #F5F5F5;
+}
+.white-bk{
+  background-color: #F5F5F5;
 }
 .gray-font{
   color: #cbd6da;
@@ -795,7 +813,13 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 .large-card {
   margin-top: 45px;
-  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  width: 70%;
+}
+.large-card-report{
+  margin-top: 45px;
   height: fit-content;
   padding-bottom: 30px;
   padding-top: 30px;
@@ -2095,7 +2119,7 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   font-size: 3rem;
   border-radius: 20px;
 }
-
+/* *************************************PHONE********************************************** */
 
 @media only screen and (max-width: 600px) {
   /********** Main Page ***********/
@@ -2109,6 +2133,33 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   .nav-comp{
       display: none;
   }
+  .dep-uni-sup-container {
+    width: 100%;
+    margin: auto;
+    margin-top: 75px;
+}
+.sm-nav-std {
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 6%;
+  padding-left: 6%;
+  box-shadow: 0 2px 6px 0 rgb(0 0 0);
+  width: 90%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.icon-cont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0px;
+  justify-content: space-between;
+  width: 95%;
+}
   .intxt {
       display: flex;
       flex-direction: column;
@@ -2118,6 +2169,12 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
       align-items: center;
       width: 100%;
       height: 400px;
+  }
+  .wd25{
+    width: 15px;
+  }
+  .he25{
+    height: 15px;
   }
   .bk1{
       display: none;
@@ -2246,23 +2303,107 @@ transition: 200ms ease-in-out;
 }
 
 /********** std *********/
+.margin-bottom {
+  margin-bottom: 20px;
+}
+.med-margin-bottom-phone{
+
+  margin-bottom: 70px;
+}
+.large-margin-bottom-phone {
+  margin-bottom: 100px;
+}
 .nav-std {
   display: none;
 }
-
-
+.sub-navbar {
+  display: flex;
+  flex-direction: row;
+  gap: 45px;
+  align-items: center;
+  justify-content: center;
+}
+.std-comp-post-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 0px;
+  gap: 10px;
+}
+.comp-post-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+  gap: 13px;
+}
+.std-com-post-circle {
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+}
 
 .dep-card-super {
-  width: 100%;
-  height: 250px;
-  border-radius: 45px;
+  width: 95%;
+  height: 200px;
+  border-radius: 25px;
   display: flex;
   justify-content: center;
   transition: 200ms ease-in-out;
 }
 
+.dep-uni-sup-card {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 30px;
+  justify-content: flex-start;
+  padding-bottom: 70px;
+  align-items: center;
+}
 
+.large-card {
+  margin-top: 45px;
+  height: fit-content;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  width: 95%;
+}
+.std-company-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+}
 
+.company-img2 {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.std-post-txt {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+}
+.std-post-detail {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  gap: 20px;
+  align-items: center;
+}
+.std-apply-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 85%;
+}
 
 /**************** Std My Account *****************/
 .centered-title {
@@ -2271,14 +2412,24 @@ transition: 200ms ease-in-out;
   font-size: 2rem;
   margin-left: 45px;
 }
-.large-card {
-  margin-top: 45px;
-  height: -moz-fit-content;
-  height: fit-content;
-  padding-bottom: 30px;
-  padding-top: 30px;
-  width: 95%;
+.button-size-std {
+  border: none;
+  border-radius: 45px;
+  padding-left: 35px;
+  padding-right: 35px;
+  width: fit-content;
+  height: 34px;
+  font-size: 1rem;
 }
+.std-btns-acc {
+  display: flex;
+  flex-direction: row;
+  width: 160px;
+  margin-top: -120px;
+  margin-right: 14px;
+  gap: 4px;
+}
+
 .imgbk-size {
   width: 100%;
   border-radius: 45px;
@@ -2326,13 +2477,7 @@ transition: 200ms ease-in-out;
   flex-direction: column;
   align-items: flex-start;
 }
-.std-btns-acc {
-  display: flex;
-  flex-direction: row;
-  width: 160px;
-  margin-top: -120px;
-  margin-right: 14px;
-}
+
 .skill-comp {
   display: flex;
   flex-direction: column;
@@ -2419,7 +2564,15 @@ transition: 200ms ease-in-out;
 }
 
 /************* Std Report ************/
+.large-card-report{
+  margin-top: 45px;
+  height: fit-content;
+  margin-bottom: 100px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 
+  width: 95%;
+}
 .compsuper-header-report {
   display: flex;
   flex-direction: column;
