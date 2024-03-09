@@ -2074,7 +2074,7 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   font-size: 3rem;
   border-radius: 20px;
 }
-
+/* *************************************PHONE********************************************** */
 
 @media only screen and (max-width: 600px) {
   /********** Main Page ***********/
@@ -2225,23 +2225,99 @@ transition: 200ms ease-in-out;
 }
 
 /********** std *********/
-.nav-std {
-  display: none;
+.margin-bottom {
+  margin-bottom: 20px;
 }
 
 
+.nav-std {
+  display: none;
+}
+.sub-navbar {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.std-comp-post-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 0px;
+  gap: 10px;
+}
+.comp-post-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px;
+  gap: 13px;
+}
+.std-com-post-circle {
+  border-radius: 50%;
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+}
 
 .dep-card-super {
   width: 100%;
-  height: 250px;
-  border-radius: 45px;
+  height: 200px;
+  border-radius: 25px;
   display: flex;
   justify-content: center;
   transition: 200ms ease-in-out;
 }
 
+.dep-uni-sup-card {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 30px;
+  justify-content: flex-start;
+}
 
+.large-card {
+  margin-top: 45px;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  width: 95%;
+}
+.std-company-profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 45px;
+}
 
+.company-img2 {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.std-post-txt {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+}
+.std-post-detail {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  gap: 20px;
+  align-items: center;
+}
+.std-apply-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 85%;
+}
 
 
 
