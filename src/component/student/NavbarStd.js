@@ -16,7 +16,7 @@ function NavbarStd() {
         <NavLink to ='/stdHome'  className='not-clicked'>
             <img className='nav-std-logo' src={img}/>
         </NavLink>
-        <input type="text" placeholder="Search.." className='search-std gray-bk ' onClick={handelOnClick}></input>
+        <input type="text" placeholder="Search.." className='search-std gray-bk ' onClick={handelOnClick}/>
         <div className='icon-cont'>
             <div className='icons'>
                 

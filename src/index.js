@@ -56,6 +56,7 @@ import StdApplication from './pages/company/StdApplication';
 import SuperNotification from './pages/uniSuper/SuperNotification';
 import UniSuperViewPost from './pages/uniSuper/UniSuperViewPost';
 import './App.css'
+import SearchPhone from './pages/student/SearchPhone';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -252,6 +253,10 @@ const router = createBrowserRouter([
   {
     path: "/RegProf",
     element: <ProfReg/> 
+  },
+  {
+    path: "/searchphone",
+    element: <SearchPhone/> 
   }
 
 
