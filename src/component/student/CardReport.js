@@ -36,14 +36,14 @@ function CardReport() {
                     <span>statistics book studying</span>
                 </div>
 
-                <div className='fill-report-topic'>
+                <div className='fill-report-equipment'>
                     <span className='bold'>Software and Equipment used</span>
                     <span>datacomp.com</span>
                     <span>w3schools.com</span>
                     <span>pdf</span>
                 </div>
 
-                <div className='fill-report-topic'>
+                <div className='fill-report-hours'>
                     <span className='bold'>Hours</span> 
                     <span>4 </span>
                     <span>9</span>
