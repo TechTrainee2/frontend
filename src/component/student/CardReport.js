@@ -13,7 +13,7 @@ function CardReport() {
     }
   return (
     <>
-        <div className='large-card gray-bk centered-card'>
+        <div className='large-card-report gray-bk centered-card large-margin-bottom-phone'>
             <div className='report-container'>
                 <div className='compsuper-header-report'>
                     <span className='bold'>Week 2</span>

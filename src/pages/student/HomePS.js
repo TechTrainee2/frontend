@@ -8,9 +8,9 @@ function HomePS() {
   return (
     <>
     <NavbarStd/>
+    <SmallNavbar/>
     <div className='dep-uni-sup-container'>
       <SubNavbar/>
-        {/* <SmallNavbar/> */}
       <div className='dep-uni-sup-card'>
         <CardPost/>
         <CardPost/>
