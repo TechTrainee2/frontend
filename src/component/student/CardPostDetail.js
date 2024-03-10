@@ -12,7 +12,7 @@ function CardPostDetail() {
     }
   return (
     <>
-        <div className='large-card gray-bk centered-card margin-bottom'>
+        <div className='large-card gray-bk centered-card margin-bottom margin-bottom-apply'>
           <div className='std-post-detail' >
 
 
