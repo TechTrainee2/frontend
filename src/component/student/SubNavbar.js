@@ -47,7 +47,7 @@ function SubNavbar() {
         </div>
         <div className={isRole?'show': 'hidden'} >
                         <div className='modal-no-bk'onClick={handelOnClickRoleX} ></div>
-                        <div className='apply-box'>
+                        <div className='filtr-role-box'>
                             <div className='filter-box-comp'>
                               <div className='std-checkbox-txt super'>
                                 <input type='checkbox' className='checkbox-size' />

@@ -385,6 +385,9 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 .margin-bottom{
   margin-bottom: 50px;
 }
+.margin-bottom-apply{
+  margin-bottom: 50px;
+}
 .center-place-holder{
   text-align: center;
   font-size: 1.2rem;
@@ -1442,6 +1445,18 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 .width-90{
   width: 90%;
 }
+
+
+.filtr-role-box{
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    z-index: 1;
+    margin: auto;
+    top: 250px;
+    border-radius: 45px;
+}
 .filter-box-place-cont {
   display: flex;
   flex-direction: column;
@@ -2376,6 +2391,9 @@ transition: 200ms ease-in-out;
 .margin-bottom {
   margin-bottom: 20px;
 }
+.margin-bottom-apply {
+  margin-bottom: 100px;
+}
 .med-margin-bottom-phone{
 
   margin-bottom: 70px;
@@ -2392,6 +2410,86 @@ transition: 200ms ease-in-out;
   gap: 45px;
   align-items: center;
   justify-content: center;
+}
+.filtr-role-box{
+  position: absolute;
+  width: 223px;
+  height: 250px;
+  background-color: white;
+  z-index: 1;
+  margin: auto;
+  margin-right: 119px;
+  top: 172px;
+  border-radius: 45px;
+  margin-left: 0px;
+}
+.filter-box-comp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-top: 49px;
+}
+.filtr-comp-box {
+  position: absolute;
+  width: 223px;
+  height: 250px;
+  background-color: white;
+  z-index: 1;
+  margin: auto;
+  top: 172px;
+  border-radius: 45px;
+  margin-left: 90px;
+}
+.filter-box-Company-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-top: 55px;
+  width: 75%;
+}
+.filtr-box-place{
+  position: absolute;
+  width: 223px;
+  height: 250px;
+  background-color: white;
+  z-index: 1;
+  margin: auto;
+  top: 172px;
+  border-radius: 45px;
+  margin-left: 120px;
+}
+.filter-box-place-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+  margin-top: 55px;
+  width: 75%;
+  padding-left: 50px;
+}
+.checkbox-size {
+  width: 20px;
+  height: 25px;
+  margin-top: 3px;
+}
+.std-checkbox-txt {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.modal-no-bk{
+  content: '';
+  position: absolute;
+  /* background-color: #CBD6DA; */
+  opacity: 70%;
+  width: 100%;
+  height: 850px;
+  top: 120px;
+  left: 0px;
+  z-index: 0;
 }
 .std-comp-post-cont {
   display: flex;
@@ -2570,11 +2668,12 @@ transition: 200ms ease-in-out;
   align-items: center;
   margin: auto;
 }
-.svg {
-  width: 80px;
-  height: 80px;
-  padding-left: 33px;
-  padding-top: 13px;
+
+  .svg {
+    width: 80px;
+    height: 80px;
+    padding-left: 23px;
+    padding-top: 17px;
 }
 
 /************ Edit Account ***************/
@@ -2807,6 +2906,97 @@ transition: 200ms ease-in-out;
   padding-top: 0px;
   width: 85%;
 }
+/* *****************std-Company-account******************** */
+
+.std-company-txt-left {
+  display: flex;
+  flex-direction: column;
+  padding-left: 151px;
+  gap: 0px;
+  align-items: center;
+  padding-bottom: 0px;
+}
+.txt-std-company-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 6px;
+  width: 215px;
+}
+.card1 {
+  margin-top: 45px;
+  width: 95%;
+  height: fit-content;
+  padding-bottom: 13px;
+}
+.large-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.card1-comp-acc-post {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  gap: 6px;
+  align-items: center;
+  padding-left: 0px;
+}
+.std-comp-post {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 16px;
+}
+.modal-bk {
+  content: '';
+  position: absolute;
+  background-color: #CBD6DA;
+  opacity: 70%;
+  width: 100%;
+  height: 850px;
+  top: 120px;
+  left: 0px;
+  z-index: 0;
+}
+.contact-box-comp svg {
+  width: 30px;
+  position: absolute;
+  left: 279px;
+  top: 25px;
+}
+.contact-box {
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  background-color: white;
+  z-index: 1;
+  margin: auto;
+  top: 210px;
+  margin-right: 153px;
+  border-radius: 45px;
+}
+.contact-icons {
+  width: 50px;
+  height: 50px;
+}
 
 
+.apply-box {
+  position: absolute;
+  width: 330px;
+  height: 300px;
+  background-color: white;
+  z-index: 1;
+  margin: auto;
+  top: 250px;
+  border-radius: 45px;
+}
+.apply-box-comp svg {
+  width: 30px;
+  position: absolute;
+  left: 260px;
+  top: 25px;
+}
 }
