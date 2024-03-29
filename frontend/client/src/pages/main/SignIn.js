@@ -3,10 +3,41 @@ import img from '../../static/bk2.png'
 import Navbar from '../../component/main/Navbar'
 import Form from '../../component/main/Form'
 import smallbk2 from '../../static/sm-bk2.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { resetRegistered, login } from '../../features/user';
+import { Navigate } from 'react-router-dom';
 
 function SignIn() {
+  const dispatch = useDispatch();
+	const { loading, isAuthenticated, registered } = useSelector(
+		state => state.user
+	);
+
+	const [formData, setFormData] = useState({
+		email: '',
+		password: '',
+	});
+
+	useEffect(() => {
+		if (registered) dispatch(resetRegistered());
+	}, [registered]);
+
+	const { email, password } = formData;
+
+	const onChange = e => {
+		setFormData({ ...formData, [e.target.name]: e.target.value });
+	};
+
+	const onSubmit = e => {
+		e.preventDefault();
+
+		dispatch(login({ email, password }));
+	};
+
+
+
   let [isClicked, setisClicked] = useState(false);
 
   let handelOnClick = () => {
@@ -17,6 +48,8 @@ function SignIn() {
       setisClicked(false);
     }
   };
+  if (isAuthenticated) return <Navigate to='/stdhome' />;
+
   return (
     <>
     <Navbar/>
@@ -41,7 +74,12 @@ function SignIn() {
         <img src={img} className='bk1 '/>
         <img src={smallbk2} className='diplay-none-disktop-sm-bk1 '/>
      </div>
-      <Form/> 
+      <Form
+        email = {email}
+        password = {password}
+        onChange={onChange}
+       onSubmit={onSubmit}
+      /> 
     </>
   )
 }

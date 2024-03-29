@@ -5,6 +5,9 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { Provider } from 'react-redux';
+
+
 import reportWebVitals from './reportWebVitals';
 import Home from './pages/main/Home';
 import AboutUs from './pages/main/AboutUs';
@@ -58,6 +61,7 @@ import UniSuperViewPost from './pages/uniSuper/UniSuperViewPost';
 import './App.css'
 import SearchPhone from './pages/student/SearchPhone';
 
+import { store } from './store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -263,8 +267,11 @@ const router = createBrowserRouter([
 ]);
 
 root.render(
+
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}> 
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function

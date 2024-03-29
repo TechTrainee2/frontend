@@ -221,10 +221,10 @@ a{
   padding-top: 175px;
 }
 .form-input input{
-  border-top-style: none;
-  border-left-style: none;
-  border-right-style: none;
-  border-bottom-style: solid #cbd6da; 
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 3px solid #cbd6da; 
   background-color: #F5F5F5;
   font-size: 1.5rem;
 }
