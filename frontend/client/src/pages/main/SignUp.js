@@ -1,12 +1,24 @@
 import React from 'react'
 import img from '../../static/bk3.png'
 import Navbar from '../../component/main/Navbar'
-import Form from '../../component/main/Form2'
+import Form2 from '../../component/main/Form2'
 import smallbk3 from '../../static/sm-bk3.png';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
 function SignUp() {
+  const { registered, loading } = useSelector(state => state.user);
+  
+  
+  const [formData, setFormData] = useState({
+		first_name: '',
+		last_name: '',
+		email: '',
+		password: '',
+	});
+
   let [isClicked, setisClicked] = useState(false);
 
   let handelOnClick = () => {
@@ -42,7 +54,7 @@ function SignUp() {
       <img src={smallbk3} className='diplay-none-disktop-sm-bk1 '/>
      </div>
 
-        <Form/> 
+        <Form2/> 
     </>
   )
 }
