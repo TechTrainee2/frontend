@@ -7,17 +7,31 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { register } from '../../features/user';
 
 function SignUp() {
-  const { registered, loading } = useSelector(state => state.user);
+  const dispatch = useDispatch();
+  const { registered, loading, isError, errorMessage } = useSelector(state => state.user);
   
   
   const [formData, setFormData] = useState({
-		first_name: '',
-		last_name: '',
-		email: '',
-		password: '',
+    name: '',
+    email: '',
+    comp_id: '',
+    password: '',
 	});
+
+  const { name, email, comp_id, password } = formData;
+
+  const onChange = e => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+	};
+
+	const onSubmit = e => {
+		e.preventDefault();
+
+		dispatch(register({ name, email, comp_id, password }));
+	};
 
   let [isClicked, setisClicked] = useState(false);
 
@@ -29,6 +43,9 @@ function SignUp() {
       setisClicked(false);
     }
   };
+
+  if (registered) return <Navigate to='/SignIn' />;
+
   return (
     <>
     <Navbar/>
@@ -54,7 +71,10 @@ function SignUp() {
       <img src={smallbk3} className='diplay-none-disktop-sm-bk1 '/>
      </div>
 
-        <Form2/> 
+        <Form2
+        onChange={onChange}
+        onSubmit={onSubmit}
+        /> 
     </>
   )
 }

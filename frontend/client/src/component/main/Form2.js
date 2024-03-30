@@ -1,10 +1,10 @@
 import React from 'react'
 
-function Form2() {
+function Form2(props) {
   return (
     <>
     <div className='form2'>
-      <form className='imd-form'> 
+      <form className='imd-form' onSubmit={props.onSubmit}> 
         <div className='form-input'>
           <label>
             <input type='file' name='img' className='display-img'/>
@@ -16,10 +16,10 @@ function Form2() {
             </div>
           </label>
 
-          <input type='text' placeholder='Name' name='name'/>
-          <input type='text' placeholder='Email' name='email'/>
-          <input type='text' placeholder='Organization ID' name='org id'/>
-          <input type='password' placeholder='Password' name='password'/>
+          <input type='text' placeholder='Name' name='name' onChange={props.onChange}/>
+          <input type='text' placeholder='Email' name='email' onChange={props.onChange}/>
+          <input type='text' placeholder='Organization ID' name='comp_id' onChange={props.onChange}/>
+          <input type='password' placeholder='Password' name='password' onChange={props.onChange}/>
           <button className='button-size navy-bk white-font super'>
             Sign Up
           </button>
