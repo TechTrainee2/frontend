@@ -5,6 +5,8 @@ const initialState = {
 	user: null,
 	loading: false,
 	registered: false,
+	isError: false,
+	errorMessage: "",
 };
 
 export const register = createAsyncThunk(
@@ -18,7 +20,7 @@ export const register = createAsyncThunk(
 		});
 
 		try {
-			const res = await fetch('http://localhost:5000/users/customUser', {
+			const res = await fetch('http://localhost:5000/api/users/register', {
 				method: 'POST',
 				headers: {
 					Accept: 'application/json',
@@ -160,9 +162,12 @@ const userSlice = createSlice({
 			.addCase(register.fulfilled, state => {
 				state.loading = false;
 				state.registered = true;
+				state.isError = false;
 			})
-			.addCase(register.rejected, state => {
+			.addCase(register.rejected, (state, action) => {
 				state.loading = false;
+				state.isError = true;
+				state.errorMessage=action.payload;
 			})
 			.addCase(login.pending, state => {
 				state.loading = true;
