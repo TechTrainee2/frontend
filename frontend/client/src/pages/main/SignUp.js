@@ -11,8 +11,11 @@ import { register } from '../../features/user';
 
 function SignUp() {
   const dispatch = useDispatch();
-  const { registered, loading, isError, errorMessage } = useSelector(state => state.user);
-  
+  const { registered, loading } = useSelector(state => state.user);
+  const [isEmailError,setIsEmailError]= useState(false)
+  const [EmailError,setEmailError]= useState([])
+  const [isPasswordError,setIsPasswordError]= useState(false)
+  const [PasswordError,setPasswordError]= useState([])
   
   const [formData, setFormData] = useState({
     name: '',
@@ -27,10 +30,23 @@ function SignUp() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 	};
 
-	const onSubmit = e => {
+	const onSubmit = async e => {
 		e.preventDefault();
 
-		dispatch(register({ name, email, comp_id, password }));
+    setIsPasswordError(false)
+    setPasswordError([])
+    setIsEmailError(false)
+    setEmailError([])
+
+		let data = await dispatch(register({ name, email, comp_id, password }));
+    if (Object.keys(data.payload).includes("password")){
+      setIsPasswordError(true)
+      setPasswordError(data.payload["password"])
+    }
+    if (Object.keys(data.payload).includes("email")){
+      setIsEmailError(true)
+      setEmailError(data.payload["email"])
+    }
 	};
 
   let [isClicked, setisClicked] = useState(false);
@@ -39,7 +55,6 @@ function SignUp() {
     if (isClicked === false) {
       setisClicked(true);
     } else {
-      console.log('hi')
       setisClicked(false);
     }
   };
@@ -74,6 +89,11 @@ function SignUp() {
         <Form2
         onChange={onChange}
         onSubmit={onSubmit}
+        isPasswordError ={isPasswordError}
+        PasswordError ={PasswordError} 
+        isEmailError={isEmailError}
+        EmailError ={EmailError}
+
         /> 
     </>
   )
