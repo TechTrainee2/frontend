@@ -41,13 +41,14 @@ export const register = createAsyncThunk(
 	}
 );
 
-const getUser = createAsyncThunk('users/me', async (_, thunkAPI) => {
+export const getUser = createAsyncThunk('users/me', async (_, thunkAPI) => {
 	try {
 		const res = await fetch('http://localhost:5000/api/users/me', {
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',
 			},
+			credentials: 'include',
 		});
 
 		const data = await res.json();
@@ -78,6 +79,7 @@ export const login = createAsyncThunk(
 					'Content-Type': 'application/json',
 				},
 				body,
+				credentials:"include",
 			});
 
 			const data = await res.json();
@@ -163,7 +165,7 @@ const userSlice = createSlice({
 				state.registered = true;
 
 			})
-			.addCase(register.rejected, (state, action) => {
+			.addCase(register.rejected, state => {
 				state.loading = false;
 				state.isError = true;
 			})
