@@ -14,6 +14,7 @@ router.get('/api/users/me', async (req, res) => {
 				Accept: 'application/json',
 				Authorization: `Bearer ${access}`,
 			},
+			mode:'cors'
 		});
 
 		const data = await apiRes.json();

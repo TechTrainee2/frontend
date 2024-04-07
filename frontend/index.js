@@ -3,9 +3,10 @@ const path = require('path');
 const app = express();
 require('dotenv').config();
 const cors = require('cors');
+// const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: true,
   credentials: true,
 };
 
@@ -31,7 +32,7 @@ app.use(cookieParser());
 
 const registerRoute = require('./routes/auth/register');
 const loginRoute = require('./routes/auth/login');
-// const userRoute = require('./routes/auth/user');
+const userRoute = require('./routes/auth/me');
 // const logout = require('./routes/auth/logout')
 // const verify = require('./routes/auth/verify')
 
@@ -42,7 +43,7 @@ const loginRoute = require('./routes/auth/login');
 
 app.use(registerRoute);
 app.use(loginRoute);
-// app.use(userRoute);
+app.use(userRoute);
 // app.use(logout)
 // app.use(verify)
 // app.use(profile)
@@ -51,11 +52,11 @@ app.use(loginRoute);
 // app.use(createPost)
 
 app.options('*', cors());
-app.use(express.static('client/build'));
-app.get('*', (req, res) => {
-  const mypath = path.resolve(__dirname, 'client', 'build', 'index.html');
-  return res.sendFile(mypath);
-});
+// app.use(express.static('client/build'));
+// app.get('*', (req, res) => {
+//   const mypath = path.resolve(__dirname, 'client', 'build', 'index.html');
+//   return res.sendFile(mypath);
+// });
 
 const PORT = process.env.PORT || 5000;
 

@@ -6,12 +6,12 @@ import smallbk2 from '../../static/sm-bk2.png';
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { resetRegistered, login } from '../../features/user';
+import  { resetRegistered, login } from '../../features/user';
 import { Navigate } from 'react-router-dom';
 
 function SignIn() {
   const dispatch = useDispatch();
-	const { loading, isAuthenticated, registered } = useSelector(
+	const { loading, isAuthenticated, registered,user } = useSelector(
 		state => state.user
 	);
 
@@ -48,7 +48,18 @@ function SignIn() {
       setisClicked(false);
     }
   };
-  if (isAuthenticated) return <Navigate to='/stdhome' />;
+  // console.log(user.account_type)
+  if (user){
+
+    if (isAuthenticated && user.account_type=="STUDENT") return <Navigate to='/stdhome' />;
+    if (isAuthenticated && user.account_type=="REGISTRATION") return <Navigate to='/reghome' />;
+    if (isAuthenticated && user.account_type=="DEPARTMENT") return <Navigate to='/depHome' />;
+    if (isAuthenticated && user.account_type=="COMPANY_SUPERVISOR") return <Navigate to='/CompSuperHome' />;
+    if (isAuthenticated && user.account_type=="COMPANY") return <Navigate to='/compHome' />;
+    if (isAuthenticated && user.account_type=="UNIVERSITY_SUPERVISOR") return <Navigate to='/uniSuper' />;
+  }
+  
+
 
   return (
     <>

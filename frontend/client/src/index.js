@@ -87,7 +87,7 @@ const router = createBrowserRouter([
     element:<HomePS/>
   },
   {
-    path: "/stdAcc",
+    path: "/stdAcc/:studenName",
     element:<AccountPS/>
   },
   {
@@ -103,15 +103,15 @@ const router = createBrowserRouter([
     element:<UniSuperAccPS/>
   },
   {
-    path:"uniSuper",
+    path:"/uniSuper",
     element:<HomeUS/>
   },
   {
-    path:"reportUniSuper",
+    path:"/reportUniSuper",
     element:<ReportUniSuper/>
   },
   {
-    path:"stdreportUniSuper",
+    path:"/stdreportUniSuper",
     element:<StdReportUS/>
   },
   {
