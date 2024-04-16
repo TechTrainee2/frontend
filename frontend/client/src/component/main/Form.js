@@ -14,12 +14,20 @@ function Form(props) {
 						onChange={props.onChange}
 						value={props.email}
 						required/>
+              
+              
+              
+
             <input 
             type='password'
 						name='password'
 						onChange={props.onChange}
 						value={props.password}
 						required/>
+              {props.isError&&(<ul style={{color:"red"}}>
+                <li id ={`email-error`}>{props.Error}</li>
+              </ul>)}
+
             <button className='button-size navy-bk white-font super'>
                 Sign In
             </button>

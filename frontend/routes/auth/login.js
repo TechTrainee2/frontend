@@ -25,16 +25,19 @@ router.post('/api/users/login', async (req, res) => {
         if (loginRes.status == 200){
 		
 			res.cookie('access', `${data.access}`, {
-				maxAge: 60 * 60 * 24, // 1 day in seconds
+				maxAge: 60 * 60 * 24*1000, // 1 day in seconds
 				httpOnly: true,
 				secure: false, // Set to true if using HTTPS
-				sameSite: 'Strict' // Adjust as needed
+				sameSite: 'lax', // Adjust as needed
+                path: "/api"
 			});
 			res.cookie('refresh', data.refresh, {
-				maxAge: 60 * 60 * 24, // 1 day in seconds
+				maxAge: 60 * 60 * 24*1000, // 1 day in seconds
 				httpOnly: true,
 				secure: false, // Set to true if using HTTPS
-				sameSite: 'Strict' // Adjust as needed
+				sameSite: 'lax', // Adjust as needed
+                path: "/api"
+
 			});
 
             return res.status(200).json({

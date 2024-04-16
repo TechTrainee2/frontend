@@ -87,7 +87,7 @@ const router = createBrowserRouter([
     element:<HomePS/>
   },
   {
-    path: "/stdAcc/:studenName",
+    path: "/stdAcc/:id",
     element:<AccountPS/>
   },
   {

@@ -8,12 +8,19 @@ import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import  { resetRegistered, login } from '../../features/user';
 import { Navigate } from 'react-router-dom';
+import { checkAuth } from '../../features/user';
+
 
 function SignIn() {
+  
   const dispatch = useDispatch();
 	const { loading, isAuthenticated, registered,user } = useSelector(
 		state => state.user
 	);
+  const [isError,setIsError]= useState(false)
+  const [Error,setError]= useState([])
+  // const [isPasswordError,setIsPasswordError]= useState(false)
+  // const [PasswordError,setPasswordError]= useState([])
 
 	const [formData, setFormData] = useState({
 		email: '',
@@ -30,12 +37,20 @@ function SignIn() {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 	};
 
-	const onSubmit = e => {
+	const onSubmit = async e => {
 		e.preventDefault();
 
-		dispatch(login({ email, password }));
+    const data = await dispatch(login({ email, password }));
+    
+  
+    if (Object.keys(data.payload).includes("details")){
+      setIsError(true)
+      console.log(data.payload)
+      setError(data.payload["detail"])
+    }
+   
 	};
-
+	
 
 
   let [isClicked, setisClicked] = useState(false);
@@ -89,7 +104,9 @@ function SignIn() {
         email = {email}
         password = {password}
         onChange={onChange}
-       onSubmit={onSubmit}
+        onSubmit={onSubmit}
+        isError={isError}
+        Error ={Error}
       /> 
     </>
   )
