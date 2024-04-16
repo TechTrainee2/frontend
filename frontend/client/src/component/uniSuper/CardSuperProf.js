@@ -17,7 +17,7 @@ function CardSuperProf() {
                     <div className='std-btn-name'>
                         <div className='txt-std-name'>
                             <span>Kamal </span>
-                            <p >Works at the University of Jordan in the Computer Science department </p>
+                        
                         </div>
 
                         <div className='std-btns-m'>
