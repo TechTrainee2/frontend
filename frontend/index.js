@@ -31,6 +31,7 @@ app.use(cookieParser());
 
 
 const registerRoute = require('./routes/auth/register');
+const registerCompSuperRoute = require('./routes/auth/registerCompSuper');
 const loginRoute = require('./routes/auth/login');
 const userRoute = require('./routes/auth/me');
 // const logout = require('./routes/auth/logout')
@@ -42,6 +43,7 @@ const userRoute = require('./routes/auth/me');
 // const profile = require('./routes/profile/profile')
 
 app.use(registerRoute);
+app.use(registerCompSuperRoute);
 app.use(loginRoute);
 app.use(userRoute);
 // app.use(logout)
