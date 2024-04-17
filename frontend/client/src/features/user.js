@@ -41,6 +41,41 @@ export const register = createAsyncThunk(
 	}
 );
 
+export const registerCompSuper = createAsyncThunk(
+	'users/registerCompSuper',
+	async ({ first_name, last_name, email, password, role }, thunkAPI) => {
+	  const body = JSON.stringify({
+		first_name,
+		last_name,
+		email,
+		password,
+		role,
+	  });
+  
+	  try {
+		const res = await fetch('http://localhost:5000/api/users/registerCompSuper', {
+		  method: 'POST',
+		  headers: {
+			  Accept: 'application/json',
+			  'Content-Type': 'application/json',
+		  },
+		  body,
+	  });
+
+	  const data = await res.json();
+
+	  if (res.status === 201) {
+		  return data;
+	  } else {
+		  return thunkAPI.rejectWithValue(data);
+	  }
+  } catch (err) {
+	  return thunkAPI.rejectWithValue(err.response.data);
+  }
+}
+);
+  
+
 export const getUser = createAsyncThunk('users/me', async (_, thunkAPI) => {
 	try {
 		const res = await fetch('http://localhost:5000/api/users/me', {
@@ -166,6 +201,21 @@ const userSlice = createSlice({
 
 			})
 			.addCase(register.rejected, state => {
+				state.loading = false;
+				state.isError = true;
+			})
+
+			//company supervisior
+
+			.addCase(registerCompSuper.pending, state => {
+				state.loading = true;
+			})
+			.addCase(registerCompSuper.fulfilled, state => {
+				state.loading = false;
+				state.registered = true;
+
+			})
+			.addCase(registerCompSuper.rejected, state => {
 				state.loading = false;
 				state.isError = true;
 			})
