@@ -24,7 +24,7 @@ function Form(props) {
 						onChange={props.onChange}
 						value={props.password}
 						required/>
-              {props.isError&&(<ul style={{color:"red"}}>
+              {props.isError&&(<ul>
                 <li id ={`email-error`}>{props.Error}</li>
               </ul>)}
 

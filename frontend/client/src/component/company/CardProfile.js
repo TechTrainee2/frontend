@@ -3,15 +3,15 @@ import img from '../../static/Compbk.png'
 import img2 from '../../static/company.png'
 import { Link } from 'react-router-dom'
 
-function CardProfile() {
+function CardProfile(props) {
   return (
     <>
      <div className='large-card gray-bk centered-card'>
         
         <div className='std-acc-comp '>
             <div className='std-images'>
-                <img src={img} className='imgbk-size'/>
-                <img src={img2} className='std-circle std-profile'/>
+                <img src={props.profile.img_bk} className='imgbk-size'/>
+                <img src={props.profile.img} className='std-circle std-profile'/>
             </div>
                 <div className='std-txt-left'>
                     <div className='std-btn-name'>
@@ -19,14 +19,10 @@ function CardProfile() {
                         <div className='comp-profile-txt'>
 
                             <div className='txt-std-name'>
-                                <span>Coders</span>
-                                <span>3k Followers</span>
-                                <span>Amman - Jordan</span>
+                                <span>{props.profile.name}</span>
+                                <span>{props.profile.location}</span>
                             </div>
 
-                            <button className='comp-button bold'>
-                                    Contact Us
-                            </button>
 
                         </div>
                         <div className='comp-btn-container'>

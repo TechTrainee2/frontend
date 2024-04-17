@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 function CardProfile(props) {
   return (
     <>
-      <span className="centered-title bold">My Account</span>
       <div className="large-card gray-bk centered-card">
         <div className="std-acc-comp ">
           <div className="std-images">
@@ -20,7 +19,7 @@ function CardProfile(props) {
                   {props.profile.first_name} {props.profile.last_name}
                 </span>
                 {/* @TO DO complete the data */}
-                <span></span>
+                <span>{props.profile.department}</span>
                 <span>Dr. Ahmad</span>
               </div>
 
@@ -38,10 +37,7 @@ function CardProfile(props) {
                 )}
             </div>
 
-            <p>
-              I’m a 4th year Computer Science student at the University of
-              Jordan
-            </p>
+            <p>{props.profile.bio}</p>
           </div>
         </div>
       </div>
