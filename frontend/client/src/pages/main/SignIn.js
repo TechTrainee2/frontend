@@ -43,9 +43,9 @@ function SignIn() {
     const data = await dispatch(login({ email, password }));
     
   
-    if (Object.keys(data.payload).includes("details")){
+    if (Object.keys(data.payload)){
       setIsError(true)
-      console.log(data.payload)
+      console.log(data)
       setError(data.payload["detail"])
     }
    

@@ -1044,6 +1044,12 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
 /***************** Company Supervisor ********************/
+.compsuper-btn-mod{
+  width: 47%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .icon-cont-company-nav{
     display: flex;
     flex-direction: row;
@@ -1841,6 +1847,14 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   margin-left: 355px;
 }
 /************* Uni Super *************/
+.std-unisuper-btns-m {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: 20px; */
+  width: 305px;
+}
 .supr-std-app-img{
   display: flex;
   flex-direction: row;

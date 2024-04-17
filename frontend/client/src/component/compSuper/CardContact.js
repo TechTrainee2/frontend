@@ -1,6 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 
-function CardContact() {
+function CardContact(props) {
+    const { user } = useSelector(
+		state => state.user
+	);
   return (
     <>
     <div className='card2 gray-bk centered-card margin-bottom'>
@@ -10,17 +14,17 @@ function CardContact() {
 
                 <div>
                     <span className='std-span-info'>Phone Number</span>
-                    <span>0791234567</span>
+                    <span>{props.profile.phone}</span>
                 </div>
 
                 <div>
                     <span className='std-span-info'>Email</span>
-                    <span>Ahmad@gmail.com</span>
+                    <span>{user.email}</span>
                 </div>
 
                 <div>
                     <span className='std-span-info'>Address</span>
-                    <span>Jordan - Amman</span>
+                    <span>{props.profile.location}</span>
                 </div>
                 
                 </div>

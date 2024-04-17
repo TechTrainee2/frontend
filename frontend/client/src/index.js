@@ -139,7 +139,7 @@ const router = createBrowserRouter([
     element:<StudentApplicationC/>
   },
   {
-    path: "/compProfile",
+    path: "/compProfile/:id",
     element:<AccountC/>
   },
   {
@@ -175,7 +175,7 @@ const router = createBrowserRouter([
     element:<StdApplication/>
   },
   {
-    path: "/superAcc",
+    path: "/superAcc/:id",
     element: <SuperAcc/>
   },
   {
@@ -227,7 +227,7 @@ const router = createBrowserRouter([
     element: <HomeCS/> 
   },
   {
-    path: "/CompSuperAcc",
+    path: "/CompSuperAcc/:id",
     element: <AccountCS/> 
   },
   {
