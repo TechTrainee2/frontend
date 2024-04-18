@@ -46,8 +46,8 @@ import FillReportCS from './pages/compSuper/FillReportCS';
 import CompSuperAccPS from './pages/student/CompSuperAccPS';
 import UniSuperAccPS from './pages/student/UniSuperAccPS';
 import HomeReg from './pages/Regestration/HomeReg';
-import StdReg from './pages/Regestration/StdReg';
-import ProfReg from './pages/Regestration/ProfReg';
+import StdReg from './pages/Regestration/AddStd';
+import ProfReg from './pages/Regestration/AddProfSuper';
 import StdReportUS from './pages/uniSuper/StdReportUS';
 import DepReport from './pages/Department/DepReport';
 import DepStdFinalReport from './pages/Department/DepStdFinalReport';
@@ -62,6 +62,11 @@ import './App.css'
 import SearchPhone from './pages/student/SearchPhone';
 
 import { store } from './store';
+import AddProfForm from './component/Regestration/CreateAccForm';
+import UniSuper from './pages/Regestration/UniSuper';
+import AddProfSuper from './pages/Regestration/AddProfSuper';
+import AddStd from './pages/Regestration/AddStd';
+import Student from './pages/Regestration/Student';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -251,12 +256,20 @@ const router = createBrowserRouter([
     element: <HomeReg/> 
   },
   {
-    path: "/RegStd",
-    element: <StdReg/> 
+    path: "/RegStdForm",
+    element: <AddStd/> 
   },
   {
-    path: "/RegProf",
-    element: <ProfReg/> 
+    path: "/RegUniSuper",
+    element: <UniSuper/> 
+  },
+  {
+    path: "/RegStd",
+    element: <Student/> 
+  },
+  {
+    path: "/RegProfForm",
+    element: <AddProfSuper/> 
   },
   {
     path: "/searchphone",

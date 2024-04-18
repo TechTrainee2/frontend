@@ -75,6 +75,73 @@ export const registerCompSuper = createAsyncThunk(
 }
 );
   
+export const registerUniSuper = createAsyncThunk(
+	'users/registerUniSuper',
+	async ({ first_name, last_name, email, password, department }, thunkAPI) => {
+	  const body = JSON.stringify({
+		first_name,
+		last_name,
+		email,
+		password,
+		department,
+	  });
+  
+	  try {
+		const res = await fetch('http://localhost:5000/api/users/registerUniSuper', {
+		  method: 'POST',
+		  headers: {
+			  Accept: 'application/json',
+			  'Content-Type': 'application/json',
+		  },
+		  body,
+	  });
+
+	  const data = await res.json();
+
+	  if (res.status === 201) {
+		  return data;
+	  } else {
+		  return thunkAPI.rejectWithValue(data);
+	  }
+  } catch (err) {
+	  return thunkAPI.rejectWithValue(err.response.data);
+  }
+}
+);
+
+export const registerStd = createAsyncThunk(
+	'users/registerStd',
+	async ({ first_name, last_name, email, password, department }, thunkAPI) => {
+	  const body = JSON.stringify({
+		first_name,
+		last_name,
+		email,
+		password,
+		department,
+	  });
+  
+	  try {
+		const res = await fetch('http://localhost:5000/api/users/registerStd', {
+		  method: 'POST',
+		  headers: {
+			  Accept: 'application/json',
+			  'Content-Type': 'application/json',
+		  },
+		  body,
+	  });
+
+	  const data = await res.json();
+
+	  if (res.status === 201) {
+		  return data;
+	  } else {
+		  return thunkAPI.rejectWithValue(data);
+	  }
+  } catch (err) {
+	  return thunkAPI.rejectWithValue(err.response.data);
+  }
+}
+);
 
 export const getUser = createAsyncThunk('users/me', async (_, thunkAPI) => {
 	try {
@@ -219,6 +286,37 @@ const userSlice = createSlice({
 				state.loading = false;
 				state.isError = true;
 			})
+
+			// UNISUPER 
+
+			.addCase(registerUniSuper.pending, state => {
+				state.loading = true;
+			})
+			.addCase(registerUniSuper.fulfilled, state => {
+				state.loading = false;
+				state.registered = true;
+
+			})
+			.addCase(registerUniSuper.rejected, state => {
+				state.loading = false;
+				state.isError = true;
+			})
+
+			// Student 
+
+			.addCase(registerStd.pending, state => {
+				state.loading = true;
+			})
+			.addCase(registerStd.fulfilled, state => {
+				state.loading = false;
+				state.registered = true;
+
+			})
+			.addCase(registerStd.rejected, state => {
+				state.loading = false;
+				state.isError = true;
+			})
+			
 			.addCase(login.pending, state => {
 				state.loading = true;
 			})
