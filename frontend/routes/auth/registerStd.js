@@ -4,16 +4,16 @@ const fetch = (...args) =>
 
 const router = express.Router();
 
-router.post('/api/users/registerCompSuper', async (req, res) => {
-	const { first_name, last_name, email, password, role} = req.body;
+router.post('/api/users/registerStd', async (req, res) => {
+	const { first_name, last_name, email, password, department} = req.body;
   
 	const body = JSON.stringify({
 	  first_name,
 	  last_name,
 	  email,
 	  password,
-	  role,
-	  account_type: 'COMPANY_SUPERVISOR', // Assuming this is required
+	  department,
+	  account_type: 'STUDENT', // Assuming this is required
 	});
   
 	try {
