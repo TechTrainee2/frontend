@@ -4,9 +4,16 @@ const fetch = (...args) =>
 
 const router = express.Router();
 
+import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getUser } from "../../features/user";
+let { user, loading } = useSelector((state) => state.user);
+user = {
+  id: "",
+};
 
 router.post('/api/users/registerCompSuper', async (req, res) => {
-	const { first_name, last_name, email, password, role } = req.body;
+	const { first_name, last_name, email, password, role ,comp_id} = req.body;
   
 	const body = JSON.stringify({
 	  first_name,
@@ -15,6 +22,7 @@ router.post('/api/users/registerCompSuper', async (req, res) => {
 	  password,
 	  role,
 	  account_type: 'COMPANY_SUPERVISOR', // Assuming this is required
+	  comp_id : '', 
 	});
   
 	try {

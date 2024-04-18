@@ -341,6 +341,7 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   opacity: 75%;
 }
 .logo-add{
+  object-fit: cover;
   width: 150px;
   height: 125px;
 }
