@@ -10,9 +10,11 @@ function Form2(props) {
         <div className='form-input'>
           <input type='text' placeholder='Name' name='name' onChange={props.onChange}/>
           <input type='text' placeholder='Email' name='email' onChange={props.onChange}/>
+
           {props.isEmailError&&(<ul style={{color:"red"}}>{props.EmailError.map((error,index)=>{
             return <li id ={`email-error${index}`}>{error}</li>
           })}</ul>)}
+          
           <input type='text' placeholder='Organization ID' name='comp_id' onChange={props.onChange}/>
           <input type='password' placeholder='Password' name='password' onChange={props.onChange}/>
           {props.isPasswordError&&(<ul style={{color:"red"}}>{props.PasswordError.map((error,index)=>{

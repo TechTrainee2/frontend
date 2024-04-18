@@ -8,12 +8,20 @@ function CreateAccForm(props) {
         <span className='bold super title-add-super'>Add Supervisor</span>
         <form className='form-inputs' onSubmit={props.onSubmit}>
             <div className='sm-input'>
-                <input className='form-cell form-cell-sm gray-bk opacity center-place-holder' placeholder='First Name' onChange={props.onChange}/>
-                <input className='form-cell form-cell-sm gray-bk opacity center-place-holder' placeholder='Last Name' onChange={props.onChange}/>
+                <input className='form-cell form-cell-sm gray-bk opacity center-place-holder' placeholder='First Name' name='first_name' onChange={props.onChange}/>
+                <input className='form-cell form-cell-sm gray-bk opacity center-place-holder' placeholder='Last Name' name='last_name'   onChange={props.onChange}/>
             </div>
-            <input className='form-cell form-cell-la gray-bk opacity left-place-holder' placeholder='Email' onChange={props.onChange}/>
-            <input className='form-cell form-cell-la gray-bk opacity left-place-holder' placeholder='Password' onChange={props.onChange}/>
-            <input className='form-cell form-cell-la gray-bk opacity left-place-holder' placeholder='Position' onChange={props.onChange}/>
+            <input className='form-cell form-cell-la gray-bk opacity left-place-holder' placeholder='Email' name='email' onChange={props.onChange}/>
+            {props.isEmailError&& Array.isArray(props.EmailError)&&(<ul style={{color:"red"}}>{props.EmailError.map((error,index)=>{
+            return <li id ={`email-error${index}`}>{error}</li>
+            })}</ul>)}
+
+            
+            <input className='form-cell form-cell-la gray-bk opacity left-place-holder' placeholder='Password' name='password'  onChange={props.onChange}/>
+            {props.isPasswordError&& Array.isArray(props.PasswordError)&&(<ul style={{color:"red"}}>{props.PasswordError.map((error,index)=>{
+            return <li id ={`password-error${index}`}>{error}</li>
+            })}</ul>)}
+            <input className='form-cell form-cell-la gray-bk opacity left-place-holder' placeholder='Position' name='role' onChange={props.onChange}/>
             
             <div className='form-btns'>
                 <button className='button-size-input navy-bk gray-font'>Add</button>

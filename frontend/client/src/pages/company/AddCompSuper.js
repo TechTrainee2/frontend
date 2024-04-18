@@ -39,14 +39,14 @@ function AddCompSuper() {
 
 		let data = await dispatch(registerCompSuper({ first_name,last_name, email, password,role }));
     console.log(data);
-    // if (Object.keys(data.payload).includes("password")){
-    //   setIsPasswordError(true)
-    //   setPasswordError(data.payload["password"])
-    // }
-    // if (Object.keys(data.payload).includes("email")){
-    //   setIsEmailError(true)
-    //   setEmailError(data.payload["email"])
-    // }
+    if (Object.keys(data.payload).includes("password")){
+      setIsPasswordError(true)
+      setPasswordError(data.payload["password"])
+    }
+    if (Object.keys(data.payload).includes("email")){
+      setIsEmailError(true)
+      setEmailError(data.payload["email"])
+    }
 	};
 
   return (
