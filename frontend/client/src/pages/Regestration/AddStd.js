@@ -37,7 +37,7 @@ function AddStd() {
     setIsEmailError(false)
     setEmailError([])
 
-		let data = await dispatch(registerStd({ first_name,last_name, email, password,department }));
+		let data = await dispatch(registerStd({ first_name,last_name, email, password,department,account_type:'STUDENT' }));
     console.log(data);
     if (Object.keys(data.payload).includes("password")){
       setIsPasswordError(true)
