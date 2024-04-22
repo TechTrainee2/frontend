@@ -19,7 +19,7 @@ export const register = createAsyncThunk(
 		});
 
 		try {
-			const res = await fetch('http://localhost:5000/api/users/register', {
+			const res = await fetch('http://localhost:8000/users/customUser', {
 				method: 'POST',
 				headers: {
 					Accept: 'application/json',
@@ -53,7 +53,7 @@ export const registerCompSuper = createAsyncThunk(
 	  });
   
 	  try {
-		const res = await fetch('http://localhost:5000/api/users/registerCompSuper', {
+		const res = await fetch('http://localhost:8000/users/customUser', {
 		  method: 'POST',
 		  headers: {
 			  Accept: 'application/json',
@@ -87,7 +87,7 @@ export const registerUniSuper = createAsyncThunk(
 	  });
   
 	  try {
-		const res = await fetch('http://localhost:5000/api/users/registerUniSuper', {
+		const res = await fetch('http://localhost:8000/users/customUser', {
 		  method: 'POST',
 		  headers: {
 			  Accept: 'application/json',
@@ -121,7 +121,7 @@ export const registerStd = createAsyncThunk(
 	  });
   
 	  try {
-		const res = await fetch('http://localhost:5000/api/users/registerStd', {
+		const res = await fetch('http://localhost:8000/users/customUser', {
 		  method: 'POST',
 		  headers: {
 			  Accept: 'application/json',
@@ -145,7 +145,7 @@ export const registerStd = createAsyncThunk(
 
 export const getUser = createAsyncThunk('users/me', async (_, thunkAPI) => {
 	try {
-		const res = await fetch('http://localhost:5000/api/users/me', {
+		const res = await fetch('http://localhost:8000/users/me', {
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',
