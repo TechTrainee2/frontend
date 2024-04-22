@@ -1,6 +1,4 @@
 import React from 'react'
-import img from '../../static/profbk.png'
-import img2 from '../../static/CompSuper.jpg'
 import { Link } from 'react-router-dom'
 
 function CardProfile(props) {
