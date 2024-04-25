@@ -145,7 +145,7 @@ export const registerStd = createAsyncThunk(
 
 export const getUser = createAsyncThunk('users/me', async (_, thunkAPI) => {
 	try {
-		const res = await fetch('http://localhost:8000/users/me', {
+		const res = await fetch('http://127.0.0.1:8000/users/me', {
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',
@@ -165,6 +165,12 @@ export const getUser = createAsyncThunk('users/me', async (_, thunkAPI) => {
 	}
 });
 
+function getCookie(name) {
+	const value = `; ${document.cookie}`;
+	const parts = value.split(`; ${name}=`);
+	if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
 export const login = createAsyncThunk(
 	'users/login',
 	async ({ email, password }, thunkAPI) => {
@@ -174,11 +180,13 @@ export const login = createAsyncThunk(
 		});
 
 		try {
-			const res = await fetch('http://localhost:5000/api/users/login', {
+			const csrftoken = getCookie('csrftoken');
+			const res = await fetch('http://127.0.0.1:8000/api/token/', {
 				method: 'POST',
 				headers: {
 					Accept: 'application/json',
 					'Content-Type': 'application/json',
+					'X-CSRFToken': csrftoken
 				},
 				body,
 				credentials:"include",
@@ -204,7 +212,7 @@ export const checkAuth = createAsyncThunk(
 	'users/verify',
 	async (_, thunkAPI) => {
 		try {
-			const res = await fetch('http://localhost:5000/api/users/verify', {
+			const res = await fetch('http://localhost:8000/api/users/verify', {
 				method: 'GET',
 				headers: {
 					Accept: 'application/json',
@@ -230,7 +238,7 @@ export const checkAuth = createAsyncThunk(
 
 export const logout = createAsyncThunk('users/logout', async (_, thunkAPI) => {
 	try {
-		const res = await fetch('http://localhost:5000/api/users/logout', {
+		const res = await fetch('http://localhost:8000/api/users/logout', {
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',
