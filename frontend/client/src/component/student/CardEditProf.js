@@ -4,8 +4,8 @@ import img2 from '../../static/Student.jpg'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
-function CardEditProf() {
-        let [inputValue, setInputValue] = useState('I’m a 4th year Computer Science student at the University of Jordan');
+function CardEditProf(props) {
+        let [inputValue, setInputValue] = useState(`${props.e}`);
       
         let handleChange = (event) => {
           setInputValue(event.target.value);

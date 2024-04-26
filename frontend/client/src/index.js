@@ -64,10 +64,11 @@ import AddProfSuper from "./pages/Regestration/AddProfSuper";
 import AddStd from "./pages/Regestration/AddStd";
 import Student from "./pages/Regestration/Student";
 import { CookiesProvider } from "react-cookie";
-
+import RequireAuth from "./pages/student/requireslogin";
+import AuthRoute from "./pages/student/AuthRouter";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const router = createBrowserRouter([    
+const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
@@ -86,15 +87,30 @@ const router = createBrowserRouter([
   },
   {
     path: "/stdHome",
-    element: <HomePS />,
+    element: (
+      <>
+        <AuthRoute>
+          <HomePS />
+        </AuthRoute>
+      </>
+    ),
   },
   {
     path: "/stdAcc/:id",
-    element: <AccountPS />,
+    
+    element: <>
+    <AuthRoute>
+    <AccountPS />
+    </AuthRoute>
+    </>,
   },
   {
     path: "/stdEdit",
-    element: <EditPS />,
+    element: <>
+      <AuthRoute>
+        <EditPS />,
+      </AuthRoute>
+    </>
   },
   {
     path: "/stdCompSuperAcc",

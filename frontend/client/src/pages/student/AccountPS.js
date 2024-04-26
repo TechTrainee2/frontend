@@ -5,7 +5,6 @@ import CardContact from "../../component/student/CardContact";
 import NavbarStd from "../../component/student/NavbarStd";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getUser } from "../../features/user";
 
 function AccountPS() {
   let dispatch = useDispatch();
@@ -13,12 +12,13 @@ function AccountPS() {
   let { id } = useParams();
 
   let [profile, setProfile] = useState({});
+  let [extradt, setExtradt] = useState({});
+
+
   let [isSameUser, setIsSameUser] = useState(false);
   // // Get the profile by id
   let { user, loading } = useSelector((state) => state.user);
-  user = {
-    id: "",
-  };
+
   // when the page loader
 
   useEffect(() => {
@@ -31,21 +31,24 @@ function AccountPS() {
           },
         });
 
+
+        
         if (!res.ok) {
           throw new Error("Failed to fetch data");
         }
-
-        const profileData = await res.json();
-        dispatch(getUser());
         
-        if (profileData.user.id == id) {
-          setIsSameUser(true);
-        }
-
+        const profileData = await res.json();
+        // dispatch(getUser());
+        
         // Set profile state after data is fetched
-        setProfile(profileData);
-
-        // Dispatch action after fetching data
+        setProfile(profileData)
+        setExtradt(profileData.student)
+        if (user.id == id) {
+          setIsSameUser(true);
+         
+        }
+        
+       
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -53,7 +56,7 @@ function AccountPS() {
 
     // Call fetchData function when component mounts
     fetchData();
-  }, [dispatch, id, user.id]); // Include dependencies in the dependency array
+  }, [id]); // Include dependencies in the dependency array
 
   return (
     <>
@@ -64,9 +67,9 @@ function AccountPS() {
           <NavbarStd id={user.id} />
           {profile && (
             <div className="large-margin-bottom-phone">
-              <CardProfile profile={profile} isSameUser={isSameUser} />
-              <CardSkill profile={profile} isSameUser={isSameUser} />
-              <CardContact profile={profile} isSameUser={isSameUser} />
+              <CardProfile profile={profile} extra={extradt} isSameUser={isSameUser} />
+              <CardSkill profile={profile}  extra={extradt} isSameUser={isSameUser} />
+              <CardContact profile={profile} extra={extradt} isSameUser={isSameUser} />
             </div>
           )}
         </>
