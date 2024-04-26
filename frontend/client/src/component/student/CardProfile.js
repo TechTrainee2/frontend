@@ -16,11 +16,9 @@ function CardProfile(props) {
             <div className="std-btn-name">
               <div className="txt-std-name">
                 <span>
-                  {props.profile.first_name} {props.profile.last_name}
-                </span>
+                  {props.extra.first_name} {props.extra.last_name}
+                </span> 
                 {/* @TO DO complete the data */}
-                <span>{props.profile.department}</span>
-                <span>Dr. Ahmad</span>
               </div>
 
                 {props.isSameUser && (
@@ -37,7 +35,7 @@ function CardProfile(props) {
                 )}
             </div>
 
-            <p>{props.profile.bio}</p>
+            <p>{props.extra.bio}</p>
           </div>
         </div>
       </div>
