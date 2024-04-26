@@ -8,11 +8,16 @@ import { useSelector, useDispatch } from "react-redux";
 import { getUser } from "../../features/user";
 import { Navigate } from "react-router-dom";
 import { useEffect } from "react";
+import { useCookies } from 'react-cookie';
+
 function HomePS() {
+  const [cookies, setCookie] = useCookies(['access']);
+
   let { isAuthenticated, loading,user } = useSelector((state) => state.user);
+
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getUser());
+    dispatch(getUser(cookies.access));
   }, []);
 
   if (!isAuthenticated && !loading && user==null) return <Navigate to="/SignIn" />;

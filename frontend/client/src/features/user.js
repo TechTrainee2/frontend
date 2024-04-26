@@ -143,13 +143,15 @@ export const registerStd = createAsyncThunk(
 }
 );
 
-export const getUser = createAsyncThunk('users/me', async (_, thunkAPI) => {
+export const getUser = createAsyncThunk('users/me', async (cookie, thunkAPI) => {
 	try {
 		const res = await fetch('http://127.0.0.1:8000/users/me', {
 			method: 'GET',
 			headers: {
 				Accept: 'application/json',
+				'Authorization': `Bearer ${cookie}`,
 			},
+			
 			credentials: 'include',
 		});
 
@@ -165,11 +167,6 @@ export const getUser = createAsyncThunk('users/me', async (_, thunkAPI) => {
 	}
 });
 
-function getCookie(name) {
-	const value = `; ${document.cookie}`;
-	const parts = value.split(`; ${name}=`);
-	if (parts.length === 2) return parts.pop().split(';').shift();
-  }
 
 export const login = createAsyncThunk(
 	'users/login',
@@ -180,13 +177,13 @@ export const login = createAsyncThunk(
 		});
 
 		try {
-			const csrftoken = getCookie('csrftoken');
-			const res = await fetch('http://127.0.0.1:8000/api/token/', {
+			// const csrftoken = getCookie('csrftoken');
+			const res = await fetch('http://127.0.0.1:8000/users/token/', {
 				method: 'POST',
 				headers: {
 					Accept: 'application/json',
 					'Content-Type': 'application/json',
-					'X-CSRFToken': csrftoken
+					// 'X-CSRFToken': csrftoken
 				},
 				body,
 				credentials:"include",
@@ -196,35 +193,7 @@ export const login = createAsyncThunk(
 
 			if (res.status === 200) {
 				const { dispatch } = thunkAPI;
-
-				dispatch(getUser());
-
-				return data;
-			} else {
-				return thunkAPI.rejectWithValue(data);
-			}
-		} catch (err) {
-			return thunkAPI.rejectWithValue(err.response.data);
-		}
-	}
-);
-export const checkAuth = createAsyncThunk(
-	'users/verify',
-	async (_, thunkAPI) => {
-		try {
-			const res = await fetch('http://localhost:8000/api/users/verify', {
-				method: 'GET',
-				headers: {
-					Accept: 'application/json',
-				},
-			});
-
-			const data = await res.json();
-
-			if (res.status === 200) {
-				const { dispatch } = thunkAPI;
-
-				dispatch(getUser());
+				dispatch(getUser(data.access));
 
 				return data;
 			} else {
@@ -235,6 +204,33 @@ export const checkAuth = createAsyncThunk(
 		}
 	}
 );
+// export const checkAuth = createAsyncThunk(
+// 	'users/verify',
+// 	async (_, thunkAPI) => {
+// 		try {
+// 			const res = await fetch('http://localhost:8000/api/users/verify', {
+// 				method: 'GET',
+// 				headers: {
+// 					Accept: 'application/json',
+// 				},
+// 			});
+
+// 			const data = await res.json();
+
+// 			if (res.status === 200) {
+// 				const { dispatch } = thunkAPI;
+
+// 				dispatch(getUser());
+
+// 				return data;
+// 			} else {
+// 				return thunkAPI.rejectWithValue(data);
+// 			}
+// 		} catch (err) {
+// 			return thunkAPI.rejectWithValue(err.response.data);
+// 		}
+// 	}
+// );
 
 export const logout = createAsyncThunk('users/logout', async (_, thunkAPI) => {
 	try {
@@ -347,16 +343,16 @@ const userSlice = createSlice({
 				state.loading = false;
 				state.isAuthenticated = false;
 			})
-			.addCase(checkAuth.pending, state => {
-				state.loading = true;
-			})
-			.addCase(checkAuth.fulfilled, state => {
-				state.loading = false;
-				state.isAuthenticated = true;
-			})
-			.addCase(checkAuth.rejected, state => {
-				state.loading = false;
-			})
+			// .addCase(checkAuth.pending, state => {
+			// 	state.loading = true;
+			// })
+			// .addCase(checkAuth.fulfilled, state => {
+			// 	state.loading = false;
+			// 	state.isAuthenticated = true;
+			// })
+			// .addCase(checkAuth.rejected, state => {
+			// 	state.loading = false;
+			// })
 			.addCase(logout.pending, state => {
 				state.loading = true;
 			})

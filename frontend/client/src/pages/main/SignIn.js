@@ -12,7 +12,7 @@ import { checkAuth } from '../../features/user';
 
 
 function SignIn() {
-  
+
   const dispatch = useDispatch();
 	const { loading, isAuthenticated, registered,user } = useSelector(
 		state => state.user
@@ -43,11 +43,11 @@ function SignIn() {
     const data = await dispatch(login({ email, password }));
     
   
-    if (Object.keys(data.payload)){
-      setIsError(true)
-      console.log(data)
-      setError(data.payload["detail"])
-    }
+    // if (Object.keys(data.payload)){
+    //   setIsError(true)
+    //   console.log(data)
+    //   setError(data.payload["detail"])
+    // }
    
 	};
 	
