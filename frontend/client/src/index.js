@@ -1,290 +1,286 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import { Provider } from 'react-redux';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
 
+import reportWebVitals from "./reportWebVitals";
+import Home from "./pages/main/Home";
+import AboutUs from "./pages/main/AboutUs";
+import SignIn from "./pages/main/SignIn";
+import SignUp from "./pages/main/SignUp";
+import HomePS from "./pages/student/HomePS";
+import AccountPS from "./pages/student/AccountPS";
+import EditPS from "./pages/student/EditPS";
+import HomeUS from "./pages/uniSuper/HomeUS";
+import ReportUniSuper from "./pages/uniSuper/ReportUniSuper";
 
-import reportWebVitals from './reportWebVitals';
-import Home from './pages/main/Home';
-import AboutUs from './pages/main/AboutUs';
-import SignIn from './pages/main/SignIn';
-import SignUp from './pages/main/SignUp';
-import HomePS from './pages/student/HomePS';
-import AccountPS from './pages/student/AccountPS';
-import EditPS from './pages/student/EditPS';
-import HomeUS from './pages/uniSuper/HomeUS';
-import ReportUniSuper from './pages/uniSuper/ReportUniSuper';
+import CompanyPS from "./pages/student/CompanyPS";
+import CompPostPS from "./pages/student/CompPostPS";
+import ReportPS from "./pages/student/ReportPS";
+import NotificationPS from "./pages/student/NotificationPS";
+import HomeC from "./pages/company/HomeC";
+import StudentApplicationC from "./pages/company/StudentApplicationC";
+import AccountC from "./pages/company/AccountC";
+import AccEditC from "./pages/company/AccEditC";
+import PostEditC from "./pages/company/PostEditC";
+import NewPostC from "./pages/company/NewPostC";
+import SuperAcc from "./pages/uniSuper/SuperAcc";
+import SuperAccEdit from "./pages/uniSuper/SuperAccEdit";
+import HomeDep from "./pages/Department/HomeDep";
+import DepStd from "./pages/Department/DepStd";
+import DepUniSuper from "./pages/Department/DepUniSuper";
+import DepUniSuperStd from "./pages/Department/DepUniSuperStd";
+import DepNotification from "./pages/Department/DepNotification";
+import DepReqApproval from "./pages/Department/DepReqApproval";
+import HomeCS from "./pages/compSuper/HomeCS";
+import AccountCS from "./pages/compSuper/AccountCS";
+import EditAccCS from "./pages/company/EditAccCS";
+import ReportCS from "./pages/compSuper/ReportCS";
+import StdReportCS from "./pages/compSuper/StdReportCS";
+import FillReportCS from "./pages/compSuper/FillReportCS";
+import CompSuperAccPS from "./pages/student/CompSuperAccPS";
+import UniSuperAccPS from "./pages/student/UniSuperAccPS";
+import HomeReg from "./pages/Regestration/HomeReg";
+// import StdReg from "./pages/Regestration/AddStd";
+// import ProfReg from "./pages/Regestration/AddProfSuper";
+import StdReportUS from "./pages/uniSuper/StdReportUS";
+import DepReport from "./pages/Department/DepReport";
+import DepStdFinalReport from "./pages/Department/DepStdFinalReport";
+import CompanySuper from "./pages/company/CompanySuper";
+import AddCompSuper from "./pages/company/AddCompSuper";
+import CompAssignStd from "./pages/company/CompAssignStd";
+import CompStd from "./pages/company/CompStd";
+import StdApplication from "./pages/company/StdApplication";
+import SuperNotification from "./pages/uniSuper/SuperNotification";
+import UniSuperViewPost from "./pages/uniSuper/UniSuperViewPost";
+import "./App.css";
+import SearchPhone from "./pages/student/SearchPhone";
 
-import CompanyPS from './pages/student/CompanyPS';
-import CompPostPS from './pages/student/CompPostPS';
-import ReportPS from './pages/student/ReportPS';
-import NotificationPS from './pages/student/NotificationPS';
-import HomeC from './pages/company/HomeC';
-import StudentApplicationC from './pages/company/StudentApplicationC';
-import AccountC from './pages/company/AccountC';
-import AccEditC from './pages/company/AccEditC';
-import PostEditC from './pages/company/PostEditC';
-import NewPostC from './pages/company/NewPostC';
-import SuperAcc from './pages/uniSuper/SuperAcc';
-import SuperAccEdit from './pages/uniSuper/SuperAccEdit';
-import HomeDep from './pages/Department/HomeDep';
-import DepStd from './pages/Department/DepStd';
-import DepUniSuper from './pages/Department/DepUniSuper';
-import DepUniSuperStd from './pages/Department/DepUniSuperStd';
-import DepNotification from './pages/Department/DepNotification';
-import DepReqApproval from './pages/Department/DepReqApproval';
-import HomeCS from './pages/compSuper/HomeCS';
-import AccountCS from './pages/compSuper/AccountCS';
-import EditAccCS from './pages/company/EditAccCS';
-import ReportCS from './pages/compSuper/ReportCS';
-import StdReportCS from './pages/compSuper/StdReportCS';
-import FillReportCS from './pages/compSuper/FillReportCS';
-import CompSuperAccPS from './pages/student/CompSuperAccPS';
-import UniSuperAccPS from './pages/student/UniSuperAccPS';
-import HomeReg from './pages/Regestration/HomeReg';
-import StdReg from './pages/Regestration/AddStd';
-import ProfReg from './pages/Regestration/AddProfSuper';
-import StdReportUS from './pages/uniSuper/StdReportUS';
-import DepReport from './pages/Department/DepReport';
-import DepStdFinalReport from './pages/Department/DepStdFinalReport';
-import CompanySuper from './pages/company/CompanySuper';
-import AddCompSuper from './pages/company/AddCompSuper';
-import CompAssignStd from './pages/company/CompAssignStd';
-import CompStd from './pages/company/CompStd';
-import StdApplication from './pages/company/StdApplication';
-import SuperNotification from './pages/uniSuper/SuperNotification';
-import UniSuperViewPost from './pages/uniSuper/UniSuperViewPost';
-import './App.css'
-import SearchPhone from './pages/student/SearchPhone';
+import { store } from "./store";
+import AddProfForm from "./component/Regestration/CreateAccForm";
+import UniSuper from "./pages/Regestration/UniSuper";
+import AddProfSuper from "./pages/Regestration/AddProfSuper";
+import AddStd from "./pages/Regestration/AddStd";
+import Student from "./pages/Regestration/Student";
+import { CookiesProvider } from "react-cookie";
 
-import { store } from './store';
-import AddProfForm from './component/Regestration/CreateAccForm';
-import UniSuper from './pages/Regestration/UniSuper';
-import AddProfSuper from './pages/Regestration/AddProfSuper';
-import AddStd from './pages/Regestration/AddStd';
-import Student from './pages/Regestration/Student';
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-const router = createBrowserRouter([
+const router = createBrowserRouter([    
   {
     path: "/",
-    element: <Home/>,
+    element: <Home />,
   },
   {
     path: "/About",
-    element:<AboutUs/>
+    element: <AboutUs />,
   },
   {
     path: "/SignIn",
-    element:<SignIn/>
+    element: <SignIn />,
   },
   {
     path: "/SignUp",
-    element:<SignUp/>
+    element: <SignUp />,
   },
   {
     path: "/stdHome",
-    element:<HomePS/>
+    element: <HomePS />,
   },
   {
     path: "/stdAcc/:id",
-    element:<AccountPS/>
+    element: <AccountPS />,
   },
   {
     path: "/stdEdit",
-    element:<EditPS/>
+    element: <EditPS />,
   },
   {
     path: "/stdCompSuperAcc",
-    element:<CompSuperAccPS/>
+    element: <CompSuperAccPS />,
   },
   {
     path: "/stdUniSuperAcc",
-    element:<UniSuperAccPS/>
+    element: <UniSuperAccPS />,
   },
   {
-    path:"/uniSuper",
-    element:<HomeUS/>
+    path: "/uniSuper",
+    element: <HomeUS />,
   },
   {
-    path:"/reportUniSuper",
-    element:<ReportUniSuper/>
+    path: "/reportUniSuper",
+    element: <ReportUniSuper />,
   },
   {
-    path:"/stdreportUniSuper",
-    element:<StdReportUS/>
+    path: "/stdreportUniSuper",
+    element: <StdReportUS />,
   },
   {
     path: "/stdCompany",
-    element:<CompanyPS/>
+    element: <CompanyPS />,
   },
   {
     path: "/stdPost",
-    element:<CompPostPS/>
+    element: <CompPostPS />,
   },
   {
     path: "/stdReport",
-    element:<ReportPS/>
+    element: <ReportPS />,
   },
   {
     path: "/stdNotification",
-    element:<NotificationPS/>
+    element: <NotificationPS />,
   },
   {
     path: "/compHome",
-    element:<HomeC/>
+    element: <HomeC />,
   },
   {
     path: "/compStdApplication",
-    element:<StudentApplicationC/>
+    element: <StudentApplicationC />,
   },
   {
     path: "/compProfile/:id",
-    element:<AccountC/>
+    element: <AccountC />,
   },
   {
     path: "/compEditProfile",
-    element:<AccEditC/>
+    element: <AccEditC />,
   },
   {
     path: "/compEditPost",
-    element:<PostEditC/>
+    element: <PostEditC />,
   },
   {
     path: "/compNewPost",
-    element:<NewPostC/>
+    element: <NewPostC />,
   },
   {
     path: "/CompSuper",
-    element:<CompanySuper/>
+    element: <CompanySuper />,
   },
   {
     path: "/AddCompSuper",
-    element:<AddCompSuper/>
+    element: <AddCompSuper />,
   },
   {
     path: "/assignCompSuper",
-    element:<CompAssignStd/>
+    element: <CompAssignStd />,
   },
   {
     path: "/CompStd",
-    element:<CompStd/>
+    element: <CompStd />,
   },
   {
     path: "/stdApplications",
-    element:<StdApplication/>
+    element: <StdApplication />,
   },
   {
     path: "/superAcc/:id",
-    element: <SuperAcc/>
+    element: <SuperAcc />,
   },
   {
     path: "/SuperEdit",
-    element: <SuperAccEdit/>
+    element: <SuperAccEdit />,
   },
   {
     path: "/superNotification",
-    element: <SuperNotification/>
+    element: <SuperNotification />,
   },
   {
     path: "/uniSuperViewPost",
-    element: <UniSuperViewPost/>
+    element: <UniSuperViewPost />,
   },
   {
     path: "/depHome",
-    element: <HomeDep/> 
+    element: <HomeDep />,
   },
   {
     path: "/depStd",
-    element: <DepStd/> 
+    element: <DepStd />,
   },
   {
     path: "/depSuper",
-    element: <DepUniSuper/>
+    element: <DepUniSuper />,
   },
   {
     path: "/uniSuperStd",
-    element: <DepUniSuperStd/>
+    element: <DepUniSuperStd />,
   },
   {
     path: "/depNotification",
-    element: <DepNotification/>
+    element: <DepNotification />,
   },
   {
     path: "/depReqApproval",
-    element: <DepReqApproval/>
+    element: <DepReqApproval />,
   },
   {
     path: "/depReport",
-    element: <DepReport/>
+    element: <DepReport />,
   },
   {
     path: "/depStdFinalReport",
-    element: <DepStdFinalReport/>
+    element: <DepStdFinalReport />,
   },
   {
     path: "/CompSuperHome",
-    element: <HomeCS/> 
+    element: <HomeCS />,
   },
   {
     path: "/CompSuperAcc/:id",
-    element: <AccountCS/> 
+    element: <AccountCS />,
   },
   {
     path: "/CompSuperEditAcc",
-    element: <EditAccCS/> 
+    element: <EditAccCS />,
   },
   {
     path: "/CompSuperReport",
-    element: <ReportCS/> 
+    element: <ReportCS />,
   },
   {
     path: "/CompSuperStdReport",
-    element: <StdReportCS/> 
+    element: <StdReportCS />,
   },
   {
     path: "/CompSuperFillReport",
-    element: <FillReportCS/> 
+    element: <FillReportCS />,
   },
   {
     path: "/RegHome",
-    element: <HomeReg/> 
+    element: <HomeReg />,
   },
   {
     path: "/RegStdForm",
-    element: <AddStd/> 
+    element: <AddStd />,
   },
   {
     path: "/RegUniSuper",
-    element: <UniSuper/> 
+    element: <UniSuper />,
   },
   {
     path: "/RegStd",
-    element: <Student/> 
+    element: <Student />,
   },
   {
     path: "/RegProfForm",
-    element: <AddProfSuper/> 
+    element: <AddProfSuper />,
   },
   {
     path: "/searchphone",
-    element: <SearchPhone/> 
-  }
-
-
+    element: <SearchPhone />,
+  },
 ]);
 
 root.render(
-
   <React.StrictMode>
-    <Provider store={store}> 
-      <RouterProvider router={router} />
-    </Provider>
+    <CookiesProvider>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+    </CookiesProvider>
   </React.StrictMode>
 );
 // If you want to start measuring performance in your app, pass a function
