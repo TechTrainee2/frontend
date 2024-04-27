@@ -13,12 +13,13 @@ function AccountC() {
   let { id } = useParams();
 
   let [profile, setProfile] = useState({});
+  let [extradt, setExtradt] = useState({});
+
+
   let [isSameUser, setIsSameUser] = useState(false);
   // // Get the profile by id
   let { user, loading } = useSelector((state) => state.user);
-  user = {
-    id: "",
-  };
+
   // when the page loader
 
   useEffect(() => {
@@ -31,22 +32,24 @@ function AccountC() {
           },
         });
 
+
+        
         if (!res.ok) {
           throw new Error("Failed to fetch data");
         }
-
+        
         const profileData = await res.json();
-        dispatch(getUser());
-
-        if (profileData.user.id == `${id}`) {
+        // dispatch(getUser());
+        
+        // Set profile state after data is fetched
+        setProfile(profileData)
+        setExtradt(profileData.company)
+        console.log(user.id == id);
+        if (user.id == id) {
           setIsSameUser(true);
         }
         
-
-        // Set profile state after data is fetched
-        setProfile(profileData);
-        
-        // Dispatch action after fetching data
+       
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -54,7 +57,7 @@ function AccountC() {
 
     // Call fetchData function when component mounts
     fetchData();
-  }, [dispatch, id, user.id]); // Include dependencies in the dependency array
+  }, [id,user.id]); // Include dependencies in the dependency array
 
   return (
     <>
@@ -65,9 +68,9 @@ function AccountC() {
           <NavbarMain id={user.id} />
           {profile && (
             <>
-              <CardProfile profile={profile} isSameUser={isSameUser}/>
-              <CardCompBio profile={profile} isSameUser={isSameUser}/>
-              <CardCompPost profile={profile} isSameUser={isSameUser}/>
+              <CardProfile profile={profile} extra={extradt} isSameUser={isSameUser}/>
+              <CardCompBio profile={profile} extra={extradt} isSameUser={isSameUser}/>
+              <CardCompPost profile={profile} extra={extradt} isSameUser={isSameUser}/>
             </>
           )}
         </>

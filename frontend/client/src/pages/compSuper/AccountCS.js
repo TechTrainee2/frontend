@@ -12,40 +12,43 @@ function AccountCS() {
   let { id } = useParams();
 
   let [profile, setProfile] = useState({});
+  let [extradt, setExtradt] = useState({});
+
+
   let [isSameUser, setIsSameUser] = useState(false);
   // // Get the profile by id
   let { user, loading } = useSelector((state) => state.user);
-  user = {
-    id: "",
-  };
+
   // when the page loader
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://127.0.0.1:8000/users/companySuperprof/${id}`, {
+        const res = await fetch(`http://127.0.0.1:8000/users/companysuperprof/${id}`, {
           method: "GET",
           headers: {
             Accept: "application/json",
           },
         });
 
+
+        
         if (!res.ok) {
           throw new Error("Failed to fetch data");
         }
-
+        
         const profileData = await res.json();
-        dispatch(getUser());
-
-        if (profileData.user.id == `${id}`) {
+        // dispatch(getUser());
+        
+        // Set profile state after data is fetched
+        setProfile(profileData)
+        setExtradt(profileData.company_supervisor)
+        console.log(user.id == id);
+        if (user.id == id) {
           setIsSameUser(true);
         }
         
-
-        // Set profile state after data is fetched
-        setProfile(profileData);
-        
-        // Dispatch action after fetching data
+       
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -53,7 +56,7 @@ function AccountCS() {
 
     // Call fetchData function when component mounts
     fetchData();
-  }, [dispatch, id, user.id]); // Include dependencies in the dependency array
+  }, [id,user.id]); // Include dependencies in the dependency array
 
   return (
     <>
@@ -64,8 +67,8 @@ function AccountCS() {
           <NavbarHome id={user.id} />
           {profile && (
             <div className='centerd-comp'>
-              <CardProfile profile={profile} isSameUser={isSameUser}/>
-              <CardContact profile={profile} isSameUser={isSameUser}/>
+              <CardProfile profile={profile} extra={extradt} isSameUser={isSameUser}/>
+              <CardContact profile={profile} extra={extradt} isSameUser={isSameUser}/>
             </div>
           )}
         </>

@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from "react";
-import NavbarStdEdit from '../../component/student/NavbarStdEdit'
-import CardEditProf from '../../component/student/CardEditProf'
-import CardEditSkill from '../../component/student/CardEditSkill'
-import CardEditCont from '../../component/student/CardEditCont'
-import SmallNavbar from '../../component/student/SmallNavbar'
-import EditHeader from '../../component/student/EditHeader'
+import NavbarEditAcc from '../../component/compSuper/NavbarEditAcc'
+import CardEditProfile from '../../component/compSuper/CardEditProfile'
+import CardEditContact from '../../component/compSuper/CardEditContact'
 import { useParams } from "react-router-dom";
 import { useSelector} from "react-redux";
-import { Navigate } from 'react-router-dom';
 
-
-
-function EditPS() {
-
+function EditAccCS() {
   // Grab the parameter from the url
   let { id } = useParams();
 
@@ -25,11 +18,11 @@ function EditPS() {
   let { user, loading } = useSelector((state) => state.user);
 
   let [data,setData]=useState({
-    'bio':'',
     'img':'',
     'img_bk':'',
     'phone':'',
-    'address':''})
+    'address':'',
+    'role':'',})
  
   let onChange = (e) => {
     console.log(e.target.value);
@@ -43,51 +36,31 @@ function EditPS() {
     });
   }
 
-
   // when the page loader
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://127.0.0.1:8000/users/stdprof/${user.id}`, {
+        const res = await fetch(`http://127.0.0.1:8000/users/companysuperprof/${user.id}`, {
           method: "GET",
           headers: {
             Accept: "application/json",
           },
         });
 
-        // const res2 = await fetch(`http://127.0.0.1:8000/users/stdprof/${user.id}`, {
-        //   method: "PATCH",
-        //   headers: {
-        //     Accept: "application/json",
-        //   },
-        //   body: JSON.stringify(data),
-        // });
 
-
-        // res4=res2
         if (!res.ok) {
           throw new Error("Failed to fetch data");
         }
         
         const profileData = await res.json();
-
-        // if (!res2.ok) {
-        //   throw new Error("Failed to fetch data");
-        // }
-        
-        // const Data = await res2.json();
-        // dispatch(getUser());
         
         // Set profile state after data is fetched
         setProfile(profileData)
-        setExtradt(profileData.student)
-        // setData(Data)
-        
+        setExtradt(profileData.company_supervisor)
+
         if (user.id == id) {
           setIsSameUser(true);
-          
-        //  console.log(Data);
         }
         
        
@@ -113,7 +86,7 @@ function EditPS() {
   
     // Use nonEmptyData in your fetch request
     try {
-      const res2 = await fetch(`http://127.0.0.1:8000/users/stdprof/${user.id}`, {
+      const res2 = await fetch(`http://127.0.0.1:8000/users/companysuperprof/${user.id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -131,27 +104,22 @@ function EditPS() {
       console.error("Error fetching data:", error);
     }
   }
-
-
   return (
     <>
     {loading ? (
       <>Spinner</>
     ) : (
-      <>
-    <NavbarStdEdit id={user.id}/>
-    {/* <EditHeader/>
-    <SmallNavbar/> */}
+    <>
+    <NavbarEditAcc id={user.id}/>
     {profile && (
-    <form className='large-margin-bottom-phone' onSubmit={onSubmit}>
-      <CardEditProf profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}/>
-      <CardEditSkill profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}/>
-      <CardEditCont profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}/>
-    </form>)}
-    </>
-  )}
-  </>
-  )
-}
+      <form onSubmit={onSubmit}>
+        <CardEditProfile profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}/>
+        <CardEditContact profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}/>
+      </form>)}
+      </>
+      )}
+      </>
+      )
+    }
 
-export default EditPS
+export default EditAccCS

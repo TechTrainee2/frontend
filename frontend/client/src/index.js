@@ -35,7 +35,7 @@ import DepNotification from "./pages/Department/DepNotification";
 import DepReqApproval from "./pages/Department/DepReqApproval";
 import HomeCS from "./pages/compSuper/HomeCS";
 import AccountCS from "./pages/compSuper/AccountCS";
-import EditAccCS from "./pages/company/EditAccCS";
+import EditAccCS from "./pages/compSuper/EditAccCS";
 import ReportCS from "./pages/compSuper/ReportCS";
 import StdReportCS from "./pages/compSuper/StdReportCS";
 import FillReportCS from "./pages/compSuper/FillReportCS";
@@ -122,7 +122,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/uniSuper",
-    element: <HomeUS />,
+    element: <>
+      <AuthRoute>
+        <HomeUS />,
+      </AuthRoute>
+    </>,
   },
   {
     path: "/reportUniSuper",
@@ -150,7 +154,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/compHome",
-    element: <HomeC />,
+    element: <>
+    <AuthRoute>
+      <HomeC />,
+    </AuthRoute>
+    </>,
   },
   {
     path: "/compStdApplication",
@@ -158,11 +166,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/compProfile/:id",
-    element: <AccountC />,
+    element: <>
+    <AuthRoute>
+      <AccountC />,
+    </AuthRoute>
+    </>,
   },
   {
     path: "/compEditProfile",
-    element: <AccEditC />,
+    element: <>
+      <AuthRoute>
+        <AccEditC />,
+      </AuthRoute>
+      </>,
   },
   {
     path: "/compEditPost",
@@ -194,11 +210,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/superAcc/:id",
-    element: <SuperAcc />,
+    element: <>
+    <AuthRoute>
+      <SuperAcc />,
+    </AuthRoute>
+    </>,
   },
   {
     path: "/SuperEdit",
-    element: <SuperAccEdit />,
+    element: <>
+      <AuthRoute>
+      <SuperAccEdit />,
+      </AuthRoute>
+    </>
   },
   {
     path: "/superNotification",
@@ -242,15 +266,27 @@ const router = createBrowserRouter([
   },
   {
     path: "/CompSuperHome",
-    element: <HomeCS />,
+    element: <>
+    <AuthRoute>
+      <HomeCS />,
+    </AuthRoute>
+    </>,
   },
   {
     path: "/CompSuperAcc/:id",
-    element: <AccountCS />,
+    element: <>
+    <AuthRoute>
+      <AccountCS />,
+    </AuthRoute>
+    </>,
   },
   {
     path: "/CompSuperEditAcc",
-    element: <EditAccCS />,
+    element: <>
+    <AuthRoute>
+      <EditAccCS />,
+    </AuthRoute>
+    </>,
   },
   {
     path: "/CompSuperReport",
