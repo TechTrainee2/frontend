@@ -14,7 +14,7 @@ function CardContact(props) {
 
             <div>
                 <span className='super'>Phone Number</span>
-                <span>{props.extra.phone}</span>
+                <span>{props.profile.phone}</span>
             </div>
 
             <div>
@@ -24,7 +24,7 @@ function CardContact(props) {
 
             <div>
                 <span className='super'>Address</span>
-                <span>{props.extra.location}</span>
+                <span>{props.profile.location}</span>
             </div>
             
         </div>
