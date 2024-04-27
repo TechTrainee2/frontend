@@ -2,20 +2,11 @@ import React from 'react'
 import { useState } from 'react';
 
 function CardEditSkill() {
-    let [inputValue, setInputValue] = useState('I have a knowledge in :Python flask ,React ,HTML CSS JavaScript ,Node JS ,Good at communication and team work');
-      
-        let handleChange = (event) => {
-          setInputValue(event.target.value);
-        };
   return (
     <>
      <div className='large-card gray-bk centered-card'>
         <div className='skill-comp'>
-            <span className='bold'>Skills & Experience </span>
-
-            <input type='text' name='Skill' className='std-skill'
-                    value={inputValue} 
-                    onChange={handleChange}/>
+    
 
             <span className='bold'>My CV</span>
 

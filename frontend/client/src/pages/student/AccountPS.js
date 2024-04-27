@@ -43,6 +43,7 @@ function AccountPS() {
         // Set profile state after data is fetched
         setProfile(profileData)
         setExtradt(profileData.student)
+        console.log(user.id == id);
         if (user.id == id) {
           setIsSameUser(true);
          
@@ -56,7 +57,7 @@ function AccountPS() {
 
     // Call fetchData function when component mounts
     fetchData();
-  }, [id]); // Include dependencies in the dependency array
+  }, [id,user.id]); // Include dependencies in the dependency array
 
   return (
     <>

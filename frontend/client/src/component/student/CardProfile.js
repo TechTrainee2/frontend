@@ -17,7 +17,9 @@ function CardProfile(props) {
               <div className="txt-std-name">
                 <span>
                   {props.extra.first_name} {props.extra.last_name}
-                </span> 
+                </span>
+                
+                {/* <span>University supervisor: Dr. {props.uni.first_name}</span>  */}
                 {/* @TO DO complete the data */}
               </div>
 
