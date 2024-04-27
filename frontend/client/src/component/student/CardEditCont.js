@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-function CardEditCont() {
-let [phone, setPhone]=useState('')
+function CardEditCont(props) {
+let [phone, setPhone]=useState(props.extra.phone)
 let [email, setEmail]=useState('') 
-let [address, setAddress]=useState('')       
+let [address, setAddress]=useState(props.extra.location)       
         let handleChangePhone = (event) => 
           setPhone(event.target.value);
           let handleChangeEmail = (event) => 
@@ -21,21 +21,20 @@ let [address, setAddress]=useState('')
                 <span >Phone Number</span>
                 <input type='text' name='phone' className='std-data'
                     value={phone} 
-                    onChange={handleChangePhone}/>
+                    onChange={props.onChange}/>
             </div>
 
             <div>
                 <span>Email</span>
-                <input type='text' name='email' className='std-data'
-                    value={email} 
-                    onChange={handleChangeEmail}/>
+                <span>{email}</span>
+        
             </div>
 
             <div>
                 <span>Address</span>
-                <input type='text' name='address' className='std-data'
+                <input type='text' name='location' className='std-data'
                     value={address} 
-                    onChange={handleChangeAddress}/>
+                    onChange={props.onChange}/>
             </div>
             
         </div>

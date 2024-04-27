@@ -4,6 +4,7 @@ import img2 from "../../static/Student.jpg";
 import { Link } from "react-router-dom";
 
 function CardProfile(props) {
+  
   return (
     <>
       <div className="large-card gray-bk centered-card">
@@ -37,7 +38,7 @@ function CardProfile(props) {
                 )}
             </div>
 
-            <p>{props.extra.bio}</p>
+            <p>{props.profile.bio}</p>
           </div>
         </div>
       </div>
