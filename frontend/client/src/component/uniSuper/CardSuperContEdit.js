@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-function CardSuperContEdit() {
-let [phone, setPhone]=useState('')
+function CardSuperContEdit(props) {
+let [phone, setPhone]=useState(props.profile.phone)
 let [email, setEmail]=useState('') 
-let [address, setAddress]=useState('')       
+let [address, setAddress]=useState(props.profile.location)       
         let handleChangePhone = (event) => 
           setPhone(event.target.value);
           let handleChangeEmail = (event) => 
@@ -21,21 +21,19 @@ let [address, setAddress]=useState('')
                 <span className='std-span-info'>Phone Number</span>
                 <input type='text' name='phone' className='std-data'
                     value={phone} 
-                    onChange={handleChangePhone}/>
+                    onChange={props.onChange}/>
             </div>
 
             <div>
                 <span className='std-span-info'>Email</span>
-                <input type='text' name='email' className='std-data'
-                    value={email} 
-                    onChange={handleChangeEmail}/>
+                <span>{email}</span>
             </div>
 
             <div>
                 <span className='std-span-info'>Address</span>
                 <input type='text' name='address' className='std-data'
                     value={address} 
-                    onChange={handleChangeAddress}/>
+                    onChange={props.onChange}/>
             </div>
             
         </div>

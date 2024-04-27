@@ -16,10 +16,11 @@ function CardSuperProf(props) {
                 <div className='std-txt-left'>
                     <div className='std-btn-name'>
                         <div className='txt-std-name'>
-                            <span>{props.profile.first_name} {props.profile.last_name} </span>
+                            <span>{props.extra.first_name} {props.extra.last_name} </span>
                         
                         </div>
 
+                        {props.isSameUser && (
                         <div className='std-unisuper-btns-m'>
                             <Link to='/SuperEdit' >
                                 <button className='button-size-std navy-bk white-font'>
@@ -32,6 +33,7 @@ function CardSuperProf(props) {
                                 </button>
                             </Link>
                         </div>
+                         )}
 
                     </div>
                 </div>

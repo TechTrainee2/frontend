@@ -16,9 +16,9 @@ function CardProfile(props) {
                     <div className='std-btn-name'>
 
                         <div className='txt-compsuper-name'>
-                            <span>{props.profile.first_name} {props.profile.last_name}</span>
+                            <span>{props.extra.first_name} {props.extra.last_name} </span>
                         </div>
-
+                        {props.isSameUser && (
                         <div className='compsuper-btn-mod'>
                             <Link to='/CompSuperEditAcc' >
                                 <button className='button-size-std navy-bk white-font'>
@@ -29,6 +29,7 @@ function CardProfile(props) {
                                 Log Out
                             </button>
                         </div>
+                    )}
 
                     </div>
 

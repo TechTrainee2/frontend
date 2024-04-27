@@ -18,15 +18,20 @@ function CardProfile(props) {
 
                         <div className='comp-profile-txt'>
 
-                            <div className='txt-std-name'>
-                                <span>{props.profile.name}</span>
-                                <span>{props.profile.location}</span>
+                            <div className='txt-comp-name font-med'>
+                                <span className='bold'>{props.extra.name}</span>
+                                <div style={{display: 'flex'}}>
+                                    <span className='bold'>Located at : &nbsp;</span> 
+                                    <span> {props.profile.location}</span>
+                                </div>
+                               
                             </div>
 
 
                         </div>
-                        <div className='comp-btn-container'>
 
+                        {props.isSameUser && (
+                        <div className='comp-btn-container'>
                             <div className='std-btns'>
                                 <Link to='/compEditProfile' >
                                     <button className='button-size-std navy-bk white-font'>
@@ -45,8 +50,8 @@ function CardProfile(props) {
                                     </button>
                                 </Link>
                             </div>
-
                         </div>
+                    )}
                     </div>
 
                     

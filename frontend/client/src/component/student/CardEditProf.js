@@ -34,7 +34,7 @@ function CardEditProf(props) {
                     </div>
 
                 <div className='std-profile'>
-                    <img src={props.profile.img} className='std-circle' />
+                    <img src={props.profile.img} name='img' className='std-circle' />
 
                     <div className='svg-circle'>
                         <label>
