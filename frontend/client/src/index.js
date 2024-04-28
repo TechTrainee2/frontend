@@ -141,8 +141,12 @@ const router = createBrowserRouter([
     element: <CompanyPS />,
   },
   {
-    path: "/stdPost",
-    element: <CompPostPS />,
+    path: "/stdPost/:id",
+    element: <>
+    <AuthRoute>
+      <CompPostPS />,
+      </AuthRoute>
+    </>,
   },
   {
     path: "/stdReport",
@@ -173,7 +177,7 @@ const router = createBrowserRouter([
     </>,
   },
   {
-    path: "/compEditProfile",
+    path: "/compEditProfile/:id",
     element: <>
       <AuthRoute>
         <AccEditC />,
@@ -181,8 +185,12 @@ const router = createBrowserRouter([
       </>,
   },
   {
-    path: "/compEditPost",
-    element: <PostEditC />,
+    path: "/compEditPost/:id",
+    element: <>
+    <AuthRoute>
+      <PostEditC />,
+    </AuthRoute>
+    </>,
   },
   {
     path: "/compNewPost",

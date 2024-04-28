@@ -738,6 +738,12 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   align-items: center;
 }
 /************ Company ****************/
+.post_date{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 170%;
+}
 .txt-comp-name {
   display: flex;
   flex-direction: column;

@@ -14,7 +14,7 @@ function AccountC() {
 
   let [profile, setProfile] = useState({});
   let [extradt, setExtradt] = useState({});
-
+  const [posts, setPosts] = useState([]);
 
   let [isSameUser, setIsSameUser] = useState(false);
   // // Get the profile by id
@@ -25,7 +25,7 @@ function AccountC() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://127.0.0.1:8000/users/companyprof/${id}`, {
+        const res = await fetch(`http://127.0.0.1:8000/users/companyprof/${user.id}`, {
           method: "GET",
           headers: {
             Accept: "application/json",
@@ -59,6 +59,27 @@ function AccountC() {
     fetchData();
   }, [id,user.id]); // Include dependencies in the dependency array
 
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch(`http://127.0.0.1:8000/users/posts/${id}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch posts');
+        }
+        const posts = await response.json();
+        console.log(posts);
+        setPosts(posts);
+        // Here you can set the posts to your state or dispatch an action to update your Redux store
+        // For example:
+        // setPosts(posts);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    fetchPosts();
+  }, [id,user.id]);
+
   return (
     <>
       {loading ? (
@@ -68,9 +89,11 @@ function AccountC() {
           <NavbarMain id={user.id} />
           {profile && (
             <>
-              <CardProfile profile={profile} extra={extradt} isSameUser={isSameUser}/>
+              <CardProfile  id={user.id} profile={profile} extra={extradt} isSameUser={isSameUser}/>
               <CardCompBio profile={profile} extra={extradt} isSameUser={isSameUser}/>
-              <CardCompPost profile={profile} extra={extradt} isSameUser={isSameUser}/>
+              {posts.map((post) => (
+                <CardCompPost profile={profile} extra={extradt} isSameUser={isSameUser} key={post.id} post={post}/>
+              ))}
             </>
           )}
         </>

@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import img from '../../static/company.png'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
-function CardPostDetail() {
+function CardPostDetail(props) {
+  const { user } = useSelector(
+		state => state.user
+	);
   let [isModal,setIsModal]=useState(false) 
     let handelOnClick =()=> {
         setIsModal(true)
@@ -17,30 +21,23 @@ function CardPostDetail() {
 
 
                 <span className='std-company-profile bold'>
-                  Internship Front End Developer
+                  {props.post.title}
                 </span>
 
               <div className='std-post-container'>
                 <div className='std-company-profile'>
                   <Link to='/stdcompany'>
-                    <img src={img} className='company-img2' />
+                    <img src={props.profile.img} className='company-img2' />
                   </Link>
                   <Link to='/stdcompany'>
-                    <span>Coders</span>
+                    <span>{props.extra.name}</span>
                   </Link>
-                  <span>Remote</span>
+                  <span>{props.post.training_mode}</span>
                 </div>
 
                 <div className='std-post-txt'>
                   <p>
-                      We are offering a training opportunity for (3) <br/>
-                      students on react and react native <br/> 
-                      About training: <br/> 
-                      you are going to learn react and react native
-                      and how to code it using functions and hooks and you will take pre course for designing <br/> 
-                      Qualifications: <br/>
-                      -know html and css<br/>
-                      -know js 
+                    {props.post.post_details}
                   </p>
                 </div>
               </div>
@@ -63,12 +60,13 @@ function CardPostDetail() {
 
                         </div>
                     </div>
-
-                <div className='std-apply-btn'>
-                     <button className='button-size-std navy-bk white-font' onClick={handelOnClick}>
-                        Apply
-                      </button>
-                </div>
+                  {props.isSameUser && user.account_type=="STUDENT"(
+                    <div className='std-apply-btn'>
+                        <button className='button-size-std navy-bk white-font' onClick={handelOnClick}>
+                            Apply
+                          </button>
+                    </div>
+                )}
 
             </div>
             </div>
