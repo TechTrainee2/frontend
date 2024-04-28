@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 function CardProfile(props) {
+    
   return (
     <>
      <div className='card2 gray-bk centered-card'>
@@ -33,7 +34,7 @@ function CardProfile(props) {
 
                     </div>
 
-                        <p>Works at Coders as {props.profile.role}</p>
+                        <p>Works  as {props.profile.role}</p>
                 </div>
         </div>
     </div>

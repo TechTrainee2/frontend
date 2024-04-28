@@ -186,7 +186,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/compNewPost",
-    element: <NewPostC />,
+    element:<>
+    <AuthRoute>
+      <NewPostC/>,
+    </AuthRoute>
+    </>
   },
   {
     path: "/CompSuper",
