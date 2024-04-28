@@ -21,7 +21,7 @@ function CardNewPost(props) {
 
             <div>
                 <input type='text' name='title' className='std-data std-company-profile bold'
-                    // value={header} 
+                    placeholder='Post Title'  
                     onChange={props.onChange}/>
             </div>
 
@@ -32,7 +32,7 @@ function CardNewPost(props) {
                   
                   <div>
                     <input type='text' name='training_mode' className='std-data '
-                    placeholder='Training mode should be remote/onsite' 
+                    placeholder='Training mode should be remote or onsite' 
                     onChange={props.onChange}
                     />
                   </div>
@@ -41,7 +41,7 @@ function CardNewPost(props) {
 
                 <div className='std-post-txt'>
                     <input type='text' name='post_details' className='comp-data' 
-                    // value={txt}
+                   placeholder='Post Details' 
                     onChange={props.onChange}/>
                 </div>
 

@@ -11,7 +11,7 @@ function AccEditC() {
 
   let [profile, setProfile] = useState({});
   let [extradt, setExtradt] = useState({});
-
+  const [posts, setPosts] = useState([]);
 
   let [isSameUser, setIsSameUser] = useState(false);
   // // Get the profile by id
@@ -137,23 +137,56 @@ function AccEditC() {
       console.error("Error fetching data:", error);
     }
   }
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch(`http://127.0.0.1:8000/users/posts/${id}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch posts');
+        }
+        const posts = await response.json();
+        console.log(posts);
+        setPosts(posts);
+        // Here you can set the posts to your state or dispatch an action to update your Redux store
+        // For example:
+        // setPosts(posts);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    fetchPosts();
+  }, [id,user.id]);
+
   return (
     <>
-    {loading ? (
-      <>Spinner</>
-    ) : (
-      <>
-    <NavbarEdit id={user.id}/>
-    {profile && (
-    <form onSubmit={onSubmit}>
-    <CardEditAcc profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}
-          onImgChange1={onImage1Change} 
-          onImgChange2={onImage2Change}  
-          onClick ={onFileUpload}
-    />
-    <CardEditBio profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}/>
-    <CardEditPostBtn profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}/>
-    </form>)}
+      {loading ? (
+        <>Spinner</>
+      ) : (
+        <>
+        <NavbarEdit id={user.id}/>
+        {profile && (
+          <form onSubmit={onSubmit}>
+           <CardEditAcc profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}
+              onImgChange1={onImage1Change} 
+              onImgChange2={onImage2Change}  
+              onClick ={onFileUpload}
+            />
+
+          <CardEditBio profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}/>
+          
+          {posts.map((post) => (
+            <CardEditPostBtn 
+              profile={profile}
+              extra={extradt}
+              isSameUser={isSameUser} 
+              onChange={onChange} 
+              key={post.id} 
+              post={post} 
+              id={post.id}/>
+          ))}
+
+         </form>)}
     </>
   )}
   </>

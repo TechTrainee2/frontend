@@ -33,7 +33,7 @@ function CardProfile(props) {
                         {props.isSameUser && (
                         <div className='comp-btn-container'>
                             <div className='std-btns'>
-                                <Link to='/compEditProfile' >
+                                <Link to= {`/compEditProfile/${props.id}`} >
                                     <button className='button-size-std navy-bk white-font'>
                                         Edit
                                     </button>
