@@ -18,12 +18,45 @@ function AccEditC() {
   let { user, loading } = useSelector((state) => state.user);
 
   let [data,setData]=useState({
-    'img':'',
-    'img_bk':'',
+    'bio':'',
     'phone':'',
     'address':'',
-    'bio':'',})
- 
+    })
+    const [selectedImage1, setSelectedImage1] = useState(null);
+    const [selectedImage2, setSelectedImage2] = useState(null);
+    // const [selectedPdf, setSelectedPdf] = useState(null);
+    
+    const onImage1Change = event => {
+      setSelectedImage1(event.target.files[0]);
+    };
+    
+    const onImage2Change = event => {
+      setSelectedImage2(event.target.files[0]);
+    };
+
+    
+    const onFileUpload = async () => {
+      const formData = new FormData();
+      if (selectedImage1) {
+        formData.append('img', selectedImage1); // 'img1' should match the field name expected by your server
+      }
+      if (selectedImage2) {
+        formData.append('img_bk', selectedImage2); // 'img2' should match the field name expected by your server
+      }
+      try {
+        const res = await fetch(`http://127.0.0.1:8000/users/companyprof/${user.id}`, {
+          method: 'PATCH',
+          body: formData,
+        });
+        if (!res.ok) {
+          throw new Error('Failed to upload file');
+        }
+        const data = await res.json();
+        // console.log(data);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
   let onChange = (e) => {
     console.log(e.target.value);
     const { name, value } = e.target;
@@ -71,7 +104,7 @@ function AccEditC() {
 
     // Call fetchData function when component mounts
     fetchData();
-  }, []); // Include dependencies in the dependency array
+  }, [user.id,id]); // Include dependencies in the dependency array
   
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -113,7 +146,11 @@ function AccEditC() {
     <NavbarEdit id={user.id}/>
     {profile && (
     <form onSubmit={onSubmit}>
-    <CardEditAcc profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}/>
+    <CardEditAcc profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}
+          onImgChange1={onImage1Change} 
+          onImgChange2={onImage2Change}  
+          onClick ={onFileUpload}
+    />
     <CardEditBio profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}/>
     <CardEditPostBtn profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}/>
     </form>)}

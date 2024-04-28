@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { useSelector} from 'react-redux';
 function CardEditCont(props) {
 let [phone, setPhone]=useState(props.extra.phone)
 let [email, setEmail]=useState('') 
@@ -10,6 +10,11 @@ let [address, setAddress]=useState(props.extra.location)
           setEmail(event.target.value);
           let handleChangeAddress = (event) => 
           setAddress(event.target.value);
+
+
+          const { user } = useSelector(
+            state => state.user
+        );
   return (
     <>
     <div className='large-card gray-bk centered-card'>
@@ -26,7 +31,7 @@ let [address, setAddress]=useState(props.extra.location)
 
             <div>
                 <span>Email</span>
-                <span>{email}</span>
+                <span>{user.email}</span>
         
             </div>
 

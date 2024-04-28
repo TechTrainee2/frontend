@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
-
+import { useSelector} from 'react-redux';
 function CardSuperContEdit(props) {
-let [phone, setPhone]=useState(props.profile.phone)
-let [email, setEmail]=useState('') 
-let [address, setAddress]=useState(props.profile.location)       
-        let handleChangePhone = (event) => 
-          setPhone(event.target.value);
-          let handleChangeEmail = (event) => 
-          setEmail(event.target.value);
-          let handleChangeAddress = (event) => 
-          setAddress(event.target.value);
+let [phone, setPhone]=useState(props.extra.phone)
+// let [email, setEmail]=useState(props.profile.student) 
+let [address, setAddress]=useState(props.extra.location)    
+const { user } = useSelector(
+    state => state.user
+);   
+       
   return (
     <>
     <div className='large-card gray-bk centered-card'>
@@ -25,8 +23,8 @@ let [address, setAddress]=useState(props.profile.location)
             </div>
 
             <div>
-                <span className='std-span-info'>Email</span>
-                <span>{email}</span>
+                <span className='std-span-info'>Email </span>
+                <span>{user.email}</span>
             </div>
 
             <div>
