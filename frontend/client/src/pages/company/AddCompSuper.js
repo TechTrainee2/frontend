@@ -4,12 +4,14 @@ import CreateAccForm from '../../component/company/CreateAccForm'
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
+import { useParams } from "react-router-dom"; 
 import { useSelector, useDispatch } from 'react-redux';
-import { registerCompSuper } from '../../features/user';
+import user, { registerCompSuper } from '../../features/user';
 
 function AddCompSuper() {
+  let { id } = useParams();
   const dispatch = useDispatch();
-  const { registered, loading } = useSelector(state => state.user);
+  const {user } = useSelector(state => state.user);
   const [isEmailError,setIsEmailError]= useState(false)
   const [EmailError,setEmailError]= useState([])
   const [isPasswordError,setIsPasswordError]= useState(false)
@@ -19,8 +21,10 @@ function AddCompSuper() {
     first_name: '',
     last_name:'',
     email: '',
+    account_type: 'company_supervisor',
     password: '',
     role:'',
+    id: `${user.id}`,
 	});
 
   const { first_name,last_name, email, password,role } = formData;
@@ -37,7 +41,7 @@ function AddCompSuper() {
     setIsEmailError(false)
     setEmailError([])
 
-		let data = await dispatch(registerCompSuper({ first_name,last_name, email, password,role }));
+		let data = await dispatch(registerCompSuper({ first_name,last_name, email, password,role,id }));
     console.log(data);
     if (Object.keys(data.payload).includes("password")){
       setIsPasswordError(true)
@@ -54,6 +58,7 @@ function AddCompSuper() {
     <img src={logo} className='logo-add' />
 
         <CreateAccForm
+        id={user.id}
         onChange={onChange}
         onSubmit={onSubmit}
         isPasswordError ={isPasswordError}
