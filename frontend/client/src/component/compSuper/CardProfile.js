@@ -34,7 +34,7 @@ function CardProfile(props) {
 
                     </div>
 
-                        <p>Works  as {props.profile.role}</p>
+                        <p>Works  as {props.extra.role}</p>
                 </div>
         </div>
     </div>

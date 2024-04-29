@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import CardSuperProf from '../../component/uniSuper/CardSuperProf'
 import Navbar from '../../component/uniSuper/Navbar'
+import NavbarHome from '../../component/compSuper/NavbarHome'
+import NavbarMain from '../../component/company/NavbarMain'
+import NavbarStd from '../../component/student/NavbarStd'
 import CardSuperCont from '../../component/uniSuper/CardSuperCont'
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -14,7 +17,7 @@ function SuperAcc() {
   let [profile, setProfile] = useState({});
   let [extradt, setExtradt] = useState({});
 
-
+  let [email, setEmail] = useState({});
   let [isSameUser, setIsSameUser] = useState(false);
   // // Get the profile by id
   let { user, loading } = useSelector((state) => state.user);
@@ -31,18 +34,28 @@ function SuperAcc() {
           },
         });
 
-
+        const res2 = await fetch(`http://127.0.0.1:8000/users/userEmail/${id}/`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        });
         
         if (!res.ok) {
           throw new Error("Failed to fetch data");
         }
-        
+        if (!res2.ok) {
+          throw new Error("Failed to fetch data");
+        }
+
         const profileData = await res.json();
+        const emailD = await res2.json();
         // dispatch(getUser());
         
         // Set profile state after data is fetched
         setProfile(profileData)
         setExtradt(profileData.university_supervisor)
+        setEmail(emailD)
         console.log(user.id == id);
         if (user.id == id) {
           setIsSameUser(true);
@@ -64,11 +77,20 @@ function SuperAcc() {
         <>Spinner</>
       ) : (
         <>
-          <Navbar id={user.id} />
+          {
+        user.account_type == "STUDENT" ? 
+          <NavbarStd id={user.id}/> : 
+        user.account_type == "COMPANY" ? 
+          <NavbarMain id={user.id}/> :
+        user.account_type == "UNIVERSITY_SUPERVISOR" ? 
+          <Navbar id={user.id}/> :
+        user.account_type == "COMPANY_SUPERVISOR" && 
+          <NavbarHome id={user.id}/>
+        }
           {profile && (
             <div className='centerd-comp'>
               <CardSuperProf profile={profile} extra={extradt} isSameUser={isSameUser} />
-              <CardSuperCont profile={profile} extra={extradt} isSameUser={isSameUser} />
+              <CardSuperCont user={email} profile={profile} extra={extradt} isSameUser={isSameUser} />
             </div>
           )}
         </>

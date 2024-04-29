@@ -221,8 +221,12 @@ const router = createBrowserRouter([
     element: <CompAssignStd />,
   },
   {
-    path: "/CompStd",
-    element: <CompStd />,
+    path: "/CompStd/:id",
+    element: <>
+    <AuthRoute>
+      <CompStd />,
+    </AuthRoute>
+    </>,
   },
   {
     path: "/stdApplications",

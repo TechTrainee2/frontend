@@ -19,7 +19,7 @@ function CardContact(props) {
 
             <div>
                 <span className='super'>Email</span>
-                <span>{user.email}</span>
+                <span>{props.user.email}</span>
             </div>
 
             <div>

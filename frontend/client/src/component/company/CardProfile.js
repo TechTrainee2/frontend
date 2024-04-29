@@ -20,6 +20,7 @@ function CardProfile(props) {
 
                             <div className='txt-comp-name font-med'>
                                 <span className='bold'>{props.extra.name}</span>
+                                    <span className='bold'> {props.user.email}</span>
                                 <div style={{display: 'flex'}}>
                                     <span className='bold'>Located at : &nbsp;</span> 
                                     <span> {props.profile.location}</span>

@@ -64,6 +64,7 @@ export default function CompanySuper() {
   
     // Use nonEmptyData in your fetch request
     try {
+      // for the edit (didn't work ) we should create new page for edit and delete account like the creation of the compsuper account
       const res2 = await fetch(`http://127.0.0.1:8000/users/companysuperprof/${CompSupervisors[0].company_supervisor.user}`, {
         method: "PATCH",
         headers: {

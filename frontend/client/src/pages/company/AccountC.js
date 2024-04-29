@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import CardProfile from '../../component/company/CardProfile'
 import CardCompBio from '../../component/student/CardCompBio'
 import CardCompPost from '../../component/student/CardCompPost'
+import Navbar from '../../component/uniSuper/Navbar'
+import NavbarHome from '../../component/compSuper/NavbarHome'
 import NavbarMain from '../../component/company/NavbarMain'
+import NavbarStd from '../../component/student/NavbarStd'
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getUser } from "../../features/user";
@@ -15,7 +18,7 @@ function AccountC() {
   let [profile, setProfile] = useState({});
   let [extradt, setExtradt] = useState({});
   const [posts, setPosts] = useState([]);
-
+  let [email, setEmail] = useState({});
   let [isSameUser, setIsSameUser] = useState(false);
   // // Get the profile by id
   let { user, loading } = useSelector((state) => state.user);
@@ -32,18 +35,30 @@ function AccountC() {
           },
         });
 
+        const res2 = await fetch(`http://127.0.0.1:8000/users/userEmail/${id}/`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        });
 
         
         if (!res.ok) {
           throw new Error("Failed to fetch data");
         }
-        
+        if (!res2.ok) {
+          throw new Error("Failed to fetch data");
+        }
+
         const profileData = await res.json();
+        const emailD = await res2.json();
         // dispatch(getUser());
         
         // Set profile state after data is fetched
         setProfile(profileData)
         setExtradt(profileData.company)
+        setEmail(emailD)
+
         console.log(user.id == id);
         if (user.id == id) {
           setIsSameUser(true);
@@ -86,13 +101,22 @@ function AccountC() {
         <>Spinner</>
       ) : (
         <>
-          <NavbarMain id={user.id} />
+          {
+        user.account_type == "STUDENT" ? 
+          <NavbarStd id={user.id}/> : 
+        user.account_type == "COMPANY" ? 
+          <NavbarMain id={user.id}/> :
+        user.account_type == "UNIVERSITY_SUPERVISOR" ? 
+          <Navbar id={user.id}/> :
+        user.account_type == "COMPANY_SUPERVISOR" && 
+          <NavbarHome id={user.id}/>
+        }
           {profile && (
             <>
-              <CardProfile  id={user.id} profile={profile} extra={extradt} isSameUser={isSameUser}/>
+              <CardProfile user={email}  id={user.id} profile={profile} extra={extradt} isSameUser={isSameUser}/>
               <CardCompBio profile={profile} extra={extradt} isSameUser={isSameUser}/>
               {posts.map((post) => (
-                <CardCompPost profile={profile} extra={extradt} isSameUser={isSameUser} key={post.id} post={post}/>
+                <CardCompPost  profile={profile} extra={extradt} isSameUser={isSameUser} key={post.id} post={post}/>
               ))}
             </>
           )}

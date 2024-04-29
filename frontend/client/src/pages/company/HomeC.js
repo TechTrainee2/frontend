@@ -24,7 +24,7 @@ function HomeC() {
       <Link to={`/CompSuper/${user.id}`}className='gray-bk box navy-font bold not-clicked'>
         <div>Supervisor</div>
       </Link>
-      <Link to='/CompStd' className='navy-bk box white-font bold not-clicked '>
+      <Link to= {`/CompStd/${user.id}`} className='navy-bk box white-font bold not-clicked '>
         <div >Student</div>
       </Link>
     </div>
