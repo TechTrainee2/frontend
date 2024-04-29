@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import student from'../../static/Student.jpg'
 import { Link } from 'react-router-dom'
 
-function CompStdCard() {
+function CompStdCard(props) {
     let [isModal,setIsModal]=useState(false) 
     let handelOnClick =()=> {
         setIsModal(true)
@@ -15,15 +15,19 @@ function CompStdCard() {
         <div className='card2 gray-bk centered-card' >
             <div className='std-info-svg'>
                 <div className='uni-std-img-info'>
-                    <img src={student} className='uni-std-circle'/>
+                <Link to={`/stdAcc/${props.Student.student.user}`}>
+                    <img src={props.Student.img} className='uni-std-circle'/>
+                </Link>
                     <div className='uni-std-report-info'>
-                        <span>Mohammad Saleh</span>
-                        <span>CS</span>
+                    <Link to={`/stdAcc/${props.Student.student.user}`}>
+                        { props.Student.student.first_name} 
+                            {props.Student.student.last_name}</Link>
+                        {/* <span>CS</span> */}
                        
                     </div>
                      
                 </div>
-                    <Link to=''>Ahmad</Link>
+                    <Link to={`/CompSuperAcc/${props.Student.student.company_supervisor.user}`}>{props.Student.student.company_supervisor.first_name}</Link>
                     
             </div>
             <div className='svg-txt'>
@@ -44,7 +48,7 @@ function CompStdCard() {
 
                             <div className='apply-box-btns'>
                                 <button className='button-size-std gray-bk navy-font' onClick={handelOnClickX}>No</button>
-                                <button className='button-size-std navy-bk white-font'>Yes</button>
+                                <button className='button-size-std navy-bk white-font' type='submit'>Yes</button>
                             </div>
                         </div>
 
