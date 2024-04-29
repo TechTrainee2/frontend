@@ -25,7 +25,7 @@ function CreateAccForm(props) {
             
             <div className='form-btns'>
                 <button className='button-size-input navy-bk gray-font'>Add</button>
-                <Link to='/compSuper'>
+                <Link to={`/compSuper/${props.id}`}>
                     <button className='button-size-input navy-bk gray-font'>Cancel</button>
                 </Link>
             </div>

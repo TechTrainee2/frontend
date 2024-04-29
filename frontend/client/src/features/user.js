@@ -43,17 +43,19 @@ export const register = createAsyncThunk(
 
 export const registerCompSuper = createAsyncThunk(
 	'users/registerCompSuper',
-	async ({ first_name, last_name, email, password, role }, thunkAPI) => {
+	async ({ first_name, last_name, email, password, role,id }, thunkAPI) => {
 	  const body = JSON.stringify({
 		first_name,
 		last_name,
 		email,
 		password,
+		account_type: 'COMPANY_SUPERVISOR',
 		role,
+		id,
 	  });
   
 	  try {
-		const res = await fetch('http://localhost:8000/users/customUser', {
+		const res = await fetch(`http://localhost:8000/users/company/register/compsuper/${id}`, {
 		  method: 'POST',
 		  headers: {
 			  Accept: 'application/json',

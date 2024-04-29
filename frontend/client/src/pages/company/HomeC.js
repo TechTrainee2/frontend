@@ -21,7 +21,7 @@ function HomeC() {
         <>
     <NavbarMain id={user.id}/>
     <div className='boxs-container'>
-      <Link to='/CompSuper' className='gray-bk box navy-font bold not-clicked'>
+      <Link to={`/CompSuper/${user.id}`}className='gray-bk box navy-font bold not-clicked'>
         <div>Supervisor</div>
       </Link>
       <Link to='/CompStd' className='navy-bk box white-font bold not-clicked '>

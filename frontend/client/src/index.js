@@ -201,12 +201,20 @@ const router = createBrowserRouter([
     </>
   },
   {
-    path: "/CompSuper",
-    element: <CompanySuper />,
+    path: "/CompSuper/:id",
+    element:<>
+    <AuthRoute>
+      <CompanySuper />,
+    </AuthRoute>
+  </>
   },
   {
-    path: "/AddCompSuper",
-    element: <AddCompSuper />,
+    path: "/AddCompSuper/:id",
+    element: <>
+      <AuthRoute>
+        <AddCompSuper />,
+      </AuthRoute>
+    </>
   },
   {
     path: "/assignCompSuper",
