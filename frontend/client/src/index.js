@@ -217,8 +217,12 @@ const router = createBrowserRouter([
     </>
   },
   {
-    path: "/assignCompSuper",
-    element: <CompAssignStd />,
+    path: "/assignCompSuper/:id",
+    element: <>
+    <AuthRoute>
+      <CompAssignStd/>,
+    </AuthRoute>
+    </>
   },
   {
     path: "/CompStd/:id",
@@ -243,9 +247,9 @@ const router = createBrowserRouter([
   {
     path: "/SuperEdit",
     element: <>
-      <AuthRoute>
+    <AuthRoute>
       <SuperAccEdit />,
-      </AuthRoute>
+    </AuthRoute>
     </>
   },
   {

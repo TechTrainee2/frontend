@@ -1,26 +1,96 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import NavbarMain from '../../component/company/NavbarMain'
 import compSuper from '../../static/CompSuper.jpg'
 import CompAssignCard from '../../component/company/CompAssignCard'
 import student from '../../static/Student.jpg'
+import { useSelector } from 'react-redux';
+// import user from '../../features/user'
+
 
 function CompAssignStd() {
-  let [isModal,setIsModal]=useState(false) 
-  let handelOnClick =()=> {
-      setIsModal(true)
-  }
-  let handelOnClickX =()=> {
-      setIsModal(false)
-  }
+
+    let { id } = useParams();
+  
+    let [profile, setProfile] = useState({});
+    let [extradt, setExtradt] = useState({});
+    let [email, setEmail] = useState({});
+    let [Students,setStudents] = useState([]);
+  
+    // // Get the profile by id
+    let { user ,loading} = useSelector((state) => state.user);
+
+    let [isModal,setIsModal]=useState(false) 
+    let handelOnClick =()=> {
+        setIsModal(true)
+    }
+    let handelOnClickX =()=> {
+        setIsModal(false)
+    }
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`http://127.0.0.1:8000/users/companysuperprof/${id}`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        });
+        const res2 = await fetch(`http://127.0.0.1:8000/users/user/companysuper/${id}/students`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        });
+        
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        if (!res2.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const profileData = await res.json();
+        const Students = await response.json();
+        // dispatch(getUser());
+        
+        // Set profile state after data is fetched
+        setProfile(profileData)
+        setExtradt(profileData.company_supervisor)
+        setStudents(Students);
+        // console.log(extradt);
+        // if (user.id == id) {
+        //   setIsSameUser(true);
+        // }
+        
+       
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    // Call fetchData function when component mounts
+    fetchData();
+  }, [user]); 
+
+
+
+  // let { user, loading } = useSelector((state) => state.user);
+
   return (
     <>
-        <NavbarMain/>
+    {loading ? (
+      <>Spinner</>
+    ) : (
+      <>
+        <NavbarMain id={user.id}/>
         <div  className='dep-uni-sup-container'>
           <div className='uni-super-assign'>
             <div className='uni-std-img-info'>
-              <img src={compSuper} className='company-img'/>
+              <img src={profile.img} className='company-img'/>
               <div className='uni-std-report-info'>
-                <span className='super'>Ahmad</span>
+                <span className='super'>{extradt.first_name} {extradt.last_name}</span>
               </div>
             </div>
             <button className='comp-assign-button-size navy-bk white-font' onClick={handelOnClick}>Assign student</button>
@@ -28,7 +98,11 @@ function CompAssignStd() {
           
           <div className='dep-uni-std-span-card'>
             <span className='bold assign-padding-span'>Current Student</span>
-            <CompAssignCard/>
+            {Students.map((Student) => (
+          
+          <CompAssignCard  key={Student.id} Student={Student}/>
+       
+     ))}
             </div>
             <div className={isModal?'show': 'hidden'} >
                   <div className='modal-bk' onClick={handelOnClickX}></div> 
@@ -47,8 +121,9 @@ function CompAssignStd() {
                   </div>
               </div>
           </div>
+          </>
+      )}
     </>
-  )
+  );
 }
-
 export default CompAssignStd
