@@ -27,10 +27,13 @@ function CompanySuperCard(props) {
         <>
          <div className='uni-sup-std-info-svg'>
               <div className='uni-std-img-info'>
+              <Link to={`/CompSuperAcc/${props.CompSupervisor.company_supervisor.user}`}>
                   <img src={props.CompSupervisor.img} className='company-img '/>
+                </Link>
                   <div className='uni-std-report-info super'>
+                  <Link to={`/CompSuperAcc/${props.CompSupervisor.company_supervisor.user}`}>
                       <span>{props.CompSupervisor.company_supervisor.first_name} {props.CompSupervisor.company_supervisor.last_name}</span>
-                      
+                    </Link>
                   </div>
                     
               </div>

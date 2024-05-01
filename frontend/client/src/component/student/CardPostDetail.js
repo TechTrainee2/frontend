@@ -2,8 +2,15 @@ import React, { useState } from 'react'
 import img from '../../static/company.png'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
 function CardPostDetail(props) {
+  let { id } = useParams();
+  let [profile, setProfile] = useState({});
+  let [extradt, setExtradt] = useState({});
+
   const { user } = useSelector(
 		state => state.user
 	);
@@ -14,6 +21,38 @@ function CardPostDetail(props) {
     let handelOnClickX =()=> {
         setIsModal(false)
     }
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const res = await fetch(`http://127.0.0.1:8000/users/companyprof/${props.post.company}`, {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+            },
+          });
+  
+          if (!res.ok) {
+            throw new Error("Failed to fetch data");
+          }
+  
+          const profileData = await res.json();
+          // dispatch(getUser());
+          
+          // Set profile state after data is fetched
+          setProfile(profileData)
+          setExtradt(profileData.company)
+          console.log(props.isSameUser);
+         
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+  
+      // Call fetchData function when component mounts
+      fetchData();
+    }, [id,user.id,props.post.company]); // Include dependencies in the dependency array
+
   return (
     <>
         <div className='large-card gray-bk centered-card margin-bottom margin-bottom-apply'>
@@ -26,11 +65,11 @@ function CardPostDetail(props) {
 
               <div className='std-post-container'>
                 <div className='std-company-profile'>
-                  <Link to='/stdcompany'>
-                    <img src={props.profile.img} className='company-img2' />
+                  <Link to= {`/compProfile/${props.post.company}`}>
+                    <img src={profile.img} className='company-img2' />
                   </Link>
-                  <Link to='/stdcompany'>
-                    <span>{props.extra.name}</span>
+                  <Link to={`/compProfile/${props.post.company}`}>
+                    <span>{extradt.name}</span>
                   </Link>
                   <span>{props.post.training_mode}</span>
                 </div>
@@ -60,7 +99,7 @@ function CardPostDetail(props) {
 
                         </div>
                     </div>
-                  {props.isSameUser && user.account_type=="STUDENT"(
+                  {user.account_type=="STUDENT" && (
                     <div className='std-apply-btn'>
                         <button className='button-size-std navy-bk white-font' onClick={handelOnClick}>
                             Apply

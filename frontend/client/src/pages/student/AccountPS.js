@@ -58,6 +58,7 @@ function AccountPS() {
         setProfile(profileData)
         setExtradt(profileData.student)
         setEmail(emailD)
+        
         console.log(user.id == id);
         if (user.id == id) {
           setIsSameUser(true);
@@ -80,7 +81,6 @@ function AccountPS() {
         <>Spinner</>
       ) : (
         <>
-
           {
         user.account_type == "STUDENT" ? 
           <NavbarStd id={user.id}/> : 
