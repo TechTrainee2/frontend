@@ -95,9 +95,7 @@ function CompPostPS() {
       }
       {profile && (
       <>
-     
-        <CardPostDetail profile={profile} extra={extradt} isSameUser={isSameUser} key={post.id} post={post}/>
-      
+        <CardPostDetail profile={profile} extra={extradt} isSameUser={isSameUser} post={post}/>
       </>
           )}
         </>

@@ -5,6 +5,7 @@ import compSuper from '../../static/CompSuper.jpg'
 import CompAssignCard from '../../component/company/CompAssignCard'
 import student from '../../static/Student.jpg'
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom'
 // import user from '../../features/user'
 
 
@@ -32,7 +33,7 @@ function CompAssignStd() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://127.0.0.1:8000/users/companysuperprof/${id}`, {
+        const res = await fetch(`http://127.0.0.1:8000/users/companysuperprof/get/${id}`, {
           method: "GET",
           headers: {
             Accept: "application/json",
@@ -52,14 +53,14 @@ function CompAssignStd() {
           throw new Error("Failed to fetch data");
         }
         const profileData = await res.json();
-        const Students = await response.json();
+        const Students = await res2.json();
         // dispatch(getUser());
         
         // Set profile state after data is fetched
         setProfile(profileData)
         setExtradt(profileData.company_supervisor)
         setStudents(Students);
-        // console.log(extradt);
+        console.log(profileData);
         // if (user.id == id) {
         //   setIsSameUser(true);
         // }
@@ -88,9 +89,13 @@ function CompAssignStd() {
         <div  className='dep-uni-sup-container'>
           <div className='uni-super-assign'>
             <div className='uni-std-img-info'>
+            <Link to={`/CompSuperAcc/${extradt.user}`}>
               <img src={profile.img} className='company-img'/>
+            </Link>
               <div className='uni-std-report-info'>
+              <Link to={`/CompSuperAcc/${extradt.user}`}>
                 <span className='super'>{extradt.first_name} {extradt.last_name}</span>
+              </Link>
               </div>
             </div>
             <button className='comp-assign-button-size navy-bk white-font' onClick={handelOnClick}>Assign student</button>

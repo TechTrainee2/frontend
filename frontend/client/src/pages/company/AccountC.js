@@ -28,7 +28,7 @@ function AccountC() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://127.0.0.1:8000/users/companyprof/${user.id}`, {
+        const res = await fetch(`http://127.0.0.1:8000/users/companyprof/${id}`, {
           method: "GET",
           headers: {
             Accept: "application/json",

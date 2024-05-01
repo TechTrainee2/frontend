@@ -6,12 +6,37 @@ import SmallNavbar from "../../component/student/SmallNavbar";
 import TopHeader from "../../component/student/TopHeader";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 function HomePS() {
+  let { id } = useParams();
+  const [posts, setPosts] = useState([]);
 
   let { isAuthenticated, loading,user } = useSelector((state) => state.user);
 
-  if (!isAuthenticated && !loading && user==null) return <Navigate to="/SignIn" />;
+  // if (!isAuthenticated && !loading && user==null) return <Navigate to="/SignIn" />;
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch(`http://127.0.0.1:8000/users/company/posts`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch posts');
+        }
+        const posts = await response.json();
+        console.log(posts);
+        setPosts(posts);
+        // Here you can set the posts to your state or dispatch an action to update your Redux store
+        // For example:
+        // setPosts(posts);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    fetchPosts();
+  }, [id,user.id]);
 
   return (
     <>
@@ -25,11 +50,9 @@ function HomePS() {
           <div className="dep-uni-sup-container">
             <SubNavbar />
             <div className="dep-uni-sup-card">
-              <CardPost />
-              <CardPost />
-              <CardPost />
-
-              <CardPost />
+            {posts.map((post) => (
+                <CardPost key={post.id} post={post} compId={post.company}/>
+              ))}
             </div>
           </div>
         </>
