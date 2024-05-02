@@ -25,7 +25,7 @@ function CompPostPS() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`http://127.0.0.1:8000/users/companyprof/${user.id}`, {
+        const res = await fetch(`http://127.0.0.1:8000/users/companyprof/${id}`, {
           method: "GET",
           headers: {
             Accept: "application/json",
@@ -57,7 +57,7 @@ function CompPostPS() {
 
     // Call fetchData function when component mounts
     fetchData();
-  }, [id,user.id]); // Include dependencies in the dependency array
+  }, [user]); // Include dependencies in the dependency array
 
   useEffect(() => {
     const fetchPost = async () => {
