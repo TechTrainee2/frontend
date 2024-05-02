@@ -1,8 +1,23 @@
 import React, { useState } from 'react'
 import student from '../../static/Student.jpg'
 import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 
-function ApplicationStdCard() {
+
+function ApplicationStdCard(props) {
+    let { id } = useParams();
+
+  let [profile, setProfile] = useState({});
+  let [extradt, setExtradt] = useState({});
+
+  let [approved,setApproved]=useState({
+    'company_status':'APPROVED',
+    })
+let [reject,setReject]=useState({
+    'company_status':'REJECTED',
+    })
+
   let [isModal,setIsModal]=useState(false) 
   let handelOnClick =()=> {
       setIsModal(true)
@@ -17,15 +32,101 @@ function ApplicationStdCard() {
   let handelOnClickXReject =()=> {
       setIsReject(false)
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`http://127.0.0.1:8000/users/stdprof/${props.application.student}`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        });
+        
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+
+        const profileData = await res.json();
+        // dispatch(getUser());
+        
+        // Set profile state after data is fetched
+        setProfile(profileData)
+        setExtradt(profileData.student)
+        
+       
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    // Call fetchData function when component mounts
+    fetchData();
+  }, []); // Include dependencies in the dependency array
+
+  const accept = async (e) => {
+    e.preventDefault();
+  
+    // Create an object that only includes fields from data that are not empty strings
+  
+    // Use nonEmptyData in your fetch request
+    try {
+      const res2 = await fetch(`http://127.0.0.1:8000/users/company/student/trainingApplication/${props.application.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify(approved),
+      });
+      if (!res2.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const Data = await res2.json();
+    }
+    catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
+  const rejected = async (e) => {
+    e.preventDefault();
+  
+    // Create an object that only includes fields from data that are not empty strings
+  
+    // Use nonEmptyData in your fetch request
+    try {
+      const res2 = await fetch(`http://127.0.0.1:8000/users/company/student/trainingApplication/${props.application.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify(reject),
+      });
+      if (!res2.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const Data = await res2.json();
+    }
+    catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
   return (
     <>
      <div className='card-std-assign gray-bk centered-card' >
           <div className='uni-sup-std-info-svg'>
               <div className='uni-std-img-info'>
-                  <img src={student} className='uni-std-circle'/>
+                <Link to={`/stdAcc/${props.application.student}`}>
+                  <img src={profile.img} className='uni-std-circle'/>
+                </Link>
                   <div className='uni-std-report-info'>
-                      <span>Mohammad Saleh</span>
-                      <span>CS</span>
+                  <Link to={`/stdAcc/${props.application.student}`}>
+                      <span>{extradt.first_name} {extradt.last_name}</span>
+                    </Link>
+                      {/* <span>CS</span> */}
                       
                   </div>
                     
@@ -53,7 +154,7 @@ function ApplicationStdCard() {
 
                     <div className='apply-box-btns'>
                         <button className='button-size-std gray-bk navy-font' onClick={handelOnClickX}>No</button>
-                        <button className='button-size-std navy-bk white-font'>Yes</button>
+                        <button className='button-size-std navy-bk white-font' onClick={accept}>Yes</button>
                     </div>
                 </div>
 
@@ -71,7 +172,7 @@ function ApplicationStdCard() {
 
                     <div className='apply-box-btns'>
                         <button className='button-size-std gray-bk navy-font' onClick={handelOnClickXReject}>No</button>
-                        <button className='button-size-std navy-bk white-font'>Yes</button>
+                        <button className='button-size-std navy-bk white-font' onClick={rejected}>Yes</button>
                     </div>
                 </div>
 

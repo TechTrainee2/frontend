@@ -10,12 +10,13 @@ const initialState = {
 
 export const register = createAsyncThunk(
 	'users/register',
-	async ({ first_name, last_name, email, password }, thunkAPI) => {
+	async ({ first_name, last_name, email, password,account_type }, thunkAPI) => {
 		const body = JSON.stringify({
 			first_name,
 			last_name,
 			email,
 			password,
+			account_type,
 		});
 
 		try {

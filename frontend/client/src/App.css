@@ -709,6 +709,7 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   padding-bottom: 30px;
   padding-top: 30px;
   font-size: 1.5rem;
+  padding-left: 30px;
 }
 .std-new-post{
   font-size: 1.6rem;
@@ -1384,6 +1385,40 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
 /************** Student *************/
+.std-Application-container {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  align-items: center;
+  margin-bottom: 4%;
+}
+.std-application-comp{
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  align-items: center;
+}
+.std-application-card {
+  padding-bottom: 30px;
+  padding-top: 30px;
+  width: 90%;
+}
+.application-card {
+  width: 65%;
+  height: 250px;
+  border-radius: 45px;
+  display: flex;
+  justify-content: center;
+  transition: 200ms ease-in-out;
+  margin: auto;
+  margin-bottom: 50px;
+}
+.application-title {
+  margin-left: 50px;
+  margin-top: 50px;
+  font-size: 2rem;
+  margin-bottom: 80px;
+}
 .card-std-assign{
   margin-top: 35px;
   
