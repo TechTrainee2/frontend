@@ -59,7 +59,7 @@ function CardEditAcc(props) {
 
                         <div className='std-btns'>
                             {/* <Link to='/compProfile' > */}
-                                <button className='button-size-std navy-bk white-font' type = "submit"onClick={props.onClick}>
+                                <button className='button-size-std navy-bk white-font' type = "submit" onClick={props.onClick}>
                                     Done
                                 </button>
                             {/* </Link> */}

@@ -68,6 +68,7 @@ import RequireAuth from "./pages/student/requireslogin";
 import AuthRoute from "./pages/student/AuthRouter";
 import ApplicationsPS from "./pages/student/ApplicationsPS";
 import ApplicationStatus from "./pages/student/ApplicationStatus";
+import EditCompSuper from "./pages/company/EditCompSuper";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
@@ -232,6 +233,14 @@ const router = createBrowserRouter([
     element: <>
       <AuthRoute>
         <AddCompSuper />,
+      </AuthRoute>
+    </>
+  },
+  {
+    path: "/EditCompSuper/:id",
+    element: <>
+      <AuthRoute>
+        <EditCompSuper />,
       </AuthRoute>
     </>
   },
