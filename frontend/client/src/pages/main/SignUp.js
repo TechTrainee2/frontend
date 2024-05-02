@@ -22,9 +22,10 @@ function SignUp() {
     email: '',
     comp_id: '',
     password: '',
+    account_type: 'COMPANY',
 	});
 
-  const { name, email, comp_id, password } = formData;
+  const { name, email, comp_id, password,account_type } = formData;
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -38,7 +39,7 @@ function SignUp() {
     setIsEmailError(false)
     setEmailError([])
 
-		let data = await dispatch(register({ name, email, comp_id, password }));
+		let data = await dispatch(register({ name, email, comp_id, password,account_type }));
     if (Object.keys(data.payload).includes("password")){
       setIsPasswordError(true)
       setPasswordError(data.payload["password"])

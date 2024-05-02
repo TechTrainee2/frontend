@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom'
 
 function CardEditAcc(props) {
-    let [address, setAddress]=useState(props.profile.location)  
-    let handleChangeAddress = (event) => 
-          setAddress(event.target.value);
+    // let [address, setAddress]=useState(props.profile.location)  
+    // let handleChangeAddress = (event) => 
+        //   setAddress(event.target.value);
   return (
     <>
      <div className='large-card gray-bk centered-card'>
@@ -49,7 +49,7 @@ function CardEditAcc(props) {
                             <div>
                                 <span className='std-span-info'>Location</span>
                                 <input type='text' name='location' className='std-data'
-                                value={address} 
+                                
                                 onChange={props.onChange}/>
                             </div>
                             

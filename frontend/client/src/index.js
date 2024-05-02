@@ -18,7 +18,7 @@ import ReportUniSuper from "./pages/uniSuper/ReportUniSuper";
 import CompanyPS from "./pages/student/CompanyPS";
 import CompPostPS from "./pages/student/CompPostPS";
 import ReportPS from "./pages/student/ReportPS";
-import NotificationPS from "./pages/student/NotificationPS";
+import NotificationPS from "./pages/student/ApplicationsPS";
 import HomeC from "./pages/company/HomeC";
 import StudentApplicationC from "./pages/company/StudentApplicationC";
 import AccountC from "./pages/company/AccountC";
@@ -66,6 +66,8 @@ import Student from "./pages/Regestration/Student";
 import { CookiesProvider } from "react-cookie";
 import RequireAuth from "./pages/student/requireslogin";
 import AuthRoute from "./pages/student/AuthRouter";
+import ApplicationsPS from "./pages/student/ApplicationsPS";
+import ApplicationStatus from "./pages/student/ApplicationStatus";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
@@ -154,7 +156,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/studentApplications",
-    element: <NotificationPS />,
+    element: <>
+    <AuthRoute>
+      <ApplicationsPS />,
+      </AuthRoute>
+    </>,
+  },
+  {
+    path: "/studentApplicationStatus/:id",
+    element: <>
+    <AuthRoute>
+      <ApplicationStatus />,
+      </AuthRoute>
+    </>,
   },
   {
     path: "/compHome",
@@ -233,8 +247,12 @@ const router = createBrowserRouter([
     </>,
   },
   {
-    path: "/stdApplications",
-    element: <StdApplication />,
+    path: "/stdApplications/:id",
+    element: <>
+    <AuthRoute>
+      <StdApplication />,
+      </AuthRoute>
+    </>,
   },
   {
     path: "/superAcc/:id",
