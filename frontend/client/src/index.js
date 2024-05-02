@@ -153,7 +153,7 @@ const router = createBrowserRouter([
     element: <ReportPS />,
   },
   {
-    path: "/stdNotification",
+    path: "/studentApplications",
     element: <NotificationPS />,
   },
   {

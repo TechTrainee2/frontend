@@ -111,15 +111,15 @@ function AccountC() {
         user.account_type == "COMPANY_SUPERVISOR" && 
           <NavbarHome id={user.id}/>
         }
-          {profile && (
+          
             <>
               <CardProfile user={email}  id={user.id} profile={profile} extra={extradt} isSameUser={isSameUser}/>
-              <CardCompBio profile={profile} extra={extradt} isSameUser={isSameUser}/>
+              <CardCompBio profile={profile} extra={extradt} />
               {posts.map((post) => (
-                <CardCompPost  profile={profile} extra={extradt} isSameUser={isSameUser} key={post.id} post={post}/>
+                <CardCompPost  profile={profile} extra={extradt}  key={post.id} post={post}/>
               ))}
             </>
-          )}
+          
         </>
       )}
     </>

@@ -40,7 +40,7 @@ function CardProfile(props) {
                                     </button>
                                 </Link>
                                 <button className='button-size-std navy-bk white-font'>
-                                    Log Out
+                                    Log Out 
                                 </button>
                             </div>
 
