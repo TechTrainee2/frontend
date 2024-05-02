@@ -132,7 +132,7 @@ let [reject,setReject]=useState({
                     
               </div>
               <div className='btn-link-container'>
-                <Link to='/compStdApplication' className='under-line txt-center'>
+                <Link to={`/compStdApplication/${props.application.id}`}className='under-line txt-center'>
                   Student Application
                 </Link>
                 <div className='comp-app-btn-container '>

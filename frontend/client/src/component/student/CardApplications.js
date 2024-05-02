@@ -11,7 +11,7 @@ function CardApplications(props) {
 
   let [profile, setProfile] = useState({});
   let [extradt, setExtradt] = useState({});
-  const [posts, setPosts] = useState([]);
+  const [post, setPost] = useState([]);
   // // Get the profile by id
   let { user, loading } = useSelector((state) => state.user);
 
@@ -49,15 +49,15 @@ function CardApplications(props) {
   }, []); // Include dependencies in the dependency array
 
   useEffect(() => {
-    const fetchPosts = async () => {
+    const fetchPost = async () => {
       try {
         const response = await fetch(`http://127.0.0.1:8000/users/post/${props.application.post}`);
         if (!response.ok) {
           throw new Error('Failed to fetch posts');
         }
-        const posts = await response.json();
-        console.log(posts);
-        setPosts(posts);
+        const post = await response.json();
+        console.log(post);
+        setPost(post);
         // Here you can set the posts to your state or dispatch an action to update your Redux store
         // For example:
         // setPosts(posts);
@@ -66,7 +66,7 @@ function CardApplications(props) {
       }
     };
   
-    fetchPosts();
+    fetchPost();
   }, [id,user.id]);
   
 return (
@@ -81,8 +81,8 @@ return (
 
               </div>
               <div className='std-comp-post-cont'>
-                <span className='bold font-med'>{posts.title}</span> 
-                <span>{posts.training_mode}</span>
+                <span className='bold font-med'>{post.title}</span> 
+                <span>{post.training_mode}</span>
               </div>                    
           </div>
       
