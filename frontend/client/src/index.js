@@ -285,7 +285,7 @@ const router = createBrowserRouter([
     </>
   },
   {
-    path: "/superNotification",
+    path: "/superApplication",
     element: <SuperNotification />,
   },
   {

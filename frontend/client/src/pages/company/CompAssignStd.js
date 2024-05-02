@@ -103,11 +103,10 @@ function CompAssignStd() {
           
           <div className='dep-uni-std-span-card'>
             <span className='bold assign-padding-span'>Current Student</span>
+
             {Students.map((Student) => (
-          
-          <CompAssignCard  key={Student.id} Student={Student}/>
-       
-     ))}
+              <CompAssignCard  key={Student.id} Student={Student}/>
+            ))}
             </div>
             <div className={isModal?'show': 'hidden'} >
                   <div className='modal-bk' onClick={handelOnClickX}></div> 
