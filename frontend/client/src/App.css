@@ -739,6 +739,18 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   align-items: center;
 }
 /************ Company ****************/
+.edit-compsuper-form-btns {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 59px;
+}
+.edit-compsuper-form-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 80%;
+}
 .comp_application_view_std{
   display: flex;
   align-items: center;
