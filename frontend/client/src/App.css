@@ -739,6 +739,16 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   align-items: center;
 }
 /************ Company ****************/
+.comp_application_view_std{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 30%;
+  margin-left: 15%;
+}
+.detail_post_comp_view{
+  margin-left: 15%;
+}
 .post_date{
   display: flex;
   align-items: center;

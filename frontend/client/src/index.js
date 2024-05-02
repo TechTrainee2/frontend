@@ -179,8 +179,13 @@ const router = createBrowserRouter([
     </>,
   },
   {
-    path: "/compStdApplication",
-    element: <StudentApplicationC />,
+    path: "/compStdApplication/:id",
+    element: 
+    <>
+    <AuthRoute>
+      <StudentApplicationC />,
+    </AuthRoute>
+    </>
   },
   {
     path: "/compProfile/:id",
