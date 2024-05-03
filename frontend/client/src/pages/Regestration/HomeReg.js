@@ -1,11 +1,11 @@
 import React from 'react'
-import Navbar from '../../component/Regestration/Navbar'
+import NavbarReg from '../../component/Regestration/NavbarReg'
 import CardHome from '../../component/Regestration/CardHome'
 
 function HomeReg() {
   return (
     <>
-    <Navbar/>
+    <NavbarReg/>
     <CardHome/>
     </>
   )

@@ -1,11 +1,11 @@
 import React from 'react'
-import NavbarHome from '../../component/department/NavbarHome'
+import NavbarHomeDep from '../../component/department/NavbarHomeDep'
 import { Link } from 'react-router-dom'
 
 function HomeDep() {
   return (
     <>
-    <NavbarHome/>
+    <NavbarHomeDep/>
     <div className='boxs-container'>
       <Link to='/depSuper' className='gray-bk box navy-font bold not-clicked'>
         <div>Supervisor</div>

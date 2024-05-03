@@ -36,7 +36,7 @@ function HomePS() {
     };
   
     fetchPosts();
-  }, [id,user.id]);
+  }, []);
 
   return (
     <>

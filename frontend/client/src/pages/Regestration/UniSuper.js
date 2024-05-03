@@ -1,12 +1,12 @@
 import React from 'react'
-import Navbar from '../../component/Regestration/Navbar'
+import NavbarReg from '../../component/Regestration/NavbarReg'
 import CardProfBtn from '../../component/Regestration/CardProfBtn'
 import { Link } from 'react-router-dom'
 
 export default function UniSuper() {
   return (
     <>
-        <Navbar/>
+        <NavbarReg/>
         <div className='centerd-comp'>
         <div className='add-std-spans-btn'>
             <div className='add-std-spans'>

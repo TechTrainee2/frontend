@@ -95,7 +95,6 @@ function CompAssignCard(props) {
                   <div className='uni-std-report-info'>
                   <Link to={`/stdAcc/${props.Student.student.user}`}>
                       <span>{props.Student.student.first_name}  {props.Student.student.last_name} </span>
-                      {/* <span>CS</span> */}
                   </Link>
                   </div>
                     

@@ -1,12 +1,12 @@
 import React from 'react'
-import UniSuperViewPostCard from '../../component/uniSuper/UniSuperViewPostCard'
-import Navbar from '../../component/uniSuper/Navbar'
+import DepViewPostCard from '../../component/department/DepViewPostCard'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
+import NavbarHomeDep from '../../component/department/NavbarHomeDep'
 
-function UniSuperViewPost() {
+function DepViewPost() {
   const [application, setApplication] = useState([]);
   let { id } = useParams(); 
   let { isAuthenticated, loading,user } = useSelector((state) => state.user);
@@ -32,10 +32,10 @@ function UniSuperViewPost() {
     }, []);
   return (
     <>
-        <Navbar/>
-        <UniSuperViewPostCard application={application}/>
+        <NavbarHomeDep/>
+        <DepViewPostCard application={application}/>
     </>
   )
 }
 
-export default UniSuperViewPost
+export default DepViewPost

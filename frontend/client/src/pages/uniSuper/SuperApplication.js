@@ -1,11 +1,12 @@
 import React from 'react'
-import NavbarMain from '../../component/company/NavbarMain'
-import ApplicationStdCard from '../../component/company/ApplicationStdCard'
+import SuperApplicationCard from '../../component/uniSuper/SuperApplicationCard'
+import Navbar from '../../component/uniSuper/Navbar'
 import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
-function StdApplication() {
+function SuperApplication() {
   let { id } = useParams();
   const [applications, setApplications] = useState([]);
 
@@ -14,7 +15,7 @@ function StdApplication() {
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/users/company/company/trainingApplications/${user.id}`);
+        const response = await fetch(`http://127.0.0.1:8000/users/unisuper/trainingApplications/${user.id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch Application');
         }
@@ -31,22 +32,25 @@ function StdApplication() {
   
     fetchApplications();
   }, [id,user.id]);
-  
+
   return (
     <>
-        <NavbarMain/>
-        <div className='dep-uni-sup-container'>
-            <div className='uni-super-assign'>
-                <span className=' font-super bold'>Applications</span>
-            </div>
+            {loading ? (
+              <div>spinner</div>
+            ) : (
+              <>
+          <Navbar/>
+          <div className='centerd-comp'>
+            <span className='font-super bold'>Applications </span>
             {applications.map((application) => (
-            application.company_status == 'PENDING' ?
-            <ApplicationStdCard key={application.id} application={application}/>:<></>
-          
+            application.company_status == 'APPROVED' && application.university_supervisor_status == 'PENDING' ?
+            <SuperApplicationCard key={application.id} application={application}/>:<></>
           ))}
-        </div>
-    </>
-  )
-}
+          </div> 
+          </>
+              )}
+            </>
+          );
+        }
 
-export default StdApplication
+export default SuperApplication
