@@ -1,12 +1,12 @@
 import React from 'react'
-import Navbar from '../../component/Regestration/Navbar'
+import NavbarReg from '../../component/Regestration/NavbarReg'
 import CardStdBtn from '../../component/Regestration/CardStdBtn'
 import { Link } from 'react-router-dom'
 
 export default function Student() {
   return (
     <>
-    <Navbar/>
+    <NavbarReg/>
     <div className='centerd-comp'>
         <div className='add-std-spans-btn'>
             <div className='add-std-spans'>

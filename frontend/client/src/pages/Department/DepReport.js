@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import NavbarHome from '../../component/department/NavbarHome'
 import DepStdReportCard from '../../component/department/DepStdReportCard'
 import student from '../../static/Student.jpg'
+import NavbarHomeDep from '../../component/department/NavbarHomeDep'
 
 function DepReport() {
   let [isModal,setIsModal]=useState(false) 
@@ -13,7 +13,7 @@ function DepReport() {
   }
   return (
     <>
-        <NavbarHome/>
+        <NavbarHomeDep/>
          <div className='centerd-comp'>
       <div className='uni-super-title-report'>
         <span className='font-super bold'>Students Report</span>

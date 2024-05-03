@@ -2,11 +2,11 @@ import React from 'react'
 import student from '../../static/Student.jpg'
 import { Link } from 'react-router-dom'
 import DepStdFinalRepCard from '../../component/department/DepStdFinalRepCard'
-import NavbarHome from '../../component/department/NavbarHome'
+import NavbarHomeDep from '../../component/department/NavbarHomeDep'
 function DepStdFinalReport() {
   return (
     <>
-        <NavbarHome/>
+        <NavbarHomeDep/>
         <DepStdFinalRepCard/>
     </>
   )

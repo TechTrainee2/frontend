@@ -108,6 +108,12 @@ function CompAssignStd() {
               <CompAssignCard  key={Student.id} Student={Student}/>
             ))}
             </div>
+
+
+
+
+
+            
             <div className={isModal?'show': 'hidden'} >
                   <div className='modal-bk' onClick={handelOnClickX}></div> 
                   <div className='search-box-left-mini-50 '>

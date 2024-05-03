@@ -1,11 +1,11 @@
 import React from 'react'
-import NavbarHome from '../../component/department/NavbarHome'
+import NavbarHomeDep from '../../component/department/NavbarHomeDep'
 import DepNotificationCardForm from '../../component/department/DepNotificationCardForm'
 
 function DepReqApproval() {
   return (
     <>
-        <NavbarHome/>
+        <NavbarHomeDep/>
         <DepNotificationCardForm/>
     </>
   )

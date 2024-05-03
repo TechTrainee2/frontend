@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-function UniSuperViewPostCard(props) {
+function DepViewPostCard(props) {
   let [isModal,setIsModal]=useState(false) 
   let handelOnClick =()=> {
       setIsModal(true)
@@ -30,10 +30,10 @@ function UniSuperViewPostCard(props) {
   let [profileCompany, setProfileCompany] = useState({});
   let [extradtCompany, setExtradtCompany] = useState({});
   let [approved,setApproved]=useState({
-    'university_supervisor_status':'APPROVED',
+    'department_status':'APPROVED',
     })
 let [reject,setReject]=useState({
-    'university_supervisor_status':'REJECTED',
+    'department_status':'REJECTED',
     })
   let [isSameUser, setIsSameUser] = useState(false);
   // // Get the profile by id
@@ -227,4 +227,4 @@ let [reject,setReject]=useState({
   )
 }
 
-export default UniSuperViewPostCard
+export default DepViewPostCard

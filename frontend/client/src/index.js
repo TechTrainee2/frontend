@@ -31,7 +31,7 @@ import HomeDep from "./pages/Department/HomeDep";
 import DepStd from "./pages/Department/DepStd";
 import DepUniSuper from "./pages/Department/DepUniSuper";
 import DepUniSuperStd from "./pages/Department/DepUniSuperStd";
-import DepNotification from "./pages/Department/DepNotification";
+import DepNotification from "./pages/Department/DepApplication";
 import DepReqApproval from "./pages/Department/DepReqApproval";
 import HomeCS from "./pages/compSuper/HomeCS";
 import AccountCS from "./pages/compSuper/AccountCS";
@@ -52,7 +52,7 @@ import AddCompSuper from "./pages/company/AddCompSuper";
 import CompAssignStd from "./pages/company/CompAssignStd";
 import CompStd from "./pages/company/CompStd";
 import StdApplication from "./pages/company/StdApplication";
-import SuperNotification from "./pages/uniSuper/SuperNotification";
+import SuperNotification from "./pages/uniSuper/SuperApplication";
 import UniSuperViewPost from "./pages/uniSuper/UniSuperViewPost";
 import "./App.css";
 import SearchPhone from "./pages/student/SearchPhone";
@@ -69,6 +69,9 @@ import AuthRoute from "./pages/student/AuthRouter";
 import ApplicationsPS from "./pages/student/ApplicationsPS";
 import ApplicationStatus from "./pages/student/ApplicationStatus";
 import EditCompSuper from "./pages/company/EditCompSuper";
+import SuperApplication from "./pages/uniSuper/SuperApplication";
+import DepApplication from "./pages/Department/DepApplication";
+import DepViewPost from "./pages/Department/DepViewPost";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
@@ -286,11 +289,27 @@ const router = createBrowserRouter([
   },
   {
     path: "/superApplication",
-    element: <SuperNotification />,
+    element: <>
+    <AuthRoute>
+      <SuperApplication/>,
+      </AuthRoute>
+    </>,
   },
   {
-    path: "/uniSuperViewPost",
-    element: <UniSuperViewPost />,
+    path: "/uniSuperViewPost/:id",
+    element: <>
+    <AuthRoute>
+      <UniSuperViewPost />,
+    </AuthRoute>
+    </>,
+  },
+  {
+    path: "/depViewPost/:id",
+    element: <>
+    <AuthRoute>
+      <DepViewPost />,
+    </AuthRoute>
+    </>,
   },
   {
     path: "/depHome",
@@ -305,12 +324,20 @@ const router = createBrowserRouter([
     element: <DepUniSuper />,
   },
   {
-    path: "/uniSuperStd",
-    element: <DepUniSuperStd />,
+    path: "/uniSuperStd/:id",
+    element: <>
+    <AuthRoute>
+      <DepUniSuperStd />,
+    </AuthRoute>
+    </>,
   },
   {
-    path: "/depNotification",
-    element: <DepNotification />,
+    path: "/depApplication",
+    element: <>
+    <AuthRoute>
+      <DepApplication />,
+    </AuthRoute>
+    </>,
   },
   {
     path: "/depReqApproval",

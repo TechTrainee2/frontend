@@ -4,6 +4,8 @@ import Navbar from '../../component/uniSuper/Navbar'
 import NavbarHome from '../../component/compSuper/NavbarHome'
 import NavbarMain from '../../component/company/NavbarMain'
 import NavbarStd from '../../component/student/NavbarStd'
+import NavbarReg from '../../component/Regestration/NavbarReg'
+import NavbarHomeDep from '../../component/department/NavbarHomeDep'
 import CardSuperCont from '../../component/uniSuper/CardSuperCont'
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -79,13 +81,17 @@ function SuperAcc() {
         <>
           {
         user.account_type == "STUDENT" ? 
-          <NavbarStd id={user.id}/> : 
-        user.account_type == "COMPANY" ? 
-          <NavbarMain id={user.id}/> :
-        user.account_type == "UNIVERSITY_SUPERVISOR" ? 
-          <Navbar id={user.id}/> :
-        user.account_type == "COMPANY_SUPERVISOR" && 
-          <NavbarHome id={user.id}/>
+        <NavbarStd id={user.id}/> : 
+      user.account_type == "COMPANY" ? 
+        <NavbarMain id={user.id}/> :
+      user.account_type == "UNIVERSITY_SUPERVISOR" ? 
+        <Navbar id={user.id}/> :
+      user.account_type == "DEPARTMENT" ? 
+        <NavbarHomeDep id={user.id}/> :
+      user.account_type == "REGISTRATION" ? 
+        <NavbarReg id={user.id}/> :
+      user.account_type == "COMPANY_SUPERVISOR" && 
+        <NavbarHome id={user.id}/>
         }
           {profile && (
             <div className='centerd-comp'>
