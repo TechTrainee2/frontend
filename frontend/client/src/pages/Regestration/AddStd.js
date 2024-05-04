@@ -20,10 +20,10 @@ function AddStd() {
     last_name:'',
     email: '',
     password: '',
-    department:'',
+    // account_type: 'STUDENT',
 	});
 
-  const { first_name,last_name, email, password,department } = formData;
+  const { first_name,last_name, email, password } = formData;
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,7 +37,7 @@ function AddStd() {
     setIsEmailError(false)
     setEmailError([])
 
-		let data = await dispatch(registerStd({ first_name,last_name, email, password,department,account_type:'STUDENT' }));
+		let data = await dispatch(registerStd({ first_name,last_name, email, password}));
     console.log(data);
     if (Object.keys(data.payload).includes("password")){
       setIsPasswordError(true)

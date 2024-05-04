@@ -6,10 +6,13 @@ import { NavLink } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { registerUniSuper } from '../../features/user';
+import { useParams } from 'react-router-dom';
 
 function AddProfSuper() {
+  let { id } = useParams();
   const dispatch = useDispatch();
   const { registered, loading } = useSelector(state => state.user);
+  const {user } = useSelector(state => state.user);
   const [isEmailError,setIsEmailError]= useState(false)
   const [EmailError,setEmailError]= useState([])
   const [isPasswordError,setIsPasswordError]= useState(false)
@@ -20,10 +23,10 @@ function AddProfSuper() {
     last_name:'',
     email: '',
     password: '',
-    department:'',
+    // account_type: 'university_supervisor',
 	});
 
-  const { first_name,last_name, email, password,department } = formData;
+  const { first_name,last_name, email, password } = formData;
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -37,7 +40,7 @@ function AddProfSuper() {
     setIsEmailError(false)
     setEmailError([])
 
-		let data = await dispatch(registerUniSuper({ first_name,last_name, email, password,department }));
+		let data = await dispatch(registerUniSuper({ first_name,last_name, email, password}));
     console.log(data);
     if (Object.keys(data.payload).includes("password")){
       setIsPasswordError(true)

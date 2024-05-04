@@ -72,6 +72,8 @@ import EditCompSuper from "./pages/company/EditCompSuper";
 import SuperApplication from "./pages/uniSuper/SuperApplication";
 import DepApplication from "./pages/Department/DepApplication";
 import DepViewPost from "./pages/Department/DepViewPost";
+import UniSuperEdit from "./pages/Regestration/UniSuperEdit";
+import StdEdit from "./pages/Regestration/StdEdit";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
@@ -389,23 +391,59 @@ const router = createBrowserRouter([
   },
   {
     path: "/RegHome",
-    element: <HomeReg />,
+    element: <>
+    <AuthRoute>
+      <HomeReg />,
+    </AuthRoute>
+    </>,
+  },
+  {
+    path: "/UniSuperEdit/:id",
+    element: <>
+      <AuthRoute>
+        <UniSuperEdit />,
+      </AuthRoute>
+    </>
+  },
+  {
+    path: "/StdEdit/:id",
+    element: <>
+      <AuthRoute>
+        <StdEdit />,
+      </AuthRoute>
+    </>
   },
   {
     path: "/RegStdForm",
-    element: <AddStd />,
+    element: <>
+    <AuthRoute>
+      <AddStd />,
+    </AuthRoute>
+    </>,
   },
   {
     path: "/RegUniSuper",
-    element: <UniSuper />,
+    element: <>
+    <AuthRoute>
+      <UniSuper />,
+    </AuthRoute>
+    </>,
   },
   {
     path: "/RegStd",
-    element: <Student />,
+    element: <>
+    <AuthRoute>
+      <Student />,
+    </AuthRoute>
+    </>,
   },
   {
     path: "/RegProfForm",
-    element: <AddProfSuper />,
+    element: <>
+    <AuthRoute>
+      <AddProfSuper />,
+      </AuthRoute>
+    </>,
   },
   {
     path: "/searchphone",

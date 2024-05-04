@@ -21,11 +21,10 @@ function CreateAccForm(props) {
             {props.isPasswordError&& Array.isArray(props.PasswordError)&&(<ul style={{color:"red"}}>{props.PasswordError.map((error,index)=>{
             return <li id ={`password-error${index}`}>{error}</li>
             })}</ul>)}
-            <input className='form-cell form-cell-la gray-bk opacity left-place-holder' placeholder='department' name='department' onChange={props.onChange}/>
             
             <div className='form-btns'>
                 <button className='button-size-input navy-bk gray-font'>Add</button>
-                <Link to='/RegUniSuper'>
+                <Link to={`/RegUniSuper`}>
                     <button className='button-size-input navy-bk gray-font'>Cancel</button>
                 </Link>
             </div>
