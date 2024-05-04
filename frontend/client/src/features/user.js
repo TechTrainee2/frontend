@@ -80,17 +80,17 @@ export const registerCompSuper = createAsyncThunk(
   
 export const registerUniSuper = createAsyncThunk(
 	'users/registerUniSuper',
-	async ({ first_name, last_name, email, password, department }, thunkAPI) => {
+	async ({ first_name, last_name, email, password }, thunkAPI) => {
 	  const body = JSON.stringify({
 		first_name,
 		last_name,
 		email,
 		password,
-		department,
+		account_type: 'UNIVERSITY_SUPERVISOR',
 	  });
   
 	  try {
-		const res = await fetch('http://localhost:8000/users/customUser', {
+		const res = await fetch(`http://localhost:8000/users/register/unisuper`, {
 		  method: 'POST',
 		  headers: {
 			  Accept: 'application/json',
@@ -114,17 +114,17 @@ export const registerUniSuper = createAsyncThunk(
 
 export const registerStd = createAsyncThunk(
 	'users/registerStd',
-	async ({ first_name, last_name, email, password, department }, thunkAPI) => {
+	async ({ first_name, last_name, email, password }, thunkAPI) => {
 	  const body = JSON.stringify({
 		first_name,
 		last_name,
 		email,
 		password,
-		department,
+		account_type: 'STUDENT',
 	  });
   
 	  try {
-		const res = await fetch('http://localhost:8000/users/customUser', {
+		const res = await fetch('http://localhost:8000/users/register/student', {
 		  method: 'POST',
 		  headers: {
 			  Accept: 'application/json',
