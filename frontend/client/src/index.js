@@ -379,15 +379,29 @@ const router = createBrowserRouter([
   },
   {
     path: "/CompSuperReport",
-    element: <ReportCS />,
+    element: <>
+      <AuthRoute>
+        <ReportCS/>,
+      </AuthRoute>
+    </>,
   },
   {
-    path: "/CompSuperStdReport",
-    element: <StdReportCS />,
+    path: "/CompSuperStdReport/:id",
+    element: 
+    <>
+      <AuthRoute>
+        <StdReportCS />,
+      </AuthRoute>
+    </>,
   },
   {
-    path: "/CompSuperFillReport",
-    element: <FillReportCS />,
+    path: "/CompSuperFillReport/:id",
+    element: 
+    <>
+      <AuthRoute>
+        <FillReportCS />,
+      </AuthRoute>
+    </>,
   },
   {
     path: "/RegHome",

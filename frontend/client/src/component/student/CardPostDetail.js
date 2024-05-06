@@ -8,17 +8,37 @@ import { useDispatch } from 'react-redux'
 
 function CardPostDetail(props) {
   let { id } = useParams();
-  let [profile, setProfile] = useState({});
-  let [extradt, setExtradt] = useState({});
+
   
+
+
+
+  // let [extradt10, setExtradt10] = useState({}); 
+
+
   const { user } = useSelector(
     state => state.user
 	);
+
+  
   let [data,setData]=useState({
-    'student':`${user.id}`,
-    'post':`${props.post.id}`,
-    'company':`${props.post.company}`,
-  })
+    'student': '',
+    'post': '',
+    'company': '',
+    'university_supervisor': '',
+})
+
+useEffect(() => {
+  if (user && props.post && props.profile10) {
+    setData({
+      'student': `${user.id}`,
+      'post': `${props.post.id}`,
+      'company': `${props.post.company}`,
+      'university_supervisor': `${props.profile10}`,
+    });
+  }
+}, [user, props.post, props.profile10]);
+
   let [isModal,setIsModal]=useState(false) 
     let handelOnClick =()=> {
         setIsModal(true)
@@ -27,36 +47,7 @@ function CardPostDetail(props) {
         setIsModal(false)
     }
 
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const res = await fetch(`http://127.0.0.1:8000/users/companyprof/${props.post.company}`, {
-            method: "GET",
-            headers: {
-              Accept: "application/json",
-            },
-          });
-  
-          if (!res.ok) {
-            throw new Error("Failed to fetch data");
-          }
-  
-          const profileData = await res.json();
-          // dispatch(getUser());
-          
-          // Set profile state after data is fetched
-          setProfile(profileData)
-          setExtradt(profileData.company)
-          // console.log(props.isSameUser);
-         
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      };
-  
-      // Call fetchData function when component mounts
-      fetchData();
-    }, [id,user.id,props.post.company]); // Include dependencies in the dependency array
+    // Include dependencies in the dependency array
 
 
 //creation of application for std to apply for a post
@@ -100,10 +91,10 @@ const onSubmit = async () => {
               <div className='std-post-container'>
                 <div className='std-company-profile'>
                   <Link to= {`/compProfile/${props.post.company}`}>
-                    <img src={profile.img} className='company-img2' />
+                    <img src={props.profile.img} className='company-img2' />
                   </Link>
                   <Link to={`/compProfile/${props.post.company}`}>
-                    <span>{extradt.name}</span>
+                    {/* <span>{props.extradt.name}</span> */}
                   </Link>
                   <span>{props.post.training_mode}</span>
                 </div>
