@@ -1,21 +1,58 @@
 import React from 'react'
 import student from '../../static/Student.jpg'
 import { Link } from 'react-router-dom'
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 
-function CardStdReport() {
+
+function CardStdReport(props) {
+
+
+
+    const [data, setData] = useState(null);
+    const { id } = useParams();
+    let [TotalHour,setTotalHours] = useState(0);
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            let totalHours = 0;
+            if (props.report && props.report.table_data) {
+                await Promise.all(props.report.table_data.map(async item => {
+                    totalHours += parseInt(item.hours);
+                }));
+            }
+            setTotalHours(totalHours);
+        }
+       
+        // Call fetchData function when component mounts
+        fetchData();
+    }, [props.report]);
+
+
+
   return (
     <>
         <div className='large-card gray-bk centered-card margin-bottom'>
             <div className='report-container'>
                 <div className='compsuper-header-report'>
-                    <span className='bold'>Week 2</span>
+                    <span className='bold'>Week {props.report.week_number}</span>
 
                     <div className='compsuper-date'>
                         <span>Date from </span>
-                        <span>26/2/2024 </span>
-                        <span>To </span>
-                        <span>4/3/2024</span>
+                        {
+                            props.report && props.report.date_begin!==null && props.report.date_end!==null ?(
+                               <>
+                                <span>{props.report.date_begin }</span>
+                                <span>To </span>
+                                <span>{props.report.date_end }</span>
+                               </>
+                            ):<></>  
+                        }
+                        {/* <span>{data.date_begin }</span> */}
+                       
+                   
                     </div>
                 </div>
             
@@ -24,31 +61,53 @@ function CardStdReport() {
 
                 <div className='fill-report-topic'>
                     <span className='bold'>Topic </span>
-                    <span>Introduction to python </span>
-                    <span>Introduction to Matplotlip</span>
-                    <span>statistics book studying</span>
+                    {   props.report.table_data!=null ?(
+                        props.report.table_data.map((item) => (
+                            <div className='fill-report-topic'>
+                                <span>{item.topic}</span>
+                            </div>
+
+                    ) 
+                    )):<></>
+                    }
+                              
                 </div>
 
                 <div className='fill-report-topic'>
                     <span className='bold'>Software and Equipment used</span>
-                    <span>datacomp.com</span>
-                    <span>w3schools.com</span>
-                    <span>pdf</span>
+                    {   props.report.table_data!=null ?(
+                        props.report.table_data.map((item) => (
+                            <div className='fill-report-topic'>
+                                <span>{item.details}</span>
+                            </div>
+                    ) 
+                    )):<></>
+                    }
+                  
+
                 </div>
 
                 <div className='fill-report-topic'>
                     <span className='bold'>Hours</span> 
-                    <span>4 </span>
-                    <span>9</span>
-                    <span>9</span>
+                    {   props.report.table_data!=null ?(
+                        props.report.table_data.map((item) => (
+                            <div className='fill-report-topic'>
+                                <span>{item.hours}</span>
+                            </div>
+                    ) 
+                    )):<></>
+                    }
+                    {/* <span>{data[0].table_data[0].hours}</span> */}
+                    
                 </div>
+            
             
             </div>
         
 
         <div className='report-TotalHour bold'>
             <span>Total hours</span>
-            <span>22</span>
+            <span>{TotalHour}</span>
         </div>
 
         <div className='report-signature-cont'>

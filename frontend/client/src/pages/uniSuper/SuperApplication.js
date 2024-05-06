@@ -43,9 +43,13 @@ function SuperApplication() {
           <div className='centerd-comp'>
             <span className='font-super bold'>Applications </span>
             {applications.map((application) => (
-            application.company_status == 'APPROVED' && application.university_supervisor_status == 'PENDING' ?
-            <SuperApplicationCard key={application.id} application={application}/>:<></>
-          ))}
+            // application.company_status == 'APPROVED' && application.university_supervisor_status == 'PENDING' ?
+            <SuperApplicationCard key={application.id} application={application}/>
+            // :<></>
+          //
+         )
+        )
+        }
           </div> 
           </>
               )}

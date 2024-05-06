@@ -14,6 +14,9 @@ function CompPostPS() {
 
   let [profile, setProfile] = useState({});
   let [extradt, setExtradt] = useState({});
+
+  let [profile10, setProfile10] = useState({});
+
   const [post, setPost] = useState({});
 
   let [isSameUser, setIsSameUser] = useState(false);
@@ -22,42 +25,6 @@ function CompPostPS() {
 
   // when the page loader
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(`http://127.0.0.1:8000/users/companyprof/${id}`, {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-          },
-        });
-
-        
-        if (!res.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        
-        const profileData = await res.json();
-        // dispatch(getUser());
-        
-        // Set profile state after data is fetched
-        setProfile(profileData)
-        setExtradt(profileData.company)
-        console.log(user);
-        console.log(user.id == id);
-        if (user.id == id) {
-          setIsSameUser(true);
-        }
-        
-       
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    // Call fetchData function when component mounts
-    fetchData();
-  }, [user]); // Include dependencies in the dependency array
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -72,13 +39,59 @@ function CompPostPS() {
         // Here you can set the posts to your state or dispatch an action to update your Redux store
         // For example:
         // setPosts(posts);
+        const res2 = await fetch(`http://127.0.0.1:8000/users/user/studentProfile10/${user.id}`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (!res2.ok) {
+          throw new Error("Failed to fetch data");
+        }
+
+        const profileData10 = await res2.json();
+        // dispatch(getUser());
+        
+        // Set profile state after data is fetched
+        setProfile10(profileData10)
+
+        const res3 = await fetch(`http://127.0.0.1:8000/users/companyprof/${post.company}`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        
+        if (!res3.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        
+        const profileData = await res3.json();
+        // dispatch(getUser());
+        
+        // Set profile state after data is fetched
+        setProfile(profileData)
+        setExtradt(profileData.company)
+
+
+
+
+   
+        // setExtradt10(profileData10)
+        console.log(profileData10);
       } catch (error) {
         console.error(error);
       }
     };
   
     fetchPost();
-  }, []);
+  }, [profile10.university_supervisor]);
+ 
+
+    // Call fetchData function when component mounts
+
 
   return (
     <>
@@ -95,7 +108,7 @@ function CompPostPS() {
       }
       {profile && (
       <>
-        <CardPostDetail profile={profile} extra={extradt} isSameUser={isSameUser} post={post}/>
+        <CardPostDetail  profile10={profile10.university_supervisor} profile={profile} extra={extradt} isSameUser={isSameUser} post={post}/>
       </>
           )}
         </>

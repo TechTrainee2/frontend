@@ -44,7 +44,8 @@ function DepApplication() {
         <span className='font-super bold'>Applications </span>
         {applications.map((application) => (
             application.company_status == 'APPROVED' && application.university_supervisor_status == 'APPROVED' 
-            && application.department_status == 'PENDING' ?
+           && application.department_status == 'PENDING'
+            ?
             <DepApplicationCard key={application.id} application={application}/>:<></>
         ))}
         </div>

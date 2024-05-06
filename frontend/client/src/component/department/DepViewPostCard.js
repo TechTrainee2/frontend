@@ -31,10 +31,15 @@ function DepViewPostCard(props) {
   let [extradtCompany, setExtradtCompany] = useState({});
   let [approved,setApproved]=useState({
     'department_status':'APPROVED',
+
     })
 let [reject,setReject]=useState({
     'department_status':'REJECTED',
     })
+
+    let [companyAssign,setCompanyAssign]=useState({
+      'company':props.application.company,
+      })
   let [isSameUser, setIsSameUser] = useState(false);
   // // Get the profile by id
   let { user, loading } = useSelector((state) => state.user);
@@ -109,10 +114,24 @@ let [reject,setReject]=useState({
         },
         body: JSON.stringify(approved),
       });
+
+      const res3 = await fetch(`http://127.0.0.1:8000/users/user/student/assign/company/${props.application.student}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify(companyAssign),
+
+      });
+
       if (!res2.ok) {
         throw new Error("Failed to fetch data");
       }
-      const Data = await res2.json();
+      if (!res3.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      // const Data = await res3.json();
     }
     catch (error) {
       console.error("Error fetching data:", error);

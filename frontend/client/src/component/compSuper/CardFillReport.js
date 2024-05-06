@@ -1,6 +1,70 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+// import user from '../../features/user'
 
-function CardFillReport() {
+
+function CardFillReport(props) {
+// let user = useSelector((state) => state.user);
+
+    
+let [data,setData]=useState({
+    'week_number': '',
+    'date_begin': '',
+    'date_end': '', 
+    'table_data':[
+        {'hours': '','topic': '','details':''},
+        {'hours': '','topic': '','details':''},
+        {'hours': '','topic': '','details':''}]
+    // 'companySupervisorSignature': '',
+    // 'table_data.items'
+  })
+  
+
+
+  const handleInputChange = (index, event) => {
+    const values = [...data.table_data];
+    values[index][event.target.name] = event.target.value;
+    setData({ ...data, table_data: values });
+  };
+
+const onSubmit = async () => {
+ 
+  
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/users/user/report/${props.id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+    
+      if (!response.ok) {
+        throw new Error('Failed to create post');
+      }
+    
+      const res = await response.json();
+      console.log(res);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+};
+let onChange = (e) => {
+    console.log(e.target.value);
+    const { name, value } = e.target;
+    
+    setData((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  }
+
+
+  
     let [isModal,setIsModal]=useState(false) 
       let handelOnClick =()=> {
           setIsModal(true)
@@ -12,13 +76,13 @@ function CardFillReport() {
   return (
     <>
     <div className='compsuper-header-fill-report'>
-            <span className='bold'>Week 2</span>
+            <input placeholder='week Number'name='week_number' onChange={onChange} className='date-txt-size gray-bk'/>
 
             <div className='compsuper-date'>
                 <span>Date from </span>
-                <input type='date' name='date' className='date-txt-size gray-bk'/>
+                <input type='date' name='date_begin' className='date-txt-size gray-bk' onChange={onChange}/>
                 <span>To </span>
-                <input type='date' name='date' className='date-txt-size gray-bk'/>
+                <input type='date' name='date_end' className='date-txt-size gray-bk'onChange={onChange}/>
             </div>
         </div>
 
@@ -26,41 +90,66 @@ function CardFillReport() {
 
             <div className='fill-report-topic bold'>
                 <span>Topic </span>
-                <input type='text' name='date' placeholder='Fill here' className='topic-txt-size gray-bk'/>
-                <input type='text' name='date' placeholder='Fill here' className='topic-txt-size gray-bk'/>
-                <input type='text' name='date' placeholder='Fill here' className='topic-txt-size gray-bk'/>
+                {data.table_data.map((item, index) => (
+                    <input type='text' 
+                    name='topic'
+                     placeholder='Fill here' 
+                     className='topic-txt-size gray-bk'
+                    value={item.topic}
+                    onChange={event => handleInputChange(index, event)}
+                  />
+                  ))}
+
+                {/* <input type='text' name='topic' placeholder='Fill here' onChange={onChange} className='topic-txt-size gray-bk'/>
+                <input type='text' name='topic' placeholder='Fill here' onChange={onChange} className='topic-txt-size gray-bk'/>
+                <input type='text' name='topic' placeholder='Fill here' onChange={onChange} className='topic-txt-size gray-bk'/> */}
             </div>
 
             <div className='fill-report-topic bold'>
                 <span>Software and Equipment used</span>
-                <input type='text' name='date' placeholder='Fill here' className='software-txt-size gray-bk'/>
-                <input type='text' name='date' placeholder='Fill here' className='software-txt-size gray-bk'/>
-                <input type='text' name='date' placeholder='Fill here' className='software-txt-size gray-bk'/>
+                {data.table_data.map((item, index) => (
+                    <input type='text' 
+                    name='details'
+                     placeholder='Fill here' 
+                     className='software-txt-size gray-bk'
+                    // value={item.topic}
+                    onChange={event => handleInputChange(index, event)}
+                  />
+                  ))}
+                {/* <input type='text' name='details' placeholder='Fill here' onChange={onChange} className='software-txt-size gray-bk'/>
+                <input type='text' name='details' placeholder='Fill here' onChange={onChange} className='software-txt-size gray-bk'/>
+                <input type='text' name='details' placeholder='Fill here' onChange={onChange} className='software-txt-size gray-bk'/> */}
             </div>
 
             <div className='fill-report-topic bold'>
                 <span>Hours</span> 
-                <input type='text' name='date' placeholder='Fill here' className='hours-txt-size gray-bk'/>
-                <input type='text' name='date' placeholder='Fill here' className='hours-txt-size gray-bk'/>
-                <input type='text' name='date' placeholder='Fill here' className='hours-txt-size gray-bk'/>
+                {data.table_data.map((item, index) => (
+                        <input type='text' 
+                        name='hours'
+                        placeholder='Fill here' 
+                        className='hours-txt-size gray-bk'
+                        // value={item.topic}
+                        onChange={event => handleInputChange(index, event)}
+                    />
+                    ))}
+                {/* <input type='text' name='hours' placeholder='Fill here' onChange={onChange} className='hours-txt-size gray-bk'/>
+                <input type='text' name='hours' placeholder='Fill here' onChange={onChange} className='hours-txt-size gray-bk'/>
+                <input type='text' name='hours' placeholder='Fill here' onChange={onChange} className='hours-txt-size gray-bk'/> */}
             </div>
         
         </div>
 
-        <div className='fill-report-TotalHour bold'>
-            <span>Total hours</span>
-            <input type='text' name='date' placeholder='Fill here' className='TotalHours-txt-size gray-bk'/>
-        </div>
+        
 
         <div className='signature-cont'>
 
-            <label className='report-svg-left'>
+            {/* <label className='report-svg-left'>
                 <input type='file' name='skill' className='display-img '/>
                     <svg className='svg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <path fill="#1c3150" d="M64 464l48 0 0 48-48 0c-35.3 0-64-28.7-64-64L0 64C0 28.7 28.7 0 64 0L229.5 0c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3L384 304l-48 0 0-144-80 0c-17.7 0-32-14.3-32-32l0-80L64 48c-8.8 0-16 7.2-16 16l0 384c0 8.8 7.2 16 16 16zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/>
                     </svg> 
                     <span>Upload Signature</span>     
-            </label>
+            </label> */}
 
             <div className={isModal?'show': 'hidden'} >
                         <div className='report-modal-bk'></div>
@@ -74,7 +163,7 @@ function CardFillReport() {
 
                                 <div className='apply-box-btns'>
                                     <button className='button-size-std gray-bk navy-font' onClick={handelOnClickX}>No</button>
-                                    <button className='button-size-std navy-bk white-font'>Yes</button>
+                                    <button className='button-size-std navy-bk white-font' onClick={onSubmit}>Yes</button>
                                 </div>
                             </div>
 

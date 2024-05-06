@@ -6,11 +6,13 @@ import Navbar from '../../component/uniSuper/Navbar'
 import CardHomeUS from '../../component/uniSuper/CardHomeUS'
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { useCookies } from 'react-cookie';
 
 
 function HomeUS() {
   let {loading,user } = useSelector((state) => state.user);
+  const [cookies, setCookie] = useCookies(['access']);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUser());
@@ -37,7 +39,8 @@ useEffect(() => {
         method: "GET",
         headers: {
           Accept: "application/json",
-        },
+          authorization: `Bearer ${cookies.access}`,
+        },credentials:'include'
       });
       
       if (!res2.ok) {
