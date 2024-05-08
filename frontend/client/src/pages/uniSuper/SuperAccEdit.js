@@ -4,6 +4,7 @@ import CardSuperProfEdit from '../../component/uniSuper/CardSuprProfEdit'
 import CardSuperContEdit from '../../component/uniSuper/CardSuperContEdit'
 import { useParams } from "react-router-dom";
 import { useSelector} from "react-redux";
+import { Navigate } from 'react-router-dom';
 
 function SuperAccEdit() {
   // Grab the parameter from the url
@@ -11,6 +12,8 @@ function SuperAccEdit() {
 
   let [profile, setProfile] = useState({});
   let [extradt, setExtradt] = useState({});
+  let [allowNavigate, setAllowNavigate] = useState(false);
+
 
 
   let [isSameUser, setIsSameUser] = useState(false);
@@ -55,6 +58,7 @@ function SuperAccEdit() {
       } catch (error) {
         console.error('Error:', error);
       }
+      setAllowNavigate(true);
     };
     
   let onChange = (e) => {
@@ -153,6 +157,7 @@ function SuperAccEdit() {
             />
             <CardSuperContEdit profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}/>
           </form>)}
+          {allowNavigate && <Navigate to={`/superAcc/${user.id}`} />}
         </>
   )}
   </>

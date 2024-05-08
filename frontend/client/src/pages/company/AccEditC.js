@@ -5,6 +5,8 @@ import CardEditBio from '../../component/company/CardEditBio'
 import CardEditPostBtn from '../../component/company/CardEditPostBtn'
 import { useParams } from "react-router-dom";
 import { useSelector} from "react-redux";
+import { Navigate } from 'react-router-dom';
+
 
 function AccEditC() {
   let { id } = useParams();
@@ -12,6 +14,8 @@ function AccEditC() {
   let [profile, setProfile] = useState({});
   let [extradt, setExtradt] = useState({});
   const [posts, setPosts] = useState([]);
+  let [allowNavigate, setAllowNavigate] = useState(false);
+
 
   let [isSameUser, setIsSameUser] = useState(false);
   // // Get the profile by id
@@ -56,6 +60,7 @@ function AccEditC() {
       } catch (error) {
         console.error('Error:', error);
       }
+      setAllowNavigate(true);
     };
   let onChange = (e) => {
     console.log(e.target.value);
@@ -187,6 +192,7 @@ function AccEditC() {
           ))}
 
          </form>)}
+         {allowNavigate && <Navigate to={`/compProfile/${user.id}`}/>}
     </>
   )}
   </>

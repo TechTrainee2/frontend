@@ -52,7 +52,7 @@ function CardEditProf(props) {
 
                         {/* <Link to={`/stdAcc/${props.id}`}> */}
                         <div className='std-btns-edit-acc'>
-                                <button className='button-size-std navy-bk white-font' type = "submit" onClick={props.onClick} >
+                                <button className='button-size-std navy-bk white-font' type = "submit"  >
                                     Done
                                 </button>
                            
