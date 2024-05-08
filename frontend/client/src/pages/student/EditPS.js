@@ -18,7 +18,7 @@ function EditPS() {
 
   let [profile, setProfile] = useState({});
   let [extradt, setExtradt] = useState({});
-
+  let [allowNavigate, setAllowNavigate] = useState(false);
 
   let [isSameUser, setIsSameUser] = useState(false);
   // // Get the profile by id
@@ -45,36 +45,48 @@ function EditPS() {
       setSelectedPdf(event.target.files[0]);
     };
     
-    const onFileUpload = async () => {
+    const onSubmit = async (e) => {
+      e.preventDefault();
       const formData = new FormData();
+      
       if (selectedImage1) {
-        formData.append('img', selectedImage1); // 'img1' should match the field name expected by your server
+        formData.append('img', selectedImage1); // 'img' should match the field name expected by your server
       }
+      
       if (selectedImage2) {
-        formData.append('img_bk', selectedImage2); // 'img2' should match the field name expected by your server
+        formData.append('img_bk', selectedImage2); // 'img_bk' should match the field name expected by your server
       }
+      
       if (selectedPdf) {
-        formData.append('cv', selectedPdf); // 'pdf' should match the field name expected by your server
+        formData.append('cv', selectedPdf); // 'cv' should match the field name expected by your server
+      }
+    
+      // Add other data to formData
+      for (const key in data) {
+        formData.append(key, data[key]);
       }
     
       try {
-        const res = await fetch(`http://127.0.0.1:8000/users/stdprof/${user.id}`, {
+        const res = await fetch(`http://127.0.0.1:8000/users/std/stdprof/${user.id}`, {
           method: 'PATCH',
+          headers: {
+            Accept: 'application/json',
+          },
           body: formData,
         });
-        if (!res.ok) {
-          throw new Error('Failed to upload file');
-        }
-        const data = await res.json();
-        // console.log(data);
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    };
     
-
-
-
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        
+        const profileData = await res.json();
+    
+        // ... rest of your code
+      } catch (error) {
+        // handle error
+      }
+      setAllowNavigate(true);
+    };
 
 
 
@@ -147,39 +159,39 @@ function EditPS() {
     fetchData();
   }, [id,user.id]); // Include dependencies in the dependency array
   
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    console.log(extradt)
+  // const onSubmit = async (e) => {
+  //   e.preventDefault();
+  //   console.log()
   
-    // Create an object that only includes fields from data that are not empty strings
-    const nonEmptyData = Object.entries(data).reduce((newData, [key, value]) => {
-      if (value !== '') {
-        newData[key] = value;
-      }
-      return newData;
-    }, {});
+  //   // Create an object that only includes fields from data that are not empty strings
+  //   const nonEmptyData = Object.entries(data).reduce((newData, [key, value]) => {
+  //     if (value !== '') {
+  //       newData[key] = value;
+  //     }
+  //     return newData;
+  //   }, {});
   
-    // Use nonEmptyData in your fetch request
-    try {
-      const res2 = await fetch(`http://127.0.0.1:8000/users/stdprof/${user.id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-        },
-        body: JSON.stringify(nonEmptyData),
-      });
-      if (!res2.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const Data = await res2.json();
-      // console.log(user.id);
+  //   // Use nonEmptyData in your fetch request
+  //   try {
+  //     const res2 = await fetch(`http://127.0.0.1:8000/users/stdprof/${user.id}`, {
+  //       method: "PATCH",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         "Accept": "application/json",
+  //       },
+  //       body: JSON.stringify(nonEmptyData),
+  //     });
+  //     if (!res2.ok) {
+  //       throw new Error("Failed to fetch data");
+  //     }
+  //     const Data = await res2.json();
+  //     console.log(Data);
 
-    }
-    catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  }
+  //   }
+  //   catch (error) {
+  //     console.error("Error fetching data:", error);
+  //   }
+  // }
 
 
   return (
@@ -196,13 +208,15 @@ function EditPS() {
       <CardEditProf profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange} 
       onImgChange1={onImage1Change} 
       onImgChange2={onImage2Change}  
-      onClick ={onFileUpload}
+      id={user.id}
+      
       />
       <CardEditSkill profile={profile} extra={extradt} isSameUser={isSameUser} 
       onCvChange={onPdfChange}
       />
       <CardEditCont profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}/>
     </form>)}
+    {allowNavigate && <Navigate to={`/stdAcc/${user.id}`}/>}
     </>
   )}
   </>

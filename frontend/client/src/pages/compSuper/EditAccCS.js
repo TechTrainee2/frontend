@@ -4,6 +4,8 @@ import CardEditProfile from '../../component/compSuper/CardEditProfile'
 import CardEditContact from '../../component/compSuper/CardEditContact'
 import { useParams } from "react-router-dom";
 import { useSelector} from "react-redux";
+import { Navigate } from 'react-router-dom';
+
 
 function EditAccCS() {
   // Grab the parameter from the url
@@ -11,6 +13,7 @@ function EditAccCS() {
 
   let [profile, setProfile] = useState({});
   let [extradt, setExtradt] = useState({});
+  let [allowNavigate, setAllowNavigate] = useState(false);
 
 
   let [isSameUser, setIsSameUser] = useState(false);
@@ -56,6 +59,7 @@ function EditAccCS() {
       } catch (error) {
         console.error('Error:', error);
       }
+      setAllowNavigate(true);
     };
  
   let onChange = (e) => {
@@ -154,6 +158,7 @@ function EditAccCS() {
         />
         <CardEditContact profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}/>
       </form>)}
+      {allowNavigate && <Navigate to={`/CompSuperAcc/${user.id}`}/>}
       </>
       )}
       </>
