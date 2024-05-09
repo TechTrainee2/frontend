@@ -16,7 +16,7 @@ function NavbarHome(props) {
         <NavLink to ='/CompSuperHome'  className='not-clicked'>
             <img className='nav-std-logo'  src={img}/>
         </NavLink>
-        <input type="text" placeholder="Search.." className='search-std gray-bk 'onClick={handelOnClick}></input>
+        {/* <input type="text" placeholder="Search.." className='search-std gray-bk 'onClick={handelOnClick}></input> */}
        
         <div className='icon-cont-company-nav'>
             <div className='icons'>
@@ -42,7 +42,7 @@ function NavbarHome(props) {
                 </NavLink>
             </div>
         </div>
-        <div className={isModal?'show': 'hidden'} >
+        {/* <div className={isModal?'show': 'hidden'} >
             <div className='modal-bk' onClick={handelOnClickX}></div>
             <div className='search-box-2nav-comp'>
                 <div className='search-card gray-bk'>
@@ -55,7 +55,7 @@ function NavbarHome(props) {
                      </div>
                 </div>
             </div>
-        </div>
+        </div> */}
         </div>
     </>
   )

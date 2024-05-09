@@ -22,6 +22,51 @@ let [isModal,setIsModal]=useState(false)
       setIsModal(false)
   }
 
+  let [profile, setProfile] = useState({});
+  let [extradt, setExtradt] = useState({});
+
+  // // Get the profile by id
+  let { user, loading } = useSelector((state) => state.user);
+
+  // when the page loader
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`http://127.0.0.1:8000/users/user/studentProfile10/${id}`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        });
+        
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        
+        
+        const profileData = await res.json();
+        // dispatch(getUser());
+        
+        // Set profile state after data is fetched
+        setProfile(profileData)
+        setExtradt(profileData.student)
+        
+       
+        
+       
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    // Call fetchData function when component mounts
+    fetchData();
+  }, [id,user.id]);
+  
+
+
+
   // Include dependencies in the dependency array
 
 
@@ -32,7 +77,7 @@ let [isModal,setIsModal]=useState(false)
   return (
     <>
     <NavbarStdReport/>
-    <CardFillReport id ={id}/>
+    <CardFillReport profile={profile} extra={extradt} id ={id}/>
     </>
   )
 }

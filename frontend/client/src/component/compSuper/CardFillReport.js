@@ -21,9 +21,10 @@ let [data,setData]=useState({
     'table_data':[
         {'hours': '','topic': '','details':''},
         {'hours': '','topic': '','details':''},
-        {'hours': '','topic': '','details':''}]
-    // 'companySupervisorSignature': '',
-    // 'table_data.items'
+        {'hours': '','topic': '','details':''}],
+    'company_supervisor': props.profile.company_supervisor,
+    'university_supervisor': props.profile.university_supervisor,
+    
   })
   
   const onPdfChange = event => {

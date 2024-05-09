@@ -12,7 +12,8 @@ import { Link } from 'react-router-dom'
 function CompAssignStd() {
 
     let { id } = useParams();
-  
+
+
     let [profile, setProfile] = useState({});
     let [extradt, setExtradt] = useState({});
     let [email, setEmail] = useState({});
@@ -28,8 +29,51 @@ function CompAssignStd() {
     let handelOnClickX =()=> {
         setIsModal(false)
     }
+    let data = {
+      company_supervisor: id
+    }
+    // let [stdId,setStdId]=useState('')
+
+    let[value,setValue]=useState('')
+    let [studentsSearch, setStudentsSearch] = useState([]);
+
+    onchange = async (e) => {
+        setValue(e.target.value)
+        try {
+            const res = await fetch(`http://127.0.0.1:8000/users/student-profiles?search=${value}`, {
+                method: "GET",
+                headers: {
+                  Accept: "application/json",
+                },
+              });
+              if (!res.ok) {
+                throw new Error("Failed to fetch data");
+              }
+          const studentsSearch = await res.json();
+          setStudentsSearch(studentsSearch);
+         
+        } catch (error) {
+          console.error(error);
+        }
+      }
+onclick = async (u) => {
+  try {
+    const res = await fetch(`http://127.0.0.1:8000/users/user/student/assign/companySupervisor/${u}`, {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json',
+      },body: JSON.stringify(data),
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
 
 
+}catch (error) {
+  console.error("Error fetching data:", error);
+}
+
+}
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -105,31 +149,36 @@ function CompAssignStd() {
             <span className='bold assign-padding-span'>Current Student</span>
 
             {Students.map((Student) => (
+
               <CompAssignCard  key={Student.id} Student={Student}/>
+
             ))}
             </div>
 
+          <div className={isModal?'show': 'hidden'} >
+              <div className='modal-bk' onClick={handelOnClickX}></div> 
+              <div className='search-box-left-mini-50 '>
+
+              <input type="text" placeholder="Search Student Report" className='comp-search-assign-btn gray-bk ' onClick={handelOnClick} onChange={onchange}/>
+                  
+              {value !== '' &&
+                studentsSearch.map((student) => (
+                  student.student.company == null?<></>:
+                  
+                    <div className='assign-card gray-bk'>
+                        <div className='search-img'>
+                            <img src={student.img} className='uni-std-circle'/>
+                            <div className='compsuper-std-name'>
+                                <span >{student.student.first_name} {student.student.last_name}</span>
+                            </div>
 
 
-
-
-            
-            <div className={isModal?'show': 'hidden'} >
-                  <div className='modal-bk' onClick={handelOnClickX}></div> 
-                  <div className='search-box-left-mini-50 '>
-                  <input type="text" placeholder="Search Student Report" className='comp-search-assign-btn gray-bk ' onClick={handelOnClick}/>
-                      <div className='assign-card gray-bk'>
-                          <div className='search-img'>
-                              <img src={student} className='uni-std-circle'/>
-                              <div className='compsuper-std-name'>
-                                  <span >Mohammad Saleh</span>
-                                  <span >CS</span>
-                              </div>
-                              <button className='comp-assign-search-button-size navy-bk white-font font-med'>Assign</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                            <button className='comp-assign-search-button-size navy-bk white-font font-med' onClick={() => onclick(student.student.user)}>Assign</button>
+                        </div>
+                    </div>
+                      ))}
+                </div>
+            </div>
           </div>
           </>
       )}

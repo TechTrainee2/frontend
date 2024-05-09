@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import student from '../../static/Student.jpg'
 import img from '../../static/logo.png'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 function NavbarMain(props) {
     let [isModal,setIsModal]=useState(false) 
     let handelOnClick =()=> {
@@ -10,13 +10,38 @@ function NavbarMain(props) {
     let handelOnClickX =()=> {
         setIsModal(false)
     }
-  return (
+    let[value,setValue]=useState('')
+    let [students, setStudents] = useState([]);
+
+    onchange = async (e) => {
+        setValue(e.target.value)
+        try {
+            const res = await fetch(`http://127.0.0.1:8000/users/student-profiles?search=${value}`, {
+                method: "GET",
+                headers: {
+                  Accept: "application/json",
+                },
+              });
+              if (!res.ok) {
+                throw new Error("Failed to fetch data");
+              }
+          const students = await res.json();
+          setStudents(students);
+         
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    
+
+    return (
     <>
     <div className='nav-std'>
         <NavLink to ='/compHome'  className='not-clicked'>
             <img className='nav-std-logo' src={img}/>
         </NavLink>
-        <input type="text" placeholder="Search.." className='search-std gray-bk 'onClick={handelOnClick}></input>
+        
+        <input type="text" placeholder="Search.." className='search-std gray-bk 'onClick={handelOnClick} onChange={onchange}></input>
        
         <div className='icon-cont'>
             <div className='comp-icon-super'>
@@ -45,19 +70,28 @@ function NavbarMain(props) {
         </div>
         <div className={isModal?'show': 'hidden'} >
             <div className='modal-bk' onClick={handelOnClickX}></div>
+            
             <div className='search-box-2nav-comp'>
-                <div className='search-card gray-bk'>
-                    <div className='search-img'>
-                        <img src={student} className='uni-std-circle'/>
-                        <div className='compsuper-std-name'>
-                            <span >Mohammad Saleh</span>
-                            <span>CS</span>
+                {value !== '' &&
+                
+                    students.map((student) => (
+                        <div className='search-card gray-bk'>
+                            <div className='search-img'>
+                                <Link to={`/stdAcc/${student.student.user}`}>
+                                <img src={student.img} className='uni-std-circle'/>
+                                </Link>
+                                <div className='compsuper-std-name'>
+                                <Link to={`/stdAcc/${student.student.user}`}>
+                                    <span >{student.student.first_name} {student.student.last_name}</span>
+                                </Link>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                </div>
+                    ))    
+                    }
             </div>
         </div>
-        </div>
+    </div>
     </>
   )
 }
