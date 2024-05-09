@@ -5,13 +5,12 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import { Navigate } from 'react-router-dom';
+
 
 function CardPostDetail(props) {
   let { id } = useParams();
-
-  
-
-
+  let [allowNavigate, setAllowNavigate] = useState(false);
 
   // let [extradt10, setExtradt10] = useState({}); 
 
@@ -73,6 +72,7 @@ const onSubmit = async () => {
   } catch (error) {
     console.error('Error:', error);
   }
+  setAllowNavigate(true);
 };
 
 
@@ -115,11 +115,14 @@ const onSubmit = async () => {
                             </svg>
 
                                 <span className='bold navy-font'>Are you sure u want to Apply?</span>
-
+                              <form>
                                 <div className='apply-box-btns'>
                                     <button className='button-size-std gray-bk navy-font' onClick={handelOnClickX}>No</button>
                                     <button className='button-size-std navy-bk white-font' type='submit' onClick={onSubmit}>Yes</button>
                                 </div>
+                              </form>
+                              {allowNavigate && <Navigate to={`/stdPost/${id}`}/>}
+
                             </div>
 
                         </div>

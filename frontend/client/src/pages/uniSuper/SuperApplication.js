@@ -9,7 +9,6 @@ import { useSelector } from 'react-redux'
 function SuperApplication() {
   let { id } = useParams();
   const [applications, setApplications] = useState([]);
-
   let { isAuthenticated, loading,user } = useSelector((state) => state.user);
 
   useEffect(() => {
@@ -31,7 +30,7 @@ function SuperApplication() {
     };
   
     fetchApplications();
-  }, [id,user.id]);
+  }, []);
 
   return (
     <>

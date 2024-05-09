@@ -59,7 +59,7 @@ useEffect(() => {
 
   // Call fetchData function when component mounts
   fetchData();
-}, [user]); 
+}, [user, user.id]); 
 
   return (
     <>
