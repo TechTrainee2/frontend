@@ -17,7 +17,7 @@ function Navbar(props) {
         <NavLink to ='/uniSuper'  className='not-clicked'>
             <img className='nav-std-logo'  src={img}/>
         </NavLink>
-        <input type="text" placeholder="Search.." className='search-std gray-bk ' onClick={handelOnClick}></input>
+        {/* <input type="text" placeholder="Search.." className='search-std gray-bk ' onClick={handelOnClick}></input> */}
        
         <div className='icon-cont'>
             <div className='icons'>
@@ -54,7 +54,7 @@ function Navbar(props) {
                 </NavLink>
             </div>
         </div>
-        <div className={isModal?'show': 'hidden'} >
+        {/* <div className={isModal?'show': 'hidden'} >
             <div className='modal-bk' onClick={handelOnClickX}></div>
             <div className='search-box'>
                 <div className='search-card gray-bk'>
@@ -67,8 +67,8 @@ function Navbar(props) {
                         <span className='under-line'>Trainee at Coders</span>
                      </div>
                 </div>
-            </div>
-        </div>
+            </div> */}
+        {/* </div> */}
         </div>
     </>
   )
