@@ -3,12 +3,17 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 // import user from '../../features/user'
+import { Navigate } from 'react-router-dom';
+
 
 
 function CardFillReport(props) {
 // let user = useSelector((state) => state.user);
 
-    
+const [selectedPdf, setSelectedPdf] = useState(null);
+let [allowNavigate, setAllowNavigate] = useState(false);
+
+
 let [data,setData]=useState({
     'week_number': '',
     'date_begin': '',
@@ -21,7 +26,10 @@ let [data,setData]=useState({
     // 'table_data.items'
   })
   
-
+  const onPdfChange = event => {
+    setSelectedPdf(event.target.files[0]);
+  };
+  
 
   const handleInputChange = (index, event) => {
     const values = [...data.table_data];
@@ -29,16 +37,30 @@ let [data,setData]=useState({
     setData({ ...data, table_data: values });
   };
 
-const onSubmit = async () => {
- 
+const onSubmit = async (e) => {
+  e.preventDefault();
+  const formData = new FormData();
+
+    if (selectedPdf) {
+      formData.append('companySupervisorSignature', selectedPdf); // 'cv' should match the field name expected by your server
+    }
+
+    // Add other data to formData
+    for (const key in data) {
+      if (typeof data[key] === 'object' && data[key] !== null) {
+        formData.append(key, JSON.stringify(data[key]));
+      } else {
+        formData.append(key, data[key]);
+      }
+    }
   
     try {
-      const response = await fetch(`http://127.0.0.1:8000/users/user/report/${props.id}`, {
+      const response = await fetch(`http://127.0.0.1:8000/users/weeklyreport/${props.id}`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          Accept: 'application/json',
         },
-        body: JSON.stringify(data)
+        body: formData,
       });
     
       if (!response.ok) {
@@ -46,10 +68,11 @@ const onSubmit = async () => {
       }
     
       const res = await response.json();
-      console.log(res);
     } catch (error) {
       console.error('Error:', error);
     }
+    setAllowNavigate(true);
+
 };
 let onChange = (e) => {
     console.log(e.target.value);
@@ -75,6 +98,7 @@ let onChange = (e) => {
 
   return (
     <>
+    <form onSubmit={onSubmit}>
     <div className='compsuper-header-fill-report'>
             <input placeholder='week Number'name='week_number' onChange={onChange} className='date-txt-size gray-bk'/>
 
@@ -143,15 +167,15 @@ let onChange = (e) => {
 
         <div className='signature-cont'>
 
-            {/* <label className='report-svg-left'>
-                <input type='file' name='skill' className='display-img '/>
+            <label className='report-svg-left'>
+                <input type='file' name='skill' accept='.pdf' className='display-img ' onChange={onPdfChange}/>
                     <svg className='svg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <path fill="#1c3150" d="M64 464l48 0 0 48-48 0c-35.3 0-64-28.7-64-64L0 64C0 28.7 28.7 0 64 0L229.5 0c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3L384 304l-48 0 0-144-80 0c-17.7 0-32-14.3-32-32l0-80L64 48c-8.8 0-16 7.2-16 16l0 384c0 8.8 7.2 16 16 16zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/>
                     </svg> 
                     <span>Upload Signature</span>     
-            </label> */}
+            </label>
 
-            <div className={isModal?'show': 'hidden'} >
+            {/* <div className={isModal?'show': 'hidden'} >
                         <div className='report-modal-bk'></div>
                         <div className='report-apply-box'>
                             <div className='apply-box-comp'>
@@ -168,11 +192,14 @@ let onChange = (e) => {
                             </div>
 
                         </div>
-                    </div>
+                    </div> */}
 
-            <button className='button-size-report-done super navy-bk white-font' onClick={handelOnClick}>Done</button>
+            <button className='button-size-report-done super navy-bk white-font' onClick={handelOnClick} type='submit'>Done</button>
         
         </div>
+        </form>
+        {allowNavigate && <Navigate to={`/CompSuperStdReport/${props.id}`}/>}
+
     </>
   )
 }

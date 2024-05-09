@@ -138,11 +138,20 @@ const router = createBrowserRouter([
   },
   {
     path: "/reportUniSuper",
-    element: <ReportUniSuper />,
+    element: 
+    <>
+    <AuthRoute>
+      <ReportUniSuper />,
+    </AuthRoute>
+    </>,
   },
   {
-    path: "/stdreportUniSuper",
-    element: <StdReportUS />,
+    path: "/stdreportUniSuper/:id",
+    element: <>
+    <AuthRoute>
+      <StdReportUS />,
+    </AuthRoute>
+    </>,
   },
   {
     path: "/stdCompany",
@@ -157,8 +166,12 @@ const router = createBrowserRouter([
     </>,
   },
   {
-    path: "/stdReport",
-    element: <ReportPS />,
+    path: "/stdReport/:id",
+    element: <>
+    <AuthRoute>
+      <ReportPS />,
+    </AuthRoute>
+    </>,
   },
   {
     path: "/studentApplications",
@@ -343,15 +356,27 @@ const router = createBrowserRouter([
   },
   {
     path: "/depReqApproval",
-    element: <DepReqApproval />,
+    element: <>
+    <AuthRoute>
+      <DepReqApproval />,
+      </AuthRoute>
+    </>,
   },
   {
     path: "/depReport",
-    element: <DepReport />,
+    element: <>
+    <AuthRoute>
+      <DepReport />,
+      </AuthRoute>
+    </>,
   },
   {
-    path: "/depStdFinalReport",
-    element: <DepStdFinalReport />,
+    path: "/depStdFinalReport/:id",
+    element: <>
+    <AuthRoute>
+      <DepStdFinalReport />,
+      </AuthRoute>
+    </>,
   },
   {
     path: "/CompSuperHome",

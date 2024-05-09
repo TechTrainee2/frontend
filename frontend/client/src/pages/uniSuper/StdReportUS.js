@@ -1,13 +1,72 @@
 import React from 'react'
 import NavbarReport from '../../component/uniSuper/NavbarReport'
 import CardStdReport from '../../component/uniSuper/CardStdReport'
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 function StdReportUS() {
+  let {user } = useSelector((state) => state.user);
+  let { id } = useParams();
+  let[reports,setReports] = useState([{}]);
+  let [profile, setProfile] = useState({});
+  let [extradt, setExtradt] = useState({});
+ 
+
+  // when the page loader
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`http://127.0.0.1:8000/users/user/reports/${id}`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        });
+        const res2 = await fetch(`http://127.0.0.1:8000/users/stdprof/${id}`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
+        if (!res.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        if (!res2.ok) {
+          throw new Error("Failed to fetch data");
+        }
+
+        const reports = await res.json();
+        const profileData = await res2.json();
+
+
+        // dispatch(getUser());
+        
+        // Set profile state after data is fetched
+
+        setReports(reports)
+        setProfile(profileData)
+        setExtradt(profileData.student)
+        console.log(reports);
+
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    // Call fetchData function when component mounts
+    fetchData();
+  }, [id,user.id,user]);
+
   return (
     <>
-    <NavbarReport/>
-    
-    <CardStdReport/>
+    <NavbarReport id={user.id}/>
+    { reports.map((report) => (
+    <CardStdReport key={report.id} report={report} profile={profile} extradt={extradt}/>
+    ))}
     </>
   )
 }

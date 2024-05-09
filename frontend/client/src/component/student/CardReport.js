@@ -2,8 +2,21 @@ import React, { useState } from 'react'
 import prof from '../../static/prof.png'
 import img from '../../static/CompSuper.jpg'
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
-function CardReport() {
+function CardReport(props) {
+    let [uniProfile, uniSetProfile] = useState({});
+    let [uniExtradt, uniSetExtradt] = useState({});
+    let [compProfile, compSetProfile] = useState({});
+    let [compExtradt, compSetExtradt] = useState({});
+    let {user } = useSelector((state) => state.user);
+
+    let { id } = useParams();
+
+    let [TotalHour,setTotalHours] = useState(0);
+
     let [isModal,setIsModal]=useState(false) 
     let handelOnClick =()=> {
         setIsModal(true)
@@ -11,18 +24,79 @@ function CardReport() {
     let handelOnClickX =()=> {
         setIsModal(false)
     }
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const res = await fetch(`http://127.0.0.1:8000/users/uniprof/${props.report.university_supervisor}`, {
+              method: "GET",
+              headers: {
+                Accept: "application/json",
+              },
+            });
+            const res2 = await fetch(`http://127.0.0.1:8000/users/companysuperprof/${props.report.company_supervisor}`, {
+              method: "GET",
+              headers: {
+                Accept: "application/json",
+              },
+            });
+    
+            if (!res.ok) {
+              throw new Error("Failed to fetch data");
+            }
+            if (!res2.ok) {
+              throw new Error("Failed to fetch data");
+            }
+    
+            
+            const uniProfile = await res.json();
+            const compProfile = await res2.json();
+    
+    
+            // dispatch(getUser());
+            
+            // Set profile state after data is fetched
+    
+            uniSetProfile(uniProfile)
+            uniSetExtradt(uniProfile.university_supervisor)
+            compSetProfile(compProfile)
+            compSetExtradt(compProfile.company_supervisor)
+    
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
+        };
+    
+        // Call fetchData function when component mounts
+        fetchData();
+      }, [id,user.id,user]);
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            let totalHours = 0;
+            if (props.report && props.report.table_data) {
+                await Promise.all(props.report.table_data.map(async item => {
+                    totalHours += parseInt(item.hours);
+                }));
+            }
+            setTotalHours(totalHours);
+        }
+       
+        // Call fetchData function when component mounts
+        fetchData();
+    }, [props.report,id]);
   return (
     <>
         <div className='large-card-report gray-bk centered-card large-margin-bottom-phone'>
             <div className='report-container'>
                 <div className='compsuper-header-report'>
-                    <span className='bold'>Week 2</span>
+                    <span className='bold'>Week {props.report.week_number}</span>
 
                     <div className='compsuper-date'>
                         <span>Date from </span>
-                        <span>26/2/2024 </span>
+                        <span>{props.report.date_begin } </span>
                         <span>To </span>
-                        <span>4/3/2024</span>
+                        <span>{props.report.date_end }</span>
                     </div>
                 </div>
             
@@ -31,23 +105,39 @@ function CardReport() {
 
                 <div className='fill-report-topic'>
                     <span className='bold'>Topic </span>
-                    <span>Introduction to python </span>
-                    <span>Introduction to Matplotlip</span>
-                    <span>statistics book studying</span>
+                    {   props.report.table_data!=null ?(
+                        props.report.table_data.map((item) => (
+                            <div className='fill-report-topic'>
+                                <span>{item.topic}</span>
+                            </div>
+
+                    ) 
+                    )):<></>
+                    }
                 </div>
 
                 <div className='fill-report-equipment'>
                     <span className='bold'>Software and Equipment used</span>
-                    <span>datacomp.com</span>
-                    <span>w3schools.com</span>
-                    <span>pdf</span>
+                    {   props.report.table_data!=null ?(
+                        props.report.table_data.map((item) => (
+                            <div className='fill-report-topic'>
+                                <span>{item.details}</span>
+                            </div>
+                    ) 
+                    )):<></>
+                    }
                 </div>
 
                 <div className='fill-report-hours'>
                     <span className='bold'>Hours</span> 
-                    <span>4 </span>
-                    <span>9</span>
-                    <span>9</span>
+                    {   props.report.table_data!=null ?(
+                        props.report.table_data.map((item) => (
+                            <div className='fill-report-topic'>
+                                <span>{item.hours}</span>
+                            </div>
+                    ) 
+                    )):<></>
+                    }
                 </div>
             
             </div>
@@ -55,7 +145,7 @@ function CardReport() {
 
         <div className='report-TotalHour bold'>
             <span>Total hours</span>
-            <span>22</span>
+            <span>{TotalHour}</span>
         </div>
 
         <div className='std-report-status-btn'>
@@ -80,28 +170,34 @@ function CardReport() {
                                 <div className='card3-status gray-bk centered-card'>
                                     <div className='std-report-status-comp'>
                                         <div className='std-status-super-images'>
-                                            <Link to='/stdUniSuperAcc'>
-                                                <img src={prof} className='std-status-circle '/>
+                                            <Link to= {`/superAcc/${props.report.university_supervisor}`}>
+                                                <img src={uniProfile.img} className='std-status-circle '/>
                                             </Link>
-                                            <Link to='/stdUniSuperAcc'>
-                                                <span>Kamal Ibrahim</span>
+                                            <Link to={`/superAcc/${props.report.university_supervisor}`}>
+                                                <span>{uniExtradt.first_name} {uniExtradt.last_name}</span>
                                             </Link>
                                         </div>
-                                        <button className='std-progress-btn-size light-navy-bk white-font bold'>In Progress</button>
+                                        {props.report.universitySupervisorSignature == null ? 
+                                        <button className='std-progress-btn-size light-navy-bk white-font bold'>In Progress</button> : 
+                                        <button className='std-progress-btn-size navy-bk white-font bold'>Approved</button>
+                                        }
                                     </div>
                                 </div>
 
                                 <div className='card3-status gray-bk centered-card'>
                                     <div className='std-report-status-comp'>
                                         <div className='std-status-super-images'>
-                                            <Link to='/stdCompSuperAcc'>
-                                                <img src={img} className='std-status-circle'/>
+                                            <Link to={`/CompSuperAcc/${props.report.company_supervisor}`}>
+                                                <img src={compProfile.img} className='std-status-circle'/>
                                             </Link>
-                                            <Link to='/stdCompSuperAcc'>
-                                                <span>Ahamd</span>
+                                            <Link to={`/CompSuperAcc/${props.report.company_supervisor}`}>
+                                                <span>{compExtradt.first_name} {compExtradt.last_name}</span>
                                             </Link>
                                         </div>
+                                        {props.report.companySupervisorSignature == null ? 
+                                        <button className='std-progress-btn-size light-navy-bk white-font bold'>In Progress</button> : 
                                         <button className='std-progress-btn-size navy-bk white-font bold'>Approved</button>
+                                        }
                                     </div>
                                 </div>
 

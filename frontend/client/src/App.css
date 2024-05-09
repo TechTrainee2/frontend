@@ -903,6 +903,7 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   border-radius: 50%;
   height: 115px;
   width: 115px;
+  object-fit: cover;
 }
 .comp-company-img {
   width: 110px;
@@ -1662,14 +1663,16 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   padding-right: 90px;
 }
 .std-report-status-box {
-  position: absolute;
+  position: fixed;
   width: 730px;
   height: 705px;
   background-color: white;
   z-index: 1;
   margin: auto;
-  top: 250px;
+  top: 50%;
+  left: 50%;
   border-radius: 45px;
+  transform: translate(-50%, -50%);
 }
 .std-status-box-comp {
   display: flex;
@@ -1724,7 +1727,7 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   background-color: #CBD6DA;
   opacity: 70%;
   width: 100%;
-  height: 850px;
+  height: 100%;
   top: 130px;
   left: 0px;
   z-index: 0;
@@ -1917,6 +1920,19 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   margin-left: 355px;
 }
 /************* Uni Super *************/
+.unisuper-apply-box {
+  position: fixed;
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  z-index: 1;
+  margin: auto;
+  top: 250px;
+  border-radius: 45px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
 .std-unisuper-btns-m {
   display: flex;
   flex-direction: row;
@@ -2015,6 +2031,20 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   width: 90%;
   gap: 34px;
 }
+.uni-super-std-card2 {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  width: 90%;
+  gap: 55%;
+}
+.uni-super-std-btn2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* width: 33%; */
+}
 .uni-super-std-btn{
   display: flex;
   flex-direction: row;
@@ -2030,13 +2060,15 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   align-items: center;
 }
 .uni-super-upload-sign-box {
-  position: absolute;
+  position: fixed;
   width: 700px;
   height: 500px;
   background-color: white;
   z-index: 1;
-  top: 250px;
+  top: 50%; /* This positions the modal vertically in the middle of the page */
+  left: 50%;
   border-radius: 45px;
+   transform: translate(-50%, -50%);
 }
 
 .card-uni-super-home{
@@ -2900,14 +2932,16 @@ transition: 200ms ease-in-out;
   padding-right: 100px;
 }
 .std-report-status-box {
-  position: absolute;
-  width: 350px;
-  height: 705px;
+  position: fixed;
+  width: 700px;
+  height: 650px;
   background-color: white;
   z-index: 1;
   margin: auto;
-  top: 195px;
+  top: 50%;
+  left: 50%;
   border-radius: 45px;
+  transform: translate(-50%, -50%);
 }
 .std-status-box-comp svg {
   width: 30px;

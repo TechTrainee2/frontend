@@ -5,8 +5,12 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { Navigate } from 'react-router-dom';
+
 
 function UniSuperViewPostCard(props) {
+  let [allowNavigate, setAllowNavigate] = useState(false);
+
   let [isModal,setIsModal]=useState(false) 
   let handelOnClick =()=> {
       setIsModal(true)
@@ -117,6 +121,7 @@ let [reject,setReject]=useState({
     catch (error) {
       console.error("Error fetching data:", error);
     }
+    setAllowNavigate(true);
   }
 
   const rejected = async (e) => {
@@ -142,6 +147,7 @@ let [reject,setReject]=useState({
     catch (error) {
       console.error("Error fetching data:", error);
     }
+    setAllowNavigate(true);
   }
 
 
@@ -186,9 +192,10 @@ let [reject,setReject]=useState({
 
       </div>
       </div>
+      <form>
       <div className={isModal?'show': 'hidden'} >
-        <div className='modal-bk'></div>
-        <div className='apply-box'>
+        <div className='modal-bk' onClick={handelOnClickX}></div>
+        <div className='unisuper-apply-box'>
           <div className='apply-box-comp'>
             <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" onClick={handelOnClickX}>
               <path fill='#1c3150' d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
@@ -204,24 +211,33 @@ let [reject,setReject]=useState({
 
         </div>
       </div>
+      </form>
+      {allowNavigate && <Navigate to='/superApplication'/>}
+
+      <form>
       <div className={isReject?'show': 'hidden'} >
-          <div className='modal-bk'></div>
-          <div className='apply-box'>
-              <div className='apply-box-comp'>
-              <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" onClick={handelOnClickXReject}>
-                  <path fill='#1c3150' d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
-              </svg>
+                        <div className='modal-bk' onClick={handelOnClickXReject}></div>
+                        <div className='unisuper-apply-box' >
+                            <div className='apply-box-comp'>
+                            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" onClick={handelOnClickXReject}>
+                                <path fill='#1c3150' d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
+                            </svg>
 
-                  <span className='bold navy-font'>Are you sure you want to Reject?</span>
+                                <span className='bold navy-font'>Are you sure u want to Reject?</span>
+                              <form>
+                                <div className='apply-box-btns'>
+                                    <button className='button-size-std gray-bk navy-font' onClick={handelOnClickXReject}>No</button>
+                                    <button className='button-size-std navy-bk white-font' onClick={rejected}>Yes</button>
+                                </div>
+                              </form>
+                            </div>
 
-                  <div className='apply-box-btns'>
-                      <button className='button-size-std gray-bk navy-font' onClick={handelOnClickXReject}>No</button>
-                      <button className='button-size-std navy-bk white-font' onClick={rejected}>Yes</button>
-                  </div>
-              </div>
+                        </div>
+                    </div>
 
-          </div>
-      </div>
+      </form>
+      {allowNavigate && <Navigate to='/superApplication'/>}
+      
     </div>
     </>
   )

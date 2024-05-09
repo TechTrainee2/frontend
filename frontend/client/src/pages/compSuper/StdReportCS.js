@@ -85,8 +85,7 @@ function StdReportCS() {
             <button className='comp-assign-button-size navy-bk white-font'>Add Report</button>
         </Link>
     </div>
-    {
-        reports.map((report) => (
+    { reports.map((report) => (
             <CardStdReport key={report.id} report={report}/>
         ))
     }
