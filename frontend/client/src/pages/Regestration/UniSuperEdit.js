@@ -4,10 +4,11 @@ import { useState } from 'react';
 import { useParams } from "react-router-dom"; 
 import { useSelector, useDispatch } from 'react-redux';
 import EditUniForm from '../../component/Regestration/EditUniForm';
+import { Navigate } from 'react-router-dom';
 
 function UniSuperEdit() {
     let { id } = useParams();
-
+    let [allowNavigate, setAllowNavigate] = useState(false);
     const dispatch = useDispatch();
   
     // // Get the profile by id
@@ -46,6 +47,7 @@ function UniSuperEdit() {
         } catch (error) {
           console.error('Error:', error);
         }
+        setAllowNavigate(true);
       };
     let onChange = (e) => {
       console.log(e.target.value);
@@ -70,6 +72,7 @@ function UniSuperEdit() {
         onSubmit={onSubmit}
 
         /> 
+        {allowNavigate && <Navigate to={`/RegUniSuper`}/>}
     </>
   )
 }

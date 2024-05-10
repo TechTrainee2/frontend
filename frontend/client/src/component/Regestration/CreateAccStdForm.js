@@ -23,7 +23,7 @@ function CreateAccStdForm(props) {
             })}</ul>)}
             
             <div className='form-btns'>
-                <button className='button-size-input navy-bk gray-font'>Add</button>
+                <button className='button-size-input navy-bk gray-font' type='submit'>Add</button>
                 <Link to='/RegStd'>
                     <button className='button-size-input navy-bk gray-font'>Cancel</button>
                 </Link>

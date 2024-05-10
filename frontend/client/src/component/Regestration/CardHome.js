@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function CardHome() {
   return (
     <>
-    <div className='boxs-container'>
+    <div className='boxs-container-dep'>
       <Link to='/RegUniSuper' className='gray-bk box navy-font bold not-clicked'>
         <div>Supervisor</div>
       </Link>

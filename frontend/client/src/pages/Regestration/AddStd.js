@@ -9,6 +9,7 @@ import CreateAccStdForm from '../../component/Regestration/CreateAccStdForm';
 
 function AddStd() {
   const dispatch = useDispatch();
+  let [allowNavigate, setAllowNavigate] = useState(false);
   const { registered, loading } = useSelector(state => state.user);
   const [isEmailError,setIsEmailError]= useState(false)
   const [EmailError,setEmailError]= useState([])
@@ -47,6 +48,7 @@ function AddStd() {
       setIsEmailError(true)
       setEmailError(data.payload["email"])
     }
+    setAllowNavigate(true);
 	};
 
   return (
@@ -62,6 +64,7 @@ function AddStd() {
         EmailError ={EmailError}
 
         /> 
+        {allowNavigate && <Navigate to={`/RegStd`}/>}
     </>
   )
 }

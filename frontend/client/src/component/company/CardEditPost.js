@@ -46,11 +46,11 @@ function CardEditPost(props) {
               </div>
 
                 <div className='std-apply-btn'>
-                    {/* <Link to='/compEditProfile'> */}
+                    <Link to ={`/compEditProfile/${props.id}`} className='not-clicked'>
                         <button className='button-size-std navy-bk white-font' type='submit' onClick={props.onClick}>
                             Done
                         </button>
-                    {/* </Link> */}
+                    </Link>
                 </div>
 
             </div>

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import student from '../../static/Student.jpg'
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from 'react-redux'
 
 
 function StdReportCS() {
@@ -13,7 +14,7 @@ function StdReportCS() {
   let [extradt, setExtradt] = useState({});
   let { id } = useParams();
   let[reports,setReports] = useState([{}]);
- 
+  let { user, loading } = useSelector((state) => state.user);
 
   // when the page loader
 
@@ -67,7 +68,7 @@ function StdReportCS() {
 
   return (
     <>
-    <NavbarStdReport/>
+    <NavbarStdReport id={user.id}/>
     <div>
     <div className='compsuper-std-report-cont'>
         <div className='compsuper-std-name-cont'>

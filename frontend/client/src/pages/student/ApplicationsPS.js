@@ -39,7 +39,7 @@ function ApplicationsPS() {
           <div>spinner</div>
         ) : (
           <>
-            <NavbarStd/>
+            <NavbarStd id={user.id}/>
             <TopHeader/>
             <SmallNavbar/>
             <div className='uni-std-final-report large-margin-bottom-phone'>

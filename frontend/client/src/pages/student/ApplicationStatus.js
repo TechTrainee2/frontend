@@ -34,7 +34,7 @@ function ApplicationStatus() {
     return (
 
         <>
-            <NavbarStd/>
+            <NavbarStd id={user.id}/>
             <div className='uni-std-final-report large-margin-bottom-phone'>
               <span className='application-title bold'>Application Status</span>
               

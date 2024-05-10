@@ -1,7 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useCookies } from 'react-cookie';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../features/user'
 
 function CardProfile(props) {
+    const [cookies, setCookie, removeCookie] = useCookies(['access']);
+    const dispatch = useDispatch();
     
   return (
     <>
@@ -26,7 +31,10 @@ function CardProfile(props) {
                                     Edit
                                 </button>
                             </Link>
-                            <button className='button-size-std navy-bk white-font'>
+                            <button className='button-size-std navy-bk white-font' onClick={() => dispatch(logout(cookies.access)).then(() => {
+                                     removeCookie('access');
+                                    window.location='/'
+                                    }) }>
                                 Log Out
                             </button>
                         </div>

@@ -66,7 +66,7 @@ let [reject,setReject]=useState({
 
   const accept = async (e) => {
     e.preventDefault();
-  
+    setIsModal(false)
     // Create an object that only includes fields from data that are not empty strings
   
     // Use nonEmptyData in your fetch request
@@ -79,6 +79,7 @@ let [reject,setReject]=useState({
         },
         body: JSON.stringify(approved),
       });
+      props.fetchApplications()
       if (!res2.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -91,7 +92,8 @@ let [reject,setReject]=useState({
 
   const rejected = async (e) => {
     e.preventDefault();
-  
+    setIsModal(false)
+    
     // Create an object that only includes fields from data that are not empty strings
   
     // Use nonEmptyData in your fetch request
@@ -104,6 +106,7 @@ let [reject,setReject]=useState({
         },
         body: JSON.stringify(reject),
       });
+      props.fetchApplications()
       if (!res2.ok) {
         throw new Error("Failed to fetch data");
       }

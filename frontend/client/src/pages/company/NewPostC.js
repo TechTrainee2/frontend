@@ -138,6 +138,7 @@ function NewPostC() {
         <CardNewPost profile={profile} extra={extradt} isSameUser={isSameUser}
          onChange={onChange} 
          onClick={createPost}
+         id={user.id}
          />
       </form>)}
     </>

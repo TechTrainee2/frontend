@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import Cookies from 'js-cookie';
 
 const initialState = {
 	isAuthenticated: false,
@@ -235,25 +236,27 @@ export const login = createAsyncThunk(
 // 	}
 // );
 
-export const logout = createAsyncThunk('users/logout', async (_, thunkAPI) => {
-	try {
-		const res = await fetch('http://localhost:8000/api/users/logout', {
-			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-			},
-		});
+export const logout = createAsyncThunk('users/logout', async (cookie, thunkAPI) => {
+    try {
+        const res = await fetch('http://localhost:8000/api/users/logout', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+				'Authorization': `Bearer ${cookie}`,
+            },credentials:'include'
+        });
 
-		const data = await res.json();
+        const data = await res.json();
 
-		if (res.status === 200) {
-			return data;
-		} else {
-			return thunkAPI.rejectWithValue(data);
-		}
-	} catch (err) {
-		return thunkAPI.rejectWithValue(err.response.data);
-	}
+        if (res.status === 200) {
+            Cookies.remove('access'); // Replace 'your-cookie-name' with the name of your cookie
+            return data;
+        } else {
+            return thunkAPI.rejectWithValue(data);
+        }
+    } catch (err) {
+        return thunkAPI.rejectWithValue(err.response.data);
+    }
 });
 
 const userSlice = createSlice({

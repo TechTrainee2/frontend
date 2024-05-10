@@ -20,6 +20,8 @@ function AccountPS() {
   let [extradt, setExtradt] = useState({});
   let [email, setEmail] = useState({});
 
+  let [stdDetails, setStdDetails] = useState({});
+
   let [isSameUser, setIsSameUser] = useState(false);
   // // Get the profile by id
   let { user, loading } = useSelector((state) => state.user);
@@ -43,6 +45,13 @@ function AccountPS() {
           },
         });
 
+        const res3 = await fetch(`http://127.0.0.1:8000/users/user/studentProfile10/${id}`, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+          },
+        });
+
 
         
         if (!res.ok) {
@@ -51,16 +60,23 @@ function AccountPS() {
         if (!res2.ok) {
           throw new Error("Failed to fetch data");
         }
+        if (!res3.ok) {
+          throw new Error("Failed to fetch data");
+        }
         
         const profileData = await res.json();
         const emailD = await res2.json();
+        const stdDetails = await res3.json();
         // dispatch(getUser());
         
         // Set profile state after data is fetched
         setProfile(profileData)
         setExtradt(profileData.student)
         setEmail(emailD)
-        
+        setStdDetails(stdDetails)
+
+        console.log(stdDetails);
+
         console.log(user.id == id);
         if (user.id == id) {
           setIsSameUser(true);
@@ -75,7 +91,7 @@ function AccountPS() {
 
     // Call fetchData function when component mounts
     fetchData();
-  }, [id,user.id]); // Include dependencies in the dependency array
+  }, [id,user.id,stdDetails]); // Include dependencies in the dependency array
 
   return (
     <>
@@ -99,7 +115,7 @@ function AccountPS() {
       }
           {profile && (
             <div className="large-margin-bottom-phone">
-              <CardProfile profile={profile} extra={extradt} isSameUser={isSameUser} />
+              <CardProfile profile={profile} extra={extradt} isSameUser={isSameUser} stdDetails={stdDetails} />
               <CardSkill profile={profile}  extra={extradt} isSameUser={isSameUser} />
               <CardContact user={email}  profile={profile} extra={extradt} isSameUser={isSameUser} />
             </div>

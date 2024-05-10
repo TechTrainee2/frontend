@@ -2,8 +2,13 @@ import React from 'react'
 import img from '../../static/profbk.png'
 import img2 from '../../static/prof.png'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import { logout } from '../../features/user'
+import { useCookies } from 'react-cookie';
 
 function CardSuperProf(props) {
+    const [cookies, setCookie, removeCookie] = useCookies(['access']);
+    const dispatch = useDispatch();
   return (
     <>
      <div className='card2 gray-bk centered-card'>
@@ -27,11 +32,12 @@ function CardSuperProf(props) {
                                     Edit
                                 </button>
                             </Link >
-                            <Link to ='/'>
-                                <button className='button-size-std navy-bk white-font'>
-                                    Log Out
-                                </button>
-                            </Link>
+                            <button className='button-size-std navy-bk white-font' onClick={() => dispatch(logout(cookies.access)).then(() => {
+                                removeCookie('access');
+                                window.location='/'
+                            }) }>
+                                Log Out 
+                            </button>
                         </div>
                          )}
 

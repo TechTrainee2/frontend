@@ -48,11 +48,11 @@ function CardNewPost(props) {
               </div>
 
                 <div className='std-apply-btn'>
-               
+                <Link to ={`/compProfile/${props.id}`} className='not-clicked'>
                         <button className='button-size-std navy-bk white-font' type='submit' onClick={props.onClick}>
                             Done
                         </button>
-                    
+                </Link>
                 </div>
 
             </div>

@@ -10,6 +10,7 @@ function NavbarMain(props) {
     let handelOnClickX =()=> {
         setIsModal(false)
     }
+
     let[value,setValue]=useState('')
     let [students, setStudents] = useState([]);
 
@@ -41,7 +42,7 @@ function NavbarMain(props) {
             <img className='nav-std-logo' src={img}/>
         </NavLink>
         
-        <input type="text" placeholder="Search.." className='search-std gray-bk 'onClick={handelOnClick} onChange={onchange}></input>
+        <input type="text" placeholder="Search.." className='search-std gray-bk 'onClick={handelOnClick} onChange={onchange}/>
        
         <div className='icon-cont'>
             <div className='comp-icon-super'>

@@ -17,6 +17,7 @@ function AddProfSuper() {
   const [EmailError,setEmailError]= useState([])
   const [isPasswordError,setIsPasswordError]= useState(false)
   const [PasswordError,setPasswordError]= useState([])
+  let [allowNavigate, setAllowNavigate] = useState(false);
   
   const [formData, setFormData] = useState({
     first_name: '',
@@ -50,6 +51,7 @@ function AddProfSuper() {
       setIsEmailError(true)
       setEmailError(data.payload["email"])
     }
+    setAllowNavigate(true);
 	};
 
   return (
@@ -65,6 +67,7 @@ function AddProfSuper() {
         EmailError ={EmailError}
 
         /> 
+        {allowNavigate && <Navigate to={`/RegUniSuper`}/>}
     </>
   )
 }
