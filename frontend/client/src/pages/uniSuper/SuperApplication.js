@@ -10,6 +10,7 @@ function SuperApplication() {
   let { id } = useParams();
   const [applications, setApplications] = useState([]);
   let { isAuthenticated, loading,user } = useSelector((state) => state.user);
+  
 
   useEffect(() => {
     const fetchApplications = async () => {
@@ -38,14 +39,14 @@ function SuperApplication() {
               <div>spinner</div>
             ) : (
               <>
-          <Navbar/>
+          <Navbar id={user.id}/>
           <div className='centerd-comp'>
             <span className='font-super bold'>Applications </span>
             {applications.map((application) => (
-            // application.company_status == 'APPROVED' && application.university_supervisor_status == 'PENDING' ?
+            application.company_status == 'APPROVED' && application.university_supervisor_status == 'PENDING' ?
             <SuperApplicationCard key={application.id} application={application}/>
-            // :<></>
-          //
+            :<></>
+          
          )
         )
         }

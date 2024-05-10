@@ -27,15 +27,26 @@ function AccEditC() {
     'address':'',
     })
     const [selectedImage1, setSelectedImage1] = useState(null);
+    const [selectedImage1Url, setSelectedImage1Url] = useState(null);
     const [selectedImage2, setSelectedImage2] = useState(null);
+    const [selectedImage2Url, setSelectedImage2Url] = useState(null);
+    
     // const [selectedPdf, setSelectedPdf] = useState(null);
     
     const onImage1Change = event => {
-      setSelectedImage1(event.target.files[0]);
+      if (event.target.files && event.target.files[0]) {
+        const imageUrl = URL.createObjectURL(event.target.files[0]);
+        setSelectedImage1Url(imageUrl);
+        setSelectedImage1(event.target.files[0]);
+      }
     };
     
     const onImage2Change = event => {
-      setSelectedImage2(event.target.files[0]);
+      if (event.target.files && event.target.files[0]) {
+        const imageUrl = URL.createObjectURL(event.target.files[0]);
+        setSelectedImage2Url(imageUrl);
+        setSelectedImage2(event.target.files[0]);
+      }
     };
 
     
@@ -173,8 +184,10 @@ function AccEditC() {
         {profile && (
           <form onSubmit={onSubmit}>
            <CardEditAcc profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange}
-              onImgChange1={onImage1Change} 
-              onImgChange2={onImage2Change}  
+              onImage1Change={onImage1Change}
+              selectedImage2Url={selectedImage2Url} 
+              onImage2Change={onImage2Change}  
+              selectedImage1Url={selectedImage1Url} 
               onClick ={onFileUpload}
             />
 

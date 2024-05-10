@@ -1585,7 +1585,7 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
     margin: auto;
     top: 85px;
     border-radius: 45px;
-    left: 470px;
+    left: 26%;
     background-color: #F5F5F5;
     padding-top: 50px;
 }
@@ -1614,7 +1614,7 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
     margin: auto;
     top: 85px;
     border-radius: 45px;
-    left: 425px;
+    left: 23%;
     background-color: #F5F5F5;
     padding-top: 50px;
 }
@@ -2093,6 +2093,27 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   
 }
 /*************** Department ************/
+.boxs-container-dep {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: space-around;
+  margin: auto;
+  height: 84vh;
+  margin-top: 3%;
+}
+.button-size-logout {
+  border: none;
+  border-radius: 45px;
+  padding-left: 35px;
+  padding-right: 35px;
+  height: 40px;
+  font-size: 1rem;
+  display: flex;
+  margin-left: 80%;
+  align-items: center;
+  margin-top: 3%;
+}
 .dep-notification-width{
   width: 110%;
 }

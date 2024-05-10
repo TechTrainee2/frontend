@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import img from '../../static/logo.png'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import student from '../../static/Student.jpg'
 
 
@@ -13,13 +13,38 @@ function NavbarStd(props) {
         setIsModal(false)
     }
 
+    let[value,setValue]=useState('')
+    let [companys, setCompanys] = useState([]);
+
+    onchange = async (e) => {
+        setValue(e.target.value)
+        try {
+            const res = await fetch(`http://127.0.0.1:8000/users/company-profiles?search=${value}`, {
+                method: "GET",
+                headers: {
+                  Accept: "application/json",
+                },
+              });
+              if (!res.ok) {
+                throw new Error("Failed to fetch data");
+              }
+          const companys = await res.json();
+          setCompanys(companys);
+         
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
   return (
     <>
     <div className='nav-std'>
         <NavLink to ={`/stdHome/`}  className='not-clicked'>
             <img className='nav-std-logo' src={img}/>
         </NavLink>
-        <input type="text" placeholder="Search.." className='search-std gray-bk ' onClick={handelOnClick}/>
+
+        <input type="text" placeholder="Search.." className='search-std gray-bk ' onClick={handelOnClick} onChange={onchange}/>
+
         <div className='icon-cont'>
             <div className='icons'>
                 
@@ -59,15 +84,24 @@ function NavbarStd(props) {
         <div className={isModal?'show': 'hidden'} >
             <div className='modal-bk' onClick={handelOnClickX}></div>
             <div className='search-box'>
+
+            {value !== '' &&
+                
+                companys.map((company) => (
                 <div className='search-card gray-bk'>
                     <div className='search-img'>
-                        <img src={student} className='uni-std-circle'/>
+                    <Link to={`/compProfile/${company.company.user}`}>
+                        <img src={company.img} className='uni-std-circle'/>
+                    </Link>
                         <div className='compsuper-std-name'>
-                            <span >Mohammad Saleh</span>
-                            <span>CS</span>
+                    <Link to={`/compProfile/${company.company.user}`}>
+                            <span >{company.company.name}</span>
+                    </Link>
                         </div>
                      </div>
                 </div>
+                ))    
+            }
             </div>
         </div>
         </div>

@@ -17,7 +17,8 @@ function CompStdCard(props) {
 
         const onSubmit = async (e) => {
                 e.preventDefault();
-            
+                setIsModal(false)
+                props.fetchStudents()
                 // Create an object that only includes fields from data that are not empty strings
                 // const nonEmptyData = Object.entries(data).reduce((newData, [key, value]) => {
                 //     if (value !== '') {

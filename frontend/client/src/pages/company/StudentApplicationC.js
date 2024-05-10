@@ -34,7 +34,7 @@ function StudentApplicationC() {
   
   return (
     <>
-    <NavbarMain />
+    <NavbarMain id={user.id} />
      
     <CardStdApplication application={application}/>
     </>

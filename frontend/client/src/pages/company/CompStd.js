@@ -9,22 +9,22 @@ function CompStd() {
   let { user, loading } = useSelector((state) => state.user);
   let [Students,setStudents] = useState([]);
 
-  useEffect(() => {
-    const fetchStudents = async () => {
-      try {
-        const response = await fetch(`http://127.0.0.1:8000/users/user/company/${user.id}/students`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const Students = await response.json();
-        console.log(Students);
-        setStudents(Students);
-
-      } catch (error) {
-        console.error(error);
+  const fetchStudents = async () => {
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/users/user/company/${user.id}/students`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
       }
+      const Students = await response.json();
+      console.log(Students);
+      setStudents(Students);
 
-    };
+    } catch (error) {
+      console.error(error);
+    }
+
+  };
+  useEffect(() => {
   
     fetchStudents();
   }, [id,user.id]);
@@ -44,7 +44,7 @@ function CompStd() {
         </div>
         {Students.map((Student) => (
           
-           <CompStdCard  key={Student.id} Student={Student}/>
+           <CompStdCard  key={Student.id} Student={Student} fetchStudents={fetchStudents}/>
         
       ))}
     </div>

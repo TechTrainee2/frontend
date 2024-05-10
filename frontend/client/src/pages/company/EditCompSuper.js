@@ -4,11 +4,13 @@ import { useState } from 'react';
 import { useParams } from "react-router-dom"; 
 import { useSelector, useDispatch } from 'react-redux';
 import EditAccForm from '../../component/company/EditAccForm';
+import { Navigate } from 'react-router-dom';
 
 function EditCompSuper() {
     let { id } = useParams();
 
     const dispatch = useDispatch();
+    let [allowNavigate, setAllowNavigate] = useState(false);
   
     // // Get the profile by id
     let { user, loading } = useSelector((state) => state.user);
@@ -46,6 +48,7 @@ function EditCompSuper() {
         } catch (error) {
           console.error('Error:', error);
         }
+        setAllowNavigate(true);
       };
     let onChange = (e) => {
       console.log(e.target.value);
@@ -69,7 +72,9 @@ function EditCompSuper() {
         onChange={onChange}
         onSubmit={onSubmit}
 
-        /> 
+        />
+        {allowNavigate && <Navigate to={`/CompSuper/${user.id}`}/>}
+ 
     </>
   )
 }

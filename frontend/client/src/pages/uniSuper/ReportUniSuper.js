@@ -62,7 +62,7 @@ function ReportUniSuper() {
 
   return (
     <>
-    <Navbar/> 
+    <Navbar id={user.id}/> 
     <div>   
       <div className='centerd-comp' >
         <div className='uni-super-title-report'>

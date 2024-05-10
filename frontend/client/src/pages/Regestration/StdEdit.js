@@ -4,10 +4,11 @@ import { useState } from 'react';
 import { useParams } from "react-router-dom"; 
 import { useSelector, useDispatch } from 'react-redux';
 import EditStdForm from '../../component/Regestration/EditStdForm';
+import { Navigate } from 'react-router-dom';
 
 function StdEdit() {
     let { id } = useParams();
-
+    let [allowNavigate, setAllowNavigate] = useState(false);
     const dispatch = useDispatch();
   
     // // Get the profile by id
@@ -45,6 +46,7 @@ function StdEdit() {
         } catch (error) {
           console.error('Error:', error);
         }
+        setAllowNavigate(true);
       };
     let onChange = (e) => {
       console.log(e.target.value);
@@ -69,6 +71,7 @@ function StdEdit() {
         onSubmit={onSubmit}
 
         /> 
+        {allowNavigate && <Navigate to={`/RegStd`}/>}
     </>
   )
 }

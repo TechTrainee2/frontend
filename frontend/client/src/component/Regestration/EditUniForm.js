@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 function EditUniForm(props) {
+
     let [isModal,setIsModal]=useState(false) 
         let handelOnClick =()=> {
                 setIsModal(true)
@@ -32,6 +33,7 @@ function EditUniForm(props) {
         } catch (error) {
             console.error("Error fetching data:", error);
         }
+        
         };
   return (
     <div className=' gap margin-bottom' >

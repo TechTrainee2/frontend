@@ -33,10 +33,10 @@ useEffect(() => {
       'student': `${user.id}`,
       'post': `${props.post.id}`,
       'company': `${props.post.company}`,
-      'university_supervisor': `${props.profile10}`,
+      'university_supervisor': `${props.profile10.user}`,
     });
   }
-}, [user, props.post, props.profile10]);
+}, [user.id, props.post, props.profile10]);
 
   let [isModal,setIsModal]=useState(false) 
     let handelOnClick =()=> {
@@ -51,8 +51,8 @@ useEffect(() => {
 
 //creation of application for std to apply for a post
 
-const onSubmit = async () => {
-   
+const onSubmit = async (e) => {
+  e.preventDefault();
     
   try {
     const response = await fetch(`http://127.0.0.1:8000/users/company/student/trainingApplication`, {
@@ -94,7 +94,7 @@ const onSubmit = async () => {
                     <img src={props.profile.img} className='company-img2' />
                   </Link>
                   <Link to={`/compProfile/${props.post.company}`}>
-                    {/* <span>{props.extradt.name}</span> */}
+                    <span>{props.extra.name}</span>
                   </Link>
                   <span>{props.post.training_mode}</span>
                 </div>

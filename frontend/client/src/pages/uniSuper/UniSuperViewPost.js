@@ -32,7 +32,7 @@ function UniSuperViewPost() {
     }, []);
   return (
     <>
-        <Navbar/>
+        <Navbar id={user.id}/>
         <UniSuperViewPostCard application={application}/>
     </>
   )

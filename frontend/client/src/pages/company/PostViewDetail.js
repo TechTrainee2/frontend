@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import NavbarStd from '../../component/student/NavbarStd'
-import CardPostDetail from '../../component/student/CardPostDetail'
 import SmallNavbar from '../../component/student/SmallNavbar'
 import TopHeader from '../../component/student/TopHeader'
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import NavbarMain from "../../component/company/NavbarMain";
+import CardPostViewDetail from "../../component/company/CardPostViewDetail";
+import Navbar from "../../component/uniSuper/Navbar";
+import NavbarHomeDep from "../../component/department/NavbarHomeDep";
 
-function CompPostPS() {
+function PostViewDetail() {
   let dispatch = useDispatch();
   // Grab the parameter from the url
   let { id } = useParams();
 
   let [profile, setProfile] = useState({});
   let [extradt, setExtradt] = useState({});
-
-  let [profile10, setProfile10] = useState({});
 
   const [post, setPost] = useState({});
 
@@ -39,22 +39,6 @@ function CompPostPS() {
         // Here you can set the posts to your state or dispatch an action to update your Redux store
         // For example:
         // setPosts(posts);
-        const res2 = await fetch(`http://127.0.0.1:8000/users/user/studentProfile10/${user.id}`, {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-          },
-        });
-
-        if (!res2.ok) {
-          throw new Error("Failed to fetch data");
-        }
-
-        const profileData10 = await res2.json();
-        // dispatch(getUser());
-        
-        // Set profile state after data is fetched
-        setProfile10(profileData10)
 
         const res3 = await fetch(`http://127.0.0.1:8000/users/companyprof/${post.company}`, {
           method: "GET",
@@ -87,7 +71,7 @@ function CompPostPS() {
     };
   
     fetchPost();
-  }, [profile]);
+  }, []);
  
 
     // Call fetchData function when component mounts
@@ -102,13 +86,17 @@ function CompPostPS() {
       {
         (user.account_type == "STUDENT" ? 
           <NavbarStd id={user.id}/> : 
-          user.account_type == "COMPANY" && 
-          <NavbarMain id={user.id}/>
+          user.account_type == "COMPANY"  ?
+          <NavbarMain id={user.id}/> :
+          user.account_type == "DEPARTMENT"  ?
+          <NavbarHomeDep id={user.id}/> :
+          user.account_type == "UNIVERSITY_SUPERVISOR" && 
+          <Navbar id={user.id}/>
         )
       }
       {profile && (
       <>
-        <CardPostDetail  profile10={profile10.university_supervisor} profile={profile} extra={extradt} isSameUser={isSameUser} post={post}/>
+        <CardPostViewDetail profile={profile} extra={extradt} isSameUser={isSameUser} post={post}/>
       </>
           )}
         </>
@@ -117,4 +105,4 @@ function CompPostPS() {
   );
 }
 
-export default CompPostPS
+export default PostViewDetail

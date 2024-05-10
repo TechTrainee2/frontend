@@ -1,9 +1,16 @@
 import React from 'react'
 import img from '../../static/Compbk.png'
 import img2 from '../../static/company.png'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import { logout } from '../../features/user'
+import { useCookies } from 'react-cookie';
+
 
 function CardProfile(props) {
+    const [cookies, setCookie, removeCookie] = useCookies(['access']);
+
+    const dispatch = useDispatch();
   return (
     <>
      <div className='large-card gray-bk centered-card'>
@@ -39,7 +46,11 @@ function CardProfile(props) {
                                         Edit
                                     </button>
                                 </Link>
-                                <button className='button-size-std navy-bk white-font'>
+                                
+                                <button className='button-size-std navy-bk white-font' onClick={() => dispatch(logout(cookies.access)).then(() => {
+                                     removeCookie('access');
+                                    window.location='/'
+                                    }) }>
                                     Log Out 
                                 </button>
                             </div>

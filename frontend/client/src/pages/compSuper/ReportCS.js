@@ -46,7 +46,7 @@ function ReportCS() {
 
   return (
     <>
-    <NavbarHome/>
+    <NavbarHome id={user.id}/>
     <div className='centerd-comp'>
       <div className='uni-super-title-report'>
         <span className='font-super bold'>Students Report</span>

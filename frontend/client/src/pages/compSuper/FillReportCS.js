@@ -76,7 +76,7 @@ let [isModal,setIsModal]=useState(false)
 
   return (
     <>
-    <NavbarStdReport/>
+    <NavbarStdReport id={user.id}/>
     <CardFillReport profile={profile} extra={extradt} id ={id}/>
     </>
   )

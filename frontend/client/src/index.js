@@ -74,6 +74,7 @@ import DepApplication from "./pages/Department/DepApplication";
 import DepViewPost from "./pages/Department/DepViewPost";
 import UniSuperEdit from "./pages/Regestration/UniSuperEdit";
 import StdEdit from "./pages/Regestration/StdEdit";
+import PostViewDetail from "./pages/company/PostViewDetail";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const router = createBrowserRouter([
@@ -121,14 +122,6 @@ const router = createBrowserRouter([
     </>
   },
   {
-    path: "/stdCompSuperAcc",
-    element: <CompSuperAccPS />,
-  },
-  {
-    path: "/stdUniSuperAcc",
-    element: <UniSuperAccPS />,
-  },
-  {
     path: "/uniSuper",
     element: <>
       <AuthRoute>
@@ -152,10 +145,6 @@ const router = createBrowserRouter([
       <StdReportUS />,
     </AuthRoute>
     </>,
-  },
-  {
-    path: "/stdCompany",
-    element: <CompanyPS />,
   },
   {
     path: "/stdPost/:id",
@@ -328,15 +317,27 @@ const router = createBrowserRouter([
   },
   {
     path: "/depHome",
-    element: <HomeDep />,
+    element: <>
+    <AuthRoute>
+      <HomeDep />,
+      </AuthRoute>
+      </>
   },
   {
     path: "/depStd",
-    element: <DepStd />,
+    element: <>
+    <AuthRoute>
+      <DepStd />,
+      </AuthRoute>
+      </>
   },
   {
     path: "/depSuper",
-    element: <DepUniSuper />,
+    element: <>
+    <AuthRoute>
+      <DepUniSuper />,
+      </AuthRoute>
+      </>
   },
   {
     path: "/uniSuperStd/:id",
@@ -399,6 +400,14 @@ const router = createBrowserRouter([
     element: <>
     <AuthRoute>
       <EditAccCS />,
+    </AuthRoute>
+    </>,
+  },
+  {
+    path: "/PostViewDetail/:id",
+    element: <>
+    <AuthRoute>
+      <PostViewDetail />,
     </AuthRoute>
     </>,
   },
@@ -486,7 +495,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/searchphone",
-    element: <SearchPhone />,
+    element: <>
+    <AuthRoute>
+      <SearchPhone />,
+    </AuthRoute>
+    </>
   },
 ]);
 
