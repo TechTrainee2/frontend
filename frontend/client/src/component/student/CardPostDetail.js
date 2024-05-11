@@ -45,6 +45,7 @@ useEffect(() => {
     let handelOnClickX =()=> {
         setIsModal(false)
     }
+    let[apply,setApply]=useState(false)
 
     // Include dependencies in the dependency array
 
@@ -73,6 +74,7 @@ const onSubmit = async (e) => {
     console.error('Error:', error);
   }
   setAllowNavigate(true);
+  setApply(true)
 };
 
 
@@ -127,13 +129,20 @@ const onSubmit = async (e) => {
 
                         </div>
                     </div>
-                  {user.account_type=="STUDENT" && (
-                    <div className='std-apply-btn'>
+                  {/* {user.account_type=="STUDENT" && ( */}
+                    { !apply ?
+                      <div className='std-apply-btn'>
                         <button className='button-size-std navy-bk white-font' onClick={handelOnClick}>
                             Apply
                           </button>
-                    </div>
-                )}
+                      </div>:<div className='std-apply-btn'>
+                        <button className='button-size-std light-navy-bk white-font'>
+                            Applied
+                          </button>
+                      </div>
+
+                    }
+                {/* )} */}
 
             </div>
             </div>
