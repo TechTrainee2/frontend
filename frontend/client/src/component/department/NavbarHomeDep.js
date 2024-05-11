@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import student from '../../static/Student.jpg'
 import img from '../../static/logo.png'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 function NavbarHomeDep() {
     let [isModal,setIsModal]=useState(false) 
     let handelOnClick =()=> {
@@ -10,13 +10,48 @@ function NavbarHomeDep() {
     let handelOnClickX =()=> {
         setIsModal(false)
     }
+    let[value,setValue]=useState('')
+  let [studentsSearch, setStudentsSearch] = useState([]);
+  let [uniSuperSearch, setUniSuperSearch] = useState([]);
+
+
+  onchange = async (e) => {
+      setValue(e.target.value)
+      try {
+          const res = await fetch(`http://127.0.0.1:8000/users/student-profiles?search=${value}`, {
+              method: "GET",
+              headers: {
+                Accept: "application/json",
+              },
+            });
+            const res2 = await fetch(`http://127.0.0.1:8000/users/uni-search?search=${value}`, {
+              method: "GET",
+              headers: {
+                Accept: "application/json",
+              },
+            });
+            if (!res.ok) {
+              throw new Error("Failed to fetch data");
+            }
+            if (!res2.ok) {
+                throw new Error("Failed to fetch data");
+              }
+        const studentsSearch = await res.json();
+        const uniSuperSearch= await res2.json()
+        setStudentsSearch(studentsSearch);
+        setUniSuperSearch(uniSuperSearch)
+       
+      } catch (error) {
+        console.error(error);
+      }
+    }
   return (
     <>
     <div className='nav-std'>
         <NavLink to ='/depHome'  className='not-clicked'>
             <img className='nav-std-logo'  src={img}/>
         </NavLink>
-        <input type="text" placeholder="Search.." className='search-std gray-bk ' onClick={handelOnClick}></input>
+        <input type="text" placeholder="Search.." className='search-std gray-bk ' onClick={handelOnClick} onChange={onchange}></input>
        
         <div className='icon-cont'>
             <div className='icons'>
@@ -48,16 +83,46 @@ function NavbarHomeDep() {
         <div className={isModal?'show': 'hidden'} >
             <div className='modal-bk' onClick={handelOnClickX}></div>
             <div className='search-box-2nav-comp'>
-                <div className='search-card gray-bk'>
-                    <div className='search-img'>
-                        <img src={student} className='uni-std-circle'/>
-                        <div className='compsuper-std-name'>
-                            <span >Mohammad Saleh</span>
-                            <span>CS</span>
+                {
+                    value !== '' &&
+                    studentsSearch.map((student)=>(
+                        <div className='search-card gray-bk'>
+                              
+                            <div className='search-img'>
+                                <Link to = {`/stdAcc/${student.student.user}`}>
+                                <img src={student.img} className='uni-std-circle'/>
+                                </Link>
+                                <div className='compsuper-std-name'>
+                                    <Link to = {`/stdAcc/${student.student.user}`}>
+                                        <span >{student.student.first_name} {student.student.last_name}</span>
+                                    </Link>
+                                </div>
+                            </div>
+                            
                         </div>
-                        <span className='under-line'>Trainee at Coders</span>
-                     </div>
-                </div>
+                                ))
+                }
+
+                {
+                    value !== '' &&
+                    uniSuperSearch.map((uniSuper)=>(
+                        <div className='search-card gray-bk'>
+                              
+                            <div className='search-img'>
+                                <Link to = {`/superAcc/${uniSuper.university_supervisor.user}`}>
+                                <img src={uniSuper.img} className='uni-std-circle'/>
+                                </Link>
+                                <div className='compsuper-std-name'>
+                                    <Link to = {`/superAcc/${uniSuper.university_supervisor.user}`}>
+                                        <span >{uniSuper.university_supervisor.first_name} {uniSuper.university_supervisor.last_name}</span>
+                                    </Link>
+                                </div>
+                            </div>
+                            
+                        </div>
+                                ))
+                }
+                            
             </div>
         </div>
         </div>

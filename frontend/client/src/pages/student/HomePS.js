@@ -45,10 +45,10 @@ function HomePS() {
       ) : (
         <>
           <NavbarStd id={user.id}/>
-          <TopHeader />
-          <SmallNavbar />
           <div className="dep-uni-sup-container">
-            <SubNavbar />
+         
+            {/* <SubNavbar posts={posts} /> */}
+          
             <div className="dep-uni-sup-card">
             {posts.map((post) => (
                 <CardPost key={post.id} post={post} compId={post.company}/>
