@@ -91,7 +91,7 @@ function AccountPS() {
 
     // Call fetchData function when component mounts
     fetchData();
-  }, [id,user.id,stdDetails]); // Include dependencies in the dependency array
+  }, [id,user.id]); // Include dependencies in the dependency array
 
   return (
     <>

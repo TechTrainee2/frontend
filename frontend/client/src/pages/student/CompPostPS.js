@@ -87,7 +87,7 @@ function CompPostPS() {
     };
   
     fetchPost();
-  }, [profile]);
+  }, []);
  
 
     // Call fetchData function when component mounts
