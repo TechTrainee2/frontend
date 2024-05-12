@@ -41,7 +41,7 @@ function ApplicationsPS() {
           <>
             <NavbarStd id={user.id}/>
             <TopHeader/>
-            <SmallNavbar/>
+            <SmallNavbar id={user.id}/>
             <div className='uni-std-final-report large-margin-bottom-phone'>
               <span className='application-title bold'>Applications</span>
               {applications.map((application) => (

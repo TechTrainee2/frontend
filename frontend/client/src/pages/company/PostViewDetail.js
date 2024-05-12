@@ -94,6 +94,9 @@ function PostViewDetail() {
           <Navbar id={user.id}/>
         )
       }
+      <TopHeader/>
+      <SmallNavbar id={user.id}/>
+
       {profile && (
       <>
         <CardPostViewDetail profile={profile} extra={extradt} isSameUser={isSameUser} post={post}/>

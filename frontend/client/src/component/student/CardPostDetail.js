@@ -117,10 +117,10 @@ const onSubmit = async (e) => {
                             </svg>
 
                                 <span className='bold navy-font'>Are you sure u want to Apply?</span>
-                              <form>
+                              <form >
                                 <div className='apply-box-btns'>
                                     <button className='button-size-std gray-bk navy-font' onClick={handelOnClickX}>No</button>
-                                    <button className='button-size-std navy-bk white-font' type='submit' onClick={onSubmit}>Yes</button>
+                                    <button className='button-size-std navy-bk white-font' type='submit' onClick={onSubmit} >Yes</button>
                                 </div>
                               </form>
                               {allowNavigate && <Navigate to={`/stdPost/${id}`}/>}

@@ -11,6 +11,8 @@ import NavbarHomeDep from '../../component/department/NavbarHomeDep'
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getUser } from "../../features/user";
+import TopHeader from "../../component/student/TopHeader";
+import SmallNavbar from "../../component/student/SmallNavbar";
 
 function AccountC() {
   let dispatch = useDispatch();
@@ -117,6 +119,9 @@ function AccountC() {
      user.account_type == "COMPANY_SUPERVISOR" && 
        <NavbarHome id={user.id}/>
         }
+
+        <TopHeader/>
+        <SmallNavbar id={user.id}/>
           
             <>
               <CardProfile user={email}  id={user.id} profile={profile} extra={extradt} isSameUser={isSameUser}/>

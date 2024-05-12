@@ -131,6 +131,8 @@ function EditPS() {
 
         setProfile(profileData)
         setExtradt(profileData.student)
+
+        console.log(profileData);
         
         if (user.id == id) {
           setIsSameUser(true);
@@ -152,8 +154,8 @@ function EditPS() {
     ) : (
       <>
     <NavbarStdEdit id={user.id}/>
-    {/* <EditHeader/>
-    <SmallNavbar/> */}
+    <EditHeader/>
+    <SmallNavbar id={user.id}/>
     {profile && (
     <form className='large-margin-bottom-phone' onSubmit={onSubmit}>
       <CardEditProf profile={profile} extra={extradt} isSameUser={isSameUser} onChange={onChange} 

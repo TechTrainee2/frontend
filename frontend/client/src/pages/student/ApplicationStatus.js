@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux'
 import NavbarStd from '../../component/student/NavbarStd'
 import CardApplicationStatus from '../../component/student/CardApplicationStatus'
 import { useParams } from 'react-router-dom'
+import TopHeader from '../../component/student/TopHeader'
+import SmallNavbar from '../../component/student/SmallNavbar'
 
 
 function ApplicationStatus() {
@@ -35,8 +37,11 @@ function ApplicationStatus() {
 
         <>
             <NavbarStd id={user.id}/>
+            <TopHeader/>
+          <SmallNavbar id={user.id}/>
             <div className='uni-std-final-report large-margin-bottom-phone'>
               <span className='application-title bold'>Application Status</span>
+              
               
               <CardApplicationStatus application={application}/>
             {/*  */}

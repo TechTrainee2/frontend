@@ -55,7 +55,7 @@ function CardPost(props) {
             <div className='comp-post-container'>
                 <div className='uni-std-img-info'>
                     <img src={profile.img} className='std-com-post-circle'/>
-                    <span className='super'>{extradt.name}</span>
+                    <span className='super ' >{extradt.name}</span>
 
                 </div>
                 <div className='std-comp-post-cont'>

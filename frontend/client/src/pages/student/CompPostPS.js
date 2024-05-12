@@ -106,6 +106,8 @@ function CompPostPS() {
           <NavbarMain id={user.id}/>
         )
       }
+        <TopHeader/>
+          <SmallNavbar id={user.id}/>
       {profile && (
       <>
         <CardPostDetail  profile10={profile10.university_supervisor} profile={profile} extra={extradt} isSameUser={isSameUser} post={post}/>

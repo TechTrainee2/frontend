@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import img from '../../static/Stdbk.jpg'
 import img2 from '../../static/Student.jpg'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 import { Navigate } from 'react-router-dom';
 
 
 function CardEditProf(props) {
-        let [inputValue, setInputValue] = useState(props.extra.bio);
- 
+    const [bio, setBio] = useState(props.profile.bio);
+
+    useEffect(() => {
+      setBio(props.profile.bio);
+    }, [props.profile.bio]);
+  
+    const handleInputChange = (event) => {
+      setBio(event.target.value);
+      if (props.onChange) {
+        props.onChange(event);
+      }
+    };
 
   return (
     <>
@@ -53,7 +62,7 @@ function CardEditProf(props) {
 
                         {/* <Link to={`/stdAcc/${props.id}`}> */}
                         <div className='std-btns-edit-acc'>
-                                <button className='button-size-std navy-bk white-font' type = "submit"  >
+                                <button className='button-size-std-edit navy-bk white-font' type = "submit"  >
                                     Done
                                 </button>
                            
@@ -63,8 +72,8 @@ function CardEditProf(props) {
                     </div>
                     
                     <input type='text' name='bio' className='std-bio' 
-                    value={inputValue} 
-                    onChange={props.onChange}/>
+                        value={bio} 
+                        onChange={handleInputChange}/>
                 </div>
         </div>
     </div>

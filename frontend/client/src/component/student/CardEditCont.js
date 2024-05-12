@@ -1,20 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { useSelector} from 'react-redux';
 function CardEditCont(props) {
-let [phone, setPhone]=useState(props.extra.phone)
-let [email, setEmail]=useState('') 
-let [address, setAddress]=useState(props.extra.location)       
-        let handleChangePhone = (event) => 
-          setPhone(event.target.value);
-          let handleChangeEmail = (event) => 
-          setEmail(event.target.value);
-          let handleChangeAddress = (event) => 
-          setAddress(event.target.value);
 
+    const { user } = useSelector(state => state.user);
 
-          const { user } = useSelector(
-            state => state.user
-        );
+    const [phone, setPhone] = useState(props.profile.phone);
+    const [location, setLocation] = useState(props.profile.location);
+
+    useEffect(() => {
+        setPhone(props.profile.phone);
+        setLocation(props.profile.location);
+    }, [props.profile.phone,props.profile.location]);
+  
+    const handlePhoneChange = (event) => {
+        setPhone(event.target.value);
+      if (props.onChange) {
+        props.onChange(event);
+      }
+    };
+    const handleLocationChange = (event) => {
+        setLocation(event.target.value);
+      if (props.onChange) {
+        props.onChange(event);
+      }
+    };
+
   return (
     <>
     <div className='large-card gray-bk centered-card'>
@@ -23,10 +33,10 @@ let [address, setAddress]=useState(props.extra.location)
             <div className='std-info'>
 
             <div>
-                <span >Phone Number</span>
+                <span>Phone Number</span>
                 <input type='text' name='phone' className='std-data'
                     value={phone} 
-                    onChange={props.onChange}/>
+                    onChange={handlePhoneChange}/>
             </div>
 
             <div>
@@ -38,8 +48,8 @@ let [address, setAddress]=useState(props.extra.location)
             <div>
                 <span>Address</span>
                 <input type='text' name='location' className='std-data'
-                    value={address} 
-                    onChange={props.onChange}/>
+                    value={location} 
+                    onChange={handleLocationChange}/>
             </div>
             
         </div>

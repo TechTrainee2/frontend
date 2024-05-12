@@ -1,12 +1,19 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function CardEditBio(props) {
-    // let [inputValue, setInputValue] = useState(props.profile.bio);
-      
-    //     let handleChange = (event) => {
-    //       setInputValue(event.target.value);
-        // };
+  const [bio, setBio] = useState(props.profile.bio);
+
+  useEffect(() => {
+    setBio(props.profile.bio);
+  }, [props.profile.bio]);
+
+  const handleInputChange = (event) => {
+    setBio(event.target.value);
+    if (props.onChange) {
+      props.onChange(event);
+    }
+  };
+
   return (
     <>
      <div className='large-card gray-bk centered-card'>
@@ -14,8 +21,8 @@ function CardEditBio(props) {
             <span className='bold'>About Us</span>
 
             <input type='text' name='bio' className='comp-bio'
-                    
-                    onChange={props.onChange}/>
+                value={bio} 
+                onChange={handleInputChange}/>
 
         </div>
     </div>
