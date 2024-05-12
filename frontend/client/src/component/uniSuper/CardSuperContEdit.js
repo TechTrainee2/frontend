@@ -1,12 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { useSelector} from 'react-redux';
-function CardSuperContEdit(props) {
-let [phone, setPhone]=useState(props.extra.phone)
-// let [email, setEmail]=useState(props.profile.student) 
-let [address, setAddress]=useState(props.extra.location)    
-const { user } = useSelector(
-    state => state.user
-);   
+
+function CardSuperContEdit(props) {  
+
+    const { user } = useSelector(state => state.user);  
+    const [phone, setPhone] = useState(props.profile.phone );
+    const [location, setLocation] = useState(props.profile.location );
+
+  useEffect(() => {
+      setPhone(props.profile.phone);
+      setLocation(props.profile.location);
+  }, [props.profile.phone, props.profile.location]);
+
+  const handlePhoneChange = (event) => {
+    setPhone(event.target.value);
+    if (props.onChange) {
+      props.onChange(event);
+    }
+  };
+
+  const handleLocationChange = (event) => {
+    setLocation(event.target.value);
+    if (props.onChange) {
+      props.onChange(event);
+    }
+  };
        
   return (
     <>
@@ -19,7 +37,7 @@ const { user } = useSelector(
                 <span className='std-span-info'>Phone Number</span>
                 <input type='text' name='phone' className='std-data'
                     value={phone} 
-                    onChange={props.onChange}/>
+                    onChange={handlePhoneChange}/>
             </div>
 
             <div>
@@ -29,9 +47,9 @@ const { user } = useSelector(
 
             <div>
                 <span className='std-span-info'>Address</span>
-                <input type='text' name='address' className='std-data'
-                    value={address} 
-                    onChange={props.onChange}/>
+                <input type='text' name='location' className='std-data'
+                    value={location} 
+                    onChange={handleLocationChange}/>
             </div>
             
         </div>

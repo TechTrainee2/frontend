@@ -107,7 +107,7 @@ function EditAccCS() {
         // Set profile state after data is fetched
         setProfile(profileData)
         setExtradt(profileData.company_supervisor)
-
+        console.log(profileData);
         if (user.id == id) {
           setIsSameUser(true);
         }

@@ -4,15 +4,6 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function CardEditPost(props) {
-    // let [header, setHeader]=useState('Internship Front End Developer')
-    // let [type, setType]=useState('Remote') 
-    // let [txt, setTxt]=useState('We are offering a training opportunity for (3) \n students on react and react native \n About training: \n you are going to learn react and react nativeand how to code it using functions and hooks and you will take pre course for designing \n Qualifications: \n -know html and css \n -know js ')       
-    // let handleChangeHeader = (event) => 
-    //       setHeader(event.target.value);
-    //       let handleChangeType = (event) => 
-    //       setType(event.target.value);
-    //       let handleChangeTxt = (event) => 
-    //       setTxt(event.target.value);
   return (
     <>
         <div className='large-card gray-bk centered-card'>
@@ -47,7 +38,7 @@ function CardEditPost(props) {
 
                 <div className='std-apply-btn'>
                     <Link to ={`/compEditProfile/${props.id}`} className='not-clicked'>
-                        <button className='button-size-std navy-bk white-font' type='submit' onClick={props.onClick}>
+                        <button className='button-size-std navy-bk white-font' type='submit' >
                             Done
                         </button>
                     </Link>

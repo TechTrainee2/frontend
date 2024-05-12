@@ -24,9 +24,10 @@ function PostEditC() {
     })
   // when the page loader
   
-  let onChange = (e) => {
+  let onChangePost = (e) => {
     console.log(e.target.value);
     const { name, value } = e.target;
+    console.log(value);
     
     setData((prev) => {
       return {
@@ -138,7 +139,7 @@ function PostEditC() {
                profile={profile} 
                extra={extradt} 
                isSameUser={isSameUser} 
-               onChange={onChange}/>
+               onChange={onChangePost}/>
                </form>
             </>
           )}

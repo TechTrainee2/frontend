@@ -10,6 +10,8 @@ import NavbarHomeDep from '../../component/department/NavbarHomeDep'
 import NavbarStd from '../../component/student/NavbarStd'
 import NavbarReg from '../../component/Regestration/NavbarReg'
 import { getUser } from "../../features/user";
+import TopHeader from "../../component/student/TopHeader";
+import SmallNavbar from "../../component/student/SmallNavbar";
 
 function AccountCS() {
   let dispatch = useDispatch();
@@ -95,6 +97,9 @@ function AccountCS() {
         user.account_type == "COMPANY_SUPERVISOR" && 
           <NavbarHome id={user.id}/>
       }
+      <TopHeader/>
+      <SmallNavbar id={user.id}/>
+
           {profile && (
             <div className='centerd-comp'>
               <CardProfile profile={profile} extra={extradt} isSameUser={isSameUser}/>

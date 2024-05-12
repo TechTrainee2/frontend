@@ -17,18 +17,8 @@ function CardProfile(props) {
             <img src={props.profile.img_bk} className="imgbk-size" />
             <img src={props.profile.img} className="std-circle std-profile" />
           </div>
-          <div className="std-txt-left">
-            <div className="std-btn-name">
-              <div className="txt-std-name">
-                <span>
-                  {props.extra.first_name} {props.extra.last_name}
-                </span>
-                
-                {/* <span>University supervisor: Dr. {props.uni.first_name}</span>  */}
-                {/* @TO DO complete the data */}
-              </div>
 
-                {props.isSameUser && (
+          {props.isSameUser && (
               <div className="std-btns-acc">
                   <Link to="/stdEdit">
                     <button className="button-size-std navy-bk white-font">
@@ -43,7 +33,19 @@ function CardProfile(props) {
                   </button>
               </div>
                 )}
+
+          <div className="std-txt-left">
+            <div className="std-btn-name">
+              <div className="txt-std-name">
+                <span>
+                  {props.extra.first_name} {props.extra.last_name}
+                </span>
+                
+                {/* <span>University supervisor: Dr. {props.uni.first_name}</span>  */}
+                {/* @TO DO complete the data */}
+              </div>
             </div>
+            
              <div>
               <span className="bold">Supervisor: </span>
               <Link to={`/superAcc/${props.stdDetails.university_supervisor ? props.stdDetails.university_supervisor.user : ''}`}>
@@ -52,7 +54,7 @@ function CardProfile(props) {
                 </span>
               </Link>
             </div> 
-            <p>{props.profile.bio}</p>
+            <span>{props.profile.bio}</span>
           </div>
         </div>
       </div>

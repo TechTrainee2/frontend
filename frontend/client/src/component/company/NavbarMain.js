@@ -42,7 +42,7 @@ function NavbarMain(props) {
             <img className='nav-std-logo' src={img}/>
         </NavLink>
         
-        <input type="text" placeholder="Search.." className='search-std gray-bk 'onClick={handelOnClick} onChange={onchange}/>
+        <input type="text" placeholder="Search.." name="search" className='search-std gray-bk 'onClick={handelOnClick} onChange={onchange}/>
        
         <div className='icon-cont'>
             <div className='comp-icon-super'>

@@ -10,6 +10,8 @@ import CardSuperCont from '../../component/uniSuper/CardSuperCont'
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getUser } from "../../features/user";
+import TopHeader from "../../component/student/TopHeader";
+import SmallNavbar from "../../component/student/SmallNavbar";
 
 function SuperAcc() {
   let dispatch = useDispatch();
@@ -93,6 +95,8 @@ function SuperAcc() {
       user.account_type == "COMPANY_SUPERVISOR" && 
         <NavbarHome id={user.id}/>
         }
+        <TopHeader/>
+        <SmallNavbar id={user.id}/>
           {profile && (
             <div className='centerd-comp'>
               <CardSuperProf profile={profile} extra={extradt} isSameUser={isSameUser} />

@@ -14,9 +14,10 @@ function CardCompPost(props) {
                 
                 <div className="post_date">
                   <span className='bold super'>{props.post.title} </span>
+                </div>
+                <div className="post_date_phone">
                   <span> {props.post.date}</span>
                 </div>
-
                 <div className='std-comp-post-place super'>
                   <span>{props.extra.name}</span>
                   <span className='remote-btn-std'>{props.post.training_mode}</span>

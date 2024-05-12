@@ -1,12 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { useSelector} from 'react-redux';
 
 function CardEditContact(props) {
   const { user } = useSelector(
 		state => state.user
 	);
-let [phone, setPhone]=useState(props.profile.phone)
-let [address, setAddress]=useState(props.profile.location)       
+  const [phone, setPhone] = useState(props.profile.phone);
+  const [location, setLocation] = useState(props.profile.location);
+
+  useEffect(() => {
+      setPhone(props.profile.phone);
+      setLocation(props.profile.location);
+  }, [props.profile.phone,props.profile.location]);
+
+  const handlePhoneChange = (event) => {
+      setPhone(event.target.value);
+    if (props.onChange) {
+      props.onChange(event);
+    }
+  };
+  const handleLocationChange = (event) => {
+      setLocation(event.target.value);
+    if (props.onChange) {
+      props.onChange(event);
+    }
+  };      
 
   return (
     <>
@@ -19,7 +37,7 @@ let [address, setAddress]=useState(props.profile.location)
                 <span className='std-span-info'>Phone Number</span>
                 <input type='text' name='phone' className='std-data'
                     value={phone} 
-                    onChange={props.onChange}/>
+                    onChange={handlePhoneChange}/>
             </div>
             <div>
                 <span className='std-span-info'>Email </span>
@@ -29,8 +47,8 @@ let [address, setAddress]=useState(props.profile.location)
             <div>
                 <span className='std-span-info'>Address</span>
                 <input type='text' name='location' className='std-data'
-                    value={address} 
-                    onChange={props.onChange}/>
+                    value={location} 
+                    onChange={handleLocationChange}/>
             </div>
             
         </div>

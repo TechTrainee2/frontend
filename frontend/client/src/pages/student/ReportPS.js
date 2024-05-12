@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
+import TopHeader from '../../component/student/TopHeader'
 
 
 function ReportPS() {
@@ -47,6 +48,8 @@ function ReportPS() {
   return (
     <>
     <NavbarStd3 id={id}/>
+    <TopHeader/>
+    <SmallNavbar id={id}/>
     {reports.map((report) => (
     <CardReport key={report.id} report={report}/>
     ))}

@@ -45,6 +45,8 @@ function HomePS() {
       ) : (
         <>
           <NavbarStd id={user.id}/>
+          <TopHeader/>
+          <SmallNavbar id={user.id}/>
           <div className="dep-uni-sup-container">
          
             {/* <SubNavbar posts={posts} /> */}
