@@ -7,7 +7,8 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { register } from '../../features/user';
+// import { register } from '../../features/user';
+import { Compregister } from '../../features/user';
 
 function SignUp() {
   const dispatch = useDispatch();
@@ -22,10 +23,10 @@ function SignUp() {
     email: '',
     comp_id: '',
     password: '',
-    account_type: 'COMPANY',
+    // account_type: 'COMPANY',
 	});
 
-  const { name, email, comp_id, password,account_type } = formData;
+  const { name, email, comp_id, password } = formData;
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -39,7 +40,7 @@ function SignUp() {
     setIsEmailError(false)
     setEmailError([])
 
-		let data = await dispatch(register({ name, email, comp_id, password,account_type }));
+		let data = await dispatch(Compregister({ name, email, password,comp_id }));
     if (Object.keys(data.payload).includes("password")){
       setIsPasswordError(true)
       setPasswordError(data.payload["password"])

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavbarEditPost from '../../component/company/NavbarEditPost'
 import CardEditPost from '../../component/company/CardEditPost'
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 function PostEditC() {
@@ -16,6 +16,7 @@ function PostEditC() {
   let [isSameUser, setIsSameUser] = useState(false);
   // // Get the profile by id
   let { user, loading } = useSelector((state) => state.user);
+  let [allowNavigate, setAllowNavigate] = useState(false);
 
   let [data,setData]=useState({
     'title':'',
@@ -74,7 +75,6 @@ function PostEditC() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-  
     // Create an object that only includes fields from data that are not empty strings
     const nonEmptyData = Object.entries(data).reduce((newData, [key, value]) => {
       if (value !== '') {
@@ -82,7 +82,7 @@ function PostEditC() {
       }
       return newData;
     }, {});
-  
+    
     // Use nonEmptyData in your fetch request
     try {
       const res2 = await fetch(`http://127.0.0.1:8000/users/company/post/${post.id}/`, {
@@ -102,6 +102,7 @@ function PostEditC() {
     catch (error) {
       console.error("Error fetching data:", error);
     }
+    setAllowNavigate(true);
   }
 
   useEffect(() => {
@@ -139,8 +140,10 @@ function PostEditC() {
                profile={profile} 
                extra={extradt} 
                isSameUser={isSameUser} 
+               post={post}
                onChange={onChangePost}/>
-               </form>
+            </form>
+            {allowNavigate && <Navigate to={`/compEditProfile/${user.id}`}/>}
             </>
           )}
        </>

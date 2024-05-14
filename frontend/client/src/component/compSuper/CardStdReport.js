@@ -63,7 +63,7 @@ function CardStdReport(props) {
                     {   props.report.table_data!=null ?(
                         props.report.table_data.map((item) => (
                             <div className='fill-report-topic'>
-                                <span>{item.topic}</span>
+                                <span className='span-report-view-topic '>{item.topic}</span>
                             </div>
 
                     ) 
@@ -77,7 +77,7 @@ function CardStdReport(props) {
                     {   props.report.table_data!=null ?(
                         props.report.table_data.map((item) => (
                             <div className='fill-report-topic'>
-                                <span>{item.details}</span>
+                                <span className='span-report-view-detail '>{item.details}</span>
                             </div>
                     ) 
                     )):<></>

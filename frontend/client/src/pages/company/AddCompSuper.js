@@ -12,11 +12,13 @@ function AddCompSuper() {
   let { id } = useParams();
   const dispatch = useDispatch();
   const {user } = useSelector(state => state.user);
+
   const [isEmailError,setIsEmailError]= useState(false)
   const [EmailError,setEmailError]= useState([])
   const [isPasswordError,setIsPasswordError]= useState(false)
   const [PasswordError,setPasswordError]= useState([])
-  
+  let [allowNavigate, setAllowNavigate] = useState(false);
+
   const [formData, setFormData] = useState({
     first_name: '',
     last_name:'',
@@ -51,7 +53,13 @@ function AddCompSuper() {
       setIsEmailError(true)
       setEmailError(data.payload["email"])
     }
+    
+      setAllowNavigate(true)
+    
+
 	};
+  // if (registered) return <Navigate to={`/compSuper/${id}`} />;
+
 
   return (
     <>
@@ -67,6 +75,7 @@ function AddCompSuper() {
         EmailError ={EmailError}
 
         /> 
+        {allowNavigate ? <Navigate to={`/compSuper/${id}`} /> : <></>}
     </>
   )
 }

@@ -3,6 +3,7 @@ import NavbarNewPost from '../../component/company/NavbarNewPost'
 import CardNewPost from '../../component/company/CardNewPost'
 import { useParams } from "react-router-dom";
 import { useSelector} from "react-redux";
+import { Navigate } from "react-router-dom";
 
 
 function NewPostC() {
@@ -11,6 +12,7 @@ function NewPostC() {
 
   let [profile, setProfile] = useState({});
   let [extradt, setExtradt] = useState({});
+  let [allowNavigate, setAllowNavigate] = useState(false);
 
 
   let [isSameUser, setIsSameUser] = useState(false);
@@ -24,17 +26,39 @@ function NewPostC() {
     'company':`${user.id}`,
   })
 
-    let onChange = (e) => {
-      // console.log(e.target.value);
-      const { name, value } = e.target;
+  let onChange = (e) => {
+    const { name, value } = e.target;
+    
+    setData((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  }
+
+  let onSelect = (e) => {
+    console.log(e.target.value);
+    setData((prev) => {
+      return {
+        ...prev,
+        "training_mode": e.target.value,
+      };
+    });
+  }
+
+  // Rest of the code...
+    // let onChange = (e) => {
+    //   // console.log(e.target.value);
+    //   const { name, value } = e.target;
       
-      setData((prev) => {
-        return {
-          ...prev,
-          [name]: value,
-        };
-      });
-    }
+    //   setData((prev) => {
+    //     return {
+    //       ...prev,
+    //       [name]: value,
+    //     };
+    //   });
+    // }
 
     const createPost = async () => {
    
@@ -124,6 +148,7 @@ function NewPostC() {
     // catch (error) {
     //   console.error("Error fetching data:", error);
     // }
+    setAllowNavigate(true)
   }
 
   return (
@@ -139,8 +164,10 @@ function NewPostC() {
          onChange={onChange} 
          onClick={createPost}
          id={user.id}
+          onSelect={onSelect}
          />
       </form>)}
+    {allowNavigate && <Navigate to={`/compProfile/${user.id}`} />}
     </>
   )}
   </>

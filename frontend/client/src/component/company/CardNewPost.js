@@ -30,12 +30,17 @@ function CardNewPost(props) {
                   <img src={props.profile.img} className='company-img2' />
                   <span>{props.extra.name} </span>
                   
-                  <div>
-                    <input type='text' name='training_mode' className='std-data '
+                  <label for="training_mode">Choose a training_mode:</label>
+                  <select  name="training_mode" className='std-data '
+                  onChange={props.onSelect}>
+
+                    <option value="remote">remote</option>
+                    <option value="onsite">onsite</option>
+                    {/* <option type='text' name='training_mode' className='std-data '
                     placeholder='Training mode should be remote or onsite' 
-                    onChange={props.onChange}
-                    />
-                  </div>
+                    onChange={props.onChange} */}
+                    {/* /> */}
+                  </select>
 
                 </div>
 
@@ -48,11 +53,11 @@ function CardNewPost(props) {
               </div>
 
                 <div className='std-apply-btn'>
-                <Link to ={`/compProfile/${props.id}`} className='not-clicked'>
+                {/* <Link to ={`/compProfile/${props.id}`} className='not-clicked'> */}
                         <button className='button-size-std navy-bk white-font' type='submit' onClick={props.onClick}>
                             Done
                         </button>
-                </Link>
+                {/* </Link> */}
                 </div>
 
             </div>
