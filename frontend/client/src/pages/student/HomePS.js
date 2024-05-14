@@ -15,7 +15,6 @@ function HomePS() {
 
   let { isAuthenticated, loading,user } = useSelector((state) => state.user);
 
-  // if (!isAuthenticated && !loading && user==null) return <Navigate to="/SignIn" />;
 
   useEffect(() => {
     const fetchPosts = async () => {

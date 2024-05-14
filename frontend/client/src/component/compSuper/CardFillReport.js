@@ -122,10 +122,10 @@ let onChange = (e) => {
             <div className='fill-report-topic bold'>
                 <span>Topic </span>
                 {data.table_data.map((item, index) => (
-                    <input type='text' 
+                    <textarea type='text' 
                     name='topic'
                      placeholder='Fill here' 
-                     className='topic-txt-size gray-bk'
+                     className='topic-txt-size gray-bk text-area'
                     value={item.topic}
                     onChange={event => handleInputChange(index, event)}
                   />
@@ -139,10 +139,10 @@ let onChange = (e) => {
             <div className='fill-report-topic bold'>
                 <span>Software and Equipment used</span>
                 {data.table_data.map((item, index) => (
-                    <input type='text' 
+                    <textarea  type='text' 
                     name='details'
                      placeholder='Fill here' 
-                     className='software-txt-size gray-bk'
+                     className='software-txt-size gray-bk text-area'
                     // value={item.topic}
                     onChange={event => handleInputChange(index, event)}
                   />
@@ -155,10 +155,10 @@ let onChange = (e) => {
             <div className='fill-report-topic bold'>
                 <span>Hours</span> 
                 {data.table_data.map((item, index) => (
-                        <input type='text' 
+                        <textarea type='text' 
                         name='hours'
                         placeholder='Fill here' 
-                        className='hours-txt-size gray-bk'
+                        className='hours-txt-size gray-bk text-area'
                         // value={item.topic}
                         onChange={event => handleInputChange(index, event)}
                     />
