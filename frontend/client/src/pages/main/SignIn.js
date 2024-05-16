@@ -43,11 +43,11 @@ function SignIn() {
     const data = await dispatch(login({ email, password }));
     
   
-    // if (Object.keys(data.payload)){
-    //   setIsError(true)
-    //   console.log(data)
-    //   setError(data.payload["detail"])
-    // }
+    if (Object.keys(data.payload)){
+      setIsError(true)
+      console.log(data)
+      setError(data.payload["detail"])
+    }
    
 	};
 	

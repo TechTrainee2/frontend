@@ -72,48 +72,48 @@ try {
 }catch (error) {
 console.error("Error fetching data:", error);
 }
-
+fetchData()
 }
-useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const res = await fetch(`http://127.0.0.1:8000/users/uniprof/${id}`, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-        },
-      });
-      const res2 = await fetch(`http://127.0.0.1:8000/users/user/universitysuper/${id}/students`, {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-        },
-      });
-      
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      if (!res2.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const profileData = await res.json();
-      const Students = await res2.json();
-      // dispatch(getUser());
-      
-      // Set profile state after data is fetched
-      setProfile(profileData)
-      setExtradt(profileData.university_supervisor)
-      setStudents(Students);
- 
-      // if (user.id == id) {
-      //   setIsSameUser(true);
-      // }
-      
-     
-    } catch (error) {
-      console.error("Error fetching data:", error);
+const fetchData = async () => {
+  try {
+    const res = await fetch(`http://127.0.0.1:8000/users/uniprof/${id}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    const res2 = await fetch(`http://127.0.0.1:8000/users/user/universitysuper/${id}/students`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
     }
-  };
+    if (!res2.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    const profileData = await res.json();
+    const Students = await res2.json();
+    // dispatch(getUser());
+    
+    // Set profile state after data is fetched
+    setProfile(profileData)
+    setExtradt(profileData.university_supervisor)
+    setStudents(Students);
+
+    // if (user.id == id) {
+    //   setIsSameUser(true);
+    // }
+    
+   
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+useEffect(() => {
 
   // Call fetchData function when component mounts
   fetchData();
@@ -140,7 +140,7 @@ useEffect(() => {
           <div className='dep-uni-std-span-card'>
             <span className='bold assign-padding-span super'>Current Student</span>
             {Students.map((Student) => (
-              <DepUniAssignCard  key={Student.id} Student={Student}/>
+              <DepUniAssignCard  key={Student.id} Student={Student} fetchData={fetchData}/>
             ))}
           </div>
           <div className={isModal?'show': 'hidden'} >
@@ -163,7 +163,7 @@ useEffect(() => {
                                     <span >{student.student.first_name} {student.student.last_name}</span>
                                   </Link>
                                 </div>
-                                <button className='comp-assign-search-button-size navy-bk white-font font-med' onClick={() => onclick(student.student.user)}>Assign</button>
+                                <button className='comp-assign-search-button-size navy-bk white-font font-med' onClick={() => {onclick(student.student.user); setIsModal(false)}}>Assign</button>
                             </div>
                         </div>
 

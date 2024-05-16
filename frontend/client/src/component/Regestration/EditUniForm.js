@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'; 
 import { useParams } from "react-router-dom";
 import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 
 function EditUniForm(props) {
-
+let [allowNavigate, setAllowNavigate] = useState(false);
     let [isModal,setIsModal]=useState(false) 
         let handelOnClick =()=> {
                 setIsModal(true)
@@ -33,7 +34,7 @@ function EditUniForm(props) {
         } catch (error) {
             console.error("Error fetching data:", error);
         }
-        
+        setAllowNavigate(true);
         };
   return (
     <div className=' gap margin-bottom' >
@@ -53,6 +54,7 @@ function EditUniForm(props) {
             </div>
 
         </form>
+        {allowNavigate && <Navigate to='/RegUniSuper' />}
     </div>
   )
 }

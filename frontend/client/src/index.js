@@ -6,7 +6,6 @@ import { Provider } from "react-redux";
 
 import reportWebVitals from "./reportWebVitals";
 import Home from "./pages/main/Home";
-import AboutUs from "./pages/main/AboutUs";
 import SignIn from "./pages/main/SignIn";
 import SignUp from "./pages/main/SignUp";
 import HomePS from "./pages/student/HomePS";
@@ -81,10 +80,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-  },
-  {
-    path: "/About",
-    element: <AboutUs />,
   },
   {
     path: "/SignIn",

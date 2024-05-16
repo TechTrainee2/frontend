@@ -25,7 +25,7 @@ function Form(props) {
 						value={props.password}
 						required/>
               {props.isError&&(<ul>
-                <li id ={`email-error`}>{props.Error}</li>
+                <li style={{color:"red"}} id ={`email-error`}>{props.Error}</li>
               </ul>)}
 
             <button className='button-size navy-bk white-font super'>
