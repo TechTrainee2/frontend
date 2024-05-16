@@ -31,7 +31,7 @@ function CardNewPost(props) {
                   <span>{props.extra.name} </span>
                   
                   <label for="training_mode">Choose a training_mode:</label>
-                  <select  name="training_mode" className='std-data '
+                  <select  name="training_mode" className='std-training-mode-option '
                   onChange={props.onSelect}>
 
                     <option value="remote">remote</option>
@@ -45,7 +45,7 @@ function CardNewPost(props) {
                 </div>
 
                 <div className='std-post-txt'>
-                    <input type='text' name='post_details' className='comp-data' 
+                    <textarea type='text'  name='post_details' className='comp-data text-area-post ' 
                    placeholder='Post Details' 
                     onChange={props.onChange}/>
                 </div>

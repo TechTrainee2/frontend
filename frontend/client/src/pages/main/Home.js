@@ -32,7 +32,6 @@ let handelOnClick = () => {
       <div className='gray-bk menu-bk'>
         <div className='menu-nav xl-font-super'>
         <NavLink to= '/' className='not-clicked '>Home</NavLink>
-        <NavLink to='/About' className='not-clicked'>About Us</NavLink>
         <NavLink to='/SignIn' className='not-clicked' >Sign In</NavLink>
         <NavLink to='/SignUp' className='not-clicked'>Sign Up</NavLink></div>
       
