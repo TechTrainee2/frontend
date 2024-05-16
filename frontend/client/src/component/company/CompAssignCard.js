@@ -61,7 +61,7 @@ function CompAssignCard(props) {
 
       const onSubmit = async (e) => {
         e.preventDefault();
-
+        setIsModal(false)
           try {
               const res2 = await fetch(`http://127.0.0.1:8000/users/user/student/assign/companySupervisor/${props.Student.student.user}`, {
                   method: "PATCH",
@@ -77,10 +77,13 @@ function CompAssignCard(props) {
                   throw new Error("Failed to fetch data");
               }
               await res2.json();
+              
+
               // console.log(user.id);
           } catch (error) {
               console.error("Error fetching data:", error);
           }
+          props.fetchData()
           };
 
 

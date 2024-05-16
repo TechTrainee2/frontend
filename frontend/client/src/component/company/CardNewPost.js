@@ -4,15 +4,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function CardNewPost(props) {
-    // let [header, setHeader]=useState('')
-    // let [type, setType]=useState('') 
-    // let [txt, setTxt]=useState('')       
-    // let handleChangeHeader = (event) => 
-    //       setHeader(event.target.value);
-    //       let handleChangeType = (event) => 
-    //       setType(event.target.value);
-    //       let handleChangeTxt = (event) => 
-    //       setTxt(event.target.value);
+  
 
   return (
     <>
@@ -34,12 +26,10 @@ function CardNewPost(props) {
                   <select  name="training_mode" className='std-training-mode-option '
                   onChange={props.onSelect}>
 
+                    <option value="">Select </option>
                     <option value="remote">remote</option>
                     <option value="onsite">onsite</option>
-                    {/* <option type='text' name='training_mode' className='std-data '
-                    placeholder='Training mode should be remote or onsite' 
-                    onChange={props.onChange} */}
-                    {/* /> */}
+                
                   </select>
 
                 </div>
@@ -53,11 +43,11 @@ function CardNewPost(props) {
               </div>
 
                 <div className='std-apply-btn'>
-                {/* <Link to ={`/compProfile/${props.id}`} className='not-clicked'> */}
-                        <button className='button-size-std navy-bk white-font' type='submit' onClick={props.onClick}>
-                            Done
-                        </button>
-                {/* </Link> */}
+              
+                  <button className='button-size-std navy-bk white-font' type='submit' onClick={props.onClick}>
+                      Done
+                  </button>
+            
                 </div>
 
             </div>
