@@ -116,38 +116,23 @@ function NewPostC() {
     // Call fetchData function when component mounts
     fetchData();
   }, [id,user.id]); // Include dependencies in the dependency array
+
+
+
+  
  const onSubmit = async (e) => {
     e.preventDefault();
     console.log(extradt)
   
     // Create an object that only includes fields from data that are not empty strings
-    const nonEmptyData = Object.entries(data).reduce((newData, [key, value]) => {
-      if (value !== '') {
-        newData[key] = value;
-      }
-      return newData;
-    }, {});
-  
-    // Use nonEmptyData in your fetch request
-    // try {
-    //   const res2 = await fetch(`http://127.0.0.1:8000/users/stdprof/${user.id}`, {
-    //     method: "PATCH",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "Accept": "application/json",
-    //     },
-    //     body: JSON.stringify(nonEmptyData),
-    //   });
-    //   if (!res2.ok) {
-    //     throw new Error("Failed to fetch data");
+    // const nonEmptyData = Object.entries(data).reduce((newData, [key, value]) => {
+    //   if (value !== '') {
+    //     newData[key] = value;
     //   }
-    //   const Data = await res2.json();
-    //   // console.log(user.id);
+    //   return newData;
+    // }, {});
+  
 
-    // }
-    // catch (error) {
-    //   console.error("Error fetching data:", error);
-    // }
     setAllowNavigate(true)
   }
 

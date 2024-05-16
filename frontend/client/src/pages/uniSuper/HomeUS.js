@@ -11,7 +11,7 @@ import { useCookies } from 'react-cookie';
 
 function HomeUS() {
   let {loading,user } = useSelector((state) => state.user);
-  const [cookies, setCookie] = useCookies(['access']);
+  // const [cookies, setCookie] = useCookies(['access']);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -39,8 +39,8 @@ useEffect(() => {
         method: "GET",
         headers: {
           Accept: "application/json",
-          authorization: `Bearer ${cookies.access}`,
-        },credentials:'include'
+          // authorization: `Bearer ${cookies.access}`,
+        },
       });
       
       if (!res2.ok) {

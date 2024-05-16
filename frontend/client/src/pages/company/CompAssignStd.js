@@ -68,52 +68,52 @@ onclick = async (u) => {
       throw new Error("Failed to fetch data");
     }
 
-
+    fetchData();
 }catch (error) {
   console.error("Error fetching data:", error);
 }
 
 }
+const fetchData = async () => {
+  try {
+    const res = await fetch(`http://127.0.0.1:8000/users/companysuperprof/get/${id}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    const res2 = await fetch(`http://127.0.0.1:8000/users/user/companysuper/${id}/students`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    if (!res2.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    const profileData = await res.json();
+    const Students = await res2.json();
+    // dispatch(getUser());
+    
+    // Set profile state after data is fetched
+    setProfile(profileData)
+    setExtradt(profileData.company_supervisor)
+    setStudents(Students);
+    console.log(profileData);
+    // if (user.id == id) {
+    //   setIsSameUser(true);
+    // }
+    
+   
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch(`http://127.0.0.1:8000/users/companysuperprof/get/${id}`, {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-          },
-        });
-        const res2 = await fetch(`http://127.0.0.1:8000/users/user/companysuper/${id}/students`, {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-          },
-        });
-        
-        if (!res.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        if (!res2.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const profileData = await res.json();
-        const Students = await res2.json();
-        // dispatch(getUser());
-        
-        // Set profile state after data is fetched
-        setProfile(profileData)
-        setExtradt(profileData.company_supervisor)
-        setStudents(Students);
-        console.log(profileData);
-        // if (user.id == id) {
-        //   setIsSameUser(true);
-        // }
-        
-       
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
 
     // Call fetchData function when component mounts
     fetchData();
@@ -150,7 +150,7 @@ onclick = async (u) => {
 
             {Students.map((Student) => (
 
-              <CompAssignCard  key={Student.id} Student={Student}/>
+              <CompAssignCard  key={Student.id} Student={Student} fetchData={fetchData}/>
 
             ))}
             </div>
@@ -173,7 +173,7 @@ onclick = async (u) => {
                             </div>
 
 
-                            <button className='comp-assign-search-button-size navy-bk white-font font-med' onClick={() => onclick(student.student.user)}>Assign</button>
+                            <button className='comp-assign-search-button-size navy-bk white-font font-med' onClick={() =>{onclick(student.student.user); setIsModal(false)} }>Assign</button>
                         </div>
                     </div>
                       ))}

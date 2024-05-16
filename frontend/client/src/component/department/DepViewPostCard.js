@@ -21,6 +21,8 @@ function DepViewPostCard(props) {
   let handelOnClickXReject =()=> {
       setIsReject(false)
   }
+  let [Accept,setAccept]=useState(false)
+  let[Reject1,setReject1]=useState(false)
 
   let { id } = useParams();
 
@@ -37,9 +39,9 @@ let [reject,setReject]=useState({
     'department_status':'REJECTED',
     })
 
-    let [companyAssign,setCompanyAssign]=useState({
-      'company':props.application.company,
-      })
+    // let [companyAssign,setCompanyAssign]=useState({
+    //   'company':0,
+    //   })
   let [isSameUser, setIsSameUser] = useState(false);
   // // Get the profile by id
   let { user, loading } = useSelector((state) => state.user);
@@ -89,7 +91,7 @@ let [reject,setReject]=useState({
         setProfile(profileData)
         setExtradt(profileData.student)
         setPost(postData)
-       
+        // setCompanyAssign(props.application.company)
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -97,9 +99,11 @@ let [reject,setReject]=useState({
 
     // Call fetchData function when component mounts
     fetchData();
-  }, [props.application.student,props.application.post]); // Include dependencies in the dependency array
+  }, [props.application]); // Include dependencies in the dependency array
 
   const accept = async (e) => {
+    setIsModal(false)
+    setAccept( true )
     e.preventDefault();
   
     // Create an object that only includes fields from data that are not empty strings
@@ -121,7 +125,9 @@ let [reject,setReject]=useState({
           "Content-Type": "application/json",
           "Accept": "application/json",
         },
-        body: JSON.stringify(companyAssign),
+        body:JSON.stringify({
+          company: props.application.company
+      }),
 
       });
 
@@ -131,7 +137,8 @@ let [reject,setReject]=useState({
       if (!res3.ok) {
         throw new Error("Failed to fetch data");
       }
-      // const Data = await res3.json();
+      const Data = await res3.json();
+      console.log(Data);
     }
     catch (error) {
       console.error("Error fetching data:", error);
@@ -140,7 +147,8 @@ let [reject,setReject]=useState({
 
   const rejected = async (e) => {
     e.preventDefault();
-  
+    setIsReject(false)
+    setReject1( true )
     // Create an object that only includes fields from data that are not empty strings
   
     // Use nonEmptyData in your fetch request
@@ -171,28 +179,64 @@ let [reject,setReject]=useState({
       <div className="supr-std-app">
 
         <div className="supr-std-app-img">
+          <Link to={`/stdAcc/${props.application.student}`}>
           <img src={profile.img} className="comp-std-circle" />
+            </Link>
           <div>
+          <Link to={`/stdAcc/${props.application.student}`}>
+
             <span className="bold">{extradt.first_name} {extradt.last_name} </span>
+            </Link>
             <p> Application has been accepted to:</p>
           </div>
         </div>
 
+
+
         <div className="app-button">
-          <button className="button-size-std navy-bk white-font"  onClick={handelOnClick}>
-            Accept
-          </button>
-          <button className="button-size-std navy-bk white-font" onClick={handelOnClickReject}>
-            Reject
-          </button>
-        </div>
+
+
+        { Reject1?<></>:(
+
+              !Accept ?
+              <button className="button-size-std navy-bk white-font"  onClick={handelOnClick}>
+                Accept
+              </button>
+            :
+              <button className='button-size-std light-navy-bk white-font'>
+                Accepted
+                </button>
+                     
+              )
+                    }
+
+        { Accept?<></>:(
+            !Reject1  ?
+            <button className="button-size-std navy-bk white-font" onClick={handelOnClickReject}>
+              Reject
+            </button>
+          :
+            <button className='button-size-std light-navy-bk white-font'>
+            Rejected
+              </button>
+          )
+
+        }
+                      </div>
+        
+         
+      
         <div className="comp-company-post">
 
         <div className="company-post-img">
             <span>
+              <Link to={`/compProfile/${props.application.company}`}>
               <img src= {profileCompany.img} className="comp-company-img"/>
+              </Link>
             </span>
+            <Link to={`/compProfile/${props.application.company}`}>
             <span>{extradtCompany.name}</span>
+            </Link>
             <div className='comp_application_view_std'>
             <span className='bold' >{post.title} </span>
             <span>{post.training_mode}</span>

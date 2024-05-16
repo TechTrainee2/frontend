@@ -148,11 +148,11 @@ function CardStdApplication(props) {
               Set to interview
             </button>
           </Link>
-            <Link to={profile.cv}>
+            <a href={profile.cv} target='_blank'>
               <button className="button-size-std navy-bk white-font">
                 View CV
               </button>
-            </Link>
+            </a>
           </div>
           <div className="comp-company-post">
 
