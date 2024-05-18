@@ -147,13 +147,14 @@ function CardReport(props) {
             <span>Total hours</span>
             <span>{TotalHour}</span>
         </div>
-
+{/*
         <div className='std-report-status-btn'>
             <button className='button-size navy-bk white-font font-med' onClick={handelOnClick}>Status</button>
         </div>
-
+*/}
 
         </div>
+        {/*
         <div className={isModal?'show': 'hidden'} >
                         <div className='status-modal-bk'></div>
                         <div className='std-report-status-box'>
@@ -205,6 +206,7 @@ function CardReport(props) {
 
                         </div>
                     </div>
+                    */}
         </div>
     </>
   )

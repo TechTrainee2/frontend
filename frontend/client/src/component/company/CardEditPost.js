@@ -63,15 +63,18 @@ function CardEditPost(props) {
                 </div>
 
                 <div className='std-post-txt'>
-                    <input type='text' name='post_details' className='comp-data' value={data.post_details}
+                    <textarea type='text' name='post_details' className='comp-data text-area-post' value={data.post_details}
                     placeholder='Post Details' 
                     onChange={onChange}/>
                 </div>
 
               </div>
 
-                <div className='std-apply-btn'>
+                <div className='comp-post-btn'>
                    
+                        <button className='button-size-std navy-bk white-font' onClick={props.onClick} >
+                            Delete
+                        </button>
                         <button className='button-size-std navy-bk white-font' type='submit' >
                             Done
                         </button>

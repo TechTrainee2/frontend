@@ -105,6 +105,38 @@ function PostEditC() {
     setAllowNavigate(true);
   }
 
+  const onClick = async (e) => {
+    e.preventDefault();
+    // Create an object that only includes fields from data that are not empty strings
+    const nonEmptyData = Object.entries(data).reduce((newData, [key, value]) => {
+      if (value !== '') {
+        newData[key] = value;
+      }
+      return newData;
+    }, {});
+    
+    // Use nonEmptyData in your fetch request
+    try {
+      const res2 = await fetch(`http://127.0.0.1:8000/users/company/post/${post.id}/`, {
+        method: "Delete",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify(nonEmptyData),
+      });
+      if (!res2.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const Data = await res2.json();
+      console.log(user.id);
+    }
+    catch (error) {
+      console.error("Error fetching data:", error);
+    }
+    setAllowNavigate(true);
+  }
+
   useEffect(() => {
     const fetchPost = async () => {
       try {
@@ -141,7 +173,9 @@ function PostEditC() {
                extra={extradt} 
                isSameUser={isSameUser} 
                post={post}
-               onChange={onChangePost}/>
+               onChange={onChangePost}
+               onClick={onClick}
+               />
             </form>
             {allowNavigate && <Navigate to={`/compEditProfile/${user.id}`}/>}
             </>

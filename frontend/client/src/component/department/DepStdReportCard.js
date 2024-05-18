@@ -43,7 +43,7 @@ function DepStdReportCard(props) {
 
     // Call fetchData function when component mounts
     fetchData();
-  }, [id,user.id,user]);
+  }, [props.student]);
   return (
     <>
 

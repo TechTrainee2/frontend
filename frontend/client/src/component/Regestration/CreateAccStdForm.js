@@ -15,12 +15,14 @@ function CreateAccStdForm(props) {
             {props.isEmailError&& Array.isArray(props.EmailError)&&(<ul style={{color:"red"}}>{props.EmailError.map((error,index)=>{
             return <li id ={`email-error${index}`}>{error}</li>
             })}</ul>)}
+            {props.emError && <p style={{color: 'red'}}>{props.emError}</p>}
 
             
             <input className='form-cell form-cell-la gray-bk opacity left-place-holder' placeholder='Password' name='password'  onChange={props.onChange}/>
             {props.isPasswordError&& Array.isArray(props.PasswordError)&&(<ul style={{color:"red"}}>{props.PasswordError.map((error,index)=>{
             return <li id ={`password-error${index}`}>{error}</li>
             })}</ul>)}
+            {props.passError && <p style={{color: 'red'}}>{props.passError}</p>}
             
             <div className='form-btns'>
                 <button className='button-size-input navy-bk gray-font' type='submit'>Add</button>
