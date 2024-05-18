@@ -14,12 +14,14 @@ function Form2(props) {
           {props.isEmailError&&(<ul style={{color:"red"}}>{props.EmailError.map((error,index)=>{
             return <li id ={`email-error${index}`}>{error}</li>
           })}</ul>)}
+          {props.emError && <p style={{color: 'red'}}>{props.emError}</p>}
           
           <input type='text' placeholder='Organization ID' name='comp_id' onChange={props.onChange}/>
           <input type='password' placeholder='Password' name='password' onChange={props.onChange}/>
           {props.isPasswordError&&(<ul style={{color:"red"}}>{props.PasswordError.map((error,index)=>{
             return <li id ={`password-error${index}`}>{error}</li>
           })}</ul>)}
+          {props.passError && <p style={{color: 'red'}}>{props.passError}</p>}
           <button className='button-size navy-bk white-font super'>
             Sign Up
           </button>

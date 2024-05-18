@@ -63,6 +63,12 @@ a{
 .gray-font{
   color: #cbd6da;
 }
+.navy-font{
+  color: #1c3150;
+}
+.red-font{
+  color: #FF0000
+}
 .gray-bk{
   background-color: #cbd6da;
 }
@@ -750,6 +756,14 @@ box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
   align-items: center;
 }
 /************ Company ****************/
+.comp-post-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 80%;
+  gap: 6%;
+}
 .text-area-post {
   font-family: 'Times New Roman';
   padding-top: 30px;
