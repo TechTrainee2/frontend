@@ -24,13 +24,13 @@ function CardHomeUS(props) {
             {
                 props.Student.student.company != null ? <Link to ={`/compProfile/${props.Student.student.company.user}`}  className='not-clicked'>
                         <span className='compsuper-underline'>Trainee at {props.Student.student.company.name}</span>
-                    </Link> : null
+                    </Link> : <span>No company</span>
             }
      
             {
                 props.Student.student.company_supervisor != null ? <Link to ={`/CompSuperAcc/${props.Student.student.company_supervisor.user}`}  className='not-clicked'>
                         <span className='compsuper-underline'>Supervisor</span>
-                    </Link> : null}
+                    </Link> :<span>No supervisor</span>}
                         {/* <Link to ={`/CompSuperAcc/${props.Student.student.company_supervisor.user}`}  className='not-clicked'>
                             <span className='compsuper-underline'>Supervisor</span>
                         </Link> */}

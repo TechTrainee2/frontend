@@ -158,9 +158,13 @@ let [reject,setReject]=useState({
       <div className="supr-std-app">
 
         <div className="supr-std-app-img">
+          <Link to={`/stdAcc/${props.application.student}`}>
           <img src={profile.img} className="comp-std-circle" />
+          </Link>
           <div>
+          <Link to={`/stdAcc/${props.application.student}`}>
             <span className="bold">{extradt.first_name} {extradt.last_name} </span>
+          </Link>
             <p> Application has been accepted to:</p>
           </div>
         </div>
@@ -177,9 +181,13 @@ let [reject,setReject]=useState({
 
         <div className="company-post-img">
             <span>
+            <Link to={`/compProfile/${props.application.company}`}>
               <img src= {profileCompany.img} className="comp-company-img"/>
+            </Link>
             </span>
+            <Link to={`/compProfile/${props.application.company}`}>
             <span>{extradtCompany.name}</span>
+            </Link>
             <div className='comp_application_view_std'>
             <span className='bold' >{post.title} </span>
             <span>{post.training_mode}</span>

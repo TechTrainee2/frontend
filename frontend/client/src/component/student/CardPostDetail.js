@@ -20,23 +20,6 @@ function CardPostDetail(props) {
 	);
 
   
-  let [data,setData]=useState({
-    'student': '',
-    'post': '',
-    'company': '',
-    'university_supervisor': '',
-})
-
-useEffect(() => {
-  if (user && props.post && props.profile10) {
-    setData({
-      'student': `${user.id}`,
-      'post': `${props.post.id}`,
-      'company': `${props.post.company}`,
-      'university_supervisor': `${props.profile10.user}`,
-    });
-  }
-}, [user.id, props.post, props.profile10]);
 
   let [isModal,setIsModal]=useState(false) 
     let handelOnClick =()=> {
@@ -61,7 +44,12 @@ const onSubmit = async (e) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify({
+        'student': user.id,
+        'post': props.post.id,
+        'company': props.post.company,
+        'university_supervisor': props.post.university_supervisor,
+      })
     });
 
     if (!response.ok) {
@@ -69,7 +57,7 @@ const onSubmit = async (e) => {
     }
 
     const res = await response.json();
-    console.log(res);
+    // console.log(res);
   } catch (error) {
     console.error('Error:', error);
   }
@@ -117,13 +105,13 @@ const onSubmit = async (e) => {
                             </svg>
 
                                 <span className='bold navy-font'>Are you sure u want to Apply?</span>
-                              <form >
+                              <form onSubmit={onSubmit}>
                                 <div className='apply-box-btns'>
-                                    <button className='button-size-std gray-bk navy-font' onClick={handelOnClickX}>No</button>
-                                    <button className='button-size-std navy-bk white-font' type='submit' onClick={onSubmit} >Yes</button>
+                                    <span className='button-size-std gray-bk navy-font' onClick={handelOnClickX}>No</span>
+                                    <button className='button-size-std navy-bk white-font'  type='submit'>Yes</button>
                                 </div>
                               </form>
-                              {allowNavigate && <Navigate to={`/stdPost/${id}`}/>}
+                              {/* {allowNavigate && <Navigate to={`/stdPost/${id}`}/>} */}
 
                             </div>
 

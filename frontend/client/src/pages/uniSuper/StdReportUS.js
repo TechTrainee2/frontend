@@ -78,8 +78,10 @@ function StdReportUS() {
                     </div>
         </div>
     </div>
-
-    { reports.map((report) => (
+    { reports.length === 0?
+      <div className='red-font centered-card' >There is No Reports Yet</div>
+      :
+      reports.map((report) => (
     <CardStdReport key={report.id} report={report} profile={profile} extradt={extradt} fetchData={fetchData}/>
     ))}
     </>

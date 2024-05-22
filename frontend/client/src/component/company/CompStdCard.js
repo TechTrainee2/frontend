@@ -60,8 +60,10 @@ function CompStdCard(props) {
                                 </Link>
                                         <div className='uni-std-report-info'>
                                         <Link to={`/stdAcc/${props.Student.student.user}`}>
-                                                { props.Student.student.first_name} 
-                                                        {props.Student.student.last_name}</Link>
+                                                <span>
+                                                { props.Student.student.first_name} {props.Student.student.last_name}
+                                                </span>
+                                               </Link>
                                                 {/* <span>CS</span> */}
                                              
                                         </div>
