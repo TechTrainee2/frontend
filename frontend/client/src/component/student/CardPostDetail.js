@@ -48,7 +48,7 @@ const onSubmit = async (e) => {
         'student': user.id,
         'post': props.post.id,
         'company': props.post.company,
-        'university_supervisor': props.post.university_supervisor,
+        'university_supervisor': props.profile10.user,
       })
     });
 

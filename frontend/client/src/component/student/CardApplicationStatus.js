@@ -31,7 +31,7 @@ function CardApplicationStatus(props) {
             <div className='blue-circle'></div>
             <div className='std-application-card gray-bk centered-card'>
                 <div className='std-notification-comp'>
-                    <span>Department Status : {props.application.university_supervisor_status}</span>
+                    <span>Department Status : {props.application.department_status}</span>
                 </div>
             </div>
         </div>

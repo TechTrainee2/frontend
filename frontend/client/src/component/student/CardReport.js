@@ -100,7 +100,9 @@ function CardReport(props) {
             uniSetExtradt(uniProfile.university_supervisor)
             compSetProfile(compProfile)
             compSetExtradt(compProfile.company_supervisor)
-    
+            
+            console.log(uniProfile);
+            console.log(compProfile);
           } catch (error) {
             console.error("Error fetching data:", error);
           }
@@ -210,14 +212,17 @@ function CardReport(props) {
 
                                 <div className='card3-status gray-bk centered-card'>
                                     <div className='std-report-status-comp'>
+                                        {profile.university_supervisor &&(
                                         <div className='std-status-super-images'>
-                                            <Link to= {`/superAcc/${props.report.university_supervisor}`}>
+                                            <Link to= {`/superAcc/${profile.university_supervisor.user}`}>
                                                 <img src={uniProfile.img} className='std-status-circle '/>
                                             </Link>
-                                            <Link to={`/superAcc/${props.report.university_supervisor}`}>
+                                            <Link to={`/superAcc/${profile.university_supervisor.user}`}>
                                                 <span>{uniExtradt.first_name} {uniExtradt.last_name}</span>
                                             </Link>
                                         </div>
+                                          )
+                                          }
                                         {props.report.universitySupervisorSignature == null ? 
                                         <button className='std-progress-btn-size light-navy-bk white-font bold'>In Progress</button> : 
                                         <button className='std-progress-btn-size navy-bk white-font bold'>Approved</button>
@@ -227,14 +232,16 @@ function CardReport(props) {
 
                                 <div className='card3-status gray-bk centered-card'>
                                     <div className='std-report-status-comp'>
+                                    {profile.company_supervisor &&(
                                         <div className='std-status-super-images'>
-                                            <Link to={`/CompSuperAcc/${props.report.company_supervisor}`}>
+                                            <Link to={`/CompSuperAcc/${profile.company_supervisor.user}`}>
                                                 <img src={compProfile.img} className='std-status-circle'/>
                                             </Link>
-                                            <Link to={`/CompSuperAcc/${props.report.company_supervisor}`}>
+                                            <Link to={`/CompSuperAcc/${profile.company_supervisor.user}`}>
                                                 <span>{compExtradt.first_name} {compExtradt.last_name}</span>
                                             </Link>
                                         </div>
+                                        )}
                                         {props.report.companySupervisorSignature == null ? 
                                         <button className='std-progress-btn-size light-navy-bk white-font bold'>In Progress</button> : 
                                         <button className='std-progress-btn-size navy-bk white-font bold'>Approved</button>
