@@ -28,7 +28,17 @@ let [data,setData]=useState({
     'university_supervisor': props.profile.university_supervisor,
     
   })
+  useEffect(() => {
+    console.log('useEffect ran');
+    console.log('props.profile:', props.profile);
+    console.log('props.profile.company_supervisor:', props.profile.company_supervisor);
   
+    setData(prevData => ({
+      ...prevData,
+      'company_supervisor': props.profile.company_supervisor,
+      'university_supervisor': props.profile.university_supervisor,
+    }));
+  }, [props.profile.company_supervisor, props.profile.university_supervisor]);
   const onPdfChange = event => {
     if (event.target.files && event.target.files[0]) {
       const pdfUrl = URL.createObjectURL(event.target.files[0]);

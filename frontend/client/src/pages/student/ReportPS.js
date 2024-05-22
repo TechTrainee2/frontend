@@ -49,9 +49,13 @@ function ReportPS() {
     <>
     <NavbarStd3 id={id}/>
     <TopHeader/>
-    <SmallNavbar id={id}/>
-    {reports.map((report) => (
-    <CardReport key={report.id} report={report}/>
+    <SmallNavbar id={id}/> 
+     { reports.length === 0?
+      <div className='red-font centered-card' >There is No Reports Yet</div>
+      :
+    reports.map((report) => (
+      
+      <CardReport key={report.id} report={report}/>
     ))}
     </>
   )

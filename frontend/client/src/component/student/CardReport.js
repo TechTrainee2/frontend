@@ -11,6 +11,7 @@ function CardReport(props) {
     let [uniExtradt, uniSetExtradt] = useState({});
     let [compProfile, compSetProfile] = useState({});
     let [compExtradt, compSetExtradt] = useState({});
+    let [profile, setProfile] = useState({});
     let {user } = useSelector((state) => state.user);
 
     let { id } = useParams();
@@ -24,16 +25,55 @@ function CardReport(props) {
     let handelOnClickX =()=> {
         setIsModal(false)
     }
+
+
+
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const res = await fetch(`http://127.0.0.1:8000/users/uniprof/${props.report.university_supervisor}`, {
+            const res = await fetch(`http://127.0.0.1:8000/users/user/studentProfile10/${user.id}`, {
               method: "GET",
               headers: {
                 Accept: "application/json",
               },
             });
-            const res2 = await fetch(`http://127.0.0.1:8000/users/companysuperprof/${props.report.company_supervisor}`, {
+        
+    
+            if (!res.ok) {
+              throw new Error("Failed to fetch data");
+            }
+         
+    
+            
+            const profile = await res.json();
+          
+    
+            setProfile(profile);
+            console.log(profile);
+            // dispatch(getUser());
+            
+            // Set profile state after data is fetched
+    
+            
+    
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
+        };
+    
+        // Call fetchData function when component mounts
+        fetchData();
+      }, [id,user.id,user]);
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const res = await fetch(`http://127.0.0.1:8000/users/uniprof/${profile.university_supervisor.user}`, {
+              method: "GET",
+              headers: {
+                Accept: "application/json",
+              },
+            });
+            const res2 = await fetch(`http://127.0.0.1:8000/users/companysuperprof/${profile.company_supervisor.user}`, {
               method: "GET",
               headers: {
                 Accept: "application/json",
@@ -68,7 +108,7 @@ function CardReport(props) {
     
         // Call fetchData function when component mounts
         fetchData();
-      }, [id,user.id,user]);
+      }, [profile,user.id,user]);
 
 
     useEffect(() => {
@@ -147,14 +187,14 @@ function CardReport(props) {
             <span>Total hours</span>
             <span>{TotalHour}</span>
         </div>
-{/*
+
         <div className='std-report-status-btn'>
             <button className='button-size navy-bk white-font font-med' onClick={handelOnClick}>Status</button>
         </div>
-*/}
+
 
         </div>
-        {/*
+        
         <div className={isModal?'show': 'hidden'} >
                         <div className='status-modal-bk'></div>
                         <div className='std-report-status-box'>
@@ -206,7 +246,7 @@ function CardReport(props) {
 
                         </div>
                     </div>
-                    */}
+                   
         </div>
     </>
   )
